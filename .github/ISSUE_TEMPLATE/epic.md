@@ -7,6 +7,6 @@ assignees: ''
 
 ---
 
-This epic covers the website **content**.
+This epic covers the **content**.
 
 ## Connected to User Stories:
