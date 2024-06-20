@@ -34,13 +34,13 @@ Welcome to Shaping Sustainable Surf, a fully functional Django e-commerce web ap
     -	[Search Engine Optimization (SEO)](#search-engine-optimization-seo)
     -	[Privacy Policy](#privacy-policy)
 - [Deployment and Local Development](#deployment-and-local-development)
-  - [Database](#neon-database)
-  - [Deployment](#deployement-using-heroku)
   - [Local Clone](#local-clone)
   - [Fork](#fork)
+  - [Database](#neon-database)
   -	[Cloudinary](#cloudinary)
   -	[Stripe](#stripe)
-  - [Google Mail](#gmail)
+  - [Google Mail (Gmail) API](#gmail)
+  - [Deployment](#deployement-using-heroku)
 - [Credits](#credits)
 
 **Testing and Bugs** are documented in the separate file TESTING.md
@@ -131,13 +131,107 @@ In addition to libraries and frameworks already installed in the Code Institute 
 ### Privacy Policy
 
 ## Deployment and Local Development
-### Database
-### Deployment
+
 ### Local Clone
+
+To clone the repository:
+- Log in to GitHub and navigate to the repository of this project.
+- Click on the green button "Code" to open the dropdown menu, select "Clone with HTTPS, SSH or GitHub CLI" and copy the link provided.
+- Open "Terminal" (or "Git Bash") in your code editor.
+- Change the current working directory to the location where you want the cloned directory to be made.
+- Type "git clone" in the terminal and then paste the URL copied on GitHub in step 2, above.
+- Press "Enter" and your local clone will be created.
+- Install requirements from requirements.txt using the command "pip install -r requirements.txt". If working in a virtual environment, activate the virtual environment before running the command.
+- Create e.g. a .env or env.py to store sensitive information such as database URL, secret key, email API, cloudinary URL, stripe secret key and webhook handler secret.
+
 ### Fork
+
+To fork the repository:
+- Log in to Github and navigate to the repository of this project.
+- Click the button "Fork" in the top right corner to open dropdown menu and select "Create a new fork".
+- Install requirements from requirements.txt using the command "pip install -r requirements.txt". If working in a virtual environment, activate the virtual environment before running the command.
+- Create e.g. a .env or env.py to store sensitive information such as database URL, secret key, email API, cloudinary URL, stripe secret key and webhook handler secret.
+
+### Database
+
+This project utilizes a relational database powered by [Neon.tech](https://neon.tech/), a serverless PostgreSQL solution.
+
+To connect to the database:
+- Log into or sign up for a Neon account.
+- Create or navigate to your "Tier" (one free tier per user).
+- Navigate to the "Dashboard" on the left side menu.
+- In the section "Connection Details", you will find the link to the database displayed in the subsection "Connection String".
+- Add the database URL as a variable to the project and make sure to keep it secret, by e.g. adding it to a .env or env.py file included in .gitignore, and therefore not pushed to your repository or publicly displayed in your code. 
+
 ### Cloudinary
+
+This project utilizes Cloudinary, a cloud-based storage and Content Delivery Network (CDN) solution, to host and serve static media files such as images. 
+
+Cloudinary storage ensures scalability as it accommodates growth in media volume, ensuring the project can handle future increases in media assets without compromising performance.
+
+To connect to cloudinary:
+-	Log into or sign up for a Cloudinary Account.
+-	Navigate to "development" to obtain the necessary credentials, the API secret key and cloudinary URL.
+-	Install cloudinary and cloudinary-storage packages and integrate to the Django project by configuring these in the settings.py file.
+-	Add the cloudinary URL as a variable to the project and make sure to keep it secret, by e.g. adding it to a .env or env.py file included in .gitignore, and therefore not pushed to your repository or publicly displayed in your code. 
+
 ### Stripe
-### Google Mail (Gmail)
+
+*to-do*
+
+### Google Mail (Gmail) API
+
+This project uses [Gmail](https://mail.google.com/) to handle email communication with users for account verification and order confirmations.
+
+To connect to Gmail API:
+- Create a Gmail (Google) account obtain the API key and connect your project.
+- Log into or sign up for a Google Gmail account.
+- Navigate to "Account Settings" (cog icon) in the top-right corner of Gmail.
+- Select "Accounts and Import".
+- Within the section called "Change account settings", click on the link for Other Google Account settings.
+- From this new page, select "Security" on the left.
+- Select 2-Step Verification to activate and follow the instructions to verify your password and account.
+- Once verified, select "Turn On" 2-factor authentication (2FA).
+- Navigate back to the "Security" page and select "App passwords".
+- This might prompt you once again to confirm your password and account.
+- Select "Mail" as "App Type".
+- Select "Other (Custom name) " for the "device type".
+- Add custom name,  e.g. project’s name.
+- You'll be provided with a 16-character password (API key).
+  - Tip: store this key safely, as you cannot access this key again!
+  - EMAIL_HOST_PASS = user's 16-character API key.
+  - EMAIL_HOST_USER = user's own personal Gmail email address.
+- Add the pass and the host as variables to the project and make sure to keep them secret, by e.g. adding it to a .env or env.py file included in .gitignore, and therefore not pushed to your repository or publicly displayed in your code. 
+
+### Deployment using Heroku
+
+To deploy the repository:
+- Log into or sign up for a Heroku account.
+- Navigate to the dashboard.
+- Navigate to the button "New" in the top right corner and select "Create New App" from the navigation dropdown menu.
+- Enter a name for the app. The name of the app must be unique and cannot be identical to any other app deployed by other users on Heroku.
+- Select your region, "United States" or "Europe", from the navigation dropdown menu.
+- Click on the button "Create App".
+- Navigate to "Deploy" on the top navigation menu, scroll down to "Deploy Method" and connect the repository with GitHub.
+- Navigate to "Settings" on the top navigation menu.
+- In the section "Config Var", click on the button "Reveal Config Vars".
+- Click on "Add a new Config Var" and add the necessary keys and values.
+    - SECRET_KEY with the value of the secret key.
+    - DATABASE_URL with the value of the database URL.
+    - CLOUDINARY_URL with the value of the cloudinary URL.
+    - STRIPE_SECRET_KEY with the value of the secret key.
+    - STRIPE_PUBLIC_KEY with the value of the public key.
+    - STRIPE_WH_SECRET with the value of the webhook handler secret key.
+    - EMAIL_HOST_PASS with the value of the API key.
+    - EMAIL_HOST_USER with the value of the email address.
+- Navigate to section "Deploy" on the top navigation menu.
+- Select "GitHub" as the deployment method.
+- Search for the repository to be deployed by using the search bar and click "Connect".
+- Select the repository branch to be deployed.
+- Choose "Manual" deployment.
+    - Manual deployment must be manually re-deployed after pushing new changes to the repository.
+    - Crucial when working with DEBUG=True during development.
+- Click the button "View" to open the link to the deployed project.
 
 ## Credits
 ### Content
