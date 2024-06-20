@@ -100,8 +100,29 @@ As a frequent visitor, I want to
 -	Contact the store owner if I have questions in the course of shaping my own surfboard by following the tutorials.
 
 ## Design
+
 ### Layout
 ### Wireframes
+
+Wireframes were designed mobile-first, since the majority of e-commerce purchases are done with mobile devices or tablets.
+
+Screen sizes smaller than 320 were not considered in the design.
+
+#### Wireframes Mobile Version
+
+![mobile wireframes browsing website](/documentation/mobile-browse.png)
+
+![mobile wireframes actions](/documentation/mobile-actions.png)
+
+#### Wireframes Desktop Version
+
+![desktop wireframes home](/documentation/desktop-home.png)
+![desktop wireframes tutorials](/documentation/desktop-tutorials.png)
+![desktop wireframes communication](/documentation/desktop-communication.png)
+![desktop wireframes user account](/documentation/desktop-user-account.png)
+![desktop wireframes purchase](/documentation/desktop-purchase.png)
+
+
 ### Colors
 
 ## Project planning
