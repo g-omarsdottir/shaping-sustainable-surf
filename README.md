@@ -1,4 +1,4 @@
-# Shaping Sustainable Surf
+# ![logo](/documentation/logo_wave.png) Shaping Sustainable Surf
 
 Mockup
 You can view the live project here # <br>
