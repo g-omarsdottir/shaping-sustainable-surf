@@ -1,12 +1,13 @@
 # Shaping Sustainable Surf
 
 Mockup
-You can view the live project here #
-(To open in a new window, press "ctrl" (or ⌘ for Mac) + click on the link)
+You can view the live project here # <br>
+*(To open in a new window, press "ctrl" (or ⌘ for Mac) + click on the link)*
+
+Welcome to Shaping Sustainable Surf, a fully functional Django e-commerce web application that offers access to online video tutorials.
 
 ## Table of contents
 
-- [Introduction](#introduction)
 - [Project Goals](#project-goal)
 - [User Experience](#user-experience)
   - [Target Group](#target-group)
@@ -44,13 +45,59 @@ You can view the live project here #
 
 **Testing and Bugs** are documented in the separate file TESTING.md
 
-
-## Introduction
 ## Project Goal
 
+The website offers access to online video tutorials for surfers and shapers, who want to acquire or progress their surfboard shaping skills while minimizing their environmental impact. The name itself draws a parallel to the process of crafting a surfboard, which is called shaping. 
+
+The name implies that the goal is not only shaping physical surfboards but shaping the future of surfing itself by promoting eco-friendly practices and education.
+
 ## User Experience
+
 ### Target Group
+
+Eco-conscious surfers, shapers and people in general who
+-	Are passionate about surfing, the environment, the ocean, and seek to minimize their environmental impact and prioritize environmental responsibility while pursuing the sport they love.
+-	Want to learn how to shape a surfboard using sustainable materials.
+-	Are concerned about the environmental impact of traditional surfboard construction and may feel disconnected from the sport due to the mass-produced nature of surfboards.
+-	Enjoy hands-on DIY projects and take pride in building their own equipment.
+-	Want to learn or further define their skills and techniques needed to shape their own surfboards.
+
 ### Visitors Goals
+
+#### First-Time Visitor Goals
+
+As a first-time visitor, I can
+
+-	Enjoy the visually appealing homepage featuring beautiful images showcasing the beauty of the ocean, surfing and sustainable surfboard shaping.
+-	Quickly grasp the website's core offering
+-	Easily navigate the website to find relevant information.
+-	Learn about the different types of tutorials offered.
+-	Explore the video tutorial library.
+-	Purchase a tutorial that interests me.
+-	Learn about sustainable surfboard shaping and the benefits of eco-friendly materials.
+-	Understand the benefits of using eco-friendly materials.
+-	Browse through images of sustainable surfboards that the store owner shaped
+-	Sign up for a newsletter so that I can stay updated.
+-	Contact the store owner if I have questions about the tutorials or want to receive an offer for a custom-made surfboard.
+
+#### Returning Visitors Goals
+
+As a returning visitor, I want to
+
+-	Search for new tutorials based on my interests.
+-	Purchase additional tutorials that interest me.
+-	Seek inspiration for my own project by browsing through images of custom-made sustainable surfboards.
+-	Sign up for a newsletter because so that I can participate in the Q&A sessions announced in the newsletter.
+-	Contact the store owner if I need advice.
+
+#### Frequent Visitors Goals
+
+As a frequent visitor, I want to
+
+-	See if new tutorials or information on new eco-friendly materials have been added.
+-	Purchase additional tutorials that interest me.
+-	See if there are new images of custom-made sustainable surfboards.
+-	Contact the store owner if I have questions in the course of shaping my own surfboard by following the tutorials.
 
 ## Design
 ### Layout
