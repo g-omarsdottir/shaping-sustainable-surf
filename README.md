@@ -133,7 +133,9 @@ Screen sizes smaller than 320 were not considered in the design.
 ### Languages Used
 ### Libraries and Frameworks Used
 In addition to libraries and frameworks already installed in the Code Institute template:
+
 ### Programs Used
+[Canva](https://www.canva.com/) to create the website logo
 
 ## Features
 ### Main Features
