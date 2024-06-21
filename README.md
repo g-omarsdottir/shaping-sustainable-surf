@@ -129,6 +129,31 @@ Screen sizes smaller than 320 were not considered in the design.
 ### Database Schema
 ### Agile Development Methods (Epics, User Stories, MoSCoW Prioritization, Kanban board)
 
+This project utilizes Agile Development Methods to manage development and ensure efficient delivery.
+
+#### Epics 
+
+These represent the high-level objectives and functionalities of the project. Each one can be further decomposed into smaller, more manageable tasks described in the user stories. The user stories can be viewed on [this project’s Kanban board](https://github.com/users/g-omarsdottir/projects/5).
+
+#### User Stories
+
+These detailed descriptions outline functionalities from the user's perspective. They follow the format "As a [role], I can [capability] so that [received benefit]". Each user story has well-defined acceptance criteria outlining the specific requirements for successful implementation. The user stories can be viewed on [this project’s Kanban board](https://github.com/users/g-omarsdottir/projects/5).
+
+#### The MoSCoW Prioritization Method 
+
+To effectively manage resources and development flow, based on urgency and necessity, the prioritization method MoSCoW was employed. The acronym stands for Must Have, Should Have, Could Have, and Won't Have. 
+
+**Must Have:** Features absolutely essential for the current iteration's functionality and guaranteed to be delivered.<br>
+**Should Have:** Desirable features that add significant value to the current iteration but can be reconsidered if needed.<br>
+**Could Have:** Features that would be nice to have but can be deferred for later iterations without impacting core functionality.<br>
+**Won't Have:** Features that are not a priority for the current iteration and are excluded from the current scope, possibly not implemented at all.<br>
+
+This method is a structural approach to determine which features are essential for the current stage (Must Have), which can be incorporated if time allows (Should Have), which might be deferred for later iterations (Could Have), and which are excluded from this iteration or unlikely to be implemented (Won’t Have). The priorities are reflected with **labels** on each user story on [this project’s Kanban board](https://github.com/users/g-omarsdottir/projects/5).
+
+#### Kanban Board for Visual Workflow Management
+
+The Kanban board is a handy tool in agile project management to provide a clear visual representation of the project planning and development workflow. This board displays the various stages each work item progresses through, along with the current status of individual tasks. This project’s Kanban board can be viewed [here](https://github.com/users/g-omarsdottir/projects/5).
+
 ## Technology Used
 ### Languages Used
 ### Libraries and Frameworks Used
