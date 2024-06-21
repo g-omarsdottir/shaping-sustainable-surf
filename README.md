@@ -4,7 +4,7 @@ Mockup
 You can view the live project here # <br>
 *(To open in a new window, press "ctrl" (or ⌘ for Mac) + click on the link)*
 
-Welcome to Shaping Sustainable Surf, a fully functional Django e-commerce web application that offers access to online video tutorials.
+Welcome to Shaping Sustainable Surf, a fully functional Django ecommerce web application that offers access to online video tutorials.
 
 ## Table of contents
 
@@ -104,7 +104,7 @@ As a frequent visitor, I want to
 ### Layout
 ### Wireframes
 
-Wireframes were designed mobile-first, since the majority of e-commerce purchases are done with mobile devices or tablets.
+Wireframes were designed mobile-first, since the majority of ecommerce purchases are done with mobile devices or tablets.
 
 Screen sizes smaller than 320 were not considered in the design.
 
@@ -169,7 +169,13 @@ In addition to libraries and frameworks already installed in the Code Institute 
 ### Future Features
 
 ## Web Marketing
+
 ### Ecommerce Business Model
+
+The business model for this ecommerce website is a Business to Customer (B2C) model, currently only selling digital content for single one-time payments. <br>
+
+The project has the potential to expand to selling further products and physical goods, as the product category and subcategory models can be expanded by the store owner in the admin panel.
+
 ### Marketing Strategies
 ### Social Media & Newsletter Marketing
 ### Search Engine Optimization (SEO)
