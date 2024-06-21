@@ -159,6 +159,8 @@ The Kanban board is a handy tool in agile project management to provide a clear 
 ### Libraries and Frameworks Used
 In addition to libraries and frameworks already installed in the Code Institute template:
 
+[django-extensions==3.2.3](https://pypi.org/project/django-extensions/) to show urls and location of installed packages
+
 ### Programs Used
 [Canva](https://www.canva.com/) to create the website logo
 
