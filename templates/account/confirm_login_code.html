@@ -1,11 +1,13 @@
 {% extends "account/base_entrance.html" %}
 {% load i18n %}
 {% load allauth account %}
+{% load crispy_forms_tags %}
+
 {% block head_title %}
     {% translate "Sign In" %}
 {% endblock head_title %}
-{% block content %}
-    {% element h1 %}
+{% block inner_content %}
+    {% element h2 %}
         {% translate "Enter Sign-In Code" %}
     {% endelement %}
     {% setvar email_link %}
@@ -19,6 +21,7 @@
         {% slot body %}
             {% csrf_token %}
             {% element fields form=form unlabeled=True %}
+            {{ form|crispy }} 
             {% endelement %}
             {{ redirect_field }}
         {% endslot %}
@@ -28,10 +31,10 @@
             {% endelement %}
         {% endslot %}
     {% endelement %}
-    {% element h2 %}
+    {% element h3 %}
         {% url 'account_login' as login_url %}
         {% element button href=login_url tags="link" %}
             {% translate "Other sign-in options" %}
         {% endelement %}
     {% endelement %}
-{% endblock content %}
+{% endblock inner_content %}

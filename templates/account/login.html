@@ -1,11 +1,13 @@
 {% extends "account/base_entrance.html" %}
 {% load i18n %}
 {% load allauth account %}
+{% load crispy_forms_tags %}
+
 {% block head_title %}
     {% trans "Sign In" %}
 {% endblock head_title %}
-{% block content %}
-    {% element h1 %}
+{% block inner_content %}
+    {% element h2 %}
         {% trans "Sign In" %}
     {% endelement %}
     {% if not SOCIALACCOUNT_ONLY %}
@@ -23,6 +25,7 @@
             {% slot body %}
                 {% csrf_token %}
                 {% element fields form=form unlabeled=True %}
+                {{ form|crispy }}
                 {% endelement %}
                 {{ redirect_field }}
             {% endslot %}
@@ -36,7 +39,7 @@
     {% if LOGIN_BY_CODE_ENABLED %}
         {% element hr %}
         {% endelement %}
-        {% element h2 %}
+        {% element h3 %}
             {% element button href=request_login_code_url tags="prominent,login,secondary" %}
                 {% trans "Mail me a sign-in code" %}
             {% endelement %}
@@ -45,4 +48,4 @@
     {% if SOCIALACCOUNT_ENABLED %}
         {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
     {% endif %}
-{% endblock content %}
+{% endblock inner_content %}

@@ -1,10 +1,12 @@
 {% extends "account/base_manage_email.html" %}
 {% load allauth i18n %}
+{% load crispy_forms_tags %}
+
 {% block head_title %}
     {% trans "Email Addresses" %}
 {% endblock head_title %}
-{% block content %}
-    {% element h1 %}
+{% block inner_content %}
+    {% element h2 %}
         {% trans "Email Addresses" %}
     {% endelement %}
     {% if emailaddresses %}
@@ -35,6 +37,7 @@
                                     {% endelement %}
                                 {% endif %}
                             {% endslot %}
+                            {{ form|crispy }}
                         {% endelement %}
                     {% endwith %}
                 {% endfor %}
@@ -50,6 +53,7 @@
                     {% trans 'Remove' %}
                 {% endelement %}
             {% endslot %}
+            {{ form|crispy }}
         {% endelement %}
     {% else %}
         {% include "account/snippets/warn_no_email.html" %}
@@ -63,6 +67,7 @@
             {% slot body %}
                 {% csrf_token %}
                 {% element fields form=form %}
+                {{ form|crispy }}
                 {% endelement %}
             {% endslot %}
             {% slot actions %}
@@ -72,7 +77,7 @@
             {% endslot %}
         {% endelement %}
     {% endif %}
-{% endblock content %}
+{% endblock inner_content %}
 {% block extra_body %}
     <script type="text/javascript">
 (function() {

@@ -1,11 +1,12 @@
 {% extends "account/base_entrance.html" %}
 {% load allauth %}
 {% load i18n %}
+
 {% block head_title %}
     {% trans "Confirm Access" %}
 {% endblock head_title %}
-{% block content %}
-    {% element h1 %}
+{% block inner_content %}
+    {% element h2 %}
         {% trans "Confirm Access" %}
     {% endelement %}
     {% element p %}
@@ -26,4 +27,4 @@
             {% endfor %}
         </ul>
     {% endif %}
-{% endblock content %}
+{% endblock inner_content %}

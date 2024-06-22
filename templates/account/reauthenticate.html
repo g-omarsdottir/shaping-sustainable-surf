@@ -1,6 +1,8 @@
 {% extends "account/base_reauthenticate.html" %}
 {% load allauth %}
 {% load i18n %}
+{% load crispy_forms_tags %}
+
 {% block reauthenticate_content %}
     {% element p %}
         {% blocktranslate %}Enter your password:{% endblocktranslate %}
@@ -10,6 +12,7 @@
         {% slot body %}
             {% csrf_token %}
             {% element fields form=form unlabeled=True %}
+            {{ form|crispy }}
             {% endelement %}
             {{ redirect_field }}
         {% endslot %}
