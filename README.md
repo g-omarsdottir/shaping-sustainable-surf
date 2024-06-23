@@ -161,10 +161,12 @@ The Kanban board is a handy tool in agile project management to provide a clear 
 
 In addition to libraries and frameworks already installed in the Code Institute template:
 
-[Django==3.2.25](https://docs.djangoproject.com/en/5.0/releases/3.2.25/) - Python web framework
-[django-allauth==0.63.3](https://docs.allauth.org/en/latest/installation/index.html) - User account authentication
-[black==24.4.2](https://black.readthedocs.io/en/stable/) - Formats code compliant to pep8
-[django-extensions==3.2.3](https://pypi.org/project/django-extensions/) - Show urls and location of installed packages
+[Django v3.2.25](https://docs.djangoproject.com/en/5.0/releases/3.2.25/) - Python web framework
+[django-allauth v0.63.3](https://docs.allauth.org/en/latest/installation/index.html) - User account authentication
+[black v24.4.2](https://black.readthedocs.io/en/stable/) - Formats code compliant to pep8
+[django-extensions v3.2.3](https://pypi.org/project/django-extensions/) - Show urls and location of installed packages
+[django-crispy-forms v2.2](https://django-crispy-forms.readthedocs.io/en/1.14.0/) - Simplifies the creation of forms
+[crispy-bootstrap v4](https://pypi.org/project/crispy-bootstrap4/) - Bootstrap-specific classes to style forms
 
 ### Programs Used
 [Canva](https://www.canva.com/) to create the website logo
