@@ -3,11 +3,7 @@ html {
 }
 
 .browse-tutorials-button {
-    background: black;
-    color: white;
+    background: lightblue;
+    color: black;
     min-width: 260px;
-}
-
-h1 {
-    color: lightblue;
 }
