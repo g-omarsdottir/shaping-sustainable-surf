@@ -1,5 +1,59 @@
-html {
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Slab:wght@100..900&display=swap');
+
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+html, body {
     height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Roboto Slab", sans-serif;
+}
+
+main {
+    /* Push footer down */
+    flex: 1 0 auto;
+}
+
+/* Style from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+
+
+/* Header -------------------------------------------------------------*/
+
+.main-logo-link img {
+    /* Makes the logo responsive without overflowing its container */
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Main ---------------------------------------------------------------*/
+
+.logo-font {
+    text-transform: uppercase;
+}
+
+.main-logo-link {
+    width: fit-content;
 }
 
 .browse-tutorials-button {
@@ -8,7 +62,44 @@ html {
     min-width: 260px;
 }
 
-/* Django Allauth forms */
+/* Styles from walkthrough project */
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btn-outline-black {
+    background: white;
+    color: black !important; /* use important to override link colors for <a> elements */
+    border: 1px solid black;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: black;
+    color: white !important;
+}
+
+.browse-tutorials:hover,
+.browse-tutorials:active,
+.browse-tutorials:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+/* Forms Django allauth ---------------------------------------------- */
 
 label[for="id_remember"] {
     margin-right: 30px; 

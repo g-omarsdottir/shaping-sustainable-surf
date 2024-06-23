@@ -170,6 +170,8 @@ In addition to libraries and frameworks already installed in the Code Institute 
 
 ### Programs Used
 [Canva](https://www.canva.com/) to create the website logo
+[Photoroom](https://www.photoroom.com/tools/background-remover) to remove background from images
+[Pixelied](https://pixelied.com/convert) to convert images to webp format
 
 ## Features
 ### Main Features
