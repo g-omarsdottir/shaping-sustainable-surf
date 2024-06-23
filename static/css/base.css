@@ -7,3 +7,14 @@ html {
     color: black;
     min-width: 260px;
 }
+
+/* Django Allauth forms */
+
+label[for="id_remember"] {
+    margin-right: 30px; 
+}
+
+input[type="submit"], button[type="submit"] {
+    background: lightblue;
+    padding: 5px;
+}
