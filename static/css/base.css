@@ -38,22 +38,13 @@ main {
 
 /* Header -------------------------------------------------------------*/
 
-.main-logo-link img {
-    /* Makes the logo responsive without overflowing its container */
-    display: inline-block;
-    max-width: 100%;
+#logo {
+
+    width: 220px;
     height: auto;
 }
 
 /* Main ---------------------------------------------------------------*/
-
-.logo-font {
-    text-transform: uppercase;
-}
-
-.main-logo-link {
-    width: fit-content;
-}
 
 .browse-tutorials-button {
     background: lightblue;
