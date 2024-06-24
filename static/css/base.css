@@ -39,8 +39,7 @@ main {
 /* Header -------------------------------------------------------------*/
 
 #logo {
-
-    width: 220px;
+    width: 180px;
     height: auto;
 }
 
@@ -103,3 +102,35 @@ input[type="submit"], button[type="submit"] {
     background: lightblue;
     padding: 5px;
 }
+
+/* -------------------------------- Media Queries */
+
+@media (min-width: 360px) {
+    #logo {
+        width: 220px;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar .navbar-nav {
+      align-items: center;
+    }
+    
+    .navbar .nav-link {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+      max-width: 80%;
+    }
+
+    #logo {
+        width: 260px;
+    }
+  }
+  
+  
