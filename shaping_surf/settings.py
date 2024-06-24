@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "allauth.account",
     # Apps
     "home",
+    "products",
     # Third-party apps
     "django_extensions",
     "crispy_forms",
