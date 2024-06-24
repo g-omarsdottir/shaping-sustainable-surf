@@ -44,27 +44,24 @@
     <header class="container-fluid fixed-top">
         <nav class="navbar navbar-expand-lg navbar-light w-100 me-auto my-auto">
             <div class="container-fluid">
-                <!-- Logo visibile on all screensizes -->
+                <!-- Logo visibile on all screen sizes -->
                 <a href="{% url 'home' %}" class="navbar-brand">
                     <img id="logo" src="{% static 'images/logo.webp' %}" alt="Shaping Sustainable Surf Logo">
                 </a>
 
-                <!-- Toggler navbar -->
-
-                <button class="navbar-toggler order-2 ml-auto" type="button" data-toggle="collapse"
+                <!-- Toggler for navigation bar -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-
-
-
-                <!-- d-none and d-lg-flex only shows on large screens -->
-                <div id="navbarSupportedContent" class="row pt-lg-2 d-none d-lg-flex">
+                <!-- Collapsible navigation bar content from bootstrap template -->
+                <div id="navbarSupportedContent" class="collapse navbar-collapse mobile-bg">
                     <ul class="navbar-nav mr-auto">
+                        
+                        <!-- Search bar -->
                         <li class="nav-item">
-                            <!-- Search bar -->
                             <form method="GET" action="#" class="form-inline my-2 my-lg-0">
                                 <!-- width 100, input group from bootstrap contains fontawesome search icon -->
                                 <div class="input-group w-100">
@@ -81,16 +78,16 @@
                                 </div>
                             </form>
                         </li>
-                        <!-- Tutorials -->
 
+                        <!-- Website navigation links -->
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Tutorials<span class="sr-only">(current)</span></a>
+                            <a class="nav-link text-black" href="#">Tutorials</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle text-black" href="#" role="button" data-toggle="dropdown"
                                 aria-expanded="false">
                                 About Us
                             </a>
@@ -103,46 +100,44 @@
                             </div>
                         </li>
 
-
                         <!-- My account -->
-                        <li class="nav-item dropdown text-center text-lg-right my-0">
-                            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
+                        <li class="nav-item dropdown">
+                            <a class="text-black nav-link dropdown-toggle" href="#" id="user-options" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                                <div class="text-center">
-                                    <div><i class="fas fa-user fa-lg"></i></div>
-                                    <p class="my-0">My Account</p>
-                                </div>
+                                <i class="fas fa-user fa-lg"></i> My Account
                             </a>
-                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            <div class="dropdown-menu" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
                                 <a href="#" class="dropdown-item">Product Management</a>
                                 {% endif %}
+                                <div class="dropdown-divider"></div>
                                 <a href="#" class="dropdown-item">My Profile</a>
+                                <div class="dropdown-divider"></div>
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                <div class="dropdown-divider"></div>
                                 {% else %}
                                 <a href="{% url 'account_signup' %}" class="dropdown-item">Sign-Up</a>
+                                <div class="dropdown-divider"></div>
                                 <a href="{% url 'account_login' %}" class="dropdown-item">Sign-In</a>
                                 {% endif %}
                             </div>
-
                         </li>
+
                         <!-- Shopping cart -->
                         <li class="nav-item">
                             <a class="nav-link {% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %}"
                                 href="">
-                                <div class="text-center">
-                                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                    <i class="fas fa-shopping-bag fa-lg"></i> Cart
+                                    <span class="sr-only">Shopping bag</span>
                                     <p class="my-0">
 
                                     </p>
-                                </div>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-
         </nav>
     </header>
 

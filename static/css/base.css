@@ -111,6 +111,18 @@ input[type="submit"], button[type="submit"] {
     }
 }
 
+@media (max-width: 991.98px) {
+    /* Animated eased transition of collapsable navbar content */
+    .mobile-bg-white {
+        transition: background-color 0.3s ease;
+    }
+
+    /* show bootstrap style*/
+    .mobile-bg.show {
+        background-color: white !important;
+    }
+}
+
 @media (min-width: 992px) {
     #navbarSupportedContent {
       align-items: center;
