@@ -18,6 +18,5 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ("category", "subcategory", "status",)
     search_fields = ("name", "description",)
 
-
 admin.site.register(Category)
 admin.site.register(Subcategory)

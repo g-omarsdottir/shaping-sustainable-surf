@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Slab:wght@100..900&display=swap');
 
+/* Root variables for styles and color */
+:root {
+    /* Colors */
+
+
+    /* Box shadow and border styles */
+    --blue-box-shadow: 1px -1px 7px 0 rgba(34, 124, 157, 0.75);
+    --black-box-shadow: 1px -1px 7px 0 #4E4A47;
+}
+
+
 /* General styles */
 * {
     margin: 0;
@@ -63,8 +74,8 @@ main {
 .product-list {
     height: 500px;
     overflow: hidden;
-    color: var(--black);
-    box-shadow: var(--black-box-shadow);
+    color: black;
+    box-shadow: var(--blue-box-shadow);
 }
 
 .product-list:hover {
@@ -74,7 +85,6 @@ main {
 .product-list button {
     background: lightblue;
 }
-
 
 /* Styles from walkthrough project */
 .btn-black {

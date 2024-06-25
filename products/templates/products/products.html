@@ -5,14 +5,17 @@
 {% block head_title %}Products{% endblock head_title %}
 
 {% block content %}
-<div class="card" style="width: 18rem;">
-    <div class="container d-flex flex-row flex-wrap justify-content-center p-2 d-grid gap-3">
+<div class="d-block text-center p-2 mt-5">
+    <h1>Tutorials</h1>
+</div>
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center flex-wrap">
         {% for product in products %}
         <a href="#" aria-label="Click to view details for product: {{product.name}}" class="text-decoration-none">
-            <article>
-                <div class="card product-list" style="width: 18rem;">
+            <article class="col">
+                <div class="card product-list mb-4" style="width: 18rem;">
                     {% if product.image %}
-                    <img src="#" class="card-img-top scale" alt="image for product {{ product.name }}">
+                    <img src="{{ product.image.url }}" class="card-img-top scale" alt="image for product {{ product.name }}">
                     {% else %}
                     <img src="{% static 'images/noimage.webp' %}" class="card-img-top scale"
                         alt="No image yet for this product">
@@ -45,5 +48,5 @@
         </a>
         {% endfor %}
     </div>
-
-    {% endblock %}
+</div>
+{% endblock %}

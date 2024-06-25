@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Slab:wght@100..900&display=swap');
+
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Roboto Slab", sans-serif;
+}
+
+main {
+    /* Push footer down */
+    flex: 1 0 auto;
+}
+
+/* Style from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* Header -------------------------------------------------------------*/
+
+#logo {
+    width: 180px;
+    height: auto;
+}
+
+/* Main ---------------------------------------------------------------*/
+
+.browse-tutorials-button {
+    background: lightblue;
+    color: black;
+    min-width: 260px;
+}
+
+/* Products --------------------------------------------------------------*/
+
+.scale {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.product-list {
+    height: 500px;
+    overflow: hidden;
+    color: var(--black);
+    box-shadow: var(--black-box-shadow);
+}
+
+.product-list:hover {
+    cursor: pointer;
+}
+
+.product-list button {
+    background: lightblue;
+}
+
+
+/* Styles from walkthrough project */
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btn-outline-black {
+    background: white;
+    color: black !important; /* use important to override link colors for <a> elements */
+    border: 1px solid black;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: black;
+    color: white !important;
+}
+
+.browse-tutorials:hover,
+.browse-tutorials:active,
+.browse-tutorials:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+/* Forms Django allauth ---------------------------------------------- */
+
+.header-container {
+    padding-top: 164px;
+}
+
+label[for="id_remember"] {
+    margin-right: 30px; 
+}
+
+input[type="submit"], button[type="submit"] {
+    background: lightblue;
+    padding: 5px;
+}
+
+/* -------------------------------- Media Queries */
+
+@media (min-width: 360px) {
+    #logo {
+        width: 220px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    /* Animated eased transition of collapsable navbar content */
+    .mobile-bg-white {
+        transition: background-color 0.3s ease;
+    }
+
+    /* show bootstrap style*/
+    .mobile-bg.show {
+        background-color: white !important;
+    }
+}
+
+@media (min-width: 992px) {
+    #navbarSupportedContent {
+      align-items: center;
+    }
+    
+    .navbar .nav-link {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+      max-width: 80%;
+    }
+
+    #logo {
+        width: 260px;
+    }
+  }
+  
+  

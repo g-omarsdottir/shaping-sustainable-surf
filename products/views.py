@@ -14,7 +14,7 @@ def all_products(request):
     Display overview of products.
     """
 
-    products = Product.objects.filter(status=1)
+    products = Product.objects.filter(status="Publish")
     template_name = "products/products.html"
     query = None
     categories = None
@@ -75,5 +75,5 @@ def all_products(request):
         "current_subcategories": subcategories,
         "current_sorting": current_sorting,
     }
-
+    print(f"Number of products: {products.count()}")
     return render(request, "products/products.html", context)
