@@ -34,6 +34,12 @@ ALLOWED_HOSTS = [
     "8000-gomarsdotti-shapingsust-wirzm9fqqo3.ws.codeinstitute-ide.net",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://8000-gomarsdotti-shapingsust-wirzm9fqqo3.ws.codeinstitute-ide.net",
+    "https://*.codeinstitute-ide.net",
+    "https://*.gitpod.io",
+    "https://*.herokuapp.com",
+]
 
 # Application definition
 
@@ -57,10 +63,25 @@ INSTALLED_APPS = [
     "django_resized",
     "cloudinary",
     "cloudinary_storage",
+    "djrichtextfield",
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+DJRICHTEXTFIELD_CONFIG = {
+    "js": ["//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"],
+    "init_template": "djrichtextfield/init/ckeditor.js",
+    "settings": {
+        "toolbar": [
+            ["Format", "Bold", "Italic", "Underline"],
+            ["NumberedList", "BulletedList"],
+            ["Undo", "Redo"],
+            ["Maximize"],
+        ],
+        "format_tags": "p;h1;h2;h3",
+    },
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

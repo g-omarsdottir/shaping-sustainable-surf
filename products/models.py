@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django_resized import ResizedImageField
-
+from djrichtextfield.models import RichTextField
 
 class Category(models.Model):
     """
@@ -57,8 +57,8 @@ class Product(models.Model):
     """
 
     STATUS = [
-        ("0", "Draft"),
-        ("1", "Published"),
+        ("Draft", "Draft"),
+        ("Publish", "Publish"),
     ]
 
     name = models.CharField(max_length=254)
@@ -66,12 +66,12 @@ class Product(models.Model):
         Category, on_delete=models.SET_NULL, null=True, blank=False
     )
     subcategory = models.ForeignKey(
-        Subcategory, on_delete=models.SET_NULL, null=True, blank=True
+        Subcategory, on_delete=models.SET_NULL, null=True, blank=False
     )
     price = models.DecimalField(
         max_digits=6, null=True, blank=False, decimal_places=2
     )
-    description = models.TextField(max_length=3000, null=True, blank=False)
+    description = RichTextField(max_length=3000, null=True, blank=False)
     image = ResizedImageField(
         size=[400, None],
         upload_to="sss_products/",
@@ -84,7 +84,7 @@ class Product(models.Model):
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True
     )
-    status = models.IntegerField(choices=STATUS, default=0)
+    status = models.CharField(max_length=20, choices=STATUS, default="Draft")
 
     def __str__(self):
         return self.name
