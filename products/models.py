@@ -63,21 +63,22 @@ class Product(models.Model):
 
     name = models.CharField(max_length=254)
     category = models.ForeignKey(
-        Category, on_delete=models.SET_NULL,
-        null=True, blank=False
+        Category, on_delete=models.SET_NULL, null=True, blank=False
     )
     subcategory = models.ForeignKey(
-        Subcategory, on_delete=models.SET_NULL,
-        null=True, blank=True
+        Subcategory, on_delete=models.SET_NULL, null=True, blank=True
     )
     price = models.DecimalField(
         max_digits=6, null=True, blank=False, decimal_places=2
     )
     description = models.TextField(max_length=3000, null=True, blank=False)
     image = ResizedImageField(
-        size=[400, None], upload_to="sss_products/",
-        null=True, blank=True,
-        quality=75, force_format="webp",
+        size=[400, None],
+        upload_to="sss_products/",
+        null=True,
+        blank=True,
+        quality=75,
+        force_format="webp",
     )
     video_url = models.URLField(max_length=254, null=True, blank=True)
     rating = models.DecimalField(

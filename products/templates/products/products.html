@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block head_title %}Products{% endblock head_title %}
+
+{% block content %}
+<div class="card" style="width: 18rem;">
+    <div class="container d-flex flex-row flex-wrap justify-content-center p-2 d-grid gap-3">
+        {% for product in products %}
+        <a href="#" aria-label="Click to view details for product: {{product.name}}" class="text-decoration-none">
+            <article>
+                <div class="card product-list" style="width: 18rem;">
+                    {% if product.image %}
+                    <img src="#" class="card-img-top scale" alt="image for product {{ product.name }}">
+                    {% else %}
+                    <img src="{% static 'images/noimage.webp' %}" class="card-img-top scale"
+                        alt="No image yet for this product">
+                    {% endif %}
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <h2 class="card-title">{{ product.name }}</h2>
+                            </li>
+                            <li class="list-group-item">
+                                <h3 class="card-subtitle">{{ product.category }}</h3>
+                            </li>
+                            <li class="list-group-item">
+                                <h4 class="card-subtitle">{{ product.subcategory }}</h4>
+                            </li>
+                            <li class="list-group-item excerpt">
+                                <p class="card-subtitle">{{product.price}}</p>
+                            </li>
+                            <li class="list-group-item excerpt">
+                                <p class="card-text">{{product.description|truncatechars:50}}.</p>
+                            </li>
+                        </ul>
+                        <div class="d-flex justify-content-center">
+                            <button class="btn border border-black rounded-0">&laquo; Click to View
+                                Details &raquo;</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </a>
+        {% endfor %}
+    </div>
+
+    {% endblock %}
