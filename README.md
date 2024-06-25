@@ -167,6 +167,8 @@ In addition to libraries and frameworks already installed in the Code Institute 
 [django-extensions v3.2.3](https://pypi.org/project/django-extensions/) - Show urls and location of installed packages
 [django-crispy-forms v2.2](https://django-crispy-forms.readthedocs.io/en/1.14.0/) - Simplifies the creation of forms
 [crispy-bootstrap v4](https://pypi.org/project/crispy-bootstrap4/) - Bootstrap-specific classes to style forms
+[django-resized v1.0.2](https://pypi.org/project/django-resized/) Handles resizing and format converting of images uploaded by store owners
+[pillow==10.3.0](https://pillow.readthedocs.io/en/stable/) A Python imaging library, handles images in combination with the Django Resized Image Field
 
 ### Programs Used
 [Canva](https://www.canva.com/) to create the website logo
