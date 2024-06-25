@@ -55,7 +55,6 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap4",
     "django_resized",
-    "pillow",
     "cloudinary",
     "cloudinary_storage",
 ]

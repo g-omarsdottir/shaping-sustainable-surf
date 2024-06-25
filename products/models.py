@@ -73,7 +73,7 @@ class Product(models.Model):
     price = models.DecimalField(
         max_digits=6, null=True, blank=False, decimal_places=2
     )
-    description = models.TextField(max_lenght=3000, null=True, blank=False)
+    description = models.TextField(max_length=3000, null=True, blank=False)
     image = ResizedImageField(
         size=[400, None], upload_to="sss_products/",
         null=True, blank=True,
