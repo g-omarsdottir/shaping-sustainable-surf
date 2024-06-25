@@ -56,6 +56,11 @@ class Product(models.Model):
     and :model:`Review`
     """
 
+    STATUS = [
+        ("0", "Draft"),
+        ("1", "Published"),
+    ]
+
     name = models.CharField(max_length=254)
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL,
@@ -65,8 +70,10 @@ class Product(models.Model):
         Subcategory, on_delete=models.SET_NULL,
         null=True, blank=True
     )
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    description = models.TextField()
+    price = models.DecimalField(
+        max_digits=6, null=True, blank=False, decimal_places=2
+    )
+    description = models.TextField(max_lenght=3000, null=True, blank=False)
     image = ResizedImageField(
         size=[400, None], upload_to="sss_products/",
         null=True, blank=True,
@@ -76,6 +83,7 @@ class Product(models.Model):
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True
     )
+    status = models.IntegerField(choices=STATUS, default=0)
 
     def __str__(self):
         return self.name
