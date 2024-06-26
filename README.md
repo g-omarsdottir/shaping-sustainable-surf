@@ -126,7 +126,53 @@ Screen sizes smaller than 320 were not considered in the design.
 ### Colors
 
 ## Project planning
+
 ### Database Schema
+
+This project leverages a serverless PostgreSQL database for efficient data management. A well-defined Entity Relationship Diagram (ERD) (see below) was created upfront to guide development. This approach minimizes database complexity and streamlines the development process, reducing the need for future modifications and debugging. Each model within the project directly corresponds to a table in the ERD, ensuring a clear and consistent data structure.
+
+#### Technical Architecture
+
+**Technical Design:** Separation of concern was implemented by dividing key components into individual Django Models (see ERD). This allows for simple and reliable queries based on the primary key, as well as easy management and scalability.
+
+Relationships between the model fields are indicated with relationship lines on the ERD.
+
+**Model-Based Design:** The principles of separation of concerns are adhered to by employing distinct Django models for each key system component (see ERD). This promotes code clarity, maintainability, and scalability.
+
+**Relational Data Modeling:** The ERD effectively visualizes the relationships between models and model fields, fostering the construction of streamlined and efficient database queries utilizing primary keys.
+
+#### Key Features
+
+**Product Management:** The custom models facilitate the storage and management of individual product entities.
+
+Products are stored in one model. Categories and Subcategories are stored in separate models, which allows for scalability and streamlines further technical design. 
+
+Choices for the Category and Subcategory models are defined as constants within the models. This guarantees consistent terminology throughout the application, enhancing user experience and simplifying search queries.
+
+This approach simplifies the models for the shopping and purchase process, as well as allows for code consistency in code, by referring to products in all html template by the name product, while assuring a separation of concerns and explicitness.
+
+Store owners and superusers are granted comprehensive permissions to create, update, and delete product data. This enables efficient content management within the application.
+
+![ERD Product model](/documentation/erd-product.png)
+
+**Ecommerce Functionality**
+
+**Integrated Payment Processing:** The system facilitates secure online transactions for product purchases by integrating with Stripe, a payment gateway provider. This ensures a seamless and secure user experience during checkout.
+
+**Purchase Models:** Additional Django models are implemented to manage the intricacies of online purchases. These models capture essential order and payment details, enabling efficient transaction processing and record-keeping.
+
+**Relationship with Product and User models:** The purchase models establish relationships with both product and user models (see ERD). This facilitates data retrieval and management of purchase history for both users and store administrators.
+
+**Payment Security**
+
+**Stripe Integration:** By leveraging Stripe's secure payment infrastructure, the application safeguards sensitive financial information during transactions. This ensures user trust and adheres to industry-standard security protocols.
+
+**Data security Measures** 
+
+**CSRF Protection:** To safeguard against Cross-Site Request Forgery (CSRF) attacks, the application enforces the use of CSRF tokens in all forms using the POST method. This bolsters data integrity and prevents unauthorized actions.
+
+**Django Allauth Integration for User Management:** ser authentication and authorization are implemented by leveraging the Django Allauth, a third-party library that upholds robust security practices. This provides a robust and secure foundation for user access control.
+
 ### Agile Development Methods (Epics, User Stories, MoSCoW Prioritization, Kanban board)
 
 This project utilizes Agile Development Methods to manage development and ensure efficient delivery.

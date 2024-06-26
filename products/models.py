@@ -34,6 +34,7 @@ class Subcategory(models.Model):
     SUBCATEGORIES = [
         ("Shaping", "Shaping"),
         ("Materials", "Materials & Tools"),
+        ("Accessories", "Accessories"),
         ("Surfing", "Surfing"),
     ]
 
