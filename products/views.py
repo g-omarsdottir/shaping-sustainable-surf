@@ -11,10 +11,12 @@ from .models import Product, Category, Subcategory
 
 def tutorials_list(request):
     """
-    Display overview of tutorials.
+    A view to display overview of tutorials.
+    Objects to display from model Product 
+        are filtered by category and status.
     """
 
-    products = Product.objects.filter(status="Publish", category__name="Tutorial")
+    tutorials = Product.objects.filter(status="Publish", category__name="Tutorial")
     template_name = "products/tutorials.html"
     query = None
     categories = None
@@ -62,10 +64,28 @@ def tutorials_list(request):
 
     # So products will be available in the template
     context = {
-        "tutorials": products,
+        "tutorials": tutorials,
         "search_term": query,
         "current_categories": categories,
         "current_subcategories": subcategories,
         "current_sorting": current_sorting,
     }
     return render(request, "products/tutorials.html", context)
+
+def product_detail(request, product_id):
+    """
+    A view to display individual product details.
+    Template to display: products/product_detail.html
+    Related to templates products/tutorials.html 
+        and products/surfboards.
+    """
+
+    # Return from datbase - here no filtering, returning all products
+    product = get_object_or_404(Product, pk=product_id)
+
+    # Add products to the context, so the products will be available in the template
+    context = {
+        "product": product,
+    }
+
+    return render(request, "products/product_detail.html", context)

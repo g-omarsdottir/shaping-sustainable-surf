@@ -11,7 +11,7 @@
 <div class="container mt-5">
     <div class="row d-flex justify-content-center flex-wrap">
         {% for tutorial in tutorials %}
-        <a href="#" aria-label="Click to view details for tutorial: {{tutorial.name}}" class="text-decoration-none">
+        <a href="{% url 'product_detail' tutorial.id %}" aria-label="Click to view details for tutorial: {{tutorial.name}}" class="text-decoration-none">
             <article class="col">
                 <div class="card product-list mb-4" style="width: 18rem;">
                     {% if tutorial.image %}
@@ -31,10 +31,10 @@
                             <li class="list-group-item">
                                 <h4 class="card-subtitle">{{ tutorial.subcategory }}</h4>
                             </li>
-                            <li class="list-group-item excerpt">
+                            <li class="list-group-item">
                                 <p class="card-subtitle">{{ tutorial.price }}</p>
                             </li>
-                            <li class="list-group-item excerpt">
+                            <li class="list-group-item">
                                 <p class="card-text">{{ tutorial.description|truncatechars:50 }}.</p>
                             </li>
                         </ul>

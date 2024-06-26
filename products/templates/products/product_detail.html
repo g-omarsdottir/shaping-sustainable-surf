@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block head_title %}Product Detail{% endblock head_title %}
+
+{% block content %}
+<div class="d-block text-center p-2 mt-5">
+    <h1>Product Detail</h1>
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <article class="col-12 d-flex justify-content-center">
+            <div class="card mb-4">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" class="card-img-top" alt="image for product {{ product.name }}">
+                {% else %}
+                <img src="{% static 'images/noimage.webp' %}" class="card-img-top scale"
+                    alt="No image yet for this product">
+                {% endif %}
+                <div class="card-body d-flex flex-column justify-content-center">
+                    <h2 class="card-title">{{ product.name }}</h2>
+                    <h3 class="card-subtitle">{{ product.category }}</h3>
+                    <h4 class="card-subtitle">{{ product.subcategory }}</h4>
+                    {{ product.price }}
+                    <br>
+                    {{ product.description }}
+                </div>
+            </div>
+        </article>
+    </div>
+    <div class="d-flex justify-content-center align-items-center col-xs-8 col-s-6 mb-3">
+        <a href="{% url 'tutorials_list' %}" class="btn btn-secondary mr-2">&laquo; Go to Tutorials</a>
+        <a href="#" class="btn btn-secondary">Go to Surfboards &raquo;</a>
+    </div>
+</div>
+{% endblock %}
