@@ -16,7 +16,7 @@ def tutorials_list(request):
         are filtered by category and status.
     """
 
-    product = Product.objects.filter(status="Publish", category__name="Tutorial")
+    products = Product.objects.filter(status="Publish", category__name="Tutorial")
     template_name = "products/tutorials.html"
     query = None
     categories = None
@@ -54,9 +54,12 @@ def tutorials_list(request):
             query = request.GET["q"]
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
-                return redirect(reverse("products"))
+                return redirect(reverse("tutorials_list"))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                description__icontains=query) | Q(
+                subcategory__name__icontains=query) | Q(
+                category__name__icontains=query)
             products = products.filter(queries)
 
     # return the current sorting methodology to the template
@@ -64,7 +67,7 @@ def tutorials_list(request):
 
     # So products will be available in the template
     context = {
-        "products": product,
+        "products": products,
         "search_term": query,
         "current_categories": categories,
         "current_subcategories": subcategories,
