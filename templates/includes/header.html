@@ -72,12 +72,11 @@
                                 {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
                                 <a href="#" class="dropdown-item">Product Management</a>
-                                {% endif %}
                                 <div class="dropdown-divider"></div>
+                                {% endif %}
                                 <a href="#" class="dropdown-item">My Profile</a>
                                 <div class="dropdown-divider"></div>
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                                <div class="dropdown-divider"></div>
                                 {% else %}
                                 <a href="{% url 'account_signup' %}" class="dropdown-item">Sign-Up</a>
                                 <div class="dropdown-divider"></div>
@@ -91,7 +90,7 @@
                             <a class="nav-link {% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %}"
                                 href="">
                                 <i class="fas fa-shopping-bag fa-lg"></i> Cart
-                                <span class="sr-only">Shopping bag</span>
+                                <span class="sr-only">Shopping cart</span>
                                 <p class="my-0">
 
                                 </p>
