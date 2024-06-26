@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load static %}
 
-{% block head_title %}Products{% endblock head_title %}
+{% block head_title %}Tutorials{% endblock head_title %}
 
 {% block content %}
 <div class="d-block text-center p-2 mt-5">
@@ -10,32 +10,32 @@
 </div>
 <div class="container mt-5">
     <div class="row d-flex justify-content-center flex-wrap">
-        {% for product in products %}
-        <a href="#" aria-label="Click to view details for product: {{product.name}}" class="text-decoration-none">
+        {% for tutorial in tutorials %}
+        <a href="#" aria-label="Click to view details for tutorial: {{tutorial.name}}" class="text-decoration-none">
             <article class="col">
                 <div class="card product-list mb-4" style="width: 18rem;">
-                    {% if product.image %}
-                    <img src="{{ product.image.url }}" class="card-img-top scale" alt="image for product {{ product.name }}">
+                    {% if tutorial.image %}
+                    <img src="{{ tutorial.image.url }}" class="card-img-top scale" alt="image for tutorial {{ tutorial.name }}">
                     {% else %}
                     <img src="{% static 'images/noimage.webp' %}" class="card-img-top scale"
-                        alt="No image yet for this product">
+                        alt="No image yet for this tutorial">
                     {% endif %}
                     <div class="card-body d-flex flex-column justify-content-between">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
-                                <h2 class="card-title">{{ product.name }}</h2>
+                                <h2 class="card-title">{{ tutorial.name }}</h2>
                             </li>
                             <li class="list-group-item">
-                                <h3 class="card-subtitle">{{ product.category }}</h3>
+                                <h3 class="card-subtitle">{{ tutorial.category }}</h3>
                             </li>
                             <li class="list-group-item">
-                                <h4 class="card-subtitle">{{ product.subcategory }}</h4>
+                                <h4 class="card-subtitle">{{ tutorial.subcategory }}</h4>
                             </li>
                             <li class="list-group-item excerpt">
-                                <p class="card-subtitle">{{product.price}}</p>
+                                <p class="card-subtitle">{{ tutorial.price }}</p>
                             </li>
                             <li class="list-group-item excerpt">
-                                <p class="card-text">{{product.description|truncatechars:50}}.</p>
+                                <p class="card-text">{{ tutorial.description|truncatechars:50 }}.</p>
                             </li>
                         </ul>
                         <div class="d-flex justify-content-center">

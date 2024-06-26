@@ -9,12 +9,12 @@ from .models import Product, Category, Subcategory
 # Views
 
 
-def all_products(request):
+def tutorials_list(request):
     """
-    Display overview of products.
+    Display overview of tutorials.
     """
 
-    products = Product.objects.filter(status="Publish")
+    products = Product.objects.filter(status="Publish", category__name="Tutorial")
     template_name = "products/tutorials.html"
     query = None
     categories = None
@@ -58,18 +58,11 @@ def all_products(request):
             products = products.filter(queries)
 
     # return the current sorting methodology to the template
-    if sort is not None and direction is not None:
-        current_sorting = f"{sort}_{direction}"
-    elif sort is not None:
-        current_sorting = sort
-    elif direction is not None:
-        current_sorting = direction
-    else:
-        current_sorting = "None_None"
+    current_sorting = f"{sort}_{direction}" if sort and direction else "None_None"
 
     # So products will be available in the template
     context = {
-        "products": products,
+        "tutorials": products,
         "search_term": query,
         "current_categories": categories,
         "current_subcategories": subcategories,
