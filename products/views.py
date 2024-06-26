@@ -15,7 +15,7 @@ def all_products(request):
     """
 
     products = Product.objects.filter(status="Publish")
-    template_name = "products/products.html"
+    template_name = "products/tutorials.html"
     query = None
     categories = None
     subcategories = None
@@ -75,5 +75,4 @@ def all_products(request):
         "current_subcategories": subcategories,
         "current_sorting": current_sorting,
     }
-    print(f"Number of products: {products.count()}")
-    return render(request, "products/products.html", context)
+    return render(request, "products/tutorials.html", context)

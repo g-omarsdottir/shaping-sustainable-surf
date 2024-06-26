@@ -62,6 +62,18 @@ main {
     min-width: 260px;
 }
 
+/* Footer -------------------------------------------------------------*/
+footer {
+    /* Stick footer to bottom */
+    flex-shrink: 0;
+    background-color: lightblue;
+    border-top: 4px solid yellow;
+}
+
+footer li a {
+    color: black;
+}
+
 /* Products --------------------------------------------------------------*/
 
 .scale {

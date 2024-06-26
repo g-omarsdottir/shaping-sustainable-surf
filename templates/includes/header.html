@@ -1,0 +1,105 @@
+{% load static %}
+
+<header class="container-fluid fixed-top">
+    <div class="row">
+        <div class="col-12">
+            <nav class="navbar navbar-expand-lg navbar-light">
+
+                <!-- Logo visibile on all screen sizes -->
+                <a href="{% url 'home' %}" class="navbar-brand">
+                    <img id="logo" src="{% static 'images/logo.webp' %}" alt="Shaping Sustainable Surf Logo">
+                </a>
+
+                <!-- Toggler for navigation bar -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Collapsible navigation bar content from bootstrap template -->
+                <div id="navbarSupportedContent" class="collapse navbar-collapse mobile-bg">
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Search bar -->
+                        <li class="nav-item">
+                            <form method="GET" action="#" class="form-inline my-2 my-lg-0">
+                                <!-- width 100, input group from bootstrap contains fontawesome search icon -->
+                                <div class="input-group w-100">
+                                    <!-- q for query -->
+                                    <input class="form-control border border-black rounded-0" type="text" name="q"
+                                        placeholder="Search">
+                                    <div class="input-group-append">
+                                        <button class="form-control btn border border-black rounded-0"
+                                            type="submit">
+                                            <span class="icon">
+                                                <i class="fas fa-search"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+
+                        <!-- Website navigation links -->
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link text-black" href="#">Tutorials</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-black" href="#" role="button"
+                                data-toggle="dropdown" aria-expanded="false">
+                                About Us
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item text-black" href="#">About Us</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Custom Board Examples</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">FAQs</a>
+                            </div>
+                        </li>
+
+                        <!-- My account -->
+                        <li class="nav-item dropdown">
+                            <a class="text-black nav-link dropdown-toggle" href="#" id="user-options"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user fa-lg"></i> My Account
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="user-options">
+                                {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                <a href="#" class="dropdown-item">Product Management</a>
+                                {% endif %}
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">My Profile</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                <div class="dropdown-divider"></div>
+                                {% else %}
+                                <a href="{% url 'account_signup' %}" class="dropdown-item">Sign-Up</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="{% url 'account_login' %}" class="dropdown-item">Sign-In</a>
+                                {% endif %}
+                            </div>
+                        </li>
+
+                        <!-- Shopping cart -->
+                        <li class="nav-item">
+                            <a class="nav-link {% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %}"
+                                href="">
+                                <i class="fas fa-shopping-bag fa-lg"></i> Cart
+                                <span class="sr-only">Shopping bag</span>
+                                <p class="my-0">
+
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
