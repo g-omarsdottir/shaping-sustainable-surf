@@ -5,10 +5,8 @@
 {% block head_title %}Tutorials{% endblock head_title %}
 
 {% block content %}
-<div class="d-block text-center p-2 mt-5">
-    <h1>Tutorials</h1>
-</div>
 <div class="container mt-5">
+    <h1 class="text-center mb-4">Tutorials</h1>
     <div class="row d-flex justify-content-center flex-wrap">
         {% for tutorial in tutorials %}
         <a href="{% url 'product_detail' tutorial.id %}" aria-label="Click to view details for tutorial: {{tutorial.name}}" class="text-decoration-none">
