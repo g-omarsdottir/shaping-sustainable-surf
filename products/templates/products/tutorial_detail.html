@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Product Detail</h1>
+    <h1 class="text-center mb-4">Tutorial Detail</h1>
     <div class="row">
         <article class="d-flex flex-wrap justify-content-center mb-4">
             <div class="col-12 col-lg-6 mb-3">
@@ -39,22 +39,17 @@
             {% csrf_token %}
             <div class="form-row">
                 <div class="col-12 {% if s %}-12 mt-2{% endif %}">
-                    <a href="#" class="btn btn-outline-black rounded-0 mt-5">
+                    <a href="{% url 'tutorials_list' %}" class="btn btn-outline-black rounded-0 mt-5">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
-                        <span class="text-uppercase">Keep Shopping</span>
+                        <span class="text-uppercase">Back to overview</span>
                     </a>
                     <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Cart">
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </div>
         </form>
-    </div>
-
-    <div class="d-flex justify-content-center align-items-center col-xs-8 col-s-6 mb-3">
-        <a href="{% url 'tutorials_list' %}" class="btn btn-secondary mr-2">&laquo; Go to Tutorials</a>
-        <a href="#" class="btn btn-secondary">Go to Surfboards &raquo;</a>
     </div>
 </div>
 {% endblock %}

@@ -12,11 +12,11 @@ from .models import Product, Category, Subcategory
 def tutorials_list(request):
     """
     A view to display overview of tutorials.
-    Objects to display from model Product 
+    Objects to display from model Product
         are filtered by category and status.
     """
 
-    tutorials = Product.objects.filter(status="Publish", category__name="Tutorial")
+    product = Product.objects.filter(status="Publish", category__name="Tutorial")
     template_name = "products/tutorials.html"
     query = None
     categories = None
@@ -64,7 +64,7 @@ def tutorials_list(request):
 
     # So products will be available in the template
     context = {
-        "tutorials": tutorials,
+        "products": product,
         "search_term": query,
         "current_categories": categories,
         "current_subcategories": subcategories,
@@ -72,7 +72,7 @@ def tutorials_list(request):
     }
     return render(request, "products/tutorials.html", context)
 
-def product_detail(request, product_id):
+def tutorial_detail(request, product_id):
     """
     A view to display individual product details.
     Template to display: products/product_detail.html
@@ -88,4 +88,4 @@ def product_detail(request, product_id):
         "product": product,
     }
 
-    return render(request, "products/product_detail.html", context)
+    return render(request, "products/tutorial_detail.html", context)
