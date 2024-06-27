@@ -62,6 +62,10 @@ main {
     min-width: 260px;
 }
 
+.text-font {
+    font-family: "Roboto Flex", sans-serif;
+}
+
 /* Footer -------------------------------------------------------------*/
 footer {
     /* Stick footer to bottom */
@@ -90,7 +94,7 @@ footer li a {
     box-shadow: var(--blue-box-shadow);
 }
 
-.product-list:hover {
+.product-list:hover, .remove-item:hover {
     cursor: pointer;
 }
 
@@ -161,6 +165,18 @@ input[type="submit"], button[type="submit"] {
         width: 220px;
     }
 }
+
+/* Stacks product details on xs screens */
+@media (max-width: 575.98px) {
+    .product-info-xs {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+    .product-info-xs img {
+      margin-bottom: 10px;
+    }
+  }
 
 @media (max-width: 991.98px) {
     /* Animated eased transition of collapsable navbar content */

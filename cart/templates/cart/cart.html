@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -21,16 +21,15 @@
     </div>
 
     <div class="row">
-        <div class="col-12 col-lg-10">
+        <div class="col">
             {% if cart_items %}
             <div class="table-responsive rounded">
                 <table class="table table-sm table-borderless">
                     <thead class="text-black">
                         <tr>
-                            <th scope="col">Products</th>
+                            <th scope="col" class="d-none d-sm-table-cell w-25">Products</th>
                             <th scope="col"></th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
+                            <th scope="col" class="d-none d-sm-table-cell"></th>
                             <th scope="col">Price</th>
 
                         </tr>
@@ -38,30 +37,48 @@
 
                     {% for item in cart_items %}
                     <tr>
-                        <td class="p-3 w-25">
-                        {% if item.product.image %}
-                            <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="image for product {{ product.name }}">
-                        {% else %}
-                            <img src="{% static 'images/noimage.webp' %}" class="img-fluid rounded" alt="No image yet for this product">
-                        {% endif %}
+                        <!-- Hides table cell with product image on x-small screens -->
+                        <td class="p-3 w-25 d-none d-sm-table-cell">
+                            {% if item.product.image %}
+                            <img class="img-fluid rounded" src="{{ item.product.image.url }}"
+                                alt="image for product {{ product.name }}">
+                            {% else %}
+                            <img src="{% static 'images/noimage.webp' %}" class="img-fluid rounded"
+                                alt="No image yet for this product">
+                            {% endif %}
                         </td>
-                        <td class="py-3">
+
+                        <!-- Display image, product name and remove link with flex column properties to stack on x-small screens using custom css -->
+                        <td class="py-3 text-wrap product-info-xs">
+                            <div class="d-sm-none">
+                                {% if item.product.image %}
+                                <img class="img-fluid rounded mb-2" src="{{ item.product.image.url }}"
+                                    alt="image for product {{ product.name }}">
+                                {% else %}
+                                <img src="{% static 'images/noimage.webp' %}" class="img-fluid rounded mb-2"
+                                    alt="No image yet for this product">
+                                {% endif %}
+                            </div>
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                        </td>
-                        <td class="py-3 w-25 text-right">
-                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"
-                                <small>Remove</small>
+                            <a class="remove-item text-danger d-sm-none" id="remove_{{ item.item_id }}">
+                                <small><i class="fa-solid fa-xmark"></i> Remove</small>
                             </a>
                         </td>
-                        <td class="py-3"></td>
+
+                        <!-- Display remove link in a row on screen sizes small and up -->
+                        <td class="py-3 d-none d-sm-table-cell">
+                            <a class="remove-item text-danger" id="remove_{{ item.item_id }}">
+                                <small><i class="fa-solid fa-xmark"></i> Remove</small>
+                            </a>
+                        </td>
                         <td class="py-3">
-                            <p class="my-0">${{ item.product.price }}</p>
+                            <p class="my-0">€{{ item.product.price }}</p>
                         </td>
                     </tr>
                     {% endfor %}
                     <tr>
                         <td colspan="5" class="pt-5 text-right">
-                            <h4 class="mt-4"><strong>Total: </strong></h4>
+                            <h4 class="mt-4"><strong>Total: €{{ total|floatformat:2 }}</strong></h4>
                         </td>
                     </tr>
                     <tr>
