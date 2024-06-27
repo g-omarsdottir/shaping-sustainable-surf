@@ -21,74 +21,47 @@
     </div>
 
     <div class="row">
-        <div class="col">
+        <div class="col-12 col-lg-10">
             {% if cart_items %}
             <div class="table-responsive rounded">
                 <table class="table table-sm table-borderless">
                     <thead class="text-black">
                         <tr>
-                            <th scope="col">Product Info</th>
+                            <th scope="col">Products</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
                             <th scope="col"></th>
                             <th scope="col">Price</th>
-                            <th scope="col">Subtotal</th>
+
                         </tr>
                     </thead>
 
                     {% for item in cart_items %}
                     <tr>
                         <td class="p-3 w-25">
-                            <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                        {% if item.product.image %}
+                            <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="image for product {{ product.name }}">
+                        {% else %}
+                            <img src="{% static 'images/noimage.webp' %}" class="img-fluid rounded" alt="No image yet for this product">
+                        {% endif %}
                         </td>
                         <td class="py-3">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                         </td>
-                        <td class="py-3">
-                            <p class="my-0">${{ item.product.price }}</p>
-                        </td>
-                        <td class="py-3 w-25">
-                            <form class="form update-form" method="POST" action="#">
-                                {% csrf_token %}
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-sm btn-black rounded-0"
-                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                <span>
-                                                    <i class="fas fa-minus fa-sm"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                        <div class="input-group-append">
-                                            <button class="increment-qty btn btn-sm btn-black rounded-0"
-                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                <span>
-                                                    <i class="fas fa-plus fa-sm"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <a class="update-link text-info"><small>Update</small></a>
+                        <td class="py-3 w-25 text-right">
                             <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"
                                 <small>Remove</small>
                             </a>
                         </td>
+                        <td class="py-3"></td>
                         <td class="py-3">
-                            <p class="my-0">€{{ item.product.price }}</p>
+                            <p class="my-0">${{ item.product.price }}</p>
                         </td>
                     </tr>
                     {% endfor %}
                     <tr>
                         <td colspan="5" class="pt-5 text-right">
-                            <h6><strong>Cart Total: </strong></h6>
-                            <h6>Delivery: </h6>
-                            <h4 class="mt-4"><strong>Grand Total: </strong></h4>
-                            {% if free_delivery_delta > 0 %}
-                            <p class="mb-1 text-danger">
-                                delivery info
-                            </p>
-                            {% endif %}
+                            <h4 class="mt-4"><strong>Total: </strong></h4>
                         </td>
                     </tr>
                     <tr>
