@@ -20,9 +20,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("accounts/", include("allauth.urls")),
     path("", include("home.urls")),
+    path("accounts/", include("allauth.urls")),
+    path("admin/", admin.site.urls),
+    path("cart/", include("cart.urls")),
     path("products/", include("products.urls")),
     path("djrichtextfield/", include("djrichtextfield.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
