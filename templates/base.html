@@ -71,12 +71,29 @@
         {% block content %}
         {% endblock %}
     </main>
-    
+
     {% include 'includes/footer.html' %}
 
     {% block postloadjs %}
     <script type="text/javascript">
-      $('.toast').toast('show');
+        $(document).ready(function () {
+            $('.toast').toast('show');
+
+            // Hide message toasts after 8 seconds, except the cart preview
+            setTimeout(function () {
+                $('.toast:not(.cart-preview-toast)').toast('hide');
+            }, 8000);
+
+            // Remove message toasts from DOM after they are hidden, except the cart preview
+            $('.toast:not(.cart-preview-toast)').on('hidden.bs.toast', function () {
+                $(this).remove();
+            });
+
+            // Keep cart preview toast visible if it exists
+            if ($('.cart-preview-toast').length) {
+                $('.cart-preview-toast').toast('show');
+            }
+        });
     </script>
     {% endblock %}
 

@@ -173,6 +173,10 @@ footer li a {
     height: 2px;
 }
 
+.cart-preview-toast {
+    margin-top: -0.8rem;
+}
+
 /* Forms Django allauth ---------------------------------------------- */
 
 .header-container {

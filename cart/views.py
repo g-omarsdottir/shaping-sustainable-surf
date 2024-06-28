@@ -8,9 +8,14 @@ from products.models import Product
 def view_cart(request):
     """
     A view that renders the cart contents page
+    Context to avoid duplicate display of cart and cart preview
     """
 
-    return render(request, "cart/cart.html")
+    context = {
+        'is_cart_page': True,
+    }
+
+    return render(request, "cart/cart.html", context)
 
 
 def add_to_cart(request, item_id):
