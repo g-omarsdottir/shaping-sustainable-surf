@@ -32,3 +32,25 @@ def add_to_cart(request, item_id):
     request.session["cart"] = cart
     print(request.session["cart"])
     return redirect(redirect_url)
+
+
+def remove_from_cart(request, item_id):
+    """
+    Remove the item from the shopping cart
+    """
+
+    try:
+        product = get_object_or_404(Product, pk=item_id)
+        cart = request.session.get("cart", {})
+
+        if str(item_id) in cart:
+            del cart[str(item_id)]
+            request.session["cart"] = cart
+            messages.success(request, f"Removed {product.name} from your cart")
+        else:
+            messages.error(request, "This item was not in your cart")
+
+    except Exception as e:
+        messages.error(request, f"Error removing item: {e}")
+
+    return redirect('view_cart')

@@ -67,7 +67,7 @@
 
                         <!-- Display remove link in a row on screen sizes small and up -->
                         <td class="py-3 d-none d-sm-table-cell">
-                            <a class="remove-item text-danger" id="remove_{{ item.item_id }}">
+                            <a href="{% url 'remove_from_cart' item.item_id %}" class="remove-item text-danger" id="remove_{{ item.item_id }}">
                                 <small><i class="fa-solid fa-xmark"></i> Remove</small>
                             </a>
                         </td>
