@@ -94,6 +94,24 @@ footer li a {
     box-shadow: var(--blue-box-shadow);
 }
 
+.product-list .card-body {
+    overflow-y: auto; 
+}
+
+.product-list h2 {
+    font-size: 1.2em;
+}
+
+.product-list h3 {
+    font-size: 1em;
+}
+/*
+.product-list .card-title,
+.product-list .card-subtitle,
+.product-list .card-text {
+    margin-bottom: 0.25rem;
+}*/
+
 .product-list:hover, .remove-item:hover {
     cursor: pointer;
 }
