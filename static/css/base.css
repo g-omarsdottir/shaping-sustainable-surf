@@ -66,6 +66,11 @@ main {
     font-family: "Roboto Flex", sans-serif;
 }
 
+/* Turn cursor into pointer when hovering over links */
+.product-list:hover, .remove-item:hover {
+    cursor: pointer;
+}
+
 /* Footer -------------------------------------------------------------*/
 footer {
     /* Stick footer to bottom */
@@ -112,10 +117,6 @@ footer li a {
     margin-bottom: 0.25rem;
 }*/
 
-.product-list:hover, .remove-item:hover {
-    cursor: pointer;
-}
-
 .product-list button {
     background: lightblue;
 }
@@ -155,6 +156,21 @@ footer li a {
 
 .border-black {
     border: 1px solid black !important;
+}
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
 }
 
 /* Forms Django allauth ---------------------------------------------- */

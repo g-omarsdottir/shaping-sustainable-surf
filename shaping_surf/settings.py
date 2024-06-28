@@ -121,6 +121,9 @@ TEMPLATES = [
     },
 ]
 
+# Necessary in Gitpod for toasts
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
+
 AUTHENTICATION_BACKENDS = [
     # Django admin authentication methods
     "django.contrib.auth.backends.ModelBackend",
