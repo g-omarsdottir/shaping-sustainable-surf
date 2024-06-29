@@ -122,6 +122,22 @@ footer li a {
 }
 
 /* Styles from walkthrough project */
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 150px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.548);
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
 .btn-black {
     background: black;
     color: white;
