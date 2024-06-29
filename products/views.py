@@ -23,7 +23,9 @@ def tutorials_list(request):
     sort = None
     direction = None
 
-    initial_products = Product.objects.filter(status="Publish", category__name="Tutorial")
+    initial_products = Product.objects.filter(
+        status="Publish", category__name="Tutorial"
+    )
     if not initial_products.exists():
         messages.error(request, "No tutorials found.")
         return redirect(reverse("tutorials_list"))
@@ -59,7 +61,9 @@ def tutorials_list(request):
         if "q" in request.GET:
             query = request.GET["q"]
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!"
+                )
                 return redirect(reverse("tutorials_list"))
 
             queries = Q(name__icontains=query) | Q(
@@ -69,8 +73,10 @@ def tutorials_list(request):
             products = products.filter(queries)
 
         if not products.exists():
-                messages.error(request, "Your search did not match any tutorials.")
-                return redirect(reverse("tutorials_list"))
+            messages.error(
+                request, "Your search did not match any tutorials."
+            )
+            return redirect(reverse("tutorials_list"))
 
     # return the current sorting methodology to the template
     current_sorting = f"{sort}_{direction}" if sort and direction else "None_None"
@@ -85,18 +91,19 @@ def tutorials_list(request):
     }
     return render(request, "products/tutorials.html", context)
 
+
 def tutorial_detail(request, product_id):
     """
     A view to display individual product details.
     Template to display: products/product_detail.html
-    Related to templates products/tutorials.html 
+    Related to templates products/tutorials.html
         and products/surfboards.
     """
 
     # Return from datbase - here no filtering, returning all products
     product = get_object_or_404(Product, pk=product_id)
 
-    # Add products to the context, so the products will be available in the template
+    # Add products to the context, to be available in the template
     context = {
         "product": product,
     }
