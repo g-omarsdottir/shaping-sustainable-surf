@@ -38,6 +38,20 @@ class Order(models.Model):
     Stores order information.
     """
     order_number = models.CharField(max_length=32, null=False, editable=False)
+    date = models.DateTimeField(auto_now_add=True)
+    order_total = models.DecimalField(
+        max_digits=10, decimal_places=2, null=False, default=0
+    )
+    discount_code = models.ForeignKey(
+        DiscountCode, on_delete=models.SET_NULL, null=True, blank=True
+    )
+    grand_total = models.DecimalField(
+        max_digits=10, decimal_places=2, null=False, default=0
+    )
+    original_cart = models.TextField(null=False, blank=False, default="")
+    stripe_pid = models.CharField(
+        max_length=254, null=False, blank=False, default=""
+    )
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=True, blank=True)
@@ -47,21 +61,7 @@ class Order(models.Model):
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     county = models.CharField(max_length=80, null=True, blank=True)
     country = CountryField(blank_label="Country *", null=False, blank=False)
-    date = models.DateTimeField(auto_now_add=True)
-    order_total = models.DecimalField(
-        max_digits=10, decimal_places=2, null=False, default=0
-    )
-    discount_code = models.ForeignKey(
-        DiscountCode, on_delete=models.SET_NULL, null=True, blank=True
-    )
-    total = models.DecimalField(
-        max_digits=10, decimal_places=2, null=False, default=0
-    )
-    original_cart = models.TextField(null=False, blank=False, default="")
-    stripe_pid = models.CharField(
-        max_length=254, null=False, blank=False, default=""
-    )
-
+    
     def _generate_order_number(self):
         """
         Generate a random, unique order number using UUID
@@ -74,9 +74,9 @@ class Order(models.Model):
         """
         self.order_total = sum(item.product.price for item in self.items.all())
         if self.discount_code:
-            self.total = self.order_total - self.discount_code.amount
+            self.grand_total = self.order_total - self.discount_code.amount
         else:
-            self.total = self.order_total
+            self.grand_total = self.order_total
         self.save()
 
     def save(self, *args, **kwargs):
