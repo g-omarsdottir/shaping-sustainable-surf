@@ -67,7 +67,7 @@ class OrderAdmin(admin.ModelAdmin):
         "postcode",
         "town_or_city",
         "county",
-        #"country",
+        "country",
     )
 
     list_display = (
