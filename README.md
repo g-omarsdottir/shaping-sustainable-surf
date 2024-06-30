@@ -222,9 +222,10 @@ In addition to libraries and frameworks already installed in the Code Institute 
 
 ### Programs Used
 [Canva](https://www.canva.com/) to create the website logo
-[Photoroom](https://www.photoroom.com/tools/background-remover) to remove background from images
+[Photoroom](https://www.photoroom.com/tools/background-remover) to remove background from images and website logo
 [Pixelied](https://pixelied.com/convert) to convert images to webp format
 [TinyPNG](https://tinypng.com/) to compress images
+[favicon.io](https://favicon.io/favicon-converter/) to create favicon from website logo
 
 ## Features
 ### Main Features
