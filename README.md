@@ -354,5 +354,11 @@ To deploy the repository:
 
 ## Credits
 ### Content
+
+[Django Docs](https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#inlinemodeladmin-objects) for the Django admin site
+
 ### Imagery
+
+[Canva](https://www.canva.com/) - Website logo and favicon
+
 ### Acknowledgements
