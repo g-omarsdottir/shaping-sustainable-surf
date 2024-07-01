@@ -58,12 +58,16 @@
             <div class="row text-black text-right">
                 <div class="col-7 offset-2">
                     <p class="my-0">Order Total:</p>
+                    {% if discount_amount > 0 %}
                     <p class="my-0">Discount:</p>
+                    {% endif %}
                     <p class="my-0">Grand Total:</p>
                 </div>
                 <div class="col-3">
-                    <p class="my-0">€{{ order_total | floatformat:2 }}</p>
-                    <p class="my-0">€{{ discount_code.amount | floatformat:2 }}</p>
+                    <p class="my-0">€{{ total | floatformat:2 }}</p>
+                    {% if discount_amount > 0 %}
+                    <p class="my-0">-€{{ discount_amount | floatformat:2 }}</p>
+                    {% endif %}
                     <p class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></p>
                 </div>
             </div>
@@ -113,13 +117,13 @@
                 </fieldset>
 
                 <div class="submit-button text-right mt-5 mb-2">
-                    <a href="{% url 'view_cart' %}" class="btn btn-outline-black rounded-0">
+                    <a href="{% url 'view_cart' %}" class="btn btn-outline-black rounded-0 mb-2">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="font-weight-bold">Adjust Cart</span>
                     </a>
-                    <button id="submit-button" class="btn btn-black rounded-0">
+                    <button id="submit-button" class="btn btn-black rounded-0 mb-2">
                         <span class="font-weight-bold">Complete Order</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>
