@@ -80,9 +80,9 @@ class DiscountCodeForm(forms.Form):
         if code:
             try:
                 discount = DiscountCode.objects.get(code=code, active="Yes")
-                return code
+                return discount
             except DiscountCode.DoesNotExist:
                 raise forms.ValidationError(
                     "Invalid or inactive discount code."
                 )
-        return code
+        return None
