@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from .models import DiscountCode
 from products.models import Product
-
-# Create your views here.
+from .forms import DiscountCodeForm
 
 
 def view_cart(request):
@@ -11,11 +11,31 @@ def view_cart(request):
     Context to avoid duplicate display of cart and cart preview
     """
 
+    template = "cart/cart.html"
+
+    discount_form = DiscountCodeForm()
+
+    if request.method == 'POST':
+        discount_form = DiscountCodeForm(request.POST)
+        if discount_form.is_valid():
+            discount = discount_form.cleaned_data['code']
+            if discount:
+                request.session['discount_code'] = discount.code
+                messages.success(
+                        request, f"Discount code '{discount.code}' applied. "
+                        f"Amount: €{discount.amount}"
+                    )
+            else:
+                request.session.pop('discount_code', None)
+                messages.error(request, "Invalid or inactive discount code.")
+        return redirect('view_cart')
+
     context = {
-        'is_cart_page': True,
+    "is_cart_page": True,
+    "discount_form": discount_form,
     }
 
-    return render(request, "cart/cart.html", context)
+    return render(request, template, context)
 
 
 def add_to_cart(request, item_id):
@@ -35,7 +55,6 @@ def add_to_cart(request, item_id):
         messages.success(request, f"Added {product.name} to your cart")
 
     request.session["cart"] = cart
-    print(request.session["cart"])
     return redirect(redirect_url)
 
 

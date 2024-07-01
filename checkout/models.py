@@ -1,38 +1,12 @@
 import uuid
 from django.db import models
 from products.models import Product
+from cart.models import DiscountCode
 
 from django_countries.fields import CountryField
 
 
 # Create your models here.
-class DiscountCode (models.Model):
-    """
-    Stores discount codes and their values.
-    """
-
-    class Meta:
-        """
-        Verbose name and plural name for admin panel.
-        """
-        verbose_name = "Discount Codes"
-        verbose_name_plural = "Discount Codes"
-
-    ACTIVE_CHOICES = [
-        ("Yes", "Yes"),
-        ("No", "No"),
-    ]
-
-    code = models.CharField(max_length=20)
-    amount = models.DecimalField(max_digits=5, decimal_places=2)
-    active = models.CharField(
-        max_length=3, choices=ACTIVE_CHOICES, default="Yes"
-    )
-
-    def __str__(self):
-        return self.code
-
-
 class Order(models.Model):
     """
     Stores order information.
@@ -67,17 +41,6 @@ class Order(models.Model):
         Generate a random, unique order number using UUID
         """
         return uuid.uuid4().hex.upper()
-
-    def update_total(self):
-        """
-        Calculate the total amount with discount code.
-        """
-        self.order_total = sum(item.product.price for item in self.items.all())
-        if self.discount_code:
-            self.grand_total = self.order_total - self.discount_code.amount
-        else:
-            self.grand_total = self.order_total
-        self.save()
 
     def save(self, *args, **kwargs):
         """

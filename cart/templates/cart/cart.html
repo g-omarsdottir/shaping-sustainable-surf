@@ -67,7 +67,8 @@
 
                         <!-- Display remove link in a row on screen sizes small and up -->
                         <td class="py-3 d-none d-sm-table-cell">
-                            <a href="{% url 'remove_from_cart' item.item_id %}" class="remove-item text-danger" id="remove_{{ item.item_id }}">
+                            <a href="{% url 'remove_from_cart' item.item_id %}" class="remove-item text-danger"
+                                id="remove_{{ item.item_id }}">
                                 <small><i class="fa-solid fa-xmark"></i> Remove</small>
                             </a>
                         </td>
@@ -76,9 +77,32 @@
                         </td>
                     </tr>
                     {% endfor %}
+
                     <tr>
                         <td colspan="5" class="pt-5 text-right">
                             <h4 class="mt-4"><strong>Total: €{{ total|floatformat:2 }}</strong></h4>
+                        </td>
+                    </tr>
+                    {% if discount_amount > 0 %}
+                    <tr>
+                        <td colspan="5" class="pt-5 text-right">
+                            <h4>Discount: -€{{ discount_amount }}</h4>
+                        </td>
+                    </tr>
+                    {% endif %}
+                    <tr>
+                        <td colspan="5" class="pt-5 text-right">
+                            <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="pt-5 text-right">
+                            <!-- Form to enter discount code -->
+                            <form method="POST" action="{% url 'view_cart' %}">
+                                {% csrf_token %}
+                                {{ discount_form }}
+                                <button type="submit">Apply Discount</button>
+                            </form>
                         </td>
                     </tr>
                     <tr>
@@ -99,6 +123,8 @@
                     </tr>
                 </table>
             </div>
+
+
 
             {% else %}
             <p class="lead mb-5">Your cart is empty.</p>

@@ -100,12 +100,6 @@
                         {% endif %}
                     </div>
                 </fieldset>
-                <fieldset class="rounded px-3 mb-5">
-                    <legend class="fieldset-label small text-black px-2 w-auto">Discount Code</legend>
-                    {{ discount_form.code | as_crispy_field }}
-                    <button type="button" id="apply-discount" class="btn btn-outline-black rounded-0">Apply Discount</button>
-                </fieldset>
-                <div id="discount-amount"></div>
                 <fieldset class="px-3">
                     <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
                     <!-- A Stripe card element will go here -->
