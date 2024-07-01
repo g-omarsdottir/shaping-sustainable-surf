@@ -96,24 +96,28 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="5" class="pt-5 text-right">
+                        <td colspan="5" class="pt-5">
                             <!-- Form to enter discount code -->
                             <form method="POST" action="{% url 'view_cart' %}">
                                 {% csrf_token %}
-                                {{ discount_form }}
-                                <button type="submit">Apply Discount</button>
+                                <div id="discount-field">
+                                    {{ discount_form |crispy }}
+                                    <button class="btn btn-outline-black rounded-0" type="submit">
+                                        Apply Discount
+                                    </button>
+                                </div>
                             </form>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="5" class="text-right">
-                            <a href="{% url 'tutorials_list' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                            <a href="{% url 'tutorials_list' %}" class="btn btn-outline-black rounded-0 btn-lg mb-2">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
                                 <span class="text-uppercase">Back to Tutorials</span>
                             </a>
-                            <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+                            <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg mb-2">
                                 <span class="text-uppercase">Secure Checkout</span>
                                 <span class="icon">
                                     <i class="fas fa-lock"></i>

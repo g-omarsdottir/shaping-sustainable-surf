@@ -121,6 +121,18 @@ footer li a {
     background: lightblue;
 }
 
+/* Cart ---------------------------------------------------------------*/
+
+#discount-field {
+    width: 210px;
+}
+
+/*#discount-field button, */
+#discount-field input {
+    width: 100%;
+}
+
+
 /* Styles from walkthrough project */
 
 .btt-button {
