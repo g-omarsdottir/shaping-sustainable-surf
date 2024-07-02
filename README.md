@@ -297,7 +297,28 @@ To connect to cloudinary:
 
 ### Stripe
 
-*to-do*
+This project uses [Stripe](https://docs.stripe.com/) to handle the secure payment process in test mode.
+
+To connect to Stripe API:
+- Log into or sign up for a stripe account.
+- Navigate to "Developers" on the top page menu.
+- In the section "API keys", select "Get your test API keys".
+- You will find two keys necessary to connect your project: 
+  - STRIPE_PUBLIC_KEY = Publishable Key (starts with pk)
+  - STRIPE_SECRET_KEY = Secret Key (starts with sk)
+- In case users prematurely close the purchase-order page or internet connection fails during payment processing, it is important include Stripe Webhooks.
+- Navigate to "Developers" on the top page menu.
+- In the section " Webhooks", select "Add Endpoint".
+- Add the URLs to development and deployed project.
+- Select "Receive All Events".
+- Click the button "Add Endpoint" to complete the process.
+- You will find one key here:
+  - STRIPE_WH_SECRET = Signing Secret (Wehbook) Key (starts with wh)
+- Install the stripe package and integrate to the Django project by configuring it in the settings.py file.
+- Add the link to [stripe's JavaScript](https://docs.stripe.com/js) in your base html template to make security features from stripe available throughout the website for maximum security.
+- Add core JavaScript from the stripe documentation necessary to [accept a payment](https://docs.stripe.com/payments/accept-a-payment).
+- Stripe elements style is customizable to adhere to the ovarall [style of the website](https://docs.stripe.com/elements/appearance-api).
+- Add the keys as variables to the project and make sure to keep the secret keys secret, by e.g. adding it to a .env or env.py file included in .gitignore, and therefore not pushed to your repository or publicly displayed in your code.
 
 ### Google Mail (Gmail) API
 
