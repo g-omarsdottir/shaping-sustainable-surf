@@ -71,6 +71,10 @@ main {
     cursor: pointer;
 }
 
+.nowrap {
+    white-space: nowrap;
+}
+
 /* Footer -------------------------------------------------------------*/
 footer {
     /* Stick footer to bottom */

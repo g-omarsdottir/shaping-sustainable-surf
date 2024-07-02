@@ -47,7 +47,7 @@
                             {% endif %}
                         </td>
 
-                        <!-- Display image, product name and remove link with flex column properties to stack on x-small screens using custom css -->
+                        <!-- Display image, product name and remove-link with flex column properties to stack on x-small screens using custom css -->
                         <td class="py-3 text-wrap product-info-xs">
                             <div class="d-sm-none">
                                 {% if item.product.image %}
@@ -59,14 +59,14 @@
                                 {% endif %}
                             </div>
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <a class="remove-item text-danger d-sm-none" id="remove_{{ item.item_id }}">
+                            <a class="remove-item text-danger d-sm-none nowrap" id="remove_{{ item.item_id }}">
                                 <small><i class="fa-solid fa-xmark"></i> Remove</small>
                             </a>
                         </td>
 
                         <!-- Display remove link in a row on screen sizes small and up -->
                         <td class="py-3 d-none d-sm-table-cell">
-                            <a href="{% url 'remove_from_cart' item.item_id %}" class="remove-item text-danger"
+                            <a href="{% url 'remove_from_cart' item.item_id %}" class="remove-item text-danger nowrap"
                                 id="remove_{{ item.item_id }}">
                                 <small><i class="fa-solid fa-xmark"></i> Remove</small>
                             </a>
@@ -81,7 +81,11 @@
                     {% if discount_amount > 0 %}
                     <tr>
                         <td class="pt-5 py-3">
-                            <p class="my-0 ml-2 text-muted">Discount Code: {{ discount_code }}</p>
+                                <p class="my-0 ml-2 mb-3 text-muted">Discount Code: {{ discount_code }}</p>
+                                <a href="{% url 'remove_discount_code' %}" class="remove-item text-danger"><small><i
+                                            class="fa-solid fa-xmark"></i> Remove Discount Code</small>
+                                </a>
+
                         </td>
                     </tr>
                     {% endif %}

@@ -82,3 +82,18 @@ def remove_from_cart(request, item_id):
         messages.error(request, f"Error removing item: {e}")
 
     return redirect('view_cart')
+
+def remove_discount_code(request):
+    """
+    Remove the discount code from the shopping cart
+    """
+
+    try:
+        # Clear the discount_code from the session
+        request.session.pop('discount_code', None)
+        messages.success(request, "Discount code removed successfully.")
+    except KeyError:
+        # Handle case where discount_code does not exist in the session
+        messages.error(request, "There is no active discount code to remove.")
+
+    return redirect('view_cart')
