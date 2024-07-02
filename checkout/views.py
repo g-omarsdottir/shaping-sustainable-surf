@@ -42,9 +42,11 @@ def checkout(request):
         if order_form.is_valid():
             order = order_form.save(commit=False)
             order.save()
-            for item_id in cart.items():
+            for item_id, quantity in cart.items():
                 try:
-                    product = Product.objects.get(id=int(item_id))
+                    product_id = int(item_id[0])  # Extract the first element of the tuple and convert it to integer
+                    product = Product.objects.get(id=product_id)
+                    print(type(item_id))
                     order_item = OrderItem(
                         order=order,
                         product=product,

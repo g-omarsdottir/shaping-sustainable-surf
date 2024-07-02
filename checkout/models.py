@@ -54,6 +54,13 @@ class Order(models.Model):
     def __str__(self):
         return self.order_number
 
+    def update_total(self):
+        """
+        Calculate and update the total cost of the order.
+        """
+        self.grand_total = sum(order_item.product.price for order_item in self.orderitem_set.all())
+        self.save()
+
 
 class OrderItem(models.Model):
     """
