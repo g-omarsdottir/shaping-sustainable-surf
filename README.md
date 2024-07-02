@@ -143,7 +143,7 @@ Relationships between the model fields are indicated with relationship lines on 
 
 #### Key Features
 
-**Product Management:** The custom models facilitate the storage and management of individual product entities.
+**Product Management:** The custom models facilitate the storage and management of individual product entities in the products app.
 
 Products are stored in one model. Categories and Subcategories are stored in separate models, which allows for scalability and streamlines further technical design. 
 
@@ -151,11 +151,29 @@ Choices for the Category and Subcategory models are defined as constants within 
 
 This approach simplifies the models for the shopping and purchase process, as well as allows for code consistency in code, by referring to products in all html template by the name product, while assuring a separation of concerns and explicitness.
 
-Store owners and superusers are granted comprehensive permissions to create, update, and delete product data. This enables efficient content management within the application.
+Superusers (store owners) are granted comprehensive permissions within the application, allowing them to efficiently manage content across the platform. These permissions encompass Creation, update, and deletion of product data, and pricing adjustments.
 
 ![ERD Product model](/documentation/erd-product.png)
 
 **Ecommerce Functionality**
+
+**Discount Codes:** The custom model facilitates the storage and management of individual discount codes in the cart app. The model is used to validate the code and apply the discount to the shopping cart. To ensure the code is valid, the model checks if the code is in the database, and if the code is in the database, if the code is currently active. As precaution, the model and the form are placed in the shopping cart app to allow the form to be submitted to check for validation without interfering with the order form in the checkout app.<br>
+
+The Order model includes a foreign key to the DiscountCode model, allowing for easy access to the discount code applied to the order.<br>
+
+Superusers (store owners) are granted permission to create, update, and delete discount codes, as well as manage settings to activate or disable discount codes temporarily.
+
+![ERD DiscountCode model](/documentation/erd-discount-code.png)
+
+**Order Management:** The model Order stores all necessary information for a store order. The model OrderItem associates the products with orders. The models are placed in the checkout app<br>  
+
+Superusers (store owners) are granted permission to view and add new orders, as well as editing essential order details post-purchase, including contact information, delivery addresses, and discounts applied. This flexibility is particularly useful for correcting errors or accommodating changes requested by customers.<br>
+
+Non-Editable Order Items: For security and integrity, the individual items within each order are presented inline but are marked as read-only. This prevents accidental modifications to the items ordered.<br>
+
+These extensive permissions empower superusers to maintain and optimize the application's functionality, ensuring smooth operations and customer satisfaction.
+
+![ERD checkout](/documentation/erd-checkout.png)
 
 **Integrated Payment Processing:** The system facilitates secure online transactions for product purchases by integrating with Stripe, a payment gateway provider. This ensures a seamless and secure user experience during checkout.
 
@@ -207,19 +225,19 @@ The Kanban board is a handy tool in agile project management to provide a clear 
 
 In addition to libraries and frameworks already installed in the Code Institute template:
 
-[Django v3.2.25](https://docs.djangoproject.com/en/5.0/releases/3.2.25/) - Python web framework
-[django-allauth v0.63.3](https://docs.allauth.org/en/latest/installation/index.html) - User account authentication
-[black v24.4.2](https://black.readthedocs.io/en/stable/) - Formats code compliant to pep8
-[django-extensions v3.2.3](https://pypi.org/project/django-extensions/) - Show urls and location of installed packages
-[django-crispy-forms v2.2](https://django-crispy-forms.readthedocs.io/en/1.14.0/) - Simplifies the creation of forms
-[crispy-bootstrap v4](https://pypi.org/project/crispy-bootstrap4/) - Bootstrap-specific classes to style forms
-[django-resized v1.0.2](https://pypi.org/project/django-resized/) - Handles resizing and format converting of images uploaded by store owners
-[pillow v10.3.0](https://pillow.readthedocs.io/en/stable/) - A Python imaging library, handles images in combination with the Django Resized Image Field
-[django-richtextfield v1.6.2](https://djangopackages.org/packages/p/django-richtextfield/) - A customizable rich text editor for product description
-[cloudinary v1.40.0](https://cloudinary.com/documentation/django_integration) - Allows to upload product images
-[django-cloudinary-storage v0.3.0](https://cloudinary.com/documentation/rails_activestorage) - Provides storage of uploaded product images 
-[django-countries v7.6.1](https://pypi.org/project/django-countries/) -  Provides country choices for use with forms and a country field for models
-[stripe v10.1.0](https://docs.stripe.com/) - Provides secure payment processing
+- [Django v3.2.25](https://docs.djangoproject.com/en/5.0/releases/3.2.25/) - Python web framework
+- [django-allauth v0.63.3](https://docs.allauth.org/en/latest/installation/index.html) - User account authentication
+- [black v24.4.2](https://black.readthedocs.io/en/stable/) - Formats code compliant to pep8
+- [django-extensions v3.2.3](https://pypi.org/project/django-extensions/) - Show urls and location of installed packages
+- [django-crispy-forms v2.2](https://django-crispy-forms.readthedocs.io/en/1.14.0/) - Simplifies the creation of forms
+- [crispy-bootstrap v4](https://pypi.org/project/crispy-bootstrap4/) - Bootstrap-specific classes to style forms
+- [django-resized v1.0.2](https://pypi.org/project/django-resized/) - Handles resizing and format converting of images uploaded by store owners
+- [pillow v10.3.0](https://pillow.readthedocs.io/en/stable/) - A Python imaging library, handles images in combination with the Django Resized Image Field
+- [django-richtextfield v1.6.2](https://djangopackages.org/packages/p/django-richtextfield/) - A customizable rich text editor for product description
+- [cloudinary v1.40.0](https://cloudinary.com/documentation/django_integration) - Allows to upload product images
+- [django-cloudinary-storage v0.3.0](https://cloudinary.com/documentation/rails_activestorage) - Provides storage of uploaded product images 
+- [django-countries v7.6.1](https://pypi.org/project/django-countries/) -  Provides country choices for use with forms and a country field for models
+- [stripe v10.1.0](https://docs.stripe.com/) - Provides secure payment processing
 
 ### Programs Used
 [Canva](https://www.canva.com/) to create the website logo
@@ -308,7 +326,7 @@ To connect to Stripe API:
   - STRIPE_SECRET_KEY = Secret Key (starts with sk)
 - In case users prematurely close the purchase-order page or internet connection fails during payment processing, it is important include Stripe Webhooks.
 - Navigate to "Developers" on the top page menu.
-- In the section " Webhooks", select "Add Endpoint".
+- In the section "Webhooks", select "Add Endpoint".
 - Add the URLs to development and deployed project.
 - Select "Receive All Events".
 - Click the button "Add Endpoint" to complete the process.
