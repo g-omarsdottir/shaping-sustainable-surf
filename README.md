@@ -173,13 +173,11 @@ Non-Editable Order Items: For security and integrity, the individual items withi
 
 These extensive permissions empower superusers to maintain and optimize the application's functionality, ensuring smooth operations and customer satisfaction.
 
-![ERD checkout](/documentation/erd-checkout.png)
-
 **Integrated Payment Processing:** The system facilitates secure online transactions for product purchases by integrating with Stripe, a payment gateway provider. This ensures a seamless and secure user experience during checkout.
 
-**Purchase Models:** Additional Django models are implemented to manage the intricacies of online purchases. These models capture essential order and payment details, enabling efficient transaction processing and record-keeping.
+**Relationship with Product and User models:** The Order model establishes relationships with both Product and User models (see ERD). This facilitates data retrieval and management of purchase history for both users and store administrators.
 
-**Relationship with Product and User models:** The purchase models establish relationships with both product and user models (see ERD). This facilitates data retrieval and management of purchase history for both users and store administrators.
+![ERD checkout](/documentation/erd-checkout.png)
 
 **Payment Security**
 
