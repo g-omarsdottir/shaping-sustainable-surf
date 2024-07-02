@@ -31,7 +31,6 @@
                             <th scope="col"></th>
                             <th scope="col" class="d-none d-sm-table-cell"></th>
                             <th scope="col">Price</th>
-
                         </tr>
                     </thead>
 
@@ -80,19 +79,19 @@
 
                     <tr>
                         <td colspan="5" class="pt-3 text-right">
-                            <h4 class="mt-4">Total: €{{ total|floatformat:2 }}</h4>
+                            <h4 class="mt-1">Total: €{{ total|floatformat:2 }}</h4>
                         </td>
                     </tr>
                     {% if discount_amount > 0 %}
                     <tr>
                         <td colspan="5" class="pt-1 text-right text-muted">
-                            <h4>Discount: -€{{ discount_amount }}</h4>
+                            <h4 class="pt-1">Discount: -€{{ discount_amount }}</h4>
                         </td>
                     </tr>
                     {% endif %}
                     <tr>
                         <td colspan="5" class="pt-1 text-right">
-                            <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
+                            <h4 class="mt-1"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
                         </td>
                     </tr>
                     <tr>

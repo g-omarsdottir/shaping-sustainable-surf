@@ -218,7 +218,8 @@ In addition to libraries and frameworks already installed in the Code Institute 
 [django-richtextfield v1.6.2](https://djangopackages.org/packages/p/django-richtextfield/) - A customizable rich text editor for product description
 [cloudinary v1.40.0](https://cloudinary.com/documentation/django_integration) - Allows to upload product images
 [django-cloudinary-storage v0.3.0](https://cloudinary.com/documentation/rails_activestorage) - Provides storage of uploaded product images 
-[django-countries v7.6.1](https://pypi.org/project/django-countries/) -  Provides country choices for use with forms and a country field for models.
+[django-countries v7.6.1](https://pypi.org/project/django-countries/) -  Provides country choices for use with forms and a country field for models
+[stripe v10.1.0](https://docs.stripe.com/) - Provides secure payment processing
 
 ### Programs Used
 [Canva](https://www.canva.com/) to create the website logo
