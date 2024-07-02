@@ -9,6 +9,7 @@ from cart.contexts import cart_contents
 
 import stripe
 
+
 def checkout(request):
     """
     View to render the checkout page.
@@ -19,39 +20,60 @@ def checkout(request):
 
     template = "checkout/checkout.html"
 
-    cart = request.session.get("cart", {})
-    if not cart:
-        messages.error(
-            request, "There's nothing in your cart at the moment"
-        )
-        return redirect(reverse("tutorials"))
-
     order_form = OrderForm()
 
-    if request.method == 'POST':
-        order_form = OrderForm(request.POST)
+    if request.method == "POST":
+        cart = request.session.get("cart", {})
+
+        form_data = {
+            "full_name": request.POST["full_name"],
+            "email": request.POST["email"],
+            "phone_number": request.POST["phone_number"],
+            "street_address1": request.POST["street_address1"],
+            "street_address2": request.POST["street_address2"],
+            "postcode": request.POST["postcode"],
+            "town_or_city": request.POST["town_or_city"],
+            "county": request.POST["county"],
+            "country": request.POST["country"],
+        }
+
+        order_form = OrderForm(form_data)
 
         if order_form.is_valid():
             order = order_form.save(commit=False)
             order.save()
-            
-            # Process payment and complete order
-            # Create order items
-            for item_id, quantity in cart.items():
-                product = Product.objects.get(id=item_id)
-                order_item = OrderItem(
-                    order=order,
-                    product=product,
-                )
-                order_item.save()
-
-            # Redirect to a success page
-            return redirect('checkout_success', order_number=order.order_number)
+            for item_id in cart.items():
+                try:
+                    product = Product.objects.get(id=int(item_id))
+                    order_item = OrderItem(
+                        order=order,
+                        product=product,
+                    )
+                    order_item.save()
+                except Product.DoesNotExist:
+                    messages.error(
+                        request, "One of the products in your cart "
+                        "is no longer available. "
+                        "Please contact us for assistance."
+                    )
+                    order.delete()
+                    return redirect(reverse("view_cart"))
+            request.session["save_info"] = "save-info" in request.POST
+            return redirect(
+                reverse("checkout_success", args=[order.order_number])
+            )
         else:
             messages.error(
                 request, "There was an error with your form. "
                 "Please double check your information."
             )
+    else:
+        cart = request.session.get("cart", {})
+        if not cart:
+            messages.error(
+                request, "There is nothing in your cart at the moment"
+            )
+            return redirect(reverse("tutorials"))
 
     current_cart = cart_contents(request)
     total = current_cart["grand_total"]
@@ -79,6 +101,28 @@ def checkout(request):
         "order_form": order_form,
         "stripe_public_key": stripe_public_key,
         "client_secret": intent.client_secret,
+    }
+
+    return render(request, template, context)
+
+
+def checkout_success(request, order_number):
+    """
+    View to handle successful checkouts
+    """
+    save_info = request.session.get("save_info")
+    order = get_object_or_404(Order, order_number=order_number)
+
+    messages.success(request, f"Order successfully processed! \
+        Your order number is {order_number}. A confirmation \
+        email will be sent to {order.email}.")
+
+    if "cart" in request.session:
+        del request.session["cart"]
+
+    template = "checkout/checkout_success.html"
+    context = {
+        "order": order,
     }
 
     return render(request, template, context)

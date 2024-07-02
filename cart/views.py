@@ -34,9 +34,9 @@ def view_cart(request):
     discount_code = request.session.get('discount_code', '')
 
     context = {
-    "is_cart_page": True,
-    "discount_form": discount_form,
-    "discount_code": discount_code,
+        "is_cart_page": True,
+        "discount_form": discount_form,
+        "discount_code": discount_code,
     }
 
     return render(request, template, context)
@@ -82,6 +82,7 @@ def remove_from_cart(request, item_id):
         messages.error(request, f"Error removing item: {e}")
 
     return redirect('view_cart')
+
 
 def remove_discount_code(request):
     """

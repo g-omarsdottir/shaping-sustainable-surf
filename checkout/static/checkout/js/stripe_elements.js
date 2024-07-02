@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var stripe = Stripe(stripePublicKey);
 
     var elements = stripe.elements();
-    console.log('Elements object created:', elements);
 
     var style = {
         base: {
@@ -87,8 +86,5 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         });
-    }).fail(function () {
-        // In case of error, reload the page and error message is displayed in django messages
-        location.reload();
     });
 });
