@@ -30,9 +30,13 @@ def view_cart(request):
                 messages.error(request, "Invalid or inactive discount code.")
         return redirect('view_cart')
 
+    # Retrieves discount code from the session if it exists
+    discount_code = request.session.get('discount_code', '')
+
     context = {
     "is_cart_page": True,
     "discount_form": discount_form,
+    "discount_code": discount_code,
     }
 
     return render(request, template, context)
