@@ -46,7 +46,6 @@ def checkout(request):
                 try:
                     product_id = int(item_id[0])  # Extract the first element of the tuple and convert it to integer
                     product = Product.objects.get(id=product_id)
-                    print(type(item_id))
                     order_item = OrderItem(
                         order=order,
                         product=product,
@@ -60,6 +59,7 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse("view_cart"))
+            order.update_total()
             request.session["save_info"] = "save-info" in request.POST
             return redirect(
                 reverse("checkout_success", args=[order.order_number])
@@ -69,13 +69,14 @@ def checkout(request):
                 request, "There was an error with your form. "
                 "Please double check your information."
             )
+    
     else:
         cart = request.session.get("cart", {})
         if not cart:
             messages.error(
                 request, "There is nothing in your cart at the moment"
             )
-            return redirect(reverse("tutorials"))
+            return redirect(reverse("tutorials_list"))
 
     current_cart = cart_contents(request)
     total = current_cart["grand_total"]

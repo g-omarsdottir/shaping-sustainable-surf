@@ -58,7 +58,7 @@ class Order(models.Model):
         """
         Calculate and update the total cost of the order.
         """
-        self.grand_total = sum(order_item.product.price for order_item in self.orderitem_set.all())
+        self.grand_total = sum(order_item.product.price for order_item in self.items.all())
         self.save()
 
 
