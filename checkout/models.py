@@ -70,11 +70,15 @@ class Order(models.Model):
 class OrderItem(models.Model):
     """
     A model to associate products with orders.
+    Stores the product name and price at the time of order in case of changes.
+    Values are passed to the model in the checkout view.
     """
     order = models.ForeignKey(
         Order, related_name="items", on_delete=models.CASCADE
     )
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    product_name = models.CharField(max_length=255)
+    product_price = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
-        return f"{self.product.name} on order {self.order.order_number}"
+        return f"{self.product_name} on order {self.order.order_number}"

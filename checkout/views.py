@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
+from django.db.models import Prefetch
 
 from .forms import OrderForm
 from .models import Order, OrderItem
@@ -13,9 +14,40 @@ import stripe
 
 def checkout(request):
     """
-    View to render the checkout page.
-    Passes the context incl. stripe API keys to the template.
+    View to handle the checkout process.
+
+    GET:
+    - Renders the checkout page with an empty order form.
+    - Creates a Stripe PaymentIntent for the current cart total.
+    - Passes Stripe public key and client secret to the template.
+
+    POST:
+    - Processes the submitted order form.
+    - Creates an Order instance with form data.
+    - Applies discount code if present in the session.
+    - Creates OrderItem instances for each product in the cart.
+    - Updates order total.
+    - Redirects to checkout success page on successful order creation.
+
+    Handles various scenarios:
+    - Empty cart: Redirects to tutorials list with an error message.
+    - Invalid form: Redisplays the form with error messages.
+    - Product no longer available: Deletes the order and redirects to cart.
+    - Missing Stripe public key: Displays a warning message.
+
+    Args:
+        request (HttpRequest): The request object.
+
+    Returns:
+        HttpResponse: Renders the checkout template with context including
+                      order form, Stripe public key, and client secret.
+        HttpResponseRedirect: Redirects to checkout success or cart view
+                              based on the outcome of the checkout process.
+
+    Raises:
+        None, but catches and handles Product.DoesNotExist exception.
     """
+
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -57,11 +89,12 @@ def checkout(request):
             order.save()
             for item_id, quantity in cart.items():
                 try:
-                    product_id = int(item_id[0])  # Extract the first element of the tuple and convert it to integer
-                    product = Product.objects.get(id=product_id)
+                    product = Product.objects.get(id=item_id)
                     order_item = OrderItem(
                         order=order,
                         product=product,
+                        product_name=product.name,
+                        product_price=product.price,
                     )
                     order_item.save()
                 except Product.DoesNotExist:
@@ -125,11 +158,26 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """
-    View to handle successful checkouts
+    View to handle successful checkouts.
+    Fetches the Order with related DiscountCode and all associated OrderItems
+    with their Products in a single optimized query.
+    Clears the cart and discount code from the session.
+    Displays a success message and renders the checkout success template.
+
+    Args:
+        request (HttpRequest): The request object.
+        order_number (str): The unique identifier for the order.
+
+    Returns:
+        HttpResponse: Renders the checkout success template with the order context.
     """
+
     save_info = request.session.get("save_info")
     order = get_object_or_404(
-        Order.objects.select_related("discount_code"), order_number=order_number
+        Order.objects.select_related("discount_code").prefetch_related(
+            Prefetch("items", queryset=OrderItem.objects.select_related("product"))
+        ),
+        order_number=order_number
     )
 
     success_message = (
