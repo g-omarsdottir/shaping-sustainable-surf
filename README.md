@@ -325,11 +325,11 @@ To connect to Stripe API:
 - In case users prematurely close the purchase-order page or internet connection fails during payment processing, it is important include Stripe Webhooks.
 - Navigate to "Developers" on the top page menu.
 - In the section "Webhooks", select "Add Endpoint".
-- Add the URLs to development and deployed project.
-- Select "Receive All Events".
-- Click the button "Add Endpoint" to complete the process.
-- You will find one key here:
-  - STRIPE_WH_SECRET = Signing Secret (Wehbook) Key (starts with wh)
+  - Add the webhook URL.
+  - Select "Receive All Events".
+  - Click the button "Add Endpoint" to complete the process.
+  - You will find one key under signing secret.
+    - STRIPE_WH_SECRET = Signing Secret (Wehbook) Key (starts with wh)
 - Install the stripe package and integrate to the Django project by configuring it in the settings.py file.
 - Add the link to [stripe's JavaScript](https://docs.stripe.com/js) in your base html template to make security features from stripe available throughout the website for maximum security.
 - Add core JavaScript from the stripe documentation necessary to [accept a payment](https://docs.stripe.com/payments/accept-a-payment).

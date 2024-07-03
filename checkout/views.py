@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
 from django.db.models import Prefetch
+import json
 
 from .forms import OrderForm
 from .models import Order, OrderItem
@@ -75,7 +76,7 @@ def checkout(request):
 
             # Get the discount information from the cart contents
             current_cart = cart_contents(request)
-            discount_code = request.session.get('discount_code')
+            discount_code = request.session.get("discount_code")
 
             if discount_code:
                 try:
@@ -85,7 +86,7 @@ def checkout(request):
                     messages.error(
                         request, "The discount code in your cart is no longer valid."
                     )
-                    request.session.pop('discount_code', None)
+                    request.session.pop("discount_code", None)
             order.save()
             for item_id, quantity in cart.items():
                 try:
@@ -133,6 +134,12 @@ def checkout(request):
         automatic_payment_methods={
             "enabled": True,
         },
+        # Pass the discount code to the stripe payment intent
+        metadata={
+        "cart": json.dumps(request.session.get("cart", {})),
+        "discount_code": request.session.get("discount_code", ""),
+        "save_info": request.session.get("save_info", ""),
+        }
     )
 
     if not stripe_public_key:
