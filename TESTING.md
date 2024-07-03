@@ -26,6 +26,7 @@ Thorough and continuous testing was performed throughout the development process
 [Performance Testing](#performance-testing)
 [Known Bugs](#known-bugs)
 [Resolved Bugs](#resolved-bugs)
+[Programs Used](#programs-used)
 
 ## Automated Testing
 
@@ -33,8 +34,7 @@ This section covers the automated tests performed on the project's code. It incl
 
 ### Python
 
-[Python Linter Validator](https://pep8ci.herokuapp.com/) provided by the Code Institute according to the PEP 8 style guide was used for validating the Python code.
-[Results to be added]
+[Python Linter Validator](https://pep8ci.herokuapp.com/) provided by the Code Institute according to the PEP 8 style guide was used for validating the Python code throughout the development process.
 
 ### JavaScript 
 
@@ -125,8 +125,15 @@ This section lists any known issues or limitations in the current version of the
 [Table to be added]
 
 ### Resolved Bugs
-Here, we document significant bugs that were encountered during development and testing, along with the solutions implemented. This section demonstrates the problem-solving process and the improvements made to the project over time.
-[Table to be added]
+This section lists significant bugs that were encountered during development and testing, along with the solutions implemented. 
+
+| Bug                                                             | Description                                                                                                             | Solution Applied                                                                                                | Result |
+|-----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|--------|
+| AttributeError: BlankChoiceIterator object has no attribute len | Error occurred when adding an order in the admin panel due to incompatibility with the CountryField choices processing. | Upgrade Django CountryField package to the latest version.                                                      | Solved |
+| Unrecognized request URL                                        | Error encountered during order completion process.                                                                      | Generated new Stripe API keys and properly set them in environment variables.                                   | Solved |
+| TypeError: Field id expected a number but got (2, 1)            | Checkout view raised an error due to incorrect data type for product ID.                                                | Refactor code to extract and convert the product ID to the correct integer format before querying the database. | Solved |
+| AttributeError: Order object has no attribute update_total      | Signal handlers in signals.py attempted to call a non-existent method on the Order model.                               | Add update_total method to the Order model and call it explicitly in the checkout view.                         | solved |
+
 
 ## Programs Used
 A comprehensive list of all tools, validators, and programs used throughout the testing process and for this testing documentation. This section provides links and brief descriptions of each tool, helping readers understand the testing methodology and potentially replicate the tests.
