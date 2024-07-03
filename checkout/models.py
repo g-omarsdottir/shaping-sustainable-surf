@@ -58,7 +58,12 @@ class Order(models.Model):
         """
         Calculate and update the total cost of the order.
         """
-        self.grand_total = sum(order_item.product.price for order_item in self.items.all())
+        self.order_total = sum(order_item.product.price for order_item in self.items.all())
+        if self.discount_code:
+            discount_amount = self.discount_code.amount
+            self.grand_total = max(self.order_total - discount_amount, 0)
+        else:
+            self.grand_total = self.order_total
         self.save()
 
 

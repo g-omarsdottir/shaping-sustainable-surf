@@ -5,6 +5,7 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderItem
 from products.models import Product
+from cart.models import DiscountCode
 from cart.contexts import cart_contents
 
 import stripe
@@ -17,8 +18,6 @@ def checkout(request):
     """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-
-    template = "checkout/checkout.html"
 
     order_form = OrderForm()
 
@@ -41,6 +40,20 @@ def checkout(request):
 
         if order_form.is_valid():
             order = order_form.save(commit=False)
+
+            # Get the discount information from the cart contents
+            current_cart = cart_contents(request)
+            discount_code = request.session.get('discount_code')
+
+            if discount_code:
+                try:
+                    discount = DiscountCode.objects.get(code=discount_code)
+                    order.discount_code = discount
+                except DiscountCode.DoesNotExist:
+                    messages.error(
+                        request, "The discount code in your cart is no longer valid."
+                    )
+                    request.session.pop('discount_code', None)
             order.save()
             for item_id, quantity in cart.items():
                 try:
@@ -69,7 +82,6 @@ def checkout(request):
                 request, "There was an error with your form. "
                 "Please double check your information."
             )
-    
     else:
         cart = request.session.get("cart", {})
         if not cart:
@@ -100,6 +112,8 @@ def checkout(request):
             ),
         )
 
+    template = "checkout/checkout.html"
+
     context = {
         "order_form": order_form,
         "stripe_public_key": stripe_public_key,
@@ -114,16 +128,25 @@ def checkout_success(request, order_number):
     View to handle successful checkouts
     """
     save_info = request.session.get("save_info")
-    order = get_object_or_404(Order, order_number=order_number)
+    order = get_object_or_404(
+        Order.objects.select_related("discount_code"), order_number=order_number
+    )
 
-    messages.success(request, f"Order successfully processed! \
-        Your order number is {order_number}. A confirmation \
-        email will be sent to {order.email}.")
+    success_message = (
+        f"Order successfully processed! "
+        f"Your order number is {order_number}. A confirmation "
+        f"email will be sent to {order.email}."
+    )
+    messages.success(request, success_message)
 
     if "cart" in request.session:
         del request.session["cart"]
 
+    if "discount_code" in request.session:
+        del request.session["discount_code"]
+
     template = "checkout/checkout_success.html"
+
     context = {
         "order": order,
     }
