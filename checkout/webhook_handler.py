@@ -69,7 +69,7 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
-            self._send_confirmation_email(order)
+            #self._send_confirmation_email(order)
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
                 status=200,
@@ -90,6 +90,15 @@ class StripeWH_Handler:
                     original_cart=cart,
                     stripe_pid=pid,
                 )
+                for item_id, item_data in json.loads(cart).items():
+                    product = Product.objects.get(id=item_id)
+                    order_item = OrderItem(
+                        order=order,
+                        product=product,
+                        product_name=product.name,
+                        product_price=product.price,
+                    )
+                    order_item.save()
                 # Handle discount code
                 if discount_code:
                     try:
@@ -98,14 +107,7 @@ class StripeWH_Handler:
                         order.save()
                     except DiscountCode.DoesNotExist:
                         pass
-                for item_id, item_data in json.loads(cart).items():
-                    product = Product.objects.get(id=item_id)
-                    order_item = OrderItem(
-                        product=product,
-                        product_name=product.name,
-                        product_price=product.price,
-                    )
-                    order_item.save()
+                order.update_total()
             except Exception as e:
                 if order:
                     order.delete()
@@ -113,7 +115,7 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500,
                 )
-        self._send_confirmation_email(order)
+        #self._send_confirmation_email(order)
         # Create the order
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',

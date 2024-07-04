@@ -54,7 +54,6 @@ def webhook(request):
     response = event_handler(event)
     return response
 
-    print("Success")
     return HttpResponse(status=200)
 
     # Set up a webhook handler
