@@ -111,6 +111,10 @@ def checkout(request):
 
         if order_form.is_valid():
             order = order_form.save(commit=False)
+            pid = request.POST.get("client_secret").split("_secret")[0]
+            order.stripe_pid = pid
+            order.original_cart = json.dumps(cart)
+            order.save()
 
             # Get the discount information from the cart contents
             current_cart = cart_contents(request)
