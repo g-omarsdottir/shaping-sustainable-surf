@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">My Profile</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <p class="text-muted">Default Address Information</p>
+            <!-- Form to Update Information -->
+        </div>
+        <div class="col-12 col-lg-6">
+            <p class="text-muted">Order History</p>
+            {% if orders %}
+            <div class="order-history table-responsive">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Order Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                                    {{ order.order_number|truncatechars:6 }}
+                                </a>
+                            </td>
+                            <td>{{ order.date }}</td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    {% for item in order.items.all %}
+                                    <li class="small">
+                                        {{ item.product.name }}
+                                    </li>
+                                    <li class="small">
+                                        {{ item.product.price }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    {% if order.discount_code %}
+                                    <li class="small">
+                                        Discount Applied ({{ order.discount_code.code }})
+                                        - €{{ order.discount_code.amount }}
+                                    </li>
+                                    {% endif %}
+                                    <li class="small">
+                                        ${{ order.grand_total }}
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p class="text-muted">You have not made any orders yet.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <h2>Your Purchased Tutorials:</h2>
+            {% if profile.video_unlocked %}
+            <div class="table-responsive rounded">
+                <table class="table table-sm table-borderless">
+                    <thead class="text-black">
+                        <tr>
+                            <th scope="col" class="d-none d-sm-table-cell w-25">Tutorial</th>
+                            <th scope="col">Title</th>
+                            <th scope="col" class="d-none d-sm-table-cell"></th>
+                            <th scope="col">Watch Tutorial</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        {% for item in order.items.all %}
+                        {% if item.product.video_url %}
+                        <tr>
+                            <!-- Hides table cell with product image on x-small screens -->
+                            <td class="p-3 w-25 d-none d-sm-table-cell">
+                                {% if product.image %}
+                                <img class="img-fluid rounded" src="{{ item.product.image.url }}"
+                                    alt="image for product {{ item.product.name }}">
+                                {% else %}
+                                <img src="{% static 'images/noimage.webp' %}" class="img-fluid rounded"
+                                    alt="No image yet for this product">
+                                {% endif %}
+                            </td>
+
+                            <!-- Display image, product name and remove-link with flex column properties to stack on x-small screens using custom css -->
+                            <td class="py-3 text-wrap product-info-xs">
+                                <div class="d-sm-none">
+                                    {% if product.image %}
+                                    <img class="img-fluid rounded mb-2" src="{{ item.product.image.url }}"
+                                        alt="image for product {{ product.name }}">
+                                    {% else %}
+                                    <img src="{% static 'images/noimage.webp' %}" class="img-fluid rounded mb-2"
+                                        alt="No image yet for this product">
+                                    {% endif %}
+                                </div>
+                                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                <a href="{{ item.product.video_url }}" target="_blank" rel="noopener noreferrer"
+                                    aria-label="Opens in a new window">Click Here to Watch Tutorial</a>
+                            </td>
+
+                            <!-- Display in a row on screen sizes small and up -->
+                            <td class="py-3 d-none d-sm-table-cell">
+                                <a href="{{ item.product.video_url }}" target="_blank" rel="noopener noreferrer"
+                                    aria-label="Opens in a new window">Click Here to Watch Tutorial</a>
+                            </td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% else %}
+        <p>You have not purchased any tutorials yet.</p>
+    </div>
+    {% endif %}
+</div>
+<div class="row">
+    <div class="col-12 col-lg-6 mb-5">
+        <a href="{% url 'tutorials_list' %}" class="btn btn-outline-black rounded-0 btn-lg mb-2">
+            <span class="icon">
+                <i class="fas fa-chevron-left"></i>
+            </span>
+            <span class="text-uppercase">Browse Tutorials</span>
+        </a>
+    </div>
+</div>
+</div>
+{% endblock %}

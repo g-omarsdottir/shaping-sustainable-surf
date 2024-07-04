@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "products",
     "cart",
     "checkout",
+    "profiles",
     # Third-party apps
     "django_extensions",
     "crispy_forms",

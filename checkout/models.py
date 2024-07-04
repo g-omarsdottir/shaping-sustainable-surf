@@ -1,10 +1,11 @@
 import uuid
 from django.db import models
-from products.models import Product
 from cart.models import DiscountCode
 
 from django_countries.fields import CountryField
 
+from products.models import Product
+from profiles.models import UserProfile
 
 # Create your models here.
 class Order(models.Model):
@@ -25,6 +26,9 @@ class Order(models.Model):
     )
     original_cart = models.TextField(null=False, blank=False, default="")
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default="")
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+        null=True, blank=True, related_name='orders'
+    )
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=True, blank=True)
