@@ -45,7 +45,7 @@ class StripeWH_Handler:
 
         # Check if order exists or else create the order.
         order_exists = False
-        attempt = 1
+        attempt += 1
         while attempt <= 5:
             try:
                 order = Order.objects.get(
