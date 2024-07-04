@@ -99,7 +99,7 @@
                     <tbody>
                         {% for order in orders %}
                         {% for item in order.items.all %}
-                        {% if item.product.video_url %}
+                        {% if item.product and item.product.video_url %}
                         <tr>
                             <!-- Hides table cell with product image on x-small screens -->
                             <td class="p-3 w-25 d-none d-sm-table-cell">
@@ -147,7 +147,7 @@
     {% endif %}
 </div>
 <div class="row">
-    <div class="col-12 col-lg-6 mb-5">
+    <div class="col-12 col-lg-6 mb-5 mt-5">
         <a href="{% url 'tutorials_list' %}" class="btn btn-outline-black rounded-0 btn-lg mb-2">
             <span class="icon">
                 <i class="fas fa-chevron-left"></i>

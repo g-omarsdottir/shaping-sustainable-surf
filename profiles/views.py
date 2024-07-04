@@ -17,6 +17,7 @@ def profile(request):
     }
     template = 'profiles/profile.html'
 
-    context = {}
+    print(context)
+    print(f"Video unlocked: {profile.video_unlocked}")
 
     return render(request, template, context)

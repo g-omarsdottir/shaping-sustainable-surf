@@ -74,6 +74,11 @@ def checkout(request):
     - Product no longer available: Deletes the order and redirects to cart.
     - Missing Stripe public key: Displays a warning message.
 
+    Stripe PaymentIntent:
+    - Creates a PaymentIntent with the cart total.
+    - Includes metadata: cart contents, discount code, save_info preference, and user ID.
+    - User ID is included in metadata if the user is authenticated, for use in webhooks.
+
     Args:
         request (HttpRequest): The request object.
 
@@ -172,6 +177,18 @@ def checkout(request):
     total = current_cart["grand_total"]
     stripe_total = round(total * 100)
     stripe.api_key = stripe_secret_key
+    
+    # Prepare metadata for payment intent
+    metadata = {
+        "cart": json.dumps(request.session.get("cart", {})),
+        "discount_code": request.session.get("discount_code", ""),
+        "save_info": request.session.get("save_info", ""),
+    }
+
+    # Add user ID to metadata if user is authenticated
+    if request.user.is_authenticated:
+        metadata["user_id"] = str(request.user.id)
+    
     intent = stripe.PaymentIntent.create(
         amount=stripe_total,
         currency=settings.STRIPE_CURRENCY,
@@ -179,11 +196,7 @@ def checkout(request):
             "enabled": True,
         },
         # Pass the discount code to the stripe payment intent
-        metadata={
-            "cart": json.dumps(request.session.get("cart", {})),
-            "discount_code": request.session.get("discount_code", ""),
-            "save_info": request.session.get("save_info", ""),
-        },
+        metadata=metadata,
     )
 
     if not stripe_public_key:

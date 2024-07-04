@@ -3,9 +3,12 @@ from django.http import HttpResponse
 import json
 import time
 
+from django.contrib.auth.models import User
+
 from .models import Order, OrderItem
 from products.models import Product
 from cart.models import DiscountCode
+from profiles.models import UserProfile
 
 
 class StripeWH_Handler:
@@ -26,7 +29,8 @@ class StripeWH_Handler:
 
     def handle_payment_intent_succeeded(self, event):
         """
-        Handles the payment_intent.succeeded webhook from Stripe.
+        Handle the payment_intent.succeeded webhook from Stripe.
+        Unlock video in UserProfile model.
         """
 
         intent = event.data.object
@@ -34,6 +38,7 @@ class StripeWH_Handler:
         cart = intent.metadata.cart
         save_info = intent.metadata.save_info
         discount_code = intent.metadata.get("discount_code", "")
+        user_id = intent.metadata.get("user_id", "")
         stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
         billing_details = stripe_charge.billing_details
         grand_total = round(stripe_charge.amount / 100, 2)
@@ -69,6 +74,7 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(2)
         if order_exists:
+            self._unlock_video_for_user(user_id)
             #self._send_confirmation_email(order)
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
@@ -116,11 +122,26 @@ class StripeWH_Handler:
                     status=500,
                 )
         #self._send_confirmation_email(order)
+        self._unlock_video_for_user(user_id)
         # Create the order
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200,
         )
+
+    def _unlock_video_for_user(self, user_id):
+        """
+        Unlock the video in UserProfile model.
+        """
+        if user_id:
+            try:
+                profile = UserProfile.objects.get(user_id=user_id)
+                profile.unlock_video()
+                print(f"Unlocked video for user {profile.user.username}")
+            except UserProfile.DoesNotExist:
+                print(f"UserProfile for user_id {user_id} not found")
+            except Exception as e:
+                print(f"Error unlocking video: {str(e)}")
 
     def handle_payment_intent_payment_failed(self, event):
         """
