@@ -32,12 +32,9 @@ class StripeWH_Handler:
         intent = event.data.object
         pid = intent.id
         cart = intent.metadata.cart
-        # save_info = intent.metadata.save_info
+        save_info = intent.metadata.save_info
         discount_code = intent.metadata.get("discount_code", "")
-
-        # Get the Charge object
         stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
-
         billing_details = stripe_charge.billing_details
         grand_total = round(stripe_charge.amount / 100, 2)
 
@@ -46,7 +43,7 @@ class StripeWH_Handler:
             if value == "":
                 billing_details.address[field] = None
 
-        # Check if order exists or els create the order.
+        # Check if order exists or else create the order.
         order_exists = False
         attempt = 1
         while attempt <= 5:
@@ -84,13 +81,13 @@ class StripeWH_Handler:
                     full_name=billing_details.name,
                     email=billing_details.email,
                     phone_number=billing_details.phone,
-                    country=billing_details.address.country,
-                    postcode=billing_details.address.postal_code,
-                    town_or_city=billing_details.address.city,
                     street_address1=billing_details.address.line1,
                     street_address2=billing_details.address.line2,
+                    postcode=billing_details.address.postal_code,
+                    town_or_city=billing_details.address.city,
                     county=billing_details.address.state,
-                    original_bag=bag,
+                    country=billing_details.address.country,
+                    original_cart=cart,
                     stripe_pid=pid,
                 )
                 # Handle discount code

@@ -1,8 +1,12 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse
+from django.shortcuts import get_object_or_404, HttpResponse
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 from django.db.models import Prefetch
 import json
+
+import stripe
 
 from .forms import OrderForm
 from .models import Order, OrderItem
@@ -10,7 +14,41 @@ from products.models import Product
 from cart.models import DiscountCode
 from cart.contexts import cart_contents
 
-import stripe
+
+@require_POST
+def cache_checkout_data(request):
+    """
+    Caches customer information and order details
+    if the "Save Info" checkbox is checked on the checkout form.
+    If so, it collects the customer's information and cart content
+    and passes the data to the Stripe Payment Intent.
+
+    Parameters:
+        request (django.http.HttpRequest): The HTTP request object
+                                            containing the checkout form data.
+
+    Returns:
+        django.http.HttpResponse: An HTTP response indicating success
+
+    Raises:
+        Exception: If an error occurs during the process,
+                    an error message is displayed to the user.
+    """
+
+    try:
+        pid = request.POST.get("client_secret").split("_secret")[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            "cart": json.dumps(request.session.get("cart", {})),
+            "save_info": request.POST.get("save_info"),
+            "username": request.user,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        error_message = ("Sorry, your payment cannot be processed right now. "
+                         "Please try again later.")
+        messages.error(request, error_message)
+        return HttpResponse(content=e, status=400)
 
 
 def checkout(request):
@@ -84,7 +122,7 @@ def checkout(request):
                     order.discount_code = discount
                 except DiscountCode.DoesNotExist:
                     messages.error(
-                        request, "The discount code in your cart is no longer valid."
+                        request, "The discount code in your cart is not valid."
                     )
                     request.session.pop("discount_code", None)
             order.save()
@@ -109,7 +147,9 @@ def checkout(request):
                     return redirect(reverse("view_cart"))
             order.update_total()
             request.session["save_info"] = "save-info" in request.POST
-            return redirect(reverse("checkout_success", args=[order.order_number]))
+            return redirect(reverse(
+                "checkout_success", args=[order.order_number])
+            )
         else:
             messages.error(
                 request,
@@ -119,7 +159,9 @@ def checkout(request):
     else:
         cart = request.session.get("cart", {})
         if not cart:
-            messages.error(request, "There is nothing in your cart at the moment")
+            messages.error(
+                request, "There is nothing in your cart at the moment"
+            )
             return redirect(reverse("tutorials_list"))
 
     current_cart = cart_contents(request)
@@ -174,13 +216,16 @@ def checkout_success(request, order_number):
         order_number (str): The unique identifier for the order.
 
     Returns:
-        HttpResponse: Renders the checkout success template with the order context.
+        HttpResponse: Renders the checkout success template
+                        with the order context.
     """
 
     save_info = request.session.get("save_info")
     order = get_object_or_404(
         Order.objects.select_related("discount_code").prefetch_related(
-            Prefetch("items", queryset=OrderItem.objects.select_related("product"))
+            Prefetch(
+                "items", queryset=OrderItem.objects.select_related("product")
+            )
         ),
         order_number=order_number,
     )
