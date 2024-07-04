@@ -61,21 +61,19 @@ def tutorials_list(request):
         if "q" in request.GET:
             query = request.GET["q"]
             if not query:
-                messages.error(
-                    request, "You didn't enter any search criteria!"
-                )
+                messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse("tutorials_list"))
 
-            queries = Q(name__icontains=query) | Q(
-                description__icontains=query) | Q(
-                subcategory__name__icontains=query) | Q(
-                category__name__icontains=query)
+            queries = (
+                Q(name__icontains=query)
+                | Q(description__icontains=query)
+                | Q(subcategory__name__icontains=query)
+                | Q(category__name__icontains=query)
+            )
             products = products.filter(queries)
 
         if not products.exists():
-            messages.error(
-                request, "Your search did not match any tutorials."
-            )
+            messages.error(request, "Your search did not match any tutorials.")
             return redirect(reverse("tutorials_list"))
 
     # return the current sorting methodology to the template

@@ -17,9 +17,10 @@ class DiscountCodeAdmin(admin.ModelAdmin):
 
     def activate_codes(self, request, queryset):
         queryset.update(active="Yes")
+
     activate_codes.short_description = "Mark selected codes as active"
 
     def deactivate_codes(self, request, queryset):
         queryset.update(active="No")
-    deactivate_codes.short_description = "Mark selected codes as inactive"
 
+    deactivate_codes.short_description = "Mark selected codes as inactive"

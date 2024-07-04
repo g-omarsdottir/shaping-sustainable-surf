@@ -100,28 +100,26 @@ def checkout(request):
                     order_item.save()
                 except Product.DoesNotExist:
                     messages.error(
-                        request, "One of the products in your cart "
+                        request,
+                        "One of the products in your cart "
                         "is no longer available. "
-                        "Please contact us for assistance."
+                        "Please contact us for assistance.",
                     )
                     order.delete()
                     return redirect(reverse("view_cart"))
             order.update_total()
             request.session["save_info"] = "save-info" in request.POST
-            return redirect(
-                reverse("checkout_success", args=[order.order_number])
-            )
+            return redirect(reverse("checkout_success", args=[order.order_number]))
         else:
             messages.error(
-                request, "There was an error with your form. "
-                "Please double check your information."
+                request,
+                "There was an error with your form. "
+                "Please double check your information.",
             )
     else:
         cart = request.session.get("cart", {})
         if not cart:
-            messages.error(
-                request, "There is nothing in your cart at the moment"
-            )
+            messages.error(request, "There is nothing in your cart at the moment")
             return redirect(reverse("tutorials_list"))
 
     current_cart = cart_contents(request)
@@ -136,10 +134,10 @@ def checkout(request):
         },
         # Pass the discount code to the stripe payment intent
         metadata={
-        "cart": json.dumps(request.session.get("cart", {})),
-        "discount_code": request.session.get("discount_code", ""),
-        "save_info": request.session.get("save_info", ""),
-        }
+            "cart": json.dumps(request.session.get("cart", {})),
+            "discount_code": request.session.get("discount_code", ""),
+            "save_info": request.session.get("save_info", ""),
+        },
     )
 
     if not stripe_public_key:
@@ -184,7 +182,7 @@ def checkout_success(request, order_number):
         Order.objects.select_related("discount_code").prefetch_related(
             Prefetch("items", queryset=OrderItem.objects.select_related("product"))
         ),
-        order_number=order_number
+        order_number=order_number,
     )
 
     success_message = (

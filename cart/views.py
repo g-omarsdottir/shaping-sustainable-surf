@@ -15,23 +15,24 @@ def view_cart(request):
 
     discount_form = DiscountCodeForm()
 
-    if request.method == 'POST':
+    if request.method == "POST":
         discount_form = DiscountCodeForm(request.POST)
         if discount_form.is_valid():
-            discount = discount_form.cleaned_data['code']
+            discount = discount_form.cleaned_data["code"]
             if discount:
-                request.session['discount_code'] = discount.code
+                request.session["discount_code"] = discount.code
                 messages.success(
-                        request, f"Discount code '{discount.code}' applied. "
-                        f"Amount: €{discount.amount}"
-                    )
+                    request,
+                    f"Discount code '{discount.code}' applied. "
+                    f"Amount: €{discount.amount}",
+                )
             else:
-                request.session.pop('discount_code', None)
+                request.session.pop("discount_code", None)
                 messages.error(request, "Invalid or inactive discount code.")
-        return redirect('view_cart')
+        return redirect("view_cart")
 
     # Retrieves discount code from the session if it exists
-    discount_code = request.session.get('discount_code', '')
+    discount_code = request.session.get("discount_code", "")
 
     context = {
         "is_cart_page": True,
@@ -81,7 +82,7 @@ def remove_from_cart(request, item_id):
     except Exception as e:
         messages.error(request, f"Error removing item: {e}")
 
-    return redirect('view_cart')
+    return redirect("view_cart")
 
 
 def remove_discount_code(request):
@@ -91,10 +92,10 @@ def remove_discount_code(request):
 
     try:
         # Clear the discount_code from the session
-        request.session.pop('discount_code', None)
+        request.session.pop("discount_code", None)
         messages.success(request, "Discount code removed successfully.")
     except KeyError:
         # Handle case where discount_code does not exist in the session
         messages.error(request, "There is no active discount code to remove.")
 
-    return redirect('view_cart')
+    return redirect("view_cart")

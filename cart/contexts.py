@@ -20,8 +20,8 @@ def cart_contents(request):
                 "product": product,
             }
         )
-    
-    discount_code = request.session.get('discount_code')
+
+    discount_code = request.session.get("discount_code")
     discount = None
     discount_amount = 0
     grand_total = total
@@ -34,7 +34,7 @@ def cart_contents(request):
             grand_total = max(total - discount_amount, 0)
         except DiscountCode.DoesNotExist:
             # If discount code is invalid, remove from session
-            request.session.pop('discount_code', None)
+            request.session.pop("discount_code", None)
 
     context = {
         "cart_items": cart_items,
