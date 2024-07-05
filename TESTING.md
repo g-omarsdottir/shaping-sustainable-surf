@@ -59,7 +59,37 @@ The official [World Wide Web Consortium (W3C) validator for CSS](https://validat
 Manual testing was conducted to verify the functionality, usability, and user experience of the website. This section details the test cases executed, the steps followed, and the results observed for each feature and user interaction.
 
 Test Cases
-[Table to be added]
+To conveniently test the styling on the custom error pages during development, the following code was temporarly added to the profile view and urls:
+
+### Custom Error pages
+
+#### 404 Not Found
+
+In `views.py`:
+
+```python
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
+```
+In `urls.py`:
+
+handler404 = 'profiles.views.custom_404'
+
+To test: Navigate to any non-existent URL, e.g., /profile/test-404/
+
+#### 403 Forbidden
+
+In `views.py`:
+```python
+from django.core.exceptions import PermissionDenied
+
+def test_403(request):
+    raise PermissionDenied
+```
+In `urls.py`:
+path('test-403/', views.test_403, name='test_403'),
+
+To test: Navigate to /profile/test-403/
 
 ## Security Testing
 
