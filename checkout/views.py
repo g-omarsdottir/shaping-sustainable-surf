@@ -22,7 +22,7 @@ def cache_checkout_data(request):
     """
     Caches customer information and order details
     if the "Save Info" checkbox is checked on the checkout form.
-    If so, it collects the customer's information and cart content
+    If so, it collects the customer information and cart content
     and passes the data to the Stripe Payment Intent.
 
     Parameters:
@@ -117,11 +117,15 @@ def checkout(request):
         order_form = OrderForm(form_data)
 
         if order_form.is_valid():
-            order = order_form.save(commit=False)
-            pid = request.POST.get("client_secret").split("_secret")[0]
-            order.stripe_pid = pid
-            order.original_cart = json.dumps(cart)
-            order.save()
+            try:
+                order = order_form.save(commit=False)
+                pid = request.POST.get("client_secret").split("_secret")[0]
+                order.stripe_pid = pid
+                order.original_cart = json.dumps(cart)
+                order.save()
+            except Exception as e:
+                messages.error(request, "There was an error processing your order. Please try again.")
+                return redirect(reverse("checkout"))
 
             # Get the discount information from the cart contents
             current_cart = cart_contents(request)
@@ -175,36 +179,56 @@ def checkout(request):
             )
             return redirect(reverse("tutorials_list"))
 
-    current_cart = cart_contents(request)
-    total = current_cart["grand_total"]
-    stripe_total = round(total * 100)
-    stripe.api_key = stripe_secret_key
-    
-    # Prepare metadata for payment intent
-    metadata = {
-        "cart": json.dumps(request.session.get("cart", {})),
-        "save_info": request.session.get("save_info", ""),
-    }
+        current_cart = cart_contents(request)
+        total = current_cart["grand_total"]
+        stripe_total = round(total * 100)
+        stripe.api_key = stripe_secret_key
 
-    # Add discount code to metadata if it exists
-    discount_code = request.session.get("discount_code")
-    if discount_code:
-        metadata["discount_code"] = discount_code
+        # Prepare metadata for payment intent
+        metadata = {
+            "cart": json.dumps(request.session.get("cart", {})),
+            "save_info": request.session.get("save_info", ""),
+        }
 
-    # Add user information to metadata if user is authenticated
-    if request.user.is_authenticated:
-        metadata["user_id"] = str(request.user.id)
-        metadata["username"] = request.user.username
+        # Add discount code to metadata if it exists
+        discount_code = request.session.get("discount_code")
+        if discount_code:
+            metadata["discount_code"] = discount_code
 
-    intent = stripe.PaymentIntent.create(
-        amount=stripe_total,
-        currency=settings.STRIPE_CURRENCY,
-        automatic_payment_methods={
-            "enabled": True,
-        },
-        # Pass the discount code to the stripe payment intent
-        metadata=metadata,
-    )
+        # Add user information to metadata if user is authenticated
+        if request.user.is_authenticated:
+            metadata["user_id"] = str(request.user.id)
+            metadata["username"] = request.user.username
+
+        intent = stripe.PaymentIntent.create(
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
+            automatic_payment_methods={
+                "enabled": True,
+            },
+            # Pass the discount code to the stripe payment intent
+            metadata=metadata,
+        )
+
+        # Attempt to prefill the form with any info the user maintains in their profile
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    "full_name": profile.user.get_full_name(),
+                    "email": profile.user.email,
+                    "phone_number": profile.default_phone_number,
+                    "country": profile.default_country,
+                    "postcode": profile.default_postcode,
+                    "town_or_city": profile.default_town_or_city,
+                    "street_address1": profile.default_street_address1,
+                    "street_address2": profile.default_street_address2,
+                    "county": profile.default_county,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(
@@ -257,11 +281,11 @@ def checkout_success(request, order_number):
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
-        # Attach the user's profile to the order
+        # Attach the user profile to the order
         order.user_profile = profile
         order.save()
 
-        # Save the user's info
+        # Save the user info
         if save_info:
             profile_data = {
                 "default_full_name": order.full_name,
