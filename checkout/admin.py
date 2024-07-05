@@ -37,7 +37,7 @@ class OrderAdmin(admin.ModelAdmin):
         "grand_total",
         "original_cart",
         "stripe_pid",
-        # "user_profile",
+        "user_profile",
         "full_name",
         "email",
         "phone_number",

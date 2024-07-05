@@ -13,6 +13,8 @@ from .models import Order, OrderItem
 from products.models import Product
 from cart.models import DiscountCode
 from cart.contexts import cart_contents
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 
 
 @require_POST
@@ -193,7 +195,7 @@ def checkout(request):
     if request.user.is_authenticated:
         metadata["user_id"] = str(request.user.id)
         metadata["username"] = request.user.username
-    
+
     intent = stripe.PaymentIntent.create(
         amount=stripe_total,
         currency=settings.STRIPE_CURRENCY,
@@ -232,6 +234,7 @@ def checkout_success(request, order_number):
     with their Products in a single optimized query.
     Clears the cart and discount code from the session.
     Displays a success message and renders the checkout success template.
+    If save_info checkbox is selected, the user info is saved in the UserProfile model.
 
     Args:
         request (HttpRequest): The request object.
@@ -251,6 +254,28 @@ def checkout_success(request, order_number):
         ),
         order_number=order_number,
     )
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the user's profile to the order
+        order.user_profile = profile
+        order.save()
+
+        # Save the user's info
+        if save_info:
+            profile_data = {
+                "default_full_name": order.full_name,
+                "default_phone_number": order.phone_number,
+                "default_street_address1": order.street_address1,
+                "default_street_address2": order.street_address2,
+                "default_postcode": order.postcode,
+                "default_town_or_city": order.town_or_city,
+                "default_county": order.county,
+                "default_country": order.country,
+            }
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
 
     success_message = (
         f"Order successfully processed! "
