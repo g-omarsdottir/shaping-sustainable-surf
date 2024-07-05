@@ -153,14 +153,8 @@ class StripeWH_Handler:
         Unlock the video in UserProfile model.
         """
         if user_id:
-            try:
-                profile = UserProfile.objects.get(user_id=user_id)
-                profile.unlock_video()
-                print(f"Unlocked video for user {profile.user.username}")
-            except UserProfile.DoesNotExist:
-                print(f"UserProfile for user_id {user_id} not found")
-            except Exception as e:
-                print(f"Error unlocking video: {str(e)}")
+            profile = UserProfile.objects.get(user_id=user_id)
+            profile.unlock_video()
 
     def handle_payment_intent_payment_failed(self, event):
         """
