@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404
+from django.core.exceptions import PermissionDenied
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from .models import UserProfile
@@ -6,12 +8,14 @@ from .forms import UserProfileForm
 from checkout.models import Order
 
 
+@login_required
 def profile(request):
     """
     Display the user profile, order history, 
     and tutorials according to video unlock status
     and profile form.
     """
+
     profile = get_object_or_404(UserProfile, user=request.user)
     orders = profile.orders.all().order_by("-date")
 
@@ -36,8 +40,17 @@ def profile(request):
     return render(request, template, context)
 
 
+@login_required
 def order_history(request, order_number):
+    """
+    Checks if user is authorised to view order history.
+    Display the order history to authenticated user.
+    """
+
     order = get_object_or_404(Order, order_number=order_number)
+
+    if order.user_profile.user != request.user:
+        raise PermissionDenied
 
     messages.info(request, (
         f"This is a past confirmation for order number {order_number}. "
