@@ -21,7 +21,7 @@
 </div>
 
 <!-- Cart preview toast -->
-{% if total and not is_cart_page %}
+{% if total and not is_cart_page and not on_profile_page %}
 
 <div class="toast cart-preview-toast custom-toast rounded-0 border-top-0" data-autohide="false">
     <div class="toast-body bg-white">
