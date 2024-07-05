@@ -167,3 +167,8 @@
 </div>
 </div>
 {% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'profiles/js/profile.js' %}"></script>
+{% endblock %}
