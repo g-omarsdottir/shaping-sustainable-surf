@@ -81,6 +81,7 @@ footer {
     flex-shrink: 0;
     background-color: lightblue;
     border-top: 4px solid yellow;
+    margin-top: auto;
 }
 
 footer li a {

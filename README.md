@@ -43,7 +43,7 @@ Welcome to Shaping Sustainable Surf, a fully functional Django ecommerce web app
   - [Deployment](#deployement-using-heroku)
 - [Credits](#credits)
 
-**Testing and Bugs** are documented in the separate file TESTING.md
+**Testing and Bugs** are documented in the separate file [TESTING.md](TESTING.md).
 
 ## Project Goal
 
@@ -236,6 +236,7 @@ In addition to libraries and frameworks already installed in the Code Institute 
 - [django-cloudinary-storage v0.3.0](https://cloudinary.com/documentation/rails_activestorage) - Provides storage of uploaded product images 
 - [django-countries v7.6.1](https://pypi.org/project/django-countries/) -  Provides country choices for use with forms and a country field for models
 - [stripe v10.1.0](https://docs.stripe.com/) - Provides secure payment processing
+- [whitenoise v5.3.0](https://pypi.org/project/whitenoise/) - Python package to simplify static file serving for web apps
 
 ### Programs Used
 [Canva](https://www.canva.com/) to create the website logo
@@ -246,6 +247,13 @@ In addition to libraries and frameworks already installed in the Code Institute 
 
 ## Features
 ### Main Features
+
+#### Custom Error Pages
+
+The project a custom HTML error page for status codes 403 (Forbidden) and 404 (Not Found) for improved user experience. The error page maintains a consistent design with the rest of the website. The error pages clearly explains the meaning of the error code in a user-friendly way avoiding technical jargon and uses clear, concise language. The error pages display a friendly image in line with the website theme to make the error page more visually appealing.<br>
+
+To style the error pages during development, the error pages were rendered using temporary views and urls placed in the profile app for easy testing. The approach is documented in [TESTING.md](TESTING.md).
+
 ### Responsiveness
 ### Security
 ### Future Features

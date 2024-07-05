@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Slab:wght@100..900&display=swap');
 
+/* Root variables for styles and color */
+:root {
+    /* Colors */
+
+
+    /* Box shadow and border styles */
+    --blue-box-shadow: 1px -1px 7px 0 rgba(34, 124, 157, 0.75);
+    --black-box-shadow: 1px -1px 7px 0 #4E4A47;
+}
+
+
 /* General styles */
 * {
     margin: 0;
@@ -51,6 +62,32 @@ main {
     min-width: 260px;
 }
 
+.text-font {
+    font-family: "Roboto Flex", sans-serif;
+}
+
+/* Turn cursor into pointer when hovering over links */
+.product-list:hover, .remove-item:hover {
+    cursor: pointer;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+/* Footer -------------------------------------------------------------*/
+footer {
+    /* Stick footer to bottom */
+    flex-shrink: 0;
+    background-color: lightblue;
+    border-top: 4px solid yellow;
+    margin-top: auto;
+}
+
+footer li a {
+    color: black;
+}
+
 /* Products --------------------------------------------------------------*/
 
 .scale {
@@ -63,20 +100,67 @@ main {
 .product-list {
     height: 500px;
     overflow: hidden;
-    color: var(--black);
-    box-shadow: var(--black-box-shadow);
+    color: black;
+    box-shadow: var(--blue-box-shadow);
 }
 
-.product-list:hover {
-    cursor: pointer;
+.product-list .card-body {
+    overflow-y: auto; 
 }
+
+.product-list h2 {
+    font-size: 1.2em;
+}
+
+.product-list h3 {
+    font-size: 1em;
+}
+/*
+.product-list .card-title,
+.product-list .card-subtitle,
+.product-list .card-text {
+    margin-bottom: 0.25rem;
+}*/
 
 .product-list button {
     background: lightblue;
 }
 
+/* Cart ---------------------------------------------------------------*/
+
+#discount-field {
+    width: 210px;
+}
+
+/*#discount-field button, */
+#discount-field input {
+    width: 100%;
+}
+
+/* Custom error pages------------------------------------------------- */
+
+.custom-error-img {
+    max-width: 70%;
+}
+
 
 /* Styles from walkthrough project */
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 150px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.548);
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
 .btn-black {
     background: black;
     color: white;
@@ -113,6 +197,25 @@ main {
     border: 1px solid black !important;
 }
 
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+.cart-preview-toast {
+    margin-top: -0.8rem;
+}
+
 /* Forms Django allauth ---------------------------------------------- */
 
 .header-container {
@@ -135,6 +238,18 @@ input[type="submit"], button[type="submit"] {
         width: 220px;
     }
 }
+
+/* Stacks product details on xs screens */
+@media (max-width: 575.98px) {
+    .product-info-xs {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+    .product-info-xs img {
+      margin-bottom: 10px;
+    }
+  }
 
 @media (max-width: 991.98px) {
     /* Animated eased transition of collapsable navbar content */

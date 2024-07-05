@@ -1,0 +1,7 @@
+.nowrap {
+    white-space: nowrap;
+}
+
+.profile-form-input::placeholder {
+    color: #aab7c4;
+}
