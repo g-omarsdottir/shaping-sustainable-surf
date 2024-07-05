@@ -1,0 +1,29 @@
+.nowrap {
+    white-space: nowrap;
+}
+
+@media (max-width: 767.98px) {
+    .table-responsive {
+        border: 0;
+    }
+    .table-responsive table {
+        border-collapse: separate;
+        border-spacing: 0 1em;
+    }
+    .table-responsive tbody tr {
+        display: block;
+        margin-bottom: 1em;
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+    }
+    .table-responsive td {
+        display: block;
+        text-align: right;
+        padding: 0.5em;
+    }
+    .table-responsive td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+    }
+}

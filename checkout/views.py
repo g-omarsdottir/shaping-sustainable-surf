@@ -181,13 +181,18 @@ def checkout(request):
     # Prepare metadata for payment intent
     metadata = {
         "cart": json.dumps(request.session.get("cart", {})),
-        "discount_code": request.session.get("discount_code", ""),
         "save_info": request.session.get("save_info", ""),
     }
 
-    # Add user ID to metadata if user is authenticated
+    # Add discount code to metadata if it exists
+    discount_code = request.session.get("discount_code")
+    if discount_code:
+        metadata["discount_code"] = discount_code
+
+    # Add user information to metadata if user is authenticated
     if request.user.is_authenticated:
         metadata["user_id"] = str(request.user.id)
+        metadata["username"] = request.user.username
     
     intent = stripe.PaymentIntent.create(
         amount=stripe_total,

@@ -54,7 +54,7 @@
                                         {{ item.product.name }}
                                     </li>
                                     <li class="small">
-                                        {{ item.product.price }}
+                                        € {{ item.product.price }}
                                     </li>
                                     {% endfor %}
                                 </ul>
@@ -91,10 +91,9 @@
                 <table class="table table-sm table-borderless">
                     <thead class="text-black">
                         <tr>
-                            <th scope="col" class="d-none d-sm-table-cell w-25">Tutorial</th>
+                            <th scope="col" class="d-none d-sm-table-cell w-25"></th>
                             <th scope="col">Title</th>
-                            <th scope="col" class="d-none d-sm-table-cell"></th>
-                            <th scope="col">Watch Tutorial</th>
+                            <th scope="col" class="d-none d-sm-table-cell">Watch Tutorial</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -104,7 +103,7 @@
                         <tr>
                             <!-- Hides table cell with product image on x-small screens -->
                             <td class="p-3 w-25 d-none d-sm-table-cell">
-                                {% if product.image %}
+                                {% if item.product.image %}
                                 <img class="img-fluid rounded" src="{{ item.product.image.url }}"
                                     alt="image for product {{ item.product.name }}">
                                 {% else %}
@@ -113,26 +112,27 @@
                                 {% endif %}
                             </td>
 
-                            <!-- Display image, product name and remove-link with flex column properties to stack on x-small screens using custom css -->
-                            <td class="py-3 text-wrap product-info-xs">
-                                <div class="d-sm-none">
-                                    {% if product.image %}
+                            <!-- Display product name and video link (on small screens) -->
+                            <td class="py-3 text-wrap">
+                                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                <!-- Display image and video link on x-small screens -->
+                                <div class="d-sm-none mt-2">
+                                    {% if item.product.image %}
                                     <img class="img-fluid rounded mb-2" src="{{ item.product.image.url }}"
-                                        alt="image for product {{ product.name }}">
+                                        alt="image for product {{ item.product.name }}">
                                     {% else %}
                                     <img src="{% static 'images/noimage.webp' %}" class="img-fluid rounded mb-2"
                                         alt="No image yet for this product">
                                     {% endif %}
+                                    <a href="{{ item.product.video_url }}" target="_blank" rel="noopener noreferrer"
+                                        aria-label="Opens in a new window" class="nowrap">Click Here to Watch Tutorial</a>
                                 </div>
-                                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                <a href="{{ item.product.video_url }}" target="_blank" rel="noopener noreferrer"
-                                    aria-label="Opens in a new window">Click Here to Watch Tutorial</a>
                             </td>
 
-                            <!-- Display in a row on screen sizes small and up -->
+                            <!-- Watch Tutorial link (hidden on x-small screens) -->
                             <td class="py-3 d-none d-sm-table-cell">
                                 <a href="{{ item.product.video_url }}" target="_blank" rel="noopener noreferrer"
-                                    aria-label="Opens in a new window">Click Here to Watch Tutorial</a>
+                                    aria-label="Opens in a new window" class="nowrap">Click Here to Watch Tutorial</a>
                             </td>
                         </tr>
                         {% endif %}
