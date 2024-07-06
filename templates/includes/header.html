@@ -1,6 +1,7 @@
 {% load static %}
 
 <header class="container-fluid fixed-top">
+    {% with request.resolver_match.url_name as url_name %}
     <div class="row">
         <div class="col-12">
             <nav class="navbar navbar-expand-lg navbar-light">
@@ -41,31 +42,44 @@
                         </li>
 
                         <!-- Website navigation links -->
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                        <li class="nav-item ml-2">
+                            <a class="nav-link text-black {% if url_name == 'home' %}active{% endif %}"
+                                aria-current="page" href="{% url 'home' %}">Home <span class="sr-only">(current
+                                    page)</span></a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link text-black" href="{% url 'tutorials_list' %}">Tutorials</a>
+                        <li class="nav-item">
+                            <a class="nav-link text-black {% if url_name == 'tutorials_list' %}active{% endif %}"
+                                aria-current="page" " href=" {% url 'tutorials_list' %}">Tutorials<span class="sr-only">(current page)</span></a>
                         </li>
+
+                        <!-- About Us navigation links -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-black" href="#" role="button" data-toggle="dropdown"
                                 aria-expanded="false">
                                 About Us
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item text-black" href="#">About Us</a>
+                                <a class="dropdown-item text-black {% if url_name == 'about_us' or url_name == 'surfboards' or url_name == 'faqs' %}active{% endif %}"
+                                    aria-current="page" href="#">About Us<span class="sr-only">(current page)</span></a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Custom Board Examples</a>
+                                <a class="dropdown-item" href="#">Custom Surfboards Examples<span class="sr-only">(current page)</span></a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">FAQs</a>
+                                <a class="dropdown-item" href="#">FAQs<span class="sr-only">(current page)</span></a>
                             </div>
                         </li>
 
-                        <!-- My account -->
+                        <!-- Contact Form -->
+                        <li class="nav-item">
+                            <a class="nav-link text-black {% if url_name == 'contact' %}active{% endif %}"
+                                aria-current="page" href="{% url 'contact' %}">Contact<span class="sr-only">(current page)</span></a>
+                        </li>
+
+                        <!-- My Account -->
                         <li class="nav-item dropdown">
-                            <a class="text-black nav-link dropdown-toggle" href="#" id="user-options"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user fa-lg"></i> My Account
+                            <a class="text-black nav-link dropdown-toggle {% if url_name == 'profile' or url_name == 'account_logout' or url_name == 'account_signup' or url_name == 'account_login' %}active{% endif %}"
+                                aria-current="page" href="#" id="user-options" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user fa-lg"></i> My Account<span class="sr-only">(current page)</span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
@@ -73,30 +87,32 @@
                                 <a href="#" class="dropdown-item">Product Management</a>
                                 <div class="dropdown-divider"></div>
                                 {% endif %}
-                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile<span class="sr-only">(current page)</span></a>
                                 <div class="dropdown-divider"></div>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout<span class="sr-only">(current page)</span></a>
                                 {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Sign-Up</a>
+                                <a href="{% url 'account_signup' %}" class="dropdown-item">Sign-Up<span class="sr-only">(current page)</span></a>
                                 <div class="dropdown-divider"></div>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Sign-In</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item">Sign-In<span class="sr-only">(current page)</span></a>
                                 {% endif %}
                             </div>
                         </li>
 
                         <!-- Shopping cart -->
                         <li class="nav-item">
-                            <a class="nav-link {% if total %}text-info {% else %}text-black{% endif %}"
-                                href="{% url 'view_cart' %}">
+                            <a class="nav-link {% if total %}text-info {% else %}text-black{% endif %} {% if url_name == 'view_cart' %}active{% endif %}"
+                                aria-current="page" "
+                                href=" {% url 'view_cart' %}">
                                 <i class="fas fa-shopping-bag fa-lg"></i> Cart
                                 <span class="sr-only">Shopping cart</span>
                                 <p class="my-0">
-                                {% if total %}
-                                €{{ total|floatformat:2 }}
-                                {% else %}
-                                €0.00
-                                {% endif %}
+                                    {% if total %}
+                                    €{{ total|floatformat:2 }}
+                                    {% else %}
+                                    €0.00
+                                    {% endif %}
                                 </p>
+                            <span class="sr-only">(current page)</span>
                             </a>
                         </li>
                     </ul>
@@ -104,4 +120,5 @@
             </nav>
         </div>
     </div>
+    {% endwith %}
 </header>
