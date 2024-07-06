@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from products.models import Product, Category
+from products.models import Category
 from profiles.models import UserProfile
 
 
@@ -52,6 +52,10 @@ WAVE_POWER = [
 ]
 
 COLOR_THEME = [
+    ("Wooden", "Wooden"),
+    ("Multicolor", "Multicolor"),
+    ("Bright Colors", "Bright Colors"),
+    ("Natural Colors", "Natural Colors"),
     ("Light", "Light"),
     ("Dark", "Dark"),
 ]
@@ -78,7 +82,12 @@ class Art(models.Model):
     class Meta:
         verbose_name = "Decorative Art"
     
-    type = models.CharField(max_length=100, choices=ART, null=False, blank=False)
+    type = models.CharField(max_length=100, choices=ART)
+
+    def __str__(self):
+        return (
+            self.get_art_display()
+        )  # get_art_display returns "human-readable" value
 
 
 class Contact(models.Model):
@@ -94,14 +103,8 @@ class Contact(models.Model):
     message_read = models.BooleanField(default=False)
     subject = models.CharField(max_length=100, null=True, blank=True)
     message = models.TextField(max_length=3000, null=False, blank=False)
-    product = models.ForeignKey(
-        "Product", on_delete=models.CASCADE, related_name="concerning_product",
-        null=True, blank=True
-    )
     category = models.ForeignKey(
-        "Category", on_delete=models.CASCADE, related_name="concerning_category",
-        null=True, blank=True
-    )
+        Category, on_delete=models.CASCADE, null=True, blank=True)
     board_type = models.CharField(max_length=20, choices=BOARD_TYPE, null=True, blank=True)
     tail = models.CharField(max_length=20, choices=TAIL_TYPE, null=True, blank=True)
     body_height = models.IntegerField(null=True, blank=True)
@@ -112,9 +115,9 @@ class Contact(models.Model):
     surf_style = models.CharField(max_length=20, choices=SURF_STYLE, null=True, blank=True)
     wave_size = models.CharField(max_length=20, choices=WAVE_SIZE, null=True, blank=True)
     wave_power = models.CharField(max_length=20, choices=WAVE_POWER, null=True, blank=True)
-    color_theme = models.CharField(max_length=20, choices=COLOR_THEME, null=True, blank=True)
+    color_theme = models.CharField(max_length=50, choices=COLOR_THEME, null=True, blank=True)
     art = models.ForeignKey(
-        "Art", on_delete=models.CASCADE, related_name="concerning_art"
+        "Art", on_delete=models.CASCADE, null=True, blank=True
     )
     remarks = models.CharField (max_length=200, null=True, blank=True)
 

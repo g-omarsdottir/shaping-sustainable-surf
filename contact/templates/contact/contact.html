@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container mb-2">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">Contact</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-6">
+        
+        <p>You can contact us at {{ contact_email }} or use the contact form below.</p>
+
+        <h3>Custom Surfboards</h3>
+        <p>If you are looking for a custom-made surfboard, we encourage you to use the convenient contact below to guide you through the details necessary to shape your own custom surfboard.</p>
+        <p>Feel free to leave fields empty as you please and we can discuss these details further along the way.</p>
+
+        <form action="{% url 'contact' %}" method="POST" id="contact-form">
+            {% csrf_token %}
+            <fieldset class="rounded px-3 mb-5">
+                <legend class="fieldset-label small text-black px-2 w-auto">Your Contact Details</legend>
+                {% if request.user.is_authenticated %}
+                {{ contact_form.user_profile | as_crispy_field }}
+                {% endif %}
+                {{ contact_form.name | as_crispy_field }}
+                {{ contact_form.email | as_crispy_field }}
+                {{ contact_form.phone | as_crispy_field }}
+                
+            </fieldset>
+            <fieldset class="rounded px-3 mb-5">
+                <legend class="fieldset-label small text-black px-2 w-auto">Regarding</legend>
+                {{ contact_form.category | as_crispy_field }}
+            <fieldset class="rounded px-3 mb-5">
+                <legend class="fieldset-label small text-black px-2 w-auto">Your Message</legend>
+                {{ contact_form.subject | as_crispy_field }}
+                {{ contact_form.message | as_crispy_field }}
+            </fieldset>
+            <fieldset class="rounded px-3 mb-5">
+                <legend class="fieldset-label small text-black px-2 w-auto">Your Custom Surfboard</legend>
+                {{ contact_form.board_type | as_crispy_field }}
+                {{ contact_form.tail | as_crispy_field }}
+            <fieldset class="rounded px-3 mb-5">
+                <legend class="fieldset-label small text-black px-2 w-auto">Volume & Length</legend>
+                {{ contact_form.board_length | as_crispy_field }}
+                {{ contact_form.board_volume | as_crispy_field }}
+            <fieldset class="rounded px-3 mb-5">
+                <legend class="fieldset-label small text-black px-2 w-auto">Details to Calculate Volume & Length</legend>
+                {{ contact_form.body_height | as_crispy_field }}
+                {{ contact_form.body_weight | as_crispy_field }}
+                {{ contact_form.skill_level | as_crispy_field }}
+                {{ contact_form.surf_style | as_crispy_field }}
+                {{ contact_form.wave_size | as_crispy_field }}
+                {{ contact_form.wave_power | as_crispy_field }}
+            </fieldset>
+            <fieldset class="rounded px-3 mb-5">
+                <legend class="fieldset-label small text-black px-2 w-auto">Decorative Art & Color</legend>
+                {{ contact_form.color_theme | as_crispy_field }}
+                {{ contact_form.art | as_crispy_field }}
+            </fieldset>
+            <fieldset class="rounded px-3 mb-5">
+                <legend class="fieldset-label small text-black px-2 w-auto">Further Remarks</legend>
+                {{ contact_form.remarks | as_crispy_field }}
+            </fieldset>
+
+            <div class="submit-button text-right mt-5 mb-2">
+                <button id="submit-message" class="btn btn-black rounded-0 mb-2">
+                    <span class="font-weight-bold">Send Message</span>
+                    <span class="icon">
+                        <i class="fa-regular fa-paper-plane"></i>
+                    </span>
+                </button>
+
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

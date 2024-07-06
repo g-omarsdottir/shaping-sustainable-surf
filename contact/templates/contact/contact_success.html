@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container mb-2">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">Thank you for your message!</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-6">
+
+        <p>We will get back to you shortly, usually within two days.</p>
+        <h3>Here is an overview of your message:</h3>
+
+        <h4>Your Contact Details</h4>
+        {% if request.user.is_authenticated %}
+        {{ user_profile }}
+        {% endif %}
+        {{ contact.name }}
+        {{ contact.email }}
+        {{ contact.phone }}
+        <h4>Regarding</h4>
+        {{ contact.category }}
+        <h4>Your Message</h4>
+        {{ contact.subject }}
+        {{ message }}
+        <h4>Your Custom Surfboard</h4>
+        {{ contact.board_type }}
+        {{ contact.tail }}
+        <h5>Volume & Length</h5>
+        {{ contact.board_length }}
+        {{ contact.board_volume }}
+        <h5>Details to Calculate Volume & Length</h5>
+        {{ contact.body_height }}
+        {{ contact.body_weight }}
+        {{ contact.skill_level }}
+        {{ contact.surf_style }}
+        {{ contact.wave_size }}
+        {{ contact.wave_power }}
+        <h5>Decorative Art & Color</h5>
+        {{ contact.color_theme }}
+        {{ contact.art }}
+        <h4>Further Remarks</h4>
+        {{ contact.remarks }}
+    </div>
+    </form>
+</div>
+</div>
+{% endblock %}
