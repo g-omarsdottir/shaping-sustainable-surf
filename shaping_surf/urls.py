@@ -25,6 +25,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("cart/", include("cart.urls")),
     path("checkout/", include("checkout.urls")),
+    path("contact/", include("contact.urls")),
     path("products/", include("products.urls")),
     path("profile/", include("profiles.urls")),
     path("djrichtextfield/", include("djrichtextfield.urls")),
