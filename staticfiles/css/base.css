@@ -49,6 +49,15 @@ main {
 
 /* Header -------------------------------------------------------------*/
 
+.navbar {
+    align-items: baseline;
+}
+
+.active {
+    border-bottom: 4px groove rgba(173, 216, 230, 0.712);
+    font-weight: 500;
+}
+
 #logo {
     width: 180px;
     height: auto;
@@ -135,12 +144,6 @@ footer li a {
 /*#discount-field button, */
 #discount-field input {
     width: 100%;
-}
-
-/* Custom error pages------------------------------------------------- */
-
-.custom-error-img {
-    max-width: 70%;
 }
 
 

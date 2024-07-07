@@ -231,7 +231,7 @@ In addition to libraries and frameworks already installed in the Code Institute 
 - [crispy-bootstrap v4](https://pypi.org/project/crispy-bootstrap4/) - Bootstrap-specific classes to style forms
 - [django-resized v1.0.2](https://pypi.org/project/django-resized/) - Handles resizing and format converting of images uploaded by store owners
 - [pillow v10.3.0](https://pillow.readthedocs.io/en/stable/) - A Python imaging library, handles images in combination with the Django Resized Image Field
-- [django-richtextfield v1.6.2](https://djangopackages.org/packages/p/django-richtextfield/) - A customizable rich text editor for product description
+- [django-ckeditor v6.7.1](https://django-ckeditor.readthedocs.io/en/latest/) - A customizable rich text editor for product description
 - [cloudinary v1.40.0](https://cloudinary.com/documentation/django_integration) - Allows to upload product images
 - [django-cloudinary-storage v0.3.0](https://cloudinary.com/documentation/rails_activestorage) - Provides storage of uploaded product images 
 - [django-countries v7.6.1](https://pypi.org/project/django-countries/) -  Provides country choices for use with forms and a country field for models

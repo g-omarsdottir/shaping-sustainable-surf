@@ -69,25 +69,11 @@ INSTALLED_APPS = [
     "django_resized",
     "cloudinary",
     "cloudinary_storage",
-    "djrichtextfield",
+    "django_summernote",
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
-
-DJRICHTEXTFIELD_CONFIG = {
-    "js": ["//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"],
-    "init_template": "djrichtextfield/init/ckeditor.js",
-    "settings": {
-        "toolbar": [
-            ["Format", "Bold", "Italic", "Underline"],
-            ["NumberedList", "BulletedList"],
-            ["Undo", "Redo"],
-            ["Maximize"],
-        ],
-        "format_tags": "p;h1;h2;h3",
-    },
-}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -207,9 +193,9 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 if DEBUG == True:
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+    STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 else:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 # Cloudinary settings
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"

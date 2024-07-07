@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django_resized import ResizedImageField
-from djrichtextfield.models import RichTextField
 
 
 class Category(models.Model):
@@ -71,7 +70,7 @@ class Product(models.Model):
         Subcategory, on_delete=models.SET_NULL, null=True, blank=False
     )
     price = models.DecimalField(max_digits=6, null=True, blank=False, decimal_places=2)
-    description = RichTextField(max_length=3000, null=True, blank=False)
+    description = models.TextField(max_length=3000, null=True, blank=False)
     image = ResizedImageField(
         size=[400, None],
         upload_to="sss_products/",
