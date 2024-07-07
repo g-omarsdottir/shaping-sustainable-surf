@@ -68,8 +68,7 @@ def contact_success(request, contact_id):
     template = "contact/contact_success.html"
     
     context = {
-        "name": contact.name,
-        "email": contact.email,
+        "contact": contact,
     }
 
     return render(request, template, context)
