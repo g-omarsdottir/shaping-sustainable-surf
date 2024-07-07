@@ -5,6 +5,24 @@ from products.models import Category
 
 
 class ContactForm(forms.ModelForm):
+
+    board_length = forms.IntegerField(
+    widget=forms.TextInput(attrs={'type': 'text', 'pattern': '[0-9]*', 'inputmode': 'numeric'}),
+    required=False
+    )
+    board_volume = forms.IntegerField(
+        widget=forms.TextInput(attrs={'type': 'text', 'pattern': '[0-9]*', 'inputmode': 'numeric'}),
+        required=False
+    )
+    body_height = forms.IntegerField(
+        widget=forms.TextInput(attrs={'type': 'text', 'pattern': '[0-9]*', 'inputmode': 'numeric'}),
+        required=False
+    )
+    body_weight = forms.IntegerField(
+        widget=forms.TextInput(attrs={'type': 'text', 'pattern': '[0-9]*', 'inputmode': 'numeric'}),
+        required=False
+    )
+
     class Meta:
         model = Contact
         exclude = ["user_profile"]
@@ -16,6 +34,27 @@ class ContactForm(forms.ModelForm):
             "surf_style", "wave_size", "wave_power", "color_theme", "art",
             "remarks"
         ]
+
+    def clean(self):
+        cleaned_data = super().clean()
+        integer_fields = ['board_length', 'board_volume', 'body_height', 'body_weight']
+        
+        for field in integer_fields:
+            value = cleaned_data.get(field)
+            if value is not None:
+                try:
+                    int(value)
+                except ValueError:
+                    self.add_error(field, "Please enter only whole numbers for this field.")
+        return cleaned_data
+
+    def clean_message(self):
+        message = self.cleaned_data.get('message')
+        if message:
+            message = message.strip()
+            if not message:
+                raise forms.ValidationError("Message field cannot be empty.")
+        return message
 
     def __init__(self, *args, **kwargs):
         initial_data = kwargs.pop("initial_data", {})
@@ -46,21 +85,22 @@ class ContactForm(forms.ModelForm):
             "remarks": "Further Remarks",
         }
 
+         # Make name and email fields required
+        self.fields["name"].required = True
+        self.fields["email"].required = True
+
         # Set autofocus and required fields
         self.fields["name"].widget.attrs["autofocus"] = True
         for field in self.fields:
             if field in placeholders:
+                placeholder = placeholders[field]
                 if self.fields[field].required:
-                    placeholder = f"{placeholders[field]} *"
+                    placeholder += " *"
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs["placeholder"] = placeholder
             self.fields[field].widget.attrs["class"] = "stripe-style-input"
             self.fields[field].label = False
-
-        # Make name and email fields required
-        self.fields["name"].required = True
-        self.fields["email"].required = True
 
         # Set initial values for other fields
         for field, value in initial_data.items():

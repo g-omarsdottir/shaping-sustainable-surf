@@ -85,3 +85,8 @@
     </div>
 </div>
 {% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script src="{% static 'contact/js/contact.js' %}"></script>
+{% endblock %}
