@@ -96,8 +96,8 @@ class Contact(models.Model):
         verbose_name = "Customer Contact"
 
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
-    name = models.CharField(max_length=100, null=True, blank=True)
-    email = models.EmailField(max_length=254, null=True, blank=True)
+    name = models.CharField(max_length=100, null=False, blank=False)
+    email = models.EmailField(max_length=254, null=False, blank=False)
     phone = models.CharField(max_length=20, null=True, blank=True)
     sent_at = models.DateTimeField(auto_now_add=True)
     message_read = models.BooleanField(default=False)

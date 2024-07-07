@@ -26,15 +26,12 @@
 
         <h3>Custom Surfboards</h3>
         <p>If you are looking for a custom-made surfboard, we encourage you to use the convenient contact below to guide you through the details necessary to shape your own custom surfboard.</p>
-        <p>Feel free to leave fields empty as you please and we can discuss these details further along the way.</p>
+        <p>Feel free to leave fields empty as you please and we can discuss these details further along the way. Required fields are marked with *.</p>
 
         <form action="{% url 'contact' %}" method="POST" id="contact-form">
             {% csrf_token %}
             <fieldset class="rounded px-3 mb-5">
                 <legend class="fieldset-label small text-black px-2 w-auto">Your Contact Details</legend>
-                {% if request.user.is_authenticated %}
-                {{ contact_form.user_profile | as_crispy_field }}
-                {% endif %}
                 {{ contact_form.name | as_crispy_field }}
                 {{ contact_form.email | as_crispy_field }}
                 {{ contact_form.phone | as_crispy_field }}

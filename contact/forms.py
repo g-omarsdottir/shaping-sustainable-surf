@@ -2,13 +2,15 @@ from django import forms
 from .models import Contact
 
 from products.models import Category
-from profiles.models import UserProfile
+
 
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
+        exclude = ["user_profile"]
+
         fields = [
-            "user_profile", "name", "email", "phone", "subject", "message",
+            "name", "email", "phone", "subject", "message",
             "category", "board_type", "tail", "body_height",
             "body_weight", "board_length", "board_volume", "skill_level",
             "surf_style", "wave_size", "wave_power", "color_theme", "art",
@@ -19,22 +21,16 @@ class ContactForm(forms.ModelForm):
         initial_data = kwargs.pop("initial_data", {})
         super().__init__(*args, **kwargs)
 
-        if "user_profile" in initial_data:
-            try:
-                user_profile = UserProfile.objects.get(pk=initial_data["user_profile"])
-                initial_data["user_profile"] = user_profile
-            except UserProfile.DoesNotExist:
-                initial_data["user_profile"] = None
+       
 
         # Define placeholders
         placeholders = {
-            "user_profile": "User Profile",
             "name": "Name",
             "email": "Email Address",
             "phone": "Phone Number",
             "subject": "Subject",
             "message": "Message",
-            "category": "Regarding Surfboards or Tutorials",
+            "category": "Category",
             "board_type": "Board Type",
             "tail": "Tail Type",
             "board_length": "Board Length",
@@ -60,20 +56,11 @@ class ContactForm(forms.ModelForm):
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs["placeholder"] = placeholder
             self.fields[field].widget.attrs["class"] = "stripe-style-input"
-            # self.fields[field].label = False
+            self.fields[field].label = False
 
         # Make name and email fields required
         self.fields["name"].required = True
         self.fields["email"].required = True
-
-        if "user_profile" in initial_data:
-            try:
-                user_profile = UserProfile.objects.get(pk=initial_data["user_profile"])
-                self.fields["user_profile"].initial = user_profile
-            except UserProfile.DoesNotExist:
-                self.fields["user_profile"].initial = None
-        else:
-            self.fields["user_profile"].initial = None
 
         # Set initial values for other fields
         for field, value in initial_data.items():
