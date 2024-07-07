@@ -117,6 +117,12 @@
                 </fieldset>
 
                 <div class="submit-button text-right mt-5 mb-2">
+                    <p class="small custom-alert my-0 mb-2">
+                        <span class="icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                        <span>Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong></span>
+                    </p>
                     <a href="{% url 'view_cart' %}" class="btn btn-outline-black rounded-0 mb-2">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
@@ -129,12 +135,6 @@
                             <i class="fas fa-lock"></i>
                         </span>
                     </button>
-                    <p class="small text-danger my-0">
-                        <span class="icon">
-                            <i class="fas fa-exclamation-circle"></i>
-                        </span>
-                        <span>Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong></span>
-                    </p>
                 </div>
             </form>
         </div>

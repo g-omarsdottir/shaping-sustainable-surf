@@ -3,7 +3,7 @@
 /* Root variables for styles and color */
 :root {
     /* Colors */
-
+    --aubergine: #7D3D67;
 
     /* Box shadow and border styles */
     --blue-box-shadow: 1px -1px 7px 0 rgba(34, 124, 157, 0.75);
@@ -141,9 +141,14 @@ footer li a {
     width: 210px;
 }
 
-/*#discount-field button, */
 #discount-field input {
     width: 100%;
+}
+
+/* Cart ---------------------------------------------------------------*/
+
+.custom-alert {
+    color: var(--aubergine);
 }
 
 
@@ -287,5 +292,3 @@ input[type="submit"], button[type="submit"] {
         width: 260px;
     }
   }
-  
-  

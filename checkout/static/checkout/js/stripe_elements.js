@@ -1,14 +1,6 @@
 /* jshint esversion: 6*/
 /* global $, Stripe */
 
-/*
-    Core JavaScript functunalities from stripe:
-    https://stripe.com/docs/payments/accept-a-payment
-
-    Core CSS style from stripe: 
-    https://stripe.com/docs/stripe-js
-*/
-
 document.addEventListener('DOMContentLoaded', function() {
     var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
     var clientSecret = $('#id_client_secret').text().slice(1, -1);

@@ -431,6 +431,8 @@ To deploy the repository:
 The Code Institute walkthrough project Boutique Ado for inspiration for the basic website structure.
 [Django Docs](https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#inlinemodeladmin-objects) for the Django admin site.
 [Django Docs](https://docs.djangoproject.com/en/dev/topics/email/#sending-alternative-content-types) and [StackOverflow](https://stackoverflow.com/questions/2809547/creating-email-templates-with-django) for sending emails as HTML formatted and plain text.
+[Core JavaScript functunalities from stripe](https://stripe.com/docs/payments/accept-a-payment) for stripe payment process.
+[Core CSS style from stripe](https://stripe.com/docs/stripe-js) for stripe payment process.
 
 ### Imagery
 
