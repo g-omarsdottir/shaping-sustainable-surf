@@ -102,6 +102,7 @@ As a frequent visitor, I want to
 ## Design
 
 ### Layout
+
 ### Wireframes
 
 Wireframes were designed mobile-first, since the majority of ecommerce purchases are done with mobile devices or tablets.
@@ -124,6 +125,18 @@ Screen sizes smaller than 320 were not considered in the design.
 
 
 ### Colors
+
+The website's colors are inspired by the ocean and the beach. The main color of the website is the blue #57a7b3 used in the website logo.
+
+![colors](/documentation/colors.png)
+
+A complimenting colorpalette with the website logo's color was created by [Muzli Colors](https://colors.muz.li/palette/57a7b3/3d757d/b35794/7d3d67/b3a357). To keep the overall layout sleek and avoiding visual clutter, the complementing colors were mainly used as accents in box-shadows and for pseudo-class hover effect.
+
+The font color is a warm tone of black and background color is a lighter shade of the main color, which make a very good match for accessability, readability and contrast while being easy on the eye.
+
+[Coolors Color Contrast Checker](https://coolors.co/contrast-checker/333333-eef6f7) score:
+
+![contrast checker](/documentation/color-contrast.png)
 
 ## Project planning
 
@@ -270,6 +283,7 @@ In addition to libraries and frameworks already installed in the Code Institute 
 [TinyPNG](https://tinypng.com/) to compress images
 [favicon.io](https://favicon.io/favicon-converter/) to create favicon from website logo
 [Fontawesome](https://fontawesome.com/) for icons
+[Muzli Colors](https://colors.muz.li/palette/57a7b3/3d757d/b35794/7d3d67/b3a357) for color palette
 
 ## Features
 ### Main Features

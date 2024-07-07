@@ -3,10 +3,17 @@
 /* Root variables for styles and color */
 :root {
     /* Colors */
+    --blue: #57a7b3;
+    --green: #3d757d;
+    --pink: #b35794;
     --aubergine: #7D3D67;
+    --yellow: #b3a357;
+ 
+    --font-color: #333333;
+    --background-color: #eef6f7;
 
     /* Box shadow and border styles */
-    --blue-box-shadow: 1px -1px 7px 0 rgba(34, 124, 157, 0.75);
+    --blue-box-shadow: 1px -1px 7px 0 rgba(87, 167, 179, 0.70);
     --black-box-shadow: 1px -1px 7px 0 #4E4A47;
 }
 
