@@ -151,7 +151,7 @@ Choices for the Category and Subcategory models are defined as constants within 
 
 This approach simplifies the models for the shopping and purchase process, as well as allows for code consistency in code, by referring to products in all html template by the name product, while assuring a separation of concerns and explicitness.
 
-Superusers (store owners) are granted comprehensive permissions within the application, allowing them to efficiently manage content across the platform. These permissions encompass Creation, update, and deletion of product data, and pricing adjustments.
+Superusers (store owners) are granted comprehensive permissions within the application, allowing them to efficiently manage content across the platform. These permissions encompass creation, update, and deletion of product data, and pricing adjustments.
 
 ![ERD Product model](/documentation/erd-product.png)
 
@@ -159,9 +159,9 @@ Superusers (store owners) are granted comprehensive permissions within the appli
 
 **Discount Codes:** The custom model facilitates the storage and management of individual discount codes in the cart app. The model is used to validate the code and apply the discount to the shopping cart. To ensure the code is valid, the model checks if the code is in the database, and if the code is in the database, if the code is currently active. As precaution, the model and the form are placed in the shopping cart app to allow the form to be submitted to check for validation without interfering with the order form in the checkout app.<br>
 
-The Order model includes a foreign key to the DiscountCode model, allowing for easy access to the discount code applied to the order.<br>
-
 Superusers (store owners) are granted permission to create, update, and delete discount codes, as well as manage settings to activate or disable discount codes temporarily.
+
+**Relationship with Order model:** The Order model includes a foreign key to the DiscountCode model, allowing for easy access to the discount code applied to the order.<br>
 
 ![ERD DiscountCode model](/documentation/erd-discount-code.png)
 
@@ -173,9 +173,11 @@ Non-Editable Order Items: For security and integrity, the individual items withi
 
 These extensive permissions empower superusers to maintain and optimize the application's functionality, ensuring smooth operations and customer satisfaction.
 
+The model OrderItem associates the purchased products with orders. Furthermore, it stores the product name and price at the time of order in case of changes in product name, price or if a product is deleted to maintain data integrity of the order history. These values are passed to the model in the checkout view.
+
 **Integrated Payment Processing:** The system facilitates secure online transactions for product purchases by integrating with Stripe, a payment gateway provider. This ensures a seamless and secure user experience during checkout.
 
-**Relationship with Product and User models:** The Order model establishes relationships with both Product and User models (see ERD). This facilitates data retrieval and management of purchase history for both users and store administrators.
+**Relationship with Product, DiscountCode and UserProfile models:** The Order model establishes relationships with the models Product in app products, DiscountCode in app cart, and UserProfile in app profiles (see ERD). This facilitates data retrieval and management of purchase history for both users and store administrators.
 
 ![ERD checkout](/documentation/erd-checkout.png)
 
@@ -187,7 +189,29 @@ These extensive permissions empower superusers to maintain and optimize the appl
 
 **CSRF Protection:** To safeguard against Cross-Site Request Forgery (CSRF) attacks, the application enforces the use of CSRF tokens in all forms using the POST method. This bolsters data integrity and prevents unauthorized actions.
 
-**Django Allauth Integration for User Management:** ser authentication and authorization are implemented by leveraging the Django Allauth, a third-party library that upholds robust security practices. This provides a robust and secure foundation for user access control.
+**User Management**
+
+**Django Allauth Integration for User Management:** User authentication and authorization are implemented by leveraging the Django Allauth, a third-party library that upholds robust security practices. This provides a robust and secure foundation for user access control.
+
+**UserProfile model:** The UserProfile model is used to store user data. This includes user name, email, and password. The model is placed in the profiles app. To differentiate the information stored in the UserProfile model from the similar information stored in the Order model, the fields have the prefix default. Users can place an order without signing up for an account.<br>
+
+The custom model field video_unlocked is a boolean field, used to detect if a registered user has purchased a video tutorial and has access the video's url in their user profile page on the website. The boolean field is triggered in the webhook handler in the checkout app.
+
+**Relationship with Order and Contact models:** The UserProfile model establishes relationships with the models Order and Contact in app checkout and contact, respectively. This facilitates data retrieval and management of user contact information and purchase history.<br>
+
+![ERD UserProfile](/documentation/erd-userprofile.png)
+
+**Communication**
+
+**Contact Form:** Users can contect the store owner using a contact form on the website. The form is placed in the contact app, and the model is used to store the form data. The contact form guides user through all necessary details for the store owner to make a detailled offer on a customized surfboard.<br> 
+
+The form can just as easily be used to send a simple enquiry, feedback or a question to the store owner. <br>
+
+The user receives a copy of the message by email and the store owner is notified by email of the new message. <br>
+
+**Relationship with UserProfile model:** The Contact model establishes relationships with the UserProfile model in the app profiles (see ERD). This facilitates data retrieval of contact information to conveniently prefill the user's contact information in the form.
+
+![ERD Contact Model](/documentation/erd-contact.png)
 
 ### Agile Development Methods (Epics, User Stories, MoSCoW Prioritization, Kanban board)
 
@@ -201,7 +225,7 @@ These represent the high-level objectives and functionalities of the project. Ea
 
 These detailed descriptions outline functionalities from the user's perspective. They follow the format "As a [role], I can [capability] so that [received benefit]". Each user story has well-defined acceptance criteria outlining the specific requirements for successful implementation. The user stories can be viewed on [this project’s Kanban board](https://github.com/users/g-omarsdottir/projects/5).
 
-#### The MoSCoW Prioritization Method 
+#### The MoSCoW Prioritization Method
 
 To effectively manage resources and development flow, based on urgency and necessity, the prioritization method MoSCoW was employed. The acronym stands for Must Have, Should Have, Could Have, and Won't Have. 
 
@@ -232,6 +256,7 @@ In addition to libraries and frameworks already installed in the Code Institute 
 - [django-resized v1.0.2](https://pypi.org/project/django-resized/) - Handles resizing and format converting of images uploaded by store owners
 - [pillow v10.3.0](https://pillow.readthedocs.io/en/stable/) - A Python imaging library, handles images in combination with the Django Resized Image Field
 - [django-summernote v0.8.20.0](https://github.com/summernote/django-summernote) - A a simple WYSIWYG editor to use SummernoteModelAdmin in the admin panel interface
+- [django-richtextfield v1.6.2](https://pypi.org/project/django-richtextfield/) - Not actively used but unable to uninstall due to dependies of previous migrations of richtextfields (as suggested by CI tutor support)
 - [cloudinary v1.40.0](https://cloudinary.com/documentation/django_integration) - Allows to upload product images
 - [django-cloudinary-storage v0.3.0](https://cloudinary.com/documentation/rails_activestorage) - Provides storage of uploaded product images 
 - [django-countries v7.6.1](https://pypi.org/project/django-countries/) -  Provides country choices for use with forms and a country field for models
@@ -400,9 +425,12 @@ To deploy the repository:
 - Click the button "View" to open the link to the deployed project.
 
 ## Credits
+
 ### Content
 
-[Django Docs](https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#inlinemodeladmin-objects) for the Django admin site
+The Code Institute walkthrough project Boutique Ado for inspiration for the basic website structure.
+[Django Docs](https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#inlinemodeladmin-objects) for the Django admin site.
+[Django Docs](https://docs.djangoproject.com/en/dev/topics/email/#sending-alternative-content-types) and [StackOverflow](https://stackoverflow.com/questions/2809547/creating-email-templates-with-django) for sending emails as HTML formatted and plain text.
 
 ### Imagery
 
