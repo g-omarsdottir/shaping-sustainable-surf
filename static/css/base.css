@@ -95,13 +95,14 @@ main {
 footer {
     /* Stick footer to bottom */
     flex-shrink: 0;
-    background-color: lightblue;
-    border-top: 4px solid yellow;
+    background-color: var(--background-color);
+    border-top: 1px groove var(--yellow);
     margin-top: auto;
+    color: var(--font-color);
 }
 
 footer li a {
-    color: black;
+    color: var(--font-color)
 }
 
 /* Products --------------------------------------------------------------*/
@@ -161,13 +162,18 @@ footer li a {
 .about-card {
     box-shadow: var(--blue-box-shadow);
     text-decoration: none;
-    color: var(--font-color)
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+}
+
+.about-card a {
+    color: var(--font-color);
 }
 
 .about-card:hover {
-    box-shadow: var(--yellow-box-shadow)
+    box-shadow: var(--yellow-box-shadow);
+    transform: scale(1.05);
 }
-
 
 /* Styles from walkthrough project */
 

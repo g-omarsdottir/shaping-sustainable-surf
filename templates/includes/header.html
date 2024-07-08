@@ -49,29 +49,37 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-black {% if url_name == 'tutorials_list' %}active{% endif %}"
-                                aria-current="page" " href=" {% url 'tutorials_list' %}">Tutorials<span class="sr-only">(current page)</span></a>
+                                aria-current="page" " href=" {% url 'tutorials_list' %}">Tutorials<span
+                                    class="sr-only">(current page)</span></a>
                         </li>
 
                         <!-- About Us navigation links -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-black" href="#" role="button" data-toggle="dropdown"
-                                aria-expanded="false">
+                            <a class="nav-link dropdown-toggle text-black {% if url_name == 'about_content' or url_name == 'custom_surfboards' or url_name == 'faq' or url_name == 'resources' %}active{% endif %}"
+                                href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                                 About Us
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item text-black {% if url_name == 'about_us' or url_name == 'surfboards' or url_name == 'faqs' %}active{% endif %}"
-                                    aria-current="page" href="#">About Us<span class="sr-only">(current page)</span></a>
+                                <a class="dropdown-item text-black" aria-current="page"
+                                    href="{% url 'about_content' %}">About Us<span class="sr-only">(current
+                                        page)</span></a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Custom Surfboards Examples<span class="sr-only">(current page)</span></a>
+                                <a class="dropdown-item" href="{% url 'custom_surfboards' %}">Custom Surfboards
+                                    Collection<span class="sr-only">(current page)</span></a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">FAQs<span class="sr-only">(current page)</span></a>
+                                <a class="dropdown-item" href="{% url 'faq' %}">FAQs<span class="sr-only">(current
+                                        page)</span></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'resources' %}">Resources<span
+                                        class="sr-only">(current page)</span></a>
                             </div>
                         </li>
 
                         <!-- Contact Form -->
                         <li class="nav-item">
                             <a class="nav-link text-black {% if url_name == 'contact' %}active{% endif %}"
-                                aria-current="page" href="{% url 'contact' %}">Contact<span class="sr-only">(current page)</span></a>
+                                aria-current="page" href="{% url 'contact' %}">Contact<span class="sr-only">(current
+                                    page)</span></a>
                         </li>
 
                         <!-- My Account -->
@@ -83,17 +91,17 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                <a href="#" class="dropdown-item">Product Management</a>
+                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile<span
+                                        class="sr-only">(current page)</span></a>
                                 <div class="dropdown-divider"></div>
-                                {% endif %}
-                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile<span class="sr-only">(current page)</span></a>
-                                <div class="dropdown-divider"></div>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout<span class="sr-only">(current page)</span></a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout<span
+                                        class="sr-only">(current page)</span></a>
                                 {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Sign-Up<span class="sr-only">(current page)</span></a>
+                                <a href="{% url 'account_signup' %}" class="dropdown-item">Sign-Up<span
+                                        class="sr-only">(current page)</span></a>
                                 <div class="dropdown-divider"></div>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Sign-In<span class="sr-only">(current page)</span></a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item">Sign-In<span
+                                        class="sr-only">(current page)</span></a>
                                 {% endif %}
                             </div>
                         </li>
@@ -112,7 +120,7 @@
                                     €0.00
                                     {% endif %}
                                 </p>
-                            <span class="sr-only">(current page)</span>
+                                <span class="sr-only">(current page)</span>
                             </a>
                         </li>
                     </ul>

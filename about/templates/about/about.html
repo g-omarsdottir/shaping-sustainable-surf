@@ -11,42 +11,41 @@
         <div class="col-12 col-md-8 mb-4">
             <article>
                 {% if about_content.image %}
-                <img src="{{ about_content.image.url }}" alt="{{ about_content.title }}" class="img-fluid mb-3">
+                <img src="{{ about_content.image.url }}" alt="{{ about_content.title }}" class="img-fluid rounded mb-3">
                 {% endif %}
                 {{ about_content.content|safe }}
-                <p class="small text-muted text-right">{{ about_content.updated_at }}</p>
             </article>
         </div>
     </div>
     <div>
         <p class="small text-muted text-right">Last updated: {{ about_content.updated_at|date:"F d, Y" }}</p>
     </div>
-    <div class="row justify-content-center mt-4">
+    <div class="row justify-content-center mt-5 mb-5">
         <div class="col-12">
-            <div class="d-flex flex-wrap justify-content-center about-card">
-                <div class="card m-2" style="width: 15rem;">
+            <div class="d-flex flex-wrap justify-content-center">
+                <div class="card about-card m-2" style="width: 15rem;">
                     <div id="about-tutorial" class="card-body d-flex flex-column justify-content-between">
-                        <a href="{% url 'tutorials_list' %}" class="text-decoration-none">Browse through our <strong>Tutorials</strong> on shaping sustainable surfboards DIY</a>
+                        <a href="{% url 'tutorials_list' %}" aria-labelledby="tutorals-page-link" class="text-decoration-none"><span id="tutorals-page-link">Browse through our <strong>Tutorials</strong> on shaping sustainable surfboards DIY.</span></a>
                     </div>
                 </div>
-                <div class="card m-2" style="width: 15rem;">
+                <div class="card m-2 about-card" style="width: 15rem;">
                     <div id="about-surfboard" class="card-body d-flex flex-column justify-content-between">
-                        <a href="{% url 'custom_surfboards' %}" class="text-decoration-none">Check out our <strong>collection of custom-made eco-friendly, sustainable surfboards</strong>.</a>
+                        <a href="{% url 'custom_surfboards' %}" aria-labelledby="surboards-collection-page-link" class="text-decoration-none"><span id="surboards-collection-page-link">Check out our <strong>collection of custom-made <span class="nowrap">eco-friendly</span>, sustainable surfboards</strong>.</span></a>
                     </div>
                 </div>
-                <div class="card m-2" style="width: 15rem;">
+                <div class="card m-2 about-card" style="width: 15rem;">
                     <div id="about-contact" class="card-body d-flex flex-column justify-content-between">
-                        <a href="{% url 'contact' %}" class="text-decoration-none">Do you want us to shape your sustainable surfboard? <br> Visit our <strong>Contact page</strong> and use our convenient contact form.</a>
+                        <a href="{% url 'contact' %}" aria-labelledby="contact-page-link" class="text-decoration-none"><span id="contact-page-link">Do you want us to shape your sustainable surfboard? <br> Visit our <strong>Contact page</strong> and use our convenient contact form.</span></a>
                     </div>
                 </div>
-                <div class="card m-2" style="width: 15rem;">
+                <div class="card m-2 about-card" style="width: 15rem;">
                     <div id="about-faq" class="card-body d-flex flex-column justify-content-between">
-                        <a href="{% url 'faq' %}" class="text-decoration-none">Check out our <strong>FAQs page</strong>  for frequently asked questions.</a>
+                        <a href="{% url 'faq' %}" aria-labelledby="faqs-page-link" class="text-decoration-none"><span id="faqs-page-link">Check out our <strong>FAQs page</strong> for frequently asked questions.</span></a>
                     </div>
                 </div>
-                <div class="card m-2" style="width: 15rem;">
+                <div class="card m-2 about-card" style="width: 15rem;">
                     <div id="about-resources" class="card-body d-flex flex-column justify-content-between">
-                        <a href="{% url 'resources' %}" class="text-decoration-none">Learn more about <strong>eco-friendly, sustainable surfboard materials and ocean conservation</strong>, visit out our resources page.</a>
+                        <a href="{% url 'resources' %}" aria-labelledby="resources-page-link" class="text-decoration-none"><span id="resources-page-link">Learn more about <strong><span class="nowrap">eco-friendly</span>, sustainable surfboard materials and ocean conservation</strong>, visit out our resources page.</span></a>
                     </div>
                 </div>
             </div>
