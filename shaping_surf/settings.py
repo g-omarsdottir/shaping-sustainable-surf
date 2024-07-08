@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     # Apps
+    "about",
     "home",
     "products",
     "cart",
@@ -64,6 +65,7 @@ INSTALLED_APPS = [
     "profiles",
     "contact",
     # Third-party apps
+    "autoslug",
     "django_extensions",
     "crispy_forms",
     "crispy_bootstrap4",

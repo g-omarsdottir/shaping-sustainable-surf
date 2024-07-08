@@ -275,6 +275,7 @@ In addition to libraries and frameworks already installed in the Code Institute 
 - [django-countries v7.6.1](https://pypi.org/project/django-countries/) -  Provides country choices for use with forms and a country field for models
 - [stripe v10.1.0](https://docs.stripe.com/) - Provides secure payment processing
 - [whitenoise v5.3.0](https://pypi.org/project/whitenoise/) - Python package to simplify static file serving for web apps
+- [django-autoslug==1.9.9](https://pypi.org/project/django-autoslug/) - Automatically generates slug field
 
 ### Programs Used
 [Canva](https://www.canva.com/) to create the website logo
