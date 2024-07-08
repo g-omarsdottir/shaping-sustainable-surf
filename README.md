@@ -226,6 +226,18 @@ The user receives a copy of the message by email and the store owner is notified
 
 ![ERD Contact Model](/documentation/erd-contact.png)
 
+**About Us**
+
+**About Us Page:** The About Us page contains information about the store owner and the website goal. The page is placed in the about app, and the model is used to store the page content.
+
+**Custom Surfboard:** The Custom Surfboard page contains a collection of custom surfboards created by the store owner. The page is placed in the about app, and the model is used to store the page content. Although there is no entity relation between the models, the CustomSurfboard model enhances the Contact model, which aims to collect information from customers for a customized surfboard.
+
+**FAQs:** The FAQs page contains frequently asked questions and answers. The page is placed in the about app, and the model is used to store the page content. Websites that include a FAQs page can enhance the credibility and authority of the website content, which search engines like Google value and thereby beneficial for SEO.
+
+**Resources:** The Resources page contains links to reliable sources on environmental and ocean conservation. The page is placed in the about app, and the model is used to store the page content. Websites that include external links to reputable sources can enhance the credibility and authority of the website content, which search engines like Google value and thereby beneficial for SEO.
+
+![ERD About Us](/documentation/erd-about.png)
+
 ### Agile Development Methods (Epics, User Stories, MoSCoW Prioritization, Kanban board)
 
 This project utilizes Agile Development Methods to manage development and ensure efficient delivery.
@@ -287,6 +299,7 @@ In addition to libraries and frameworks already installed in the Code Institute 
 [Muzli Colors](https://colors.muz.li/palette/57a7b3/3d757d/b35794/7d3d67/b3a357) for color palette
 
 ## Features
+
 ### Main Features
 
 #### Custom Error Pages
