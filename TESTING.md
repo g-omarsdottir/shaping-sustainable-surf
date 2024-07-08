@@ -115,10 +115,11 @@ The official [World Wide Web Consortium (W3C) validator for CSS](https://validat
 
 Manual testing was conducted to verify the functionality, usability, and user experience of the website. This section details the test cases executed, the steps followed, and the results observed for each feature and user interaction.
 
-Test Cases
-To conveniently test the styling on the custom error pages during development, the following code was temporarly added to the profile view and urls:
+### Test Cases
 
 ### Custom Error pages
+
+To conveniently test the styling on the custom error pages during development, the following code was temporarily added to the app profile views and urls:
 
 #### 404 Not Found
 
@@ -134,6 +135,12 @@ handler404 = 'profiles.views.custom_404'
 
 To test: Navigate to any non-existent URL, e.g., /profile/test-404/
 
+ <details>
+<summary>Click for image 404 during development</summary>
+
+![test-dev-404](/documentation/testing/test-dev-404.png)
+</details>
+
 #### 403 Forbidden
 
 In `views.py`:
@@ -147,6 +154,12 @@ In `urls.py`:
 path('test-403/', views.test_403, name='test_403'),
 
 To test: Navigate to /profile/test-403/
+
+ <details>
+<summary>Click for image 403 during development</summary>
+
+![test-dev-403](/documentation/testing/test-dev-403.png)
+</details>
 
 ## Security Testing
 
