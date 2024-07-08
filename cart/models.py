@@ -22,7 +22,9 @@ class DiscountCode(models.Model):
 
     code = models.CharField(max_length=20)
     amount = models.DecimalField(max_digits=5, decimal_places=2)
-    active = models.CharField(max_length=3, choices=ACTIVE_CHOICES, default="Yes")
+    active = models.CharField(
+        max_length=3, choices=ACTIVE_CHOICES, default="Yes"
+    )
 
     def __str__(self):
         return self.code

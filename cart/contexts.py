@@ -28,7 +28,9 @@ def cart_contents(request):
 
     if discount_code:
         try:
-            discount = DiscountCode.objects.get(code=discount_code, active="Yes")
+            discount = DiscountCode.objects.get(
+                code=discount_code, active="Yes"
+            )
             discount_amount = discount.amount
             # Ensuring grand_total is not negative
             grand_total = max(total - discount_amount, 0)

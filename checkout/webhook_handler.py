@@ -53,12 +53,15 @@ class StripeWH_Handler:
         """
         intent = event.data.object
 
-        return HttpResponse(content=f'Webhook received: {event["type"]}', status=200)
+        return HttpResponse(
+            content=f'Webhook received: {event["type"]}', status=200
+        )
 
     def handle_payment_intent_succeeded(self, event):
         """
         Handle the payment_intent.succeeded webhook from Stripe.
-        Create or update the UserProfile model if save_info checkbox is selected.
+        Create or update the UserProfile model
+            if save_info checkbox is selected.
         Unlock video in UserProfile model.
         """
 
@@ -123,7 +126,9 @@ class StripeWH_Handler:
             self._unlock_video_for_user(user_id)
             self._send_confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                content=f"Webhook received: "
+                f"{event["type"]} | SUCCESS: "
+                f"Verified order already in database",
                 status=200,
             )
         else:
@@ -172,7 +177,8 @@ class StripeWH_Handler:
         self._unlock_video_for_user(user_id)
         # Create the order
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
+            content=f"Webhook received: "
+            f"{event["type"]} | SUCCESS: Created order in webhook",
             status=200,
         )
 
@@ -189,4 +195,6 @@ class StripeWH_Handler:
         Handle the payment_intent.payment_failed webhook from Stripe
         """
 
-        return HttpResponse(content=f'Webhook received: {event["type"]}', status=200)
+        return HttpResponse(
+            content=f'Webhook received: {event["type"]}', status=200
+        )

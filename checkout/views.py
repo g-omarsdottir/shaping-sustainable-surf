@@ -78,8 +78,10 @@ def checkout(request):
 
     Stripe PaymentIntent:
     - Creates a PaymentIntent with the cart total.
-    - Includes metadata: cart contents, discount code, save_info preference, and user ID.
-    - User ID is included in metadata if the user is authenticated, for use in webhooks.
+    - Includes metadata: cart contents, discount code,
+        save_info preference, and user ID.
+    - User ID is included in metadata if the user is authenticated,
+        for use in webhooks.
 
     Args:
         request (HttpRequest): The request object.
@@ -124,7 +126,10 @@ def checkout(request):
                 order.original_cart = json.dumps(cart)
                 order.save()
             except Exception as e:
-                messages.error(request, "There was an error processing your order. Please try again.")
+                messages.error(
+                    request, "There was an error processing your order. "
+                    "Please try again."
+                )
                 return redirect(reverse("checkout"))
 
             # Get the discount information from the cart contents
@@ -210,7 +215,7 @@ def checkout(request):
             metadata=metadata,
         )
 
-        # Attempt to prefill the form with any info the user maintains in their profile
+        # Attempt to prefill the form with info from the UserProfile model
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -258,7 +263,8 @@ def checkout_success(request, order_number):
     with their Products in a single optimized query.
     Clears the cart and discount code from the session.
     Displays a success message and renders the checkout success template.
-    If save_info checkbox is selected, the user info is saved in the UserProfile model.
+    If save_info checkbox is selected,
+        the user info is saved in the UserProfile model.
 
     Args:
         request (HttpRequest): The request object.

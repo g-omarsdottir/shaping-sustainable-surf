@@ -13,7 +13,7 @@ class ContactAdmin(admin.ModelAdmin):
         list_filter: Filter the list of Contact objects.
         search_fields: Fields that can be searched in the admin interface.
         readonly_fields: Fields that cannot be edited in the admin interface.
-            For database integrity: 
+            For database integrity:
                 all fields except for message_read are readonly.
         fields: The order and grouping of fields in the detail view.
 
@@ -25,7 +25,10 @@ class ContactAdmin(admin.ModelAdmin):
 
     def mark_as_read(self, request, queryset):
         updated = queryset.update(message_read=True)
-        self.message_user(request, f"{updated} message(s) have been marked as read.", messages.SUCCESS)
+        self.message_user(
+            request, f"{updated} message(s) have been marked as read.",
+            messages.SUCCESS
+        )
     mark_as_read.short_description = "Mark selected messages as read"
 
     list_display = (
@@ -38,8 +41,19 @@ class ContactAdmin(admin.ModelAdmin):
         "message_read",
     )
 
-    list_filter = ("message_read", "name", "category")
-    search_fields = ("name", "email", "category__name", "user_profile__user__username")
+    list_filter = (
+        "message_read",
+        "name",
+        "category",
+    )
+
+    search_fields = (
+        "name",
+        "email",
+        "category__name",
+        "user_profile__user__username",
+    )
+
     readonly_fields = [
         "sent_at",
         "user_profile",
@@ -86,4 +100,5 @@ class ContactAdmin(admin.ModelAdmin):
         "wave_power",
         "color_theme",
         "art",
-        "remarks",)
+        "remarks",
+    )

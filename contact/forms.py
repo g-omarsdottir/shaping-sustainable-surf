@@ -5,51 +5,110 @@ from products.models import Category
 
 
 class ContactForm(forms.ModelForm):
+    """
+    Contact form to collect user data for contact.
+    Utilizes TextInput widget for Integer fields to allow numeric input,
+        while avoiding the browser's default numeric keyboard
+        with arrow keys (up and down) for simpler user interface.
+    """
 
     board_length = forms.IntegerField(
-    widget=forms.TextInput(attrs={'type': 'text', 'pattern': '[0-9]*', 'inputmode': 'numeric'}),
-    required=False
+        widget=forms.TextInput(
+            attrs={
+                "type": "text",
+                "pattern": "[0-9]*",
+                "inputmode": "numeric"
+            }
+        ),
+        required=False,
     )
     board_volume = forms.IntegerField(
-        widget=forms.TextInput(attrs={'type': 'text', 'pattern': '[0-9]*', 'inputmode': 'numeric'}),
-        required=False
+        widget=forms.TextInput(
+            attrs={
+                "type": "text",
+                "pattern": "[0-9]*",
+                "inputmode": "numeric"
+            }
+        ),
+        required=False,
     )
     body_height = forms.IntegerField(
-        widget=forms.TextInput(attrs={'type': 'text', 'pattern': '[0-9]*', 'inputmode': 'numeric'}),
-        required=False
+        widget=forms.TextInput(
+            attrs={
+                "type": "text",
+                "pattern": "[0-9]*",
+                "inputmode": "numeric"
+            }
+        ),
+        required=False,
     )
     body_weight = forms.IntegerField(
-        widget=forms.TextInput(attrs={'type': 'text', 'pattern': '[0-9]*', 'inputmode': 'numeric'}),
-        required=False
+        widget=forms.TextInput(
+            attrs={
+                "type": "text",
+                "pattern": "[0-9]*",
+                "inputmode": "numeric"
+            }
+        ),
+        required=False,
     )
 
     class Meta:
+        """
+
+        """
+
         model = Contact
         exclude = ["user_profile"]
 
         fields = [
-            "name", "email", "phone", "subject", "message",
-            "category", "board_type", "tail", "body_height",
-            "body_weight", "board_length", "board_volume", "skill_level",
-            "surf_style", "wave_size", "wave_power", "color_theme", "art",
-            "remarks"
+            "name",
+            "email",
+            "phone",
+            "subject",
+            "message",
+            "category",
+            "board_type",
+            "tail",
+            "body_height",
+            "body_weight",
+            "board_length",
+            "board_volume",
+            "skill_level",
+            "surf_style",
+            "wave_size",
+            "wave_power",
+            "color_theme",
+            "art",
+            "remarks",
         ]
 
     def clean(self):
         cleaned_data = super().clean()
-        integer_fields = ['board_length', 'board_volume', 'body_height', 'body_weight']
-        
+        integer_fields = [
+            "board_length",
+            "board_volume",
+            "body_height",
+            "body_weight"
+        ]
+
         for field in integer_fields:
             value = cleaned_data.get(field)
             if value is not None:
                 try:
                     int(value)
                 except ValueError:
-                    self.add_error(field, "Please enter only whole numbers for this field.")
+                    self.add_error(
+                        field, "Please enter only whole numbers."
+                    )
         return cleaned_data
 
     def clean_message(self):
-        message = self.cleaned_data.get('message')
+        """
+        Clean message field to avoid empty messages.
+        """
+
+        message = self.cleaned_data.get("message")
         if message:
             message = message.strip()
             if not message:
@@ -57,10 +116,13 @@ class ContactForm(forms.ModelForm):
         return message
 
     def __init__(self, *args, **kwargs):
+        """
+        Add placeholders and classes, remove auto-generated
+            labels and set autofocus on first field.
+        """
+
         initial_data = kwargs.pop("initial_data", {})
         super().__init__(*args, **kwargs)
-
-       
 
         # Define placeholders
         placeholders = {
@@ -85,7 +147,7 @@ class ContactForm(forms.ModelForm):
             "remarks": "Further Remarks",
         }
 
-         # Make name and email fields required
+        # Make name and email fields required
         self.fields["name"].required = True
         self.fields["email"].required = True
 

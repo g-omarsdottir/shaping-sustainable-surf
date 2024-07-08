@@ -29,5 +29,7 @@ class DiscountCodeForm(forms.Form):
                 discount = DiscountCode.objects.get(code=code, active="Yes")
                 return discount
             except DiscountCode.DoesNotExist:
-                raise forms.ValidationError("Invalid or inactive discount code.")
+                raise forms.ValidationError(
+                    "Invalid or inactive discount code."
+                )
         return None
