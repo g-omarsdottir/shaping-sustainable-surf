@@ -7,6 +7,7 @@ class Category(models.Model):
     """
     Stores main category for product.
     Related to :model:`Product`
+    and :model:`Contact`
     """
 
     CATEGORIES = [
@@ -54,7 +55,8 @@ class Product(models.Model):
     Stores products.
     Related to :model:`Category`
     and :model:`Subcategory`
-    and :model:`Review`
+    and :model:`Order`
+    and :model:`OrderItem`.
     """
 
     STATUS = [
@@ -69,7 +71,9 @@ class Product(models.Model):
     subcategory = models.ForeignKey(
         Subcategory, on_delete=models.SET_NULL, null=True, blank=False
     )
-    price = models.DecimalField(max_digits=6, null=True, blank=False, decimal_places=2)
+    price = models.DecimalField(
+        max_digits=6, null=True, blank=False, decimal_places=2
+    )
     description = models.TextField(max_length=3000, null=True, blank=False)
     image = ResizedImageField(
         size=[400, None],
@@ -80,7 +84,6 @@ class Product(models.Model):
         force_format="webp",
     )
     video_url = models.URLField(max_length=254, null=True, blank=True)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     status = models.CharField(max_length=20, choices=STATUS, default="Draft")
 
     def __str__(self):

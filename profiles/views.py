@@ -11,7 +11,7 @@ from checkout.models import Order
 @login_required
 def profile(request):
     """
-    Display the user profile, order history, 
+    Display the user profile, order history,
     and tutorials according to video unlock status
     and profile form.
     """
@@ -25,7 +25,9 @@ def profile(request):
             form.save()
             messages.success(request, "Profile updated successfully")
         else:
-            messages.error(request, "Update failed. Please ensure the form is valid.")
+            messages.error(
+                request, "Update failed. Please ensure the form is valid."
+            )
     else:
         form = UserProfileForm(instance=profile)
 

@@ -6,8 +6,6 @@ from django.db.models.functions import Lower
 
 from .models import Product, Category, Subcategory
 
-# Views
-
 
 def tutorials_list(request):
     """
@@ -61,7 +59,9 @@ def tutorials_list(request):
         if "q" in request.GET:
             query = request.GET["q"]
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!"
+                )
                 return redirect(reverse("tutorials_list"))
 
             queries = (
@@ -76,8 +76,11 @@ def tutorials_list(request):
             messages.error(request, "Your search did not match any tutorials.")
             return redirect(reverse("tutorials_list"))
 
-    # return the current sorting methodology to the template
-    current_sorting = f"{sort}_{direction}" if sort and direction else "None_None"
+    # Return the current sorting methodology to the template
+    current_sorting = (
+        f"{sort}_{direction}"
+        if sort and direction else "None_None"
+    )
 
     # So products will be available in the template
     context = {

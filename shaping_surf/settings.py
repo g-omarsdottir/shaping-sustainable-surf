@@ -32,12 +32,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "8000-gomarsdotti-shapingsust-wirzm9fqqo3.ws.codeinstitute-ide.net",
-    "localhost", 
+    "localhost",
     "127.0.0.1",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://8000-gomarsdotti-shapingsust-wirzm9fqqo3.ws.codeinstitute-ide.net",
+    "https://8000-gomarsdotti-shapingsust-wirzm9fqqo3."
+    "ws.codeinstitute-ide.net",
     "https://*.codeinstitute-ide.net",
     "https://*.gitpod.io",
     "https://*.herokuapp.com",
@@ -125,7 +126,6 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-# Check
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
@@ -155,16 +155,28 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "UserAttributeSimilarityValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "MinimumLengthValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "CommonPasswordValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "NumericPasswordValidator"
+        ),
     },
 ]
 
@@ -192,8 +204,10 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-if DEBUG == True:
-    STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+if DEBUG is True:
+    STATICFILES_STORAGE = (
+        "django.contrib.staticfiles.storage.StaticFilesStorage"
+    )
 else:
     STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
