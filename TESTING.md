@@ -34,12 +34,69 @@ This section covers the automated tests performed on the project's code. It incl
 
 ### Python
 
-[Python Linter Validator](https://pep8ci.herokuapp.com/) provided by the Code Institute according to the PEP 8 style guide was used for validating the Python code throughout the development process.
+[Python Linter Validator](https://pep8ci.herokuapp.com/) provided by the Code Institute according to the PEP 8 style guide was used for validating the Python code throughout the development process.<br>
+
+The webhooks.py file raises two issue with the linter due to the line lenght exceeding the maximum line length of 79 characters. Strictly adhering to the guideline here causes issues in code performance and all orders are created in webhooks as a consequence. The issue raised by the linter is not considered a quality issue and is therefore ignored.<br>
+
+| App      | File        | Screenshot                                                                                                                   | Result |
+|----------|-------------|------------------------------------------------------------------------------------------------------------------------------|--------|
+| checkout | webhooks.py | <details> <summary>**Click to View**</summary> ![checkout-webhooks](documentation/validator/checkout-webhooks.png)</details> | noqa   |
+
+
+The Django’s Allauth templates do not pass through the linter because Django templates have their own style requirements to ensure proper rendering and translation of the templates and do not follow the PEP 8 guidelines. Thus, these are not included in the linter validation.<br>
+
+All other custom written Python code files passed through the Python Linter Validator according to the PEP 8 style without issues and passed all checks. This ensures the code adheres to PEP 8 guidelines.
+
+| App                 | File               | Screenshot                                                                                                                                 | Result |
+|---------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------|--------|
+| cart                | admin.py           | <details> <summary>**Click to View**</summary> ![cart-admin](documentation/validator/cart-admin.png)</details>                              | Passed |
+| cart                | context.py         | <details> <summary>**Click to View**</summary> ![cart-context](documentation/validator/cart-context.png)</details>                         | Passed |
+| cart                | forms.py           | <details> <summary>**Click to View**</summary> ![cart-forms](documentation/validator/cart-forms.png)</details>                             | Passed |
+| cart                | models.py          | <details> <summary>**Click to View**</summary> ![cart-models](documentation/validator/cart-models.png)</details>                           | Passed |
+| cart                | urls.py            | <details> <summary>**Click to View**</summary> ![cart-urls](documentation/validator/cart-urls.png)</details>                               | Passed |
+| cart                | views.py           | <details> <summary>**Click to View**</summary> ![cart-views](documentation/validator/cart-views.png)</details>                             | Passed |
+|                     |                    |                                                                                                                                            |        |
+| checkout            | admin.py           | <details> <summary>**Click to View**</summary> ![checkout-admin](documentation/validator/checkout-admin.png)</details>                     | Passed |
+| checkout            | forms.py           | <details> <summary>**Click to View**</summary> ![checkout-forms](documentation/validator/checkout-forms.png)</details>                     | Passed |
+| checkout            | models.py          | <details> <summary>**Click to View**</summary> ![checkout-models](documentation/validator/checkout-models.png)</details>                   | Passed |
+| checkout            | signals.py         | <details> <summary>**Click to View**</summary> ![checkout-signals](documentation/validator/checkout-signals.png)</details>                 | Passed |
+| checkout            | urls.py            | <details> <summary>**Click to View**</summary> ![checkout-urls](documentation/validator/checkout-urls.png)</details>                       | Passed |
+| checkout            | views.py           | <details> <summary>**Click to View**</summary> ![checkout-views](documentation/validator/checkout-views.png)</details>                     | Passed |
+| checkout            | webhook handler.py | <details> <summary>**Click to View**</summary> ![checkout-webhook-handler](documentation/validator/checkout-webhook-handler.png)</details> | Passed |
+|                     |                    |                                                                                                                                            |        |
+| contact             | admin.py           | <details> <summary>**Click to View**</summary> ![contact-admin](documentation/validator/contact-admin.png)</details>                       | Passed |
+| contact             | forms.py           | <details> <summary>**Click to View**</summary> ![contact-forms](documentation/validator/contact-forms.png)</details>                       | Passed |
+| contact             | models.py          | <details> <summary>**Click to View**</summary> ![contact-models](documentation/validator/contact-models.png)</details>                     | Passed |
+| contact             | urls.py            | <details> <summary>**Click to View**</summary> ![contact-urls](documentation/validator/contact-urls.png)</details>                         | Passed |
+| contact             | views.py           | <details> <summary>**Click to View**</summary> ![contact-views](documentation/validator/contact-views.png)</details>                       | Passed |
+|                     |                    |                                                                                                                                            |        |
+| home                | urls.py            | <details> <summary>**Click to View**</summary> ![home-urls](documentation/validator/home-urls.png)</details>                               | Passed |
+| home                | views.py           | <details> <summary>**Click to View**</summary> ![home-views](documentation/validator/home-views.png)</details>                             | Passed |
+|                     |                    |                                                                                                                                            |        |
+| products            | admin.py           | <details> <summary>**Click to View**</summary> ![products-admin](documentation/validator/products-admin.png)</details>                     | Passed |
+| products            | forms.py           | <details> <summary>**Click to View**</summary> ![products-forms](documentation/validator/products-forms.png)</details>                     | Passed |
+| products            | models.py          | <details> <summary>**Click to View**</summary> ![products-models](documentation/validator/products-models.png)</details>                   | Passed |
+| products            | urls.py            | <details> <summary>**Click to View**</summary> ![products-urls](documentation/validator/products-urls.png)</details>                       | Passed |
+| products            | views.py           | <details> <summary>**Click to View**</summary> ![products-views](documentation/validator/products-views.png)</details>                     | Passed |
+|                     |                    |                                                                                                                                            |        |
+| profiles            | forms.py           | <details> <summary>**Click to View**</summary> ![profiles-forms](documentation/validator/profiles-forms.png)</details>                     | Passed |
+| profiles            | models.py          | <details> <summary>**Click to View**</summary> ![profiles-models](documentation/validator/profiles-models.png)</details>                   | Passed |
+| profiles            | urls.py            | <details> <summary>**Click to View**</summary> ![profiles-urls](documentation/validator/profiles-urls.png)</details>                       | Passed |
+| profiles            | views.py           | <details> <summary>**Click to View**</summary> ![profiles-views](documentation/validator/profiles-views.png)</details>                     | Passed |
+|                     |                    |                                                                                                                                            |        |
+| shaping-surf (core) | settings.py        | <details> <summary>**Click to View**</summary> ![settings](documentation/validator/settings.png)</details>                                 | Passed |
+| shaping-surf (core) | urls.py            | <details> <summary>**Click to View**</summary> ![urls](documentation/validator/urls.png)</details>                                         | Passed |
+
 
 ### JavaScript 
 
-The [JSHint Validator]( https://jshint.com/), a JavaScript Code Quality Tool was used to validate the JavaScript code.
-[Results to be added]
+The [JSHint Validator]( https://jshint.com/), a JavaScript Code Quality Tool was used to validate the JavaScript code. All custom written JavaScript code passed without errors through the validator.
+
+| App      | Folder | File               | Screenshot                                                                                                       | Result |
+|----------|--------|--------------------|------------------------------------------------------------------------------------------------------------------|--------|
+| checkout | static | stripe_elements.js | <details> <summary>**Click to View**</summary> ![checkout-js](documentation/validator/checkout-js.png)</details> | Passed |
+| contact  | static | contact.js         | <details> <summary>**Click to View**</summary> ![contact-js](documentation/validator/contact-js.png)</details>   | Passed |
+
 
 ### HTML
 
