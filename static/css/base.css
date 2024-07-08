@@ -14,6 +14,7 @@
 
     /* Box shadow and border styles */
     --blue-box-shadow: 1px -1px 7px 0 rgba(87, 167, 179, 0.70);
+    --yellow-box-shadow: 1px -1px 7px 0 #b3a357;
     --black-box-shadow: 1px -1px 7px 0 #4E4A47;
 }
 
@@ -151,10 +152,20 @@ footer li a {
     width: 100%;
 }
 
-/* Cart ---------------------------------------------------------------*/
-
 .custom-alert {
     color: var(--aubergine);
+}
+
+/* About Us-------------------------------------------------------------*/
+
+.about-card {
+    box-shadow: var(--blue-box-shadow);
+    text-decoration: none;
+    color: var(--font-color)
+}
+
+.about-card:hover {
+    box-shadow: var(--yellow-box-shadow)
 }
 
 
