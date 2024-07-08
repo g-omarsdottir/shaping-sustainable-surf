@@ -20,11 +20,6 @@
                 <div class="h-100">
                     <div class="d-flex flex-column justify-content-between">
                         <h2>{{ product.name }}</h2>
-                        {% if product.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
-                        {% else %}
-                        <small class="text-muted italic">No Rating yet</small>
-                        {% endif %}
                         <h3 class="text-muted">{{ product.category }}</h3>
                         <h4 class="text-muted"">{{ product.subcategory }}</h4>
                         <p>€ {{ product.price }}</p>
