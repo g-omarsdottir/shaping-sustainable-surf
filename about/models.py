@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import URLValidator
 
+from django.utils.html import strip_tags
 from django_resized import ResizedImageField
 from autoslug import AutoSlugField
 
@@ -21,17 +22,41 @@ class AboutUs(models.Model):
 
 
 class FAQ(models.Model):
-    question = models.CharField(max_length=500)
-    answer = models.TextField()
-    order = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.question
+    """
+    Model to store the FAQ entries.
+    """
 
     class Meta:
-        ordering = ["order"]
+        """
+        Orders the entries manually.
+        """
+
+        ordering = ["order", "-created_at"]
         verbose_name = "FAQ"
         verbose_name_plural = "FAQs"
+
+    question = models.CharField(max_length=1000, verbose_name="Question")
+    answer = models.TextField(max_length=5000, verbose_name="Answer")
+    created_at = models.DateTimeField(auto_now_add=True)
+    order = models.IntegerField(default=0, null=True, blank=True)
+
+    def __str__(self):
+        """
+        Returns the first 50 characters of the question in the admin panel.
+        """
+        return strip_tags(self.question)[:50]
+
+    def save(self, *args, **kwargs):
+        """
+        Removes empty spaces from question and answer fields.
+        Orders the entries if not set manually.
+        """
+        self.question = strip_tags(self.question.strip())
+        self.answer = self.answer.strip()
+        if not self.order:
+            last_item = FAQ.objects.order_by("-order").first()
+            self.order = last_item.order + 1 if last_item else 1
+        super().save(*args, **kwargs)
 
 
 class CustomSurfboard(models.Model):

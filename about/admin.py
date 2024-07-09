@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-
+from django.utils.html import strip_tags
 from .models import AboutUs, FAQ, CustomSurfboard, Resource
 
 
@@ -23,11 +23,24 @@ class FAQAdmin(SummernoteModelAdmin):
     The order field allows for a convenient manual sorting of the entries.
     """
 
-    summernote_fields = ("question", "answer")
-    list_display = ("question", "answer", "order")
+    summernote_fields = ("answer",)
+    list_display = ("display_question", "display_answer", "created_at", "order")
     list_editable = ("order",)
-    ordering = ("order",)
+    ordering = ("order", "-created_at")
     search_fields = ("question", "answer")
+
+    def display_question(self, obj):
+        if len(obj.question) > 50:
+            return obj.question[:50] + "..."
+        return obj.question
+    display_question.short_description = "Question"
+
+    def display_answer(self, obj):
+        stripped_answer = strip_tags(obj.answer)
+        if len(stripped_answer) > 50:
+            return stripped_answer[:50] + "..."
+        return stripped_answer
+    display_answer.short_description = "Answer"
 
 
 @admin.register(CustomSurfboard)
