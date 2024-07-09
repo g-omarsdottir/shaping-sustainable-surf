@@ -111,18 +111,28 @@ Screen sizes smaller than 320 were not considered in the design.
 
 #### Wireframes Mobile Version
 
-![mobile wireframes browsing website](/documentation/mobile-browse.png)
+![mobile-home-products](/documentation/mobile-home-products.png)
 
-![mobile wireframes actions](/documentation/mobile-actions.png)
+![mobile-user-related](/documentation/mobile-user-related.png)
+
+![mobile-about-surfboards](/documentation/mobile-about-surfboards.png)
+
+![mobile-about-faq](/documentation/mobile-about-faq.png)
+
+![mobile-checkout](/documentation/mobile-checkout.png)
 
 #### Wireframes Desktop Version
 
-![desktop wireframes home](/documentation/desktop-home.png)
-![desktop wireframes tutorials](/documentation/desktop-tutorials.png)
-![desktop wireframes communication](/documentation/desktop-communication.png)
-![desktop wireframes user account](/documentation/desktop-user-account.png)
-![desktop wireframes purchase](/documentation/desktop-purchase.png)
-
+![desktop wireframe-home](/documentation/wireframe-home.png)
+![desktop wireframe-products](/documentation/wireframe-products.png)
+![desktop wireframe-contact](/documentation/wireframe-contact.png)
+![desktop wireframes user account](/documentation/wireframe-about-1.png)
+![desktop wireframe-about-2](/documentation/wireframe-about-2.png)
+![desktop wireframe-about-3](/documentation/wireframe-about-3.png)
+![desktop wireframe-profiles](/documentation/wireframe-profiles.png)
+![desktop wireframe-allauth](/documentation/wireframe-allauth.png)
+![desktop wireframe-checkout-cart](/documentation/wireframe-checkout-cart.png)
+![desktop wireframe-checkout-confirmation](/documentation/wireframe-checkout-confirmation.png)
 
 ### Colors
 
