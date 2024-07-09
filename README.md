@@ -334,11 +334,76 @@ While reviews and ratings are prevalent in ecommerce platforms, prioritizing thi
 
 The business model for this ecommerce website is a Business to Customer (B2C) model, currently only selling digital content for single one-time payments. <br>
 
-The project has the potential to expand to selling further products and physical goods, as the product category and subcategory models can be expanded by the store owner in the admin panel.
+This section elaborates on the ecommerce marketing value and SEO benefits of the project’s custom models.
+
+The focus and main goal of this project is to create an ecommerce website with integrated purchase process and features that increase the marketing value and SEO benefits. The design of the technical architecture of the individual Django models was created to enhance web marketing efforts beyond the organic growth with social media marketing and reducing costs related to traditional advertising.
+
+#### Products models
+
+The Product model and related Category and Subcategory models ensure a coherent and consistent use of terminology regarding the surfboard parameters throughout the website. 
+
+**Marketing Value:** Consistent use of terminology makes a trustworthy and serious impression. This avoids misspelling in the product description, thus avoiding concerns about the store owner’s expertise, which could potentially reduce the market value.
+
+**SEO Benefits:** Using predefined parameters reduces the risk of misspelling while creating the entry for the product, potentially leading to failed searches in search engines or on the website’s integrated search field.
+
+#### Discount Code Model
+
+**Marketing Value:** Discount codes incentivize users to subscribe to the newsletter, increasing brand awareness and potentially leading to repeat customers.
+
+**SEO Benefits:** Discount codes can be promoted through social media and email marketing campaigns, driving traffic to the website.
+
+#### Video Unlocked Field of the Profile model
+
+**Marketing Value:** The video_unlocked field unlocks the access to a tutorial in the user's profile page, which is triggered during the purchase process of the tutorial (by the webhook handler at successful payment). This feature invites users a conveniently keep an overview of and access to their purchased tutorials on their profile page on the website. Repeated visits to the website and the thoughtful placement of buttons to browse through the collection of tutorials increases the likelihood to purchase further videos.
+
+#### Contact Form Model
+
+**Marketing Value:** The contact form facilitates communication with potential customers, allowing them to inquire about custom products or ask questions. Even if users did not visit the website to place an order for a custom-made surfboard by the store owner, they are likely to take interest in the  various details necessary to shape a custom-made surfboard and enticed to make an enquiry, which may lead to a sale.<br>
+
+Connoisseurs will recognize the attention to detail and amateurs will appreciate the guidance through the complicated process of calculating a surfboard’s parameters with regard to the surfer and intended use, potentially enhancing the marketing value and increasing website traffic.
+
+**SEO Benefits:** A well-designed contact form can improve user experience, which is a positive SEO ranking factor.
+
+#### About Us Model
+
+**Marketing Value:** The About Us page tells the brand story and builds trust with potential customers.
+
+**SEO Benefits:** High-quality content on the About Us page can improve website authority and ranking for relevant keywords. The date of entry increases the seriousness of the website.
+
+#### Custom Surfboard Model
+
+**Marketing Value:** The Custom Surfboard page provides a collection of custom-made surfboards with elegant images for potential customers showcasing the store owner’s expertise. The detail view of a custom surfboard invites the user to visit the contact page to enquire about the surfboard, potentially leading to a sale of a custom surfboard or a tutorial for creative DIY users.
+
+#### FAQ Model
+
+**Marketing Value:** The frequently asked questions page provides valuable information to potential customers addressing their concerns and demonstrates the commitment to customer service and expertise in the field of environmental-friendly materials and reducing the carbon footprint of the surfboard industry. 
+
+**SEO Benefits:** These pages target long-tail keywords related to custom surfboards, environmental conservation, and climate change mitigation, which are not only vital and utmost import, but also vouge and widely used search terms. Websites with a section for  frequently asked questions enhance the authority and seriousness of the website by search engines like google, thus improving organic search traffic.
+
+#### Resources Model
+
+**Marketing Value:** The Resources page demonstrate the commitment to environmental and ocean conservation causes, potentially resonating with environmentally conscious customers. 
+
+**SEO Benefits:** Including external links to reputable and high-quality sources like the United Nations and the Intergovernmental Panel on Climate Change can enhance the credibility and authority of the website content, which search engines like Google value and thereby beneficial for SEO. The store owner can manually change the order of the resources on the website according to current popularity of search terms or environmental occurrences.
+
+Overall, the project has the potential to expand to selling further products and physical goods, as the product category and subcategory models can be expanded by the store owner in the admin panel. The content displayed on the website can be updated according to current market trends and popular search terms.
 
 ### Marketing Strategies
+
 ### Social Media & Newsletter Marketing
+
+Users are invited on the website to subscribe to the newsletter and obtain a discount code for tutorials. The newsletter is sent to the email address provided by the user. The newsletter contains a welcome message, a link to the website, and a discount code. The store owner can update the newsletter content and send it to the subscribers to increase the likelihood of the subscribers to purchase the products.
+
+The social media marketing strategy relies on organic growth. The facebook page is set up to promote the products through postings of new tutorials, images of new custom-made surfboards, and for discount code campaigns.<br>
+
+Furthermore, it aims to be a source of information for the users, raise general aweareness regarding sustainable materials, environmental and ocean conservation causes, climate change mitigation and the environmental impact of the surfboard industry, life cycle analysis (LCA) and minimizing the carbon footprint through re-posting of posts by relevant reliable sources.<br>
+
+The facebook page provides a link to the website, which can be used to promote the products and increase the likelihood of the users to purchase the products by users that land on the facebook page through posts related to environmental related topics.
+
+![facebook-mockup](/documentation/facebook-mockup.png)
+
 ### Search Engine Optimization (SEO)
+
 #### Keywords
 #### Sitemap
 #### Robots.txt
