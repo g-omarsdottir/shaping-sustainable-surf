@@ -24,7 +24,12 @@ class FAQAdmin(SummernoteModelAdmin):
     """
 
     summernote_fields = ("answer",)
-    list_display = ("display_question", "display_answer", "created_at", "order")
+    list_display = (
+        "display_question",
+        "display_answer",
+        "created_at",
+        "order"
+    )
     list_editable = ("order",)
     ordering = ("order", "-created_at")
     search_fields = ("question", "answer")
