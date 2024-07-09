@@ -2,31 +2,36 @@
 {% load i18n %}
 {% load static %}
 
-{% block head_title %}Custom Surfboard Detail{% endblock head_title %}
+{% block head_title %}{{ surfboard.name }} - Custom Surfboard Details{% endblock head_title %}
 
 {% block content %}
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Custom-Made Sustainably Shaped Surfboard in Detail</h1>
-    <div class="row">
-        <article class="d-flex flex-wrap justify-content-center mb-4">
-            <div class="col-12 col-lg-6 mb-3">
-                <!-- if image -->
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="h-100">
-                    <div class="d-flex flex-column justify-content-between">
-                        <h2>name</h2>
-                        <h3 class="text-muted">...</h3>
-                        <h4 class="text-muted"">...</h4>
-                        <p>...</p>
-                        <p>description - safe</p>
-                    </div>
-                </div>
-            </div>
-        </article>
+    <h1 class="text-center mb-4">{{ surfboard.name }} - Eco-Friendly Custom Surfboard Details</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-7 mb-4 mb-md-0">
+            {% if surfboard.image %}
+            <img src="{{ surfboard.image.url }}" class="img-fluid rounded"
+                alt="Detailed view of {{ surfboard.name }} custom surfboard">
+            {% else %}
+            <img src="{% static 'images/noimage.png' %}" class="img-fluid rounded"
+                alt="No image available for {{ surfboard.name }}">
+            {% endif %}
+        </div>
+        <div class="col-md-5">
+            <h2 class="h3 mb-3">Description</h2>
+            <p>{{ surfboard.description }}</p>
+            <a href="{% url 'contact' %}" class="btn btn-outline-secondary rounded-0 mt-3 mt-md-5 d-block" role="button"
+                aria-label="Contact us about {{ surfboard.name }}">
+                Enquire About This Board!
+            </a>
+        </div>
     </div>
-    <div class="d-flex justify-content-center mb-3">
-        <p>button</p>
+    <div class="row justify-content-center mt-5 mb-5">
+        <div class="col-md-6 text-center">
+            <a href="{% url 'custom_surfboards' %}" class="btn btn-outline-secondary rounded-0" role="button">
+                Back to Custom Surfboards
+            </a>
+        </div>
     </div>
 </div>
 {% endblock %}
