@@ -62,7 +62,7 @@ class ResourceAdmin(admin.ModelAdmin):
     The order field allows for a convenient manual sorting of the resources.
     """
 
-    list_display = ("name", "url", "order")
+    list_display = ("name", "order")
     search_fields = ("name", "url")
     list_editable = ("order",)
     ordering = ("order",)
