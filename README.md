@@ -241,6 +241,8 @@ The user receives a copy of the message by email and the store owner is notified
 
 ![ERD Contact Model](/documentation/erd-contact.png)
 
+![ERD Contact Model CONSTANTS and ForeignKey](/documentation/erd-contact-constants-fk.png)
+
 **About Us**
 
 **About Us Page:** The About Us page contains information about the store owner and the website goal. The page is placed in the about app, and the model is used to store the page content.
