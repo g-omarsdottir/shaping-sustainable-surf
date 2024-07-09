@@ -123,16 +123,21 @@ Screen sizes smaller than 320 were not considered in the design.
 
 #### Wireframes Desktop Version
 
-![desktop wireframe-home](/documentation/wireframe-home.png)
-![desktop wireframe-products](/documentation/wireframe-products.png)
-![desktop wireframe-contact](/documentation/wireframe-contact.png)
-![desktop wireframes user account](/documentation/wireframe-about-1.png)
-![desktop wireframe-about-2](/documentation/wireframe-about-2.png)
-![desktop wireframe-about-3](/documentation/wireframe-about-3.png)
-![desktop wireframe-profiles](/documentation/wireframe-profiles.png)
-![desktop wireframe-allauth](/documentation/wireframe-allauth.png)
-![desktop wireframe-checkout-cart](/documentation/wireframe-checkout-cart.png)
-![desktop wireframe-checkout-confirmation](/documentation/wireframe-checkout-confirmation.png)
+![desktop wireframe home](/documentation/wf-home.png)
+![desktop wireframe products-tutorials](/documentation/wireframe-products.png)
+![desktop wireframe wf-products-tutorials](/documentation/wf-products-tutorials.png)
+![desktop wireframe wf-product-tutorial-detail](/documentation/wf-products-tutorial-detail.png)
+![desktop wireframe wf-about-us](/documentation/wf-about-us.png)
+![desktop wireframe wf-about-surfboards](/documentation/wf-about-surfboards.png)
+![desktop wireframe wf-about-surfboard-detail](/documentation/wf-about-surfboard-detail.png)
+![desktop wireframe wf-about-faq](/documentation/wf-about-faq.png)
+![desktop wireframe wf-about-resources](/documentation/wf-about-resources.png)
+![desktop wireframe wf-contact](/documentation/wf-contact.png)
+![desktop wireframes wf-profile](/documentation/wf-profile.png)
+![desktop wireframe wf-wireframe-allauth](/documentation/wf-wireframe-allauth.png)
+![desktop wireframe wf-checkout-cart](/documentation/wf-checkout-cart.png)
+![desktop wireframe wf-checkout](/documentation/wf-checkout.png)
+![desktop wireframe wf-checkout-confirmation](/documentation/wf-checkout-confirmation.png)
 
 ### Colors
 
