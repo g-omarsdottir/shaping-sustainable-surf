@@ -35,7 +35,7 @@ class FAQListView(ListView):
 
     model = FAQ
     template_name = "about/faq.html"
-    context_object_name = "faq"
+    context_object_name = "faqs"
 
 
 class CustomSurfboardListView(ListView):
