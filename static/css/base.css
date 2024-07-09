@@ -187,6 +187,17 @@ footer li a {
 }
 
 
+/* Contact*/
+
+.fieldset-label {
+    font-family: "Roboto Slab", sans-serif;
+    width: auto;
+    font-size: 1.2rem;  
+    font-weight: 500;
+    margin: 20px 0 10px -10px;
+    color: var(--font-color);
+}
+
 /* Styles from walkthrough project */
 
 .btt-button {

@@ -63,6 +63,7 @@ def contact(request):
         and redirects the user to a success page.
     """
 
+    company_email = settings.DEFAULT_FROM_EMAIL
     contact_form = ContactForm()
     user_profile = None
 
@@ -110,6 +111,7 @@ def contact(request):
 
     context = {
         "contact_form": contact_form,
+        "company_email": company_email,
     }
 
     return render(request, template, context)
