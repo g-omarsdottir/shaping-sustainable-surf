@@ -134,7 +134,7 @@ Screen sizes smaller than 320 were not considered in the design.
 ![desktop wireframe wf-about-resources](/documentation/wf-about-resources.png)
 ![desktop wireframe wf-contact](/documentation/wf-contact.png)
 ![desktop wireframes wf-profile](/documentation/wf-profile.png)
-![desktop wireframe wf-wireframe-allauth](/documentation/wf-wireframe-allauth.png)
+![desktop wireframe wf-allauth](/documentation/wf-allauth.png)
 ![desktop wireframe wf-checkout-cart](/documentation/wf-checkout-cart.png)
 ![desktop wireframe wf-checkout](/documentation/wf-checkout.png)
 ![desktop wireframe wf-checkout-confirmation](/documentation/wf-checkout-confirmation.png)
