@@ -4,7 +4,7 @@ This document outlines the testing procedures and results for the ecommerce proj
 
 For development documentation, please refer to the [README.md](README.md).
 
-View the live project [here]().<br>  
+View the live project [here](https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com/).<br>  
 *(To open in a new window, press "Ctrl" + click on the link, or "⌘ + click" on Mac)*
 
 ## Overview
@@ -16,17 +16,17 @@ Thorough and continuous testing was performed throughout the development process
 
 ## Table of Contents
 
-[Automated Testing](#automated-testing)
-[Manual Testing](#manual-testing)
-[Security Testing](#security-testing)
-[User Story Testing](#user-story-testing)
-[Responsiveness Testing](#responsiveness-testing)
-[Browser Compatibility](#browser-compatibility)
-[Accessibility Testing](#accessibility-testing)
-[Performance Testing](#performance-testing)
-[Known Bugs](#known-bugs)
-[Resolved Bugs](#resolved-bugs)
-[Programs Used](#programs-used)
+- [Automated Testing](#automated-testing)
+- [Manual Testing](#manual-testing)
+- [Security Testing](#security-testing)
+- [User Story Testing](#user-story-testing)
+- [Responsiveness Testing](#responsiveness-testing)
+- [Browser Compatibility](#browser-compatibility)
+- [Accessibility Testing](#accessibility-testing)
+- [Performance Testing](#performance-testing)
+- [Known Bugs](#known-bugs)
+- [Resolved Bugs](#resolved-bugs)
+- [Programs Used](#programs-used)
 
 ## Automated Testing
 
@@ -178,7 +178,7 @@ As this is an educational project not intended for real-world deployment or to p
 - The project uses Stripe's test mode for simulating payments.
 - All communications with Stripe API are done over HTTPS.
 
-**Environment Variables**: Sensitive information like API keys are stored as environment variables to prevent exposure in the codebase.
+**Environment Variables**: Sensitive information like API keys are stored as environment variables to prevent exposure in the codebase. As precaution and to eliminate human error of deploying the project with DEBUG setting true, the switching between on and off is handled by environmental variable in env.py setting. If the variable is found, the code is in development environment and debug is set to true. If variable is not found, the code is in production environment and debug is set to false.
 
 **Error Handling**: Verified that error messages do not expose sensitive information.
 
@@ -226,8 +226,8 @@ Lighthouse performance evaluation was performed on the deployed website using [C
 [Results to be added]
 
 ### Known Bugs
-This section lists any known issues or limitations in the current version of the website. It includes descriptions of the bugs, their impact, and any planned resolutions or workarounds.
-[Table to be added]
+
+There are no known bugs in the deployed project.
 
 ### Resolved Bugs
 This section lists significant bugs that were encountered during development and testing, along with the solutions implemented. 
@@ -250,7 +250,9 @@ This section lists significant bugs that were encountered during development and
 | wh_secret                                                           | wh_secret was set to development endpoint                                                                                                                                                             | create new endpoint for deployed website                                                                                                                                                         | Solved |
 | Emails                                                              | Sending emails not working                                                                                                                                                                            | After changing the condition of debug settings in settings.py, the condition in email settings was not updated. Adjusted condition to same condition as debug condition.                         | Solved |
 | Database                                                            | Issue in connecting to datase.                                                                                                                                                                        | Change database to Code Institute Database                                                                                                                                                       | Solved |
+
 ## Programs Used
+
 A comprehensive list of all tools, validators, and programs used throughout the testing process and for this testing documentation. This section provides links and brief descriptions of each tool, helping readers understand the testing methodology and potentially replicate the tests.
 
 -	[Python Linter Validator](https://pep8ci.herokuapp.com/) provided by the Code Institute according for Python code.

@@ -1,7 +1,8 @@
 # ![logo](/documentation/logo_wave.png) Shaping Sustainable Surf
 
 Mockup
-You can view the live project here # <br>
+
+You can view the live project [here](https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com/)<br>
 *(To open in a new window, press "ctrl" (or ⌘ for Mac) + click on the link)*
 
 Welcome to Shaping Sustainable Surf, a fully functional Django ecommerce web application that offers access to online video tutorials.
@@ -124,8 +125,7 @@ Screen sizes smaller than 320 were not considered in the design.
 #### Wireframes Desktop Version
 
 ![desktop wireframe home](/documentation/wf-home.png)
-![desktop wireframe products-tutorials](/documentation/wireframe-products.png)
-![desktop wireframe wf-products-tutorials](/documentation/wf-products-tutorials.png)
+![desktop wireframe products-tutorials](/documentation/wf-product-tutorials.png)
 ![desktop wireframe wf-product-tutorial-detail](/documentation/wf-products-tutorial-detail.png)
 ![desktop wireframe wf-about-us](/documentation/wf-about-us.png)
 ![desktop wireframe wf-about-surfboards](/documentation/wf-about-surfboards.png)
@@ -182,6 +182,8 @@ This approach simplifies the models for the shopping and purchase process, as we
 Superusers (store owners) are granted comprehensive permissions within the application, allowing them to efficiently manage content across the platform. These permissions encompass creation, update, and deletion of product data, and pricing adjustments.
 
 ![ERD Product model](/documentation/erd-product.png)
+
+![ERD Product model constants](/documentation/erd-product-constants.png)
 
 **Ecommerce Functionality**
 
@@ -283,7 +285,13 @@ This method is a structural approach to determine which features are essential f
 The Kanban board is a handy tool in agile project management to provide a clear visual representation of the project planning and development workflow. This board displays the various stages each work item progresses through, along with the current status of individual tasks. This project’s Kanban board can be viewed [here](https://github.com/users/g-omarsdottir/projects/5).
 
 ## Technology Used
+
 ### Languages Used
+
+- Python
+- HTML
+- CSS
+- JavaScript
 
 ### Libraries and Frameworks Used
 
@@ -309,14 +317,26 @@ In addition to libraries and frameworks already installed in the Code Institute 
 - [django-autoslug==1.9.9](https://pypi.org/project/django-autoslug/) - Automatically generates slug field
 
 ### Programs Used
-[Canva](https://www.canva.com/) to create the website logo
-[Photoroom](https://www.photoroom.com/tools/background-remover) to remove background from images and website logo
-[Pixelied](https://pixelied.com/convert) to convert images to webp format
-[TinyPNG](https://tinypng.com/) to compress images
-[favicon.io](https://favicon.io/favicon-converter/) to create favicon from website logo
-[Fontawesome](https://fontawesome.com/) for icons
+- [Canva](https://www.canva.com/) to create the website logo
+- [Photoroom](https://www.photoroom.com/tools/background-remover) to remove background from images and website logo
+- [Pixelied](https://pixelied.com/convert) to convert images to webp format
+- [TinyPNG](https://tinypng.com/) to compress images
+- [favicon.io](https://favicon.io/favicon-converter/) to create favicon from website logo
+- [Leonardo AI](https://leonardoai.com/) to create the custom error pages images
+- [Google Fonts](https://fonts.google.com/) for the website fonts
+- [Google Gemini AI](https://gemini.ai/) for expanding the content of product descriptions
+- [Coolors Contrast Checker](https://coolors.co/contrast-checker) for the color contrast check
+- [Fontawesome](https://fontawesome.com/) for icons
 [Muzli Colors](https://colors.muz.li/palette/57a7b3/3d757d/b35794/7d3d67/b3a357) for color palette
-[Privacypolicygenerator](https://www.privacypolicygenerator.info/) for the privacy policy
+- [Balsamiq](https://balsamiq.com/wireframes/) for wireframes
+- [Privacypolicy Generator](https://www.privacypolicygenerator.info/) for the privacy policy
+- [XML-Sitemaps.com](https://www.xml-sitemaps.com/details-shaping-sustainable-surf-8794b08a1b3a.herokuapp.com-da3dd3a88.html) for the Sitemap for this project
+- [Code Institute Database Maker](https://dbs.ci-dbs.net/) for the database
+- [Google Gmail](https://www.google.com/intl/de/gmail/about/) for website confirmation emails
+- [Heroku](https://www.heroku.com/) for deployment
+- [GitHub](https://github.com/) for storing repository
+- [Gitpod](https://www.gitpod.io/) for development environment
+- [Green Emailing with Mailpro.com](https://www.mailpro.com/community/green-emailing.asp) for a newsletter provider with a data center that runs on electricity sourced from renewable energy
 
 ## Features
 
@@ -324,7 +344,7 @@ In addition to libraries and frameworks already installed in the Code Institute 
 
 #### Custom Error Pages
 
-The project a custom HTML error page for status codes 403 (Forbidden) and 404 (Not Found) for improved user experience. The error page maintains a consistent design with the rest of the website. The error pages clearly explains the meaning of the error code in a user-friendly way avoiding technical jargon and uses clear, concise language. The error pages display a friendly image in line with the website theme to make the error page more visually appealing.<br>
+The project a custom HTML error page for status codes 403 (Forbidden), 404 (Not Found) and 500 (Internal Server Error) for improved user experience. The error page maintains a consistent design with the rest of the website. The error pages clearly explains the meaning of the error code in a user-friendly way avoiding technical jargon and uses clear, concise language. The error pages display a friendly image in line with the website theme to make the error page more visually appealing.<br>
 
 To style the error pages during development, the error pages were rendered using temporary views and urls placed in the profile app for easy testing. The approach is documented in [TESTING.md](TESTING.md).
 
@@ -581,5 +601,43 @@ The Code Institute walkthrough project Boutique Ado for inspiration for the basi
 ### Imagery
 
 [Canva](https://www.canva.com/) - Website logo and favicon
+[Faviocon.io](https://favicon.io/favicon-converter/) to convert logo into favicon
+**Pexels.com:**
+![Video for Tutorials](https://www.pexels.com/video/man-painting-a-surfboard-854124/)
+![Photo by Kampus Production](https://www.pexels.com/photo/man-in-wetsuit-pointing-finger-at-camera-5904824/)
+![Photo by Harold Granados](https://www.pexels.com/photo/a-man-in-green-shirt-shaping-a-surfboard-10000115/)
+![Photo by Nataliya Vaitkevich](https://www.pexels.com/photo/happy-woman-holding-a-surfboard-4944641/)
+![Photo by Lachlan Ross](https://www.pexels.com/photo/crop-man-planing-wooden-surface-of-surfboard-5967744/)
+![Photo by Grégory Costa](https://www.pexels.com/photo/a-tattooed-person-holding-a-pencil-7763823/)
+![Photo by Lachlan  Ross](https://www.pexels.com/photo/crop-artisan-shaping-surfboard-in-workshop-5967749/)
+![Photo by Vincent Rivaud](https://www.pexels.com/photo/blue-and-white-surfboard-2876747/)
+![Photo by Yaroslav Shuraev](https://www.pexels.com/photo/view-of-three-people-surfing-1553959/)
+![Photo by Dalila Dalprat](https://www.pexels.com/photo/woman-holding-surfboard-and-posing-outdoor-1852621/)
+![Photo by Vladimir Kudinov](https://www.pexels.com/photo/man-in-white-surfboard-67386/)
+![Photo by alexandre saraiva carniato](https://www.pexels.com/photo/photography-of-man-surfing-2103783/)
+![Photo by Lucas Meneses](https://www.pexels.com/photo/person-surfing-on-green-water-6144077/)
+![Photo by Jess Loiterton](https://www.pexels.com/photo/a-woman-wearing-swimsuit-doing-surfing-5231936/)
+![Photo by Jess Loiterton](https://www.pexels.com/photo/woman-in-pink-bikini-surfing-on-water-4321800/)
+![Photo by Jess Loiterton](https://www.pexels.com/photo/aerial-view-of-people-swimming-on-sea-4327786/)
+![Photo by Jonathan Borba](https://www.pexels.com/photo/young-woman-waxing-a-surfboard-19596861/)
+![Photo by Ging Ang](https://www.pexels.com/photo/close-up-photo-of-person-carrying-surfboard-1753689/)
+![Photo by Ann H](https://www.pexels.com/photo/word-reduce-made-up-of-wooden-letters-20698129/)
+![Photo by Guy Kawasaki](https://www.pexels.com/photo/man-surfing-1654484/)
+![Photo by Jeremy Bishop](https://www.pexels.com/photo/sea-nature-water-wave-2397652/)
+![Photo by Jess Loiterton](https://www.pexels.com/photo/woman-in-black-bikini-sitting-on-white-surfboard-on-blue-sea-5006582/)
+![Photo by Jess Loiterton](https://www.pexels.com/photo/person-in-red-and-white-kayak-on-blue-body-of-water-4321465/)
+![Photo by Pixabay](https://www.pexels.com/photo/person-surfing-416676/)
+![Photo by Mudassir Ali](https://www.pexels.com/photo/aerial-photography-of-person-surfing-1556796/)
+![Photo by Kammeran Gonzalez-Keola](https://www.pexels.com/photo/turtle-swimming-in-the-sea-17822918/)
+![Photo by Emiliano Arano](https://www.pexels.com/photo/photography-of-barrel-wave-1298684/)
+![Photo by Kammeran Gonzalez-Keola](https://www.pexels.com/photo/inside-of-a-turquoise-wave-13317495/)
+![Photo by Kammeran Gonzalez-Keola](https://www.pexels.com/photo/man-riding-surfboard-in-wavy-ocean-7925859/)
 
 ### Acknowledgements
+
+- My mentor, Mitko Bachvarov, for his guidance and encouragement.
+- My sister, Malfridur Omarsdottir, Geographer and Specialist in Geothermal Energies, for proofreading content and fact checking on eco-friendly sustainable materials and links to relaiable resources.
+- My friend Stephan Reich, Software Developer, for his support and advice on how to implement html formatted emails.
+- My Code Institute class facilitator, Kristyna Wach, for her cheerful motivation and encouragement.
+- Slack community for support and advice.
+- Stackoverflow community for information.

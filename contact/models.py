@@ -1,6 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator
 
+from django.contrib.auth.models import User
 from products.models import Category
 from profiles.models import UserProfile
 
@@ -119,10 +120,10 @@ class Contact(models.Model):
     tail = models.CharField(
         max_length=20, choices=TAIL_TYPE, null=True, blank=True
     )
-    body_height = models.IntegerField(null=True, blank=True)
-    body_weight = models.IntegerField(null=True, blank=True)
-    board_length = models.IntegerField(null=True, blank=True)
-    board_volume = models.IntegerField(null=True, blank=True)
+    body_height = models.IntegerField(validators=[MaxValueValidator(250)], null=True, blank=True)
+    body_weight = models.IntegerField(validators=[MaxValueValidator(500)], null=True, blank=True)
+    board_length = models.IntegerField(validators=[MaxValueValidator(20)], null=True, blank=True)
+    board_volume = models.IntegerField(validators=[MaxValueValidator(100)], null=True, blank=True)
     skill_level = models.CharField(
         max_length=25, choices=SKILL_LEVEL, null=True, blank=True
     )
