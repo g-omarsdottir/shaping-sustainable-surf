@@ -1,0 +1,1 @@
+web: gunicorn shaping_surf.wsgi:application

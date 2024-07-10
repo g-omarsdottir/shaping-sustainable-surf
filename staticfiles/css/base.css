@@ -3,13 +3,20 @@
 /* Root variables for styles and color */
 :root {
     /* Colors */
-
+    --blue: #57a7b3;
+    --green: #3d757d;
+    --pink: #b35794;
+    --aubergine: #7D3D67;
+    --yellow: #b3a357;
+ 
+    --font-color: #333333;
+    --background-color: #eef6f7;
 
     /* Box shadow and border styles */
-    --blue-box-shadow: 1px -1px 7px 0 rgba(34, 124, 157, 0.75);
+    --blue-box-shadow: 1px -1px 7px 0 rgba(87, 167, 179, 0.70);
+    --yellow-box-shadow: 1px -1px 7px 0 #b3a357;
     --black-box-shadow: 1px -1px 7px 0 #4E4A47;
 }
-
 
 /* General styles */
 * {
@@ -88,13 +95,14 @@ main {
 footer {
     /* Stick footer to bottom */
     flex-shrink: 0;
-    background-color: lightblue;
-    border-top: 4px solid yellow;
+    background-color: var(--background-color);
+    border-top: 1px groove var(--yellow);
     margin-top: auto;
+    color: var(--font-color);
 }
 
 footer li a {
-    color: black;
+    color: var(--font-color)
 }
 
 /* Products --------------------------------------------------------------*/
@@ -141,11 +149,54 @@ footer li a {
     width: 210px;
 }
 
-/*#discount-field button, */
 #discount-field input {
     width: 100%;
 }
 
+.custom-alert {
+    color: var(--aubergine);
+}
+
+/* About Us-------------------------------------------------------------*/
+
+.custom-card {
+    box-shadow: var(--blue-box-shadow);
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+}
+
+.custom-card a {
+    color: var(--font-color);
+}
+
+.custom-card:hover {
+    box-shadow: var(--yellow-box-shadow);
+    transform: scale(1.05);
+}
+
+.card-link {
+    text-decoration: none;
+    color: var(--font-color);
+    display: block;
+}
+
+.card-link:hover .custom-card {
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+
+/* Contact*/
+
+.fieldset-label {
+    font-family: "Roboto Slab", sans-serif;
+    width: auto;
+    font-size: 1.2rem;  
+    font-weight: 500;
+    margin: 20px 0 10px -10px;
+    color: var(--font-color);
+}
 
 /* Styles from walkthrough project */
 
@@ -287,5 +338,3 @@ input[type="submit"], button[type="submit"] {
         width: 260px;
     }
   }
-  
-  

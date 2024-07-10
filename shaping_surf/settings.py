@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+import dj_database_url
 
 if os.path.isfile("env.py"):
     import env
@@ -28,12 +29,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if "DEBUG" in os.environ:
+    DEBUG = os.environ["DEBUG"] == "True"
+else:
+    DEBUG = False
 
 ALLOWED_HOSTS = [
     "8000-gomarsdotti-shapingsust-wirzm9fqqo3.ws.codeinstitute-ide.net",
     "localhost",
     "127.0.0.1",
+    "https://*.herokuapp.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -144,13 +149,17 @@ WSGI_APPLICATION = "shaping_surf.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+if "DATABASE_URL" in os.environ:
+    DATABASES = {
+        "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
-}
-
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -206,6 +215,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
+# Set DEBUG based on environment variable in env.py
 if DEBUG is True:
     STATICFILES_STORAGE = (
         "django.contrib.staticfiles.storage.StaticFilesStorage"
