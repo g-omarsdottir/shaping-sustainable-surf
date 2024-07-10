@@ -5,6 +5,7 @@ import time
 
 from django.contrib.auth.models import User
 from django.core.mail import EmailMultiAlternatives
+from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
@@ -33,19 +34,29 @@ class StripeWH_Handler:
             "checkout/confirmation_emails/confirmation_email_subject.txt",
             {"order": order})
         html_body = render_to_string(
-            "checkout/confirmation_emails/confirmation_email_body.html",
+            "checkout/confirmation_emails/confirmation_email_body.txt",
             {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL})
 
         text_body = strip_tags(html_body)
 
-        msg = EmailMultiAlternatives(
-                subject,
-                text_body,
-                settings.DEFAULT_FROM_EMAIL,
-                [cust_email]
-            )
-        msg.attach_alternative(html_body, "text/html")
-        msg.send()
+    def _send_confirmation_email(self, order):
+        """
+        Send the user a confirmation email
+        """
+        cust_email = order.email
+        subject = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_subject.txt',
+            {'order': order})
+        body = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_body.txt',
+            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email]
+        )
 
     def handle_event(self, event):
         """
