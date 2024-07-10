@@ -30,10 +30,12 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Set DEBUG based on environment variable in env.py
-if "DEBUG" in os.environ:
-    DEBUG = os.environ["DEBUG"] == "True"
-else:
-    DEBUG = False
+#if "DEBUG" in os.environ:
+#    DEBUG = os.environ["DEBUG"] == "True"
+#else:
+#    DEBUG = False
+
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "8000-gomarsdotti-shapingsust-wirzm9fqqo3.ws.codeinstitute-ide.net",
