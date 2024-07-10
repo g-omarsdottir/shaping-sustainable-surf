@@ -416,9 +416,21 @@ The facebook page provides a link to the website, which can be used to promote t
 
 #### Keywords
 
+
+
 #### Sitemap
 
+[XML-Sitemaps.com](https://www.xml-sitemaps.com/) was used to generate the sitemap for the deployed project. The generator crawls the entire website and generates a sitemap.xml file that was downloaded and placed in the rootdirectory of this project. The sitemap is an XML file that contains a list of all the pages on the website. The sitemap is used by search engines to crawl the website and index the pages.
+
 #### Robots.txt
+
+The robots.txt file is a text file that tells search engines how to crawl the website. The robots.txt file is located in the root directory of the website. The robots.txt file is used to disallow certain pages from crawling by search engines and are not indexed by search engines.
+
+The [Sitemap for this project](https://www.xml-sitemaps.com/details-shaping-sustainable-surf-8794b08a1b3a.herokuapp.com-da3dd3a88.html) is included in the robots.txt file.
+
+In this project, the disallowed pages are the account pages and the shopping cart page.
+
+The robots.txt file is tested and verified by Google by adding a sitespecific metatag in the head of the base template and uploading a sitespecific google html file to the root directory of the website. Google then veryfies if the robots.txt file is working correctly.
 
 ### Privacy Policy
 
