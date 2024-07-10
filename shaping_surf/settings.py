@@ -29,6 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# Set DEBUG based on environment variable in env.py
 if "DEBUG" in os.environ:
     DEBUG = os.environ["DEBUG"] == "True"
 else:
@@ -38,15 +39,15 @@ ALLOWED_HOSTS = [
     "8000-gomarsdotti-shapingsust-wirzm9fqqo3.ws.codeinstitute-ide.net",
     "localhost",
     "127.0.0.1",
-    "https://*.herokuapp.com",
+    "shaping-sustainable-surf-8794b08a1b3a.herokuapp.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://8000-gomarsdotti-shapingsust-wirzm9fqqo3."
+    "https://8000-gomarsdotti-shapingsust-wirzm9fqqo3.",
+    "https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com",
     "ws.codeinstitute-ide.net",
-    "https://*.codeinstitute-ide.net",
-    "https://*.gitpod.io",
-    "https://*.herokuapp.com",
+    "https://.codeinstitute-ide.net",
+    "https://.gitpod.io",
 ]
 
 # Application definition
@@ -215,7 +216,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-# Set DEBUG based on environment variable in env.py
 if DEBUG is True:
     STATICFILES_STORAGE = (
         "django.contrib.staticfiles.storage.StaticFilesStorage"
