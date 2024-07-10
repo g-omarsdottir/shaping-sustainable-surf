@@ -430,7 +430,9 @@ The [Sitemap for this project](https://www.xml-sitemaps.com/details-shaping-sust
 
 In this project, the disallowed pages are the account pages and the shopping cart page.
 
-The robots.txt file is tested and verified by Google by adding a sitespecific metatag in the head of the base template and uploading a sitespecific google html file to the root directory of the website. Google then veryfies if the robots.txt file is working correctly.
+The ownership of the robots.txt file is tested and verified by Google by adding a sitespecific metatag in the head of the base template and uploading a sitespecific google html file to the root directory of the website. Google then veryfies if the robots.txt file is working correctly and provides a performance report after a short waiting time.
+
+![ownership-verfied-html-tag](/documentation/testing/test-robots.txt.png)
 
 ### Privacy Policy
 
