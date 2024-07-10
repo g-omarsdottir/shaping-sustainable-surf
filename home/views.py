@@ -12,3 +12,10 @@ class Index(generic.TemplateView):
     """
 
     template_name = "home/index.html"
+
+
+def privacy_policy(request):
+    """
+    Display the privacy policy.
+    """
+    return render(request, "home/privacy_policy.html")
