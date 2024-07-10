@@ -1,5 +1,14 @@
 from django.contrib import admin
-from .models import Contact
+from .models import Contact, Art
+
+
+@admin.register(Art)
+class ArtAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for the Art model.
+    """
+    list_display = ("type",)
+    ordering = ("type",)
 
 
 @admin.register(Contact)

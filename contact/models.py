@@ -87,7 +87,7 @@ class Art(models.Model):
 
     def __str__(self):
         return (
-            self.get_art_display()
+            self.get_type_display()
         )  # get_art_display returns "human-readable" value
 
 

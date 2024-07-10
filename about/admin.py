@@ -12,7 +12,17 @@ class AboutUsAdmin(SummernoteModelAdmin):
     """
 
     summernote_fields = ("content",)
-    list_display = ("title", "content", "image")
+    list_display = ("title", "custom_content_preview", "image")
+
+    def custom_content_preview(self, obj):
+        """
+        Returns a shortened human-readable preview of the content field.
+        """
+        # Strip HTML tags for a plain text preview
+        from django.utils.html import strip_tags
+        plain_text = strip_tags(obj.content)
+        return (plain_text[:50] + "...") if len(plain_text) > 50 else plain_text
+    custom_content_preview.short_description = "Content Preview"
 
 
 @admin.register(FAQ)
