@@ -434,9 +434,29 @@ The facebook page provides a link to the website, which can be used to promote t
 
 ### Search Engine Optimization (SEO)
 
+The website design was planned with SEO in mind. This is described in detail in the relevant ERD models.
+
 #### Keywords
 
+The metadata for this project has been carefully crafted to enhance search engine optimization (SEO) and improve discoverability. The overall approach to keyword selection and implementation is as follows:
 
+**Keyword Development Process**
+
+1. **Initial Brainstorming with fellow surfers and my sister, Geographer and Specialist in Geothermal Energies **: We began with a comprehensive brainstorming session to identify relevant terms and concepts related to our surfboard tutorials and eco-friendly surfing products. This ensured targeting the most effective terms for the niche.
+
+2. **Google Search Analysis**: Related searches and suggestions provided by Google for initial terms, which helped uncover additional relevant keywords and phrases.
+
+3. **Professional Consultation**: We consulted with SEO professionals to refine our keyword list and 
+
+4. **Long-Tail Keyword Focus**: Emphasizes is on long-tail keywords to target specific user intents and capture more qualified traffic. These longer, more specific phrases often have less competition and higher conversion rates.
+
+5. **Keyword Diversity**: A mix of both short-tail and long-tail keywords to create a balanced and comprehensive SEO strategy.
+
+### Implementation
+
+- Keywords are strategically placed in meta descriptions, page titles, and content headers.
+- A natural integration of keywords within the website content to maintain readability and user experience. Keywords were used in headings and in semantic and <strong> html tags.
+- The metadata is structured to be both search engine friendly and informative to potential visitors.
 
 #### Sitemap
 
