@@ -627,44 +627,45 @@ The Code Institute walkthrough project Boutique Ado for inspiration for the basi
 
 ### Imagery
 
-[Canva](https://www.canva.com/) - Website logo and favicon
-[Faviocon.io](https://favicon.io/favicon-converter/) to convert logo into favicon
+- [Canva](https://www.canva.com/) - Website logo and favicon
+- [Faviocon.io](https://favicon.io/favicon-converter/) to convert logo into favicon
 **Pexels.com:**
-![Video for Tutorials](https://www.pexels.com/video/man-painting-a-surfboard-854124/)
-![Photo by Kampus Production](https://www.pexels.com/photo/man-in-wetsuit-pointing-finger-at-camera-5904824/)
-![Photo by Harold Granados](https://www.pexels.com/photo/a-man-in-green-shirt-shaping-a-surfboard-10000115/)
-![Photo by Nataliya Vaitkevich](https://www.pexels.com/photo/happy-woman-holding-a-surfboard-4944641/)
-![Photo by Lachlan Ross](https://www.pexels.com/photo/crop-man-planing-wooden-surface-of-surfboard-5967744/)
-![Photo by Grégory Costa](https://www.pexels.com/photo/a-tattooed-person-holding-a-pencil-7763823/)
-![Photo by Lachlan  Ross](https://www.pexels.com/photo/crop-artisan-shaping-surfboard-in-workshop-5967749/)
-![Photo by Vincent Rivaud](https://www.pexels.com/photo/blue-and-white-surfboard-2876747/)
-![Photo by Yaroslav Shuraev](https://www.pexels.com/photo/view-of-three-people-surfing-1553959/)
-![Photo by Dalila Dalprat](https://www.pexels.com/photo/woman-holding-surfboard-and-posing-outdoor-1852621/)
-![Photo by Vladimir Kudinov](https://www.pexels.com/photo/man-in-white-surfboard-67386/)
-![Photo by alexandre saraiva carniato](https://www.pexels.com/photo/photography-of-man-surfing-2103783/)
-![Photo by Lucas Meneses](https://www.pexels.com/photo/person-surfing-on-green-water-6144077/)
-![Photo by Jess Loiterton](https://www.pexels.com/photo/a-woman-wearing-swimsuit-doing-surfing-5231936/)
-![Photo by Jess Loiterton](https://www.pexels.com/photo/woman-in-pink-bikini-surfing-on-water-4321800/)
-![Photo by Jess Loiterton](https://www.pexels.com/photo/aerial-view-of-people-swimming-on-sea-4327786/)
-![Photo by Jonathan Borba](https://www.pexels.com/photo/young-woman-waxing-a-surfboard-19596861/)
-![Photo by Ging Ang](https://www.pexels.com/photo/close-up-photo-of-person-carrying-surfboard-1753689/)
-![Photo by Ann H](https://www.pexels.com/photo/word-reduce-made-up-of-wooden-letters-20698129/)
-![Photo by Guy Kawasaki](https://www.pexels.com/photo/man-surfing-1654484/)
-![Photo by Jeremy Bishop](https://www.pexels.com/photo/sea-nature-water-wave-2397652/)
-![Photo by Jess Loiterton](https://www.pexels.com/photo/woman-in-black-bikini-sitting-on-white-surfboard-on-blue-sea-5006582/)
-![Photo by Jess Loiterton](https://www.pexels.com/photo/person-in-red-and-white-kayak-on-blue-body-of-water-4321465/)
-![Photo by Pixabay](https://www.pexels.com/photo/person-surfing-416676/)
-![Photo by Mudassir Ali](https://www.pexels.com/photo/aerial-photography-of-person-surfing-1556796/)
-![Photo by Kammeran Gonzalez-Keola](https://www.pexels.com/photo/turtle-swimming-in-the-sea-17822918/)
-![Photo by Emiliano Arano](https://www.pexels.com/photo/photography-of-barrel-wave-1298684/)
-![Photo by Kammeran Gonzalez-Keola](https://www.pexels.com/photo/inside-of-a-turquoise-wave-13317495/)
-![Photo by Kammeran Gonzalez-Keola](https://www.pexels.com/photo/man-riding-surfboard-in-wavy-ocean-7925859/)
+- [Video for Tutorials](https://www.pexels.com/video/man-painting-a-surfboard-854124/)
+- [Photo by Kampus Production](https://www.pexels.com/photo/man-in-wetsuit-pointing-finger-at-camera-5904824/)
+- [Photo by Harold Granados](https://www.pexels.com/photo/a-man-in-green-shirt-shaping-a-surfboard-10000115/)
+- [Photo by Nataliya Vaitkevich](https://www.pexels.com/photo/happy-woman-holding-a-surfboard-4944641/)
+- [Photo by Lachlan Ross](https://www.pexels.com/photo/crop-man-planing-wooden-surface-of-surfboard-5967744/)
+- [Photo by Grégory Costa](https://www.pexels.com/photo/a-tattooed-person-holding-a-pencil-7763823/)
+- [Photo by Lachlan  Ross](https://www.pexels.com/photo/crop-artisan-shaping-surfboard-in-workshop-5967749/)
+- [Photo by Vincent Rivaud](https://www.pexels.com/photo/blue-and-white-surfboard-2876747/)
+- [Photo by Yaroslav Shuraev](https://www.pexels.com/photo/view-of-three-people-surfing-1553959/)
+- [Photo by Dalila Dalprat](https://www.pexels.com/photo/woman-holding-surfboard-and-posing-outdoor-1852621/)
+- [Photo by Vladimir Kudinov](https://www.pexels.com/photo/man-in-white-surfboard-67386/)
+- [Photo by alexandre saraiva carniato](https://www.pexels.com/photo/photography-of-man-surfing-2103783/)
+- [Photo by Lucas Meneses](https://www.pexels.com/photo/person-surfing-on-green-water-6144077/)
+- [Photo by Jess Loiterton](https://www.pexels.com/photo/a-woman-wearing-swimsuit-doing-surfing-5231936/)
+- [Photo by Jess Loiterton](https://www.pexels.com/photo/woman-in-pink-bikini-surfing-on-water-4321800/)
+- [Photo by Jess Loiterton](https://www.pexels.com/photo/aerial-view-of-people-swimming-on-sea-4327786/)
+- [Photo by Jonathan Borba](https://www.pexels.com/photo/young-woman-waxing-a-surfboard-19596861/)
+- [Photo by Ging Ang](https://www.pexels.com/photo/close-up-photo-of-person-carrying-surfboard-1753689/)
+- [Photo by Ann H](https://www.pexels.com/photo/word-reduce-made-up-of-wooden-letters-20698129/)
+- [Photo by Guy Kawasaki](https://www.pexels.com/photo/man-surfing-1654484/)
+- [Photo by Jeremy Bishop](https://www.pexels.com/photo/sea-nature-water-wave-2397652/)
+- [Photo by Jess Loiterton](https://www.pexels.com/photo/woman-in-black-bikini-sitting-on-white-surfboard-on-blue-sea-5006582/)
+- [Photo by Jess Loiterton](https://www.pexels.com/photo/person-in-red-and-white-kayak-on-blue-body-of-water-4321465/)
+- [Photo by Pixabay](https://www.pexels.com/photo/person-surfing-416676/)
+- [Photo by Mudassir Ali](https://www.pexels.com/photo/aerial-photography-of-person-surfing-1556796/)
+- [Photo by Kammeran Gonzalez-Keola](https://www.pexels.com/photo/turtle-swimming-in-the-sea-17822918/)
+- [Photo by Emiliano Arano](https://www.pexels.com/photo/photography-of-barrel-wave-1298684/)
+- [Photo by Kammeran Gonzalez-Keola](https://www.pexels.com/photo/inside-of-a-turquoise-wave-13317495/)
+- [Photo by Kammeran Gonzalez-Keola](https://www.pexels.com/photo/man-riding-surfboard-in-wavy-ocean-7925859/)
 
 ### Acknowledgements
 
 - My mentor, Mitko Bachvarov, for his guidance and encouragement.
-- My sister, Malfridur Omarsdottir, Geographer and Specialist in Geothermal Energies, for proofreading content and fact checking on eco-friendly sustainable materials and links to relaiable resources.
+- My sister, Malfridur Omarsdottir, Geographer and Specialist in Geothermal Energies, for brainstorming for keywords, proofreading content and fact checking on eco-friendly sustainable materials and links to relaiable resources.
 - My friend Stephan Reich, Software Developer, for his support and advice on how to implement html formatted emails.
+- My fellow student at Code Institute [Amir Schkolnik](https://github.com/AmirShkolnik) for his valuable support with proofreading.
 - My Code Institute class facilitator, Kristyna Wach, for her cheerful motivation and encouragement.
 - Slack community for support and advice.
 - Stackoverflow community for information.

@@ -107,7 +107,24 @@ The [JSHint Validator]( https://jshint.com/), a JavaScript Code Quality Tool was
 
 The [World Wide Web Consortium's Validation Service for Markup](https://validator.w3.org/) was used to check the HTML.
 
-The rendered HTML source code  of each page from the browser of the deployed project by direct input into the validator was tested. The HTML source code of the rendered website is used to validate code with Django template tags. The HTML code passed through the validator without issues.
+The rendered HTML source code  of each page from the browser of the deployed project by direct input into the validator was tested. The HTML source code of the rendered website is used to validate code with Django template tags. The HTML code passed through the validator without errors.
+
+A warning was reported for the input validation for browser compatibility. Attending to this was not within the scope of the current iteration due to time constraints.
+
+<details>
+<summary>Click to View Overview of Browser Compatibility of Input Field</summary>
+
+![html-warning](/documentation/validator/html-input-field.png)
+</details>
+
+<details>
+<summary>Click to View Validator Warning</summary>
+
+![html-warning](/documentation/validator/html-input-field-warning.png)
+</details>
+<br>
+
+**HTML Validator Results:**
 
 <details>
 <summary>Click to View Home</summary>
@@ -168,6 +185,8 @@ The rendered HTML source code  of each page from the browser of the deployed pro
 
 ![html-cart](/documentation/validator/html-cart.png)
 </details>
+
+
 
 ### CSS
 
