@@ -50,7 +50,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-black {% if url_name == 'tutorials_list' %}active{% endif %}"
-                                aria-current="page" " href=" {% url 'tutorials_list' %}">Tutorials<span
+                                aria-current="page" href=" {% url 'tutorials_list' %}">Tutorials<span
                                     class="sr-only">(current page)</span></a>
                         </li>
 
@@ -110,7 +110,7 @@
                         <!-- Shopping cart -->
                         <li class="nav-item">
                             <a class="nav-link {% if total %}text-info {% else %}text-black{% endif %} {% if url_name == 'view_cart' %}active{% endif %}"
-                                aria-current="page" "
+                                aria-current="page"
                                 href=" {% url 'view_cart' %}">
                                 <i class="fas fa-shopping-bag fa-lg"></i> Cart
                                 <span class="sr-only">Shopping cart</span>
