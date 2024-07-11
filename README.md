@@ -1,6 +1,6 @@
 # ![logo](/documentation/logo_wave.png) Shaping Sustainable Surf
 
-Mockup
+![mockup](/documentation/mockup.png)
 
 You can view the live project [here](https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com/)<br>
 *(To open in a new window, press "ctrl" (or ⌘ for Mac) + click on the link)*
@@ -323,6 +323,8 @@ In addition to libraries and frameworks already installed in the Code Institute 
 - [TinyPNG](https://tinypng.com/) to compress images
 - [favicon.io](https://favicon.io/favicon-converter/) to create favicon from website logo
 - [Leonardo AI](https://leonardoai.com/) to create the custom error pages images
+- [Techsini.com](https://techsini.com/multi-mockup/index.php) to create the mockup for this README
+- [Chrome Extension Ignor X-Frame headers](https://chromewebstore.google.com/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe) to be able to create a mockup on Techsini from a django project
 - [Google Fonts](https://fonts.google.com/) for the website fonts
 - [Google Gemini AI](https://gemini.ai/) for expanding the content of product descriptions
 - [Coolors Contrast Checker](https://coolors.co/contrast-checker) for the color contrast check
