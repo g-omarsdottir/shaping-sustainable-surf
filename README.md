@@ -125,7 +125,7 @@ Screen sizes smaller than 320 were not considered in the design.
 #### Wireframes Desktop Version
 
 ![desktop wireframe home](/documentation/wf-home.png)
-![desktop wireframe products-tutorials](/documentation/wf-product-tutorials.png)
+![desktop wireframe products-tutorials](/documentation/wf-products-tutorials.png)
 ![desktop wireframe wf-product-tutorial-detail](/documentation/wf-products-tutorial-detail.png)
 ![desktop wireframe wf-about-us](/documentation/wf-about-us.png)
 ![desktop wireframe wf-about-surfboards](/documentation/wf-about-surfboards.png)
