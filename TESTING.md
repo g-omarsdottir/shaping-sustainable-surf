@@ -107,14 +107,77 @@ The [JSHint Validator]( https://jshint.com/), a JavaScript Code Quality Tool was
 
 The [World Wide Web Consortium's Validation Service for Markup](https://validator.w3.org/) was used to check the HTML.
 
-HTML code by URI input as well as loading the source code of each page from the browser by direct input into the validator. The HTML source code of the rendered website is used to validate code with Django template tags.
+The rendered HTML source code  of each page from the browser of the deployed project by direct input into the validator was tested. The HTML source code of the rendered website is used to validate code with Django template tags. The HTML code passed through the validator without issues.
 
-[Results to be added]
+<details>
+<summary>Click to View Home</summary>
+
+![html-home](/documentation/validator/html-home.png)
+</details>
+
+<details>
+<summary>Click to View Tutorials</summary>
+
+![html-tutorials](/documentation/validator/html-tutorials.png)
+</details>
+
+<details>
+<summary>Click to View Tutorial Details</summary>
+
+![html-tutorials-details](/documentation/validator/html-tutorials-detail.png)
+</details>
+
+<details>
+<summary>Click to View About Us</summary>
+
+![html-about-us](/documentation/validator/html-about-us.png)
+</details>
+
+<details>
+<summary>Click to View FAQ</summary>
+
+![html-faq](/documentation/validator/html-faq.png)
+</details>
+
+<details>
+<summary>Click to View Resources</summary>
+
+![html-resources](/documentation/validator/html-resources.png)
+</details>
+
+<details>
+<summary>Click to View Surfboards</summary>
+
+![html-surfboard](/documentation/validator/html-surfboard.png)
+</details>
+
+<details>
+<summary>Click to View Surfboard Details</summary>
+
+![html-surfboard-detail](/documentation/validator/html-surfboard-detail.png)
+</details>
+
+<details>
+<summary>Click to View Allauth</summary>
+
+![html-allauth](/documentation/validator/html-allauth.png)
+</details>
+
+<details>
+<summary>Click to View Cart</summary>
+
+![html-cart](/documentation/validator/html-cart.png)
+</details>
 
 ### CSS
 
-The official [World Wide Web Consortium (W3C) validator for CSS](https://validator.w3.org/) was used to validate the CSS style sheet code.
-[Results to be added]
+The official [World Wide Web Consortium (W3C) validator for CSS](https://jigsaw.w3.org/css-validator/validator) was used to validate the CSS style sheet code. The code passed through the validator with no issues.
+
+<details>
+<summary>Click for CSS Validator Results</summary>
+
+![CSS-validator](/documentation/validator/css-validator.png)
+</details>
 
 ## Manual Testing
 
