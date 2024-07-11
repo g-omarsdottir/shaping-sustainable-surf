@@ -197,13 +197,12 @@ Each user story defined in the project requirements was tested to ensure that th
 
 ## Responsiveness Testing
 
-The website's responsiveness across various devices and screen sizes was thoroughly tested. This section outlines the devices and screen resolutions used for testing and documents any adjustments made to ensure a consistent user experience across all platforms.
-[Table to be added]
+The website's responsiveness across various devices and screen sizes was thoroughly tested. This project utilizes Bootstrap's powerful grid system for creating a responsive layout that adapts to various screen sizes. Dividing the viewport into up to 12 columns ensure that the UI scales seamlessly from mobile devices to large desktop screens.
+Only a few media queries were necessery to obtain the best results.
 
 ## Browser Compatibility
 
-Testing was performed across multiple browsers to ensure cross-browser compatibility. This section lists the browsers tested, versions used, and any browser-specific issues encountered and resolved.
-[Table to be added]
+Testing was performed across multiple browsers to ensure cross-browser compatibility. Friends and family assisted in testing the deployed website on different browsers: Chrome, Firefox, Safari, and Edge. The deployed website works seamlessly across all browsers.
 
 ## Accessibility Testing
 
@@ -216,7 +215,8 @@ The [Wave WebAIM Validator](https://wave.webaim.org/) was used to validate web a
 
 Links to tutorial details raise a warning, although the aria-label is dynamic and descriptive. Changed "tutorial" to "product" in aria-label to match model field.
 
-<a href="{% url 'tutorial_detail' product.id %}" aria-label="Click to view details for tutorial: {{ product.name }}"
+- href="{% url 'tutorial_detail' product.id %}" aria-label="Click to view details for **tutorial**: {{ product.name }}" 
+- **changed to:** aria-label="Click to view details for **product**: {{ product.name }}"
 
 ![test-accessibility-link](/documentation/testing/test-accessibility-link.png)
 
