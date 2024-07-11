@@ -45,6 +45,15 @@ main {
     flex: 1 0 auto;
 }
 
+.text-black {
+    color: var(--font-color) !important;
+}
+
+.header-container {
+    /* Push content down from header */
+    padding-top: 110px; 
+}
+
 /* Style from Bulma */
 .icon {
     align-items: center;
@@ -55,6 +64,11 @@ main {
 }
 
 /* Header -------------------------------------------------------------*/
+
+header {
+    background: white;
+    box-shadow: 0 2px 3px rgba(87, 167, 179, 0.70);
+}
 
 .navbar {
     align-items: baseline;
@@ -132,12 +146,6 @@ footer li a {
 .product-list h3 {
     font-size: 1em;
 }
-/*
-.product-list .card-title,
-.product-list .card-subtitle,
-.product-list .card-text {
-    margin-bottom: 0.25rem;
-}*/
 
 .product-list button {
     background: lightblue;
@@ -164,6 +172,7 @@ footer li a {
     text-decoration: none;
     transition: all 0.3s ease-in-out;
     transform: scale(1);
+    overflow: hidden;
 }
 
 .custom-card a {
@@ -186,6 +195,23 @@ footer li a {
     color: var(--font-color);
 }
 
+.card-img-container {
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.card-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
 /* Contact*/
 
@@ -243,10 +269,6 @@ footer li a {
     color: white;
 }
 
-.text-black {
-    color: #000 !important;
-}
-
 .border-black {
     border: 1px solid black !important;
 }
@@ -271,10 +293,6 @@ footer li a {
 }
 
 /* Forms Django allauth ---------------------------------------------- */
-
-.header-container {
-    padding-top: 164px;
-}
 
 label[for="id_remember"] {
     margin-right: 30px; 
