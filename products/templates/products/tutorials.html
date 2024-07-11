@@ -2,6 +2,18 @@
 {% load i18n %}
 {% load static %}
 
+{% block extra_meta %}
+<meta name="description" content="
+    measure surfboard length, surfboard volume calculator, choosing the right size surfboard, 
+    sustainable surfboard design, eco-friendly surfboard performance, 
+    choosing the right surfboard blank, sustainable surfboard fins, 
+    eco-friendly surfboard fin systems, choosing the right fins for your surfboard, 
+    sustainable surfboard tools, eco-friendly surfboard shaping supplies, 
+    DIY surfboard building materials, surfboard shaping tools list, 
+    sustainable longboard shaping, DIY eco-friendly longboard, DIY surfboard for beginners
+">
+{% endblock %}
+
 {% block head_title %}Tutorials{% endblock head_title %}
 
 {% block content %}
@@ -22,11 +34,11 @@
                         alt="No image yet for this tutorial">
                     {% endif %}
                     <div class="card-body d-flex flex-column justify-content-between">
-                                <h2 class="card-title ">{{ product.name }}</h2>
-                                <p class="card-subtitle"><i class="fas fa-tag mr-1 text-muted"></i>
-                                    {{ product.subcategory }} {{ product.category }}</p>
-                                <p class="card-subtitle">€ {{ product.price }}</p>
-                                <p class="card-text">{{ product.description|safe|truncatechars:70 }}</p>
+                        <h2 class="card-title ">{{ product.name }}</h2>
+                        <p class="card-subtitle"><i class="fas fa-tag mr-1 text-muted"></i>
+                            {{ product.subcategory }} {{ product.category }}</p>
+                        <p class="card-subtitle">€ {{ product.price }}</p>
+                        <p class="card-text">{{ product.description|safe|truncatechars:70 }}</p>
                         <div class="d-flex justify-content-center">
                             <button class="btn border border-black rounded-0">&laquo; Click to View
                                 Details &raquo;</button>
@@ -41,15 +53,15 @@
 <div class="btt-button shadow-sm rounded-0 border border-black">
     <a class="btt-link d-flex h-100">
         <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
-    </a>	
+    </a>
 </div>
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-		$('.btt-link').click(function(e) {
-			window.scrollTo(0,0);
-		});
-	</script>
+{{ block.super }}
+<script type="text/javascript">
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0);
+    });
+</script>
 {% endblock %}
