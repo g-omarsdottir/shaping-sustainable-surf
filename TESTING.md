@@ -213,7 +213,12 @@ Accessibility testing was conducted to ensure the website is usable by people wi
 ### WAVE Web Accessibility Evaluation Tool
 
 The [Wave WebAIM Validator](https://wave.webaim.org/) was used to validate web accessibility on the deployed website.
-[Results to be added]
+
+Links to tutorial details raise a warning, although the aria-label is dynamic and descriptive. Changed "tutorial" to "product" in aria-label to match model field.
+
+<a href="{% url 'tutorial_detail' product.id %}" aria-label="Click to view details for tutorial: {{ product.name }}"
+
+![test-accessibility-link](/documentation/testing/test-accessibility-link.png)
 
 ### Coolors contrast checker
 
