@@ -45,6 +45,15 @@ main {
     flex: 1 0 auto;
 }
 
+.text-black {
+    color: var(--font-color) !important;
+}
+
+.header-container {
+    /* Push content down from header */
+    padding-top: 110px; 
+}
+
 /* Style from Bulma */
 .icon {
     align-items: center;
@@ -55,6 +64,11 @@ main {
 }
 
 /* Header -------------------------------------------------------------*/
+
+header {
+    background: white;
+    box-shadow: 0 2px 3px rgba(87, 167, 179, 0.70);
+}
 
 .navbar {
     align-items: baseline;
@@ -68,6 +82,10 @@ main {
 #logo {
     width: 180px;
     height: auto;
+}
+
+.mobile-nav-bg {
+    background: var(--background-color);
 }
 
 /* Main ---------------------------------------------------------------*/
@@ -261,9 +279,7 @@ footer li a {
     color: white;
 }
 
-.text-black {
-    color: #000 !important;
-}
+
 
 .border-black {
     border: 1px solid black !important;
@@ -289,10 +305,6 @@ footer li a {
 }
 
 /* Forms Django allauth ---------------------------------------------- */
-
-.header-container {
-    padding-top: 164px;
-}
 
 label[for="id_remember"] {
     margin-right: 30px; 
