@@ -147,9 +147,9 @@ The website's colors are inspired by the ocean and the beach. The main color of 
 
 A complimenting colorpalette with the website logo's color was created by [Muzli Colors](https://colors.muz.li/palette/57a7b3/3d757d/b35794/7d3d67/b3a357). To keep the overall layout sleek and avoiding visual clutter, the complementing colors were mainly used as accents in box-shadows and for pseudo-class hover effect.
 
-The font color is a warm tone of black and background color is a lighter shade of the main color, which make a very good match for accessability, readability and contrast while being easy on the eye.
+The font color is a warm tone of black and background color is white, which make a very good match for accessability, readability and contrast while being easy on the eye.
 
-[Coolors Color Contrast Checker](https://coolors.co/contrast-checker/333333-eef6f7) score:
+[Coolors Color Contrast Checker](https://coolors.co/contrast-checker/333333-ffffff) score:
 
 ![contrast checker](/documentation/color-contrast.png)
 

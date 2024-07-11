@@ -27,13 +27,14 @@
                             <form method="GET" action="{% url 'tutorials_list' %}" class="form-inline my-2 my-lg-0">
                                 <!-- width 100, input group from bootstrap contains fontawesome search icon -->
                                 <div class="input-group w-100">
+                                    <label for="search-tutorials" class="sr-only">Search Tutorials</label>
                                     <!-- q for query -->
                                     <input class="form-control border border-black rounded-0" type="text" name="q"
                                         placeholder="Search Tutorials">
                                     <div class="input-group-append">
-                                        <button class="form-control btn border border-black rounded-0" type="submit">
+                                        <button id="search-tutorials" class="form-control btn border border-black rounded-0" type="submit">
                                             <span class="icon">
-                                                <i class="fas fa-search"></i>
+                                                <i class="fas fa-search" aria-hidden="true"></i>
                                             </span>
                                         </button>
                                     </div>

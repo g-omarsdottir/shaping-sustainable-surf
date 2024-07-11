@@ -211,12 +211,15 @@ Accessibility testing was conducted to ensure the website is usable by people wi
 [Results to be added]
 
 ### WAVE Web Accessibility Evaluation Tool
+
 The [Wave WebAIM Validator](https://wave.webaim.org/) was used to validate web accessibility on the deployed website.
 [Results to be added]
 
 ### Coolors contrast checker
-[Coolors Color Contrast Checker]( https://coolors.co/contrast-checker/112a46-acc8e5) was used to validate color contrast for web accessibility in terms of readability.
-[Results to be added]
+
+[Coolors Color Contrast Checker](https://coolors.co/contrast-checker/333333-ffffff) was used to validate color contrast for web accessibility in terms of readability.
+
+![Color contrast test](/documentation/color-contrast.png)
 
 ## Performance Testing
 

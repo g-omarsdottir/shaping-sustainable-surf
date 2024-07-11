@@ -84,10 +84,6 @@ header {
     height: auto;
 }
 
-.mobile-nav-bg {
-    background: var(--background-color);
-}
-
 /* Main ---------------------------------------------------------------*/
 
 .browse-tutorials-button {
