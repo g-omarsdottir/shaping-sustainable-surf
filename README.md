@@ -336,7 +336,6 @@ In addition to libraries and frameworks already installed in the Code Institute 
 - [Heroku](https://www.heroku.com/) for deployment
 - [GitHub](https://github.com/) for storing repository
 - [Gitpod](https://www.gitpod.io/) for development environment
-- [Green Emailing with Mailpro.com](https://www.mailpro.com/community/green-emailing.asp) for a newsletter provider with a data center that runs on electricity sourced from renewable energy
 
 ## Features
 
@@ -348,7 +347,13 @@ The project a custom HTML error page for status codes 403 (Forbidden), 404 (Not 
 
 To style the error pages during development, the error pages were rendered using temporary views and urls placed in the profile app for easy testing. The approach is documented in [TESTING.md](TESTING.md).
 
+#### Newsletter
+
+![newsletter](/documentation/newsletter.png)
+
 ### Responsiveness
+
+Full responsiveness was achieved using Bootstrap's grid system. The website is designed to be viewed on a desktop, laptop, tablet or mobile device.
 
 ### Security
 
@@ -422,7 +427,7 @@ Overall, the project has the potential to expand to selling further products and
 
 ### Social Media & Newsletter Marketing
 
-Users are invited on the website to subscribe to the newsletter and obtain a discount code for tutorials. The newsletter is sent to the email address provided by the user. The newsletter contains a welcome message, a link to the website, and a discount code. The store owner can update the newsletter content and send it to the subscribers to increase the likelihood of the subscribers to purchase the products.
+Users are invited on the website to subscribe to the newsletter and obtain a discount code for tutorials. The newsletter providers have a limit of free plans, thus the newsletter subscription is imitated by displaying a success message thanking the user for subscribing and displaying the discount code. With a real subscribing feature, the store owner can send a newsletter to the subscribers to increase the likelihood of the subscribers to purchase the products. <br>
 
 The social media marketing strategy relies on organic growth. The facebook page is set up to promote the products through postings of new tutorials, images of new custom-made surfboards, and for discount code campaigns.<br>
 
