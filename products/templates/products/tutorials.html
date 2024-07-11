@@ -33,14 +33,14 @@
                         alt="No image yet for this tutorial">
                     {% endif %}
                     <div class="card-body d-flex flex-column justify-content-between">
-                        <h2 class="card-title ">{{ product.name }}</h2>
+                        <h2 class="card-title">{{ product.name }}</h2>
                         <p class="card-subtitle"><i class="fas fa-tag mr-1 text-muted"></i>
                             {{ product.subcategory }} {{ product.category }}</p>
                         <p class="card-subtitle">€ {{ product.price }}</p>
-                        <p class="card-text">{{ product.description|safe|truncatechars:70 }}</p>
+                        <p class="card-text">{{ product.description|safe|striptags|truncatechars:70 }}</p>
                         <div class="d-flex justify-content-center">
-                            <button class="btn border border-black rounded-0">&laquo; Click to View
-                                Details &raquo;</button>
+                            <span class="btn border border-black rounded-0">&laquo; Click to View
+                                Details &raquo;</span>
                         </div>
                     </div>
                 </article>

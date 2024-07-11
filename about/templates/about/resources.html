@@ -36,7 +36,7 @@
                     </div>
                     <div class="card-body d-flex flex-column justify-content-between">
                         <h2 class="card-title h5">{{ resource.name }}</h2>
-                        <p>{{ resource.description }}</p>
+                        <p>{{ resource.description|safe|striptags }}</p>
                         <div class="text-center mt-3">
                             <span class="btn btn-outline-secondary rounded-0">Visit Resource</span>
                         </div>

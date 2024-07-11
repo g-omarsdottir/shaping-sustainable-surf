@@ -33,7 +33,7 @@
                     {% endif %}
                     <div class="card-body d-flex flex-column">
                         <h2 class="h5 card-title">{{ surfboard.name }}</h2>
-                        <p class="card-text flex-grow-1">{{ surfboard.description|truncatewords:20 }}</p>
+                        <p class="card-text flex-grow-1">{{ surfboard.description|safe|striptags|truncatewords:20 }}</p>
                         <div class="text-center mt-auto">
                             <span class="btn btn-outline-secondary btn-sm">View Details</span>
                         </div>
