@@ -231,7 +231,99 @@ Links to tutorial details raise a warning, although the aria-label is dynamic an
 Website performance was evaluated using the tool Google Lighthouse. This section presents the performance metrics, including load times, optimization opportunities, and the steps taken to enhance the site's speed and efficiency.
 
 Lighthouse performance evaluation was performed on the deployed website using [Chrome Developer Tools Lighthouse Report](https://developer.chrome.com/docs/lighthouse/overview).
-[Results to be added]
+
+### General issues
+
+- Unused CSS was removed after test results showed that it was not being used.
+- Stripe: Stripe is causing some issues with the Lighthouse performance test. Attending to this was beyond the current scope.
+
+![lighthouse-issues-stripe](/documentation/testing/lighthouse-issues-stripe.png)
+
+### Mobile 
+
+#### Home
+
+![lighthouse-mobile-home](/documentation/testing/lighthouse-mobile-home.png)
+
+#### Tutorials
+
+![lighthouse-mobile-tutorials](/documentation/testing/lighthouse-mobile-tutorials.png)
+
+#### Tutorials Detail
+
+![lighthouse-mobile-tutorials-detail](/documentation/testing/lighthouse-mobile-tutorials-detail.png)
+
+#### About us
+
+![lighthouse-mobile-about-us](/documentation/testing/lighthouse-mobile-about-us.png)
+
+#### FAQ
+
+![lighthouse-mobile-faq](/documentation/testing/lighthouse-mobile-faq.png)
+
+#### Resources
+
+![lighthouse-mobile-resources](/documentation/testing/lighthouse-mobile-resources.png)
+
+#### Surfboards
+
+![lighthouse-mobile-surfboards](/documentation/testing/lighthouse-mobile-surfboards.png)
+
+#### Surfboards Detail
+
+![lighthouse-mobile-surfboards-detail](/documentation/testing/lighthouse-mobile-surfboards-detail.png)
+
+#### Allauth 
+
+![lighthouse-mobile-allauth](/documentation/testing/lighthouse-mobile-allauth.png)
+
+#### Cart
+
+![lighthouse-mobile-cart](/documentation/testing/lighthouse-mobile-cart.png)
+
+### Desktop
+
+#### Home
+
+![lighthouse-desktop-home](/documentation/testing/lighthouse-mobile-home.png)
+
+#### Tutorials
+
+![lighthouse-desktop-tutorials](/documentation/testing/lighthouse-desktop-tutorials.png)
+
+#### Tutorials Detail
+
+![lighthouse-desktop-tutorials-detail](/documentation/testing/lighthouse-desktop-tutorials-details.png)
+
+#### About us
+
+![lighthouse-desktop-about-us](/documentation/testing/lighthouse-desktop-about-us.png)
+
+#### FAQ
+
+![lighthouse-desktop-faq](/documentation/testing/lighthouse-desktop-faq.png)
+
+#### Resources
+
+![lighthouse-desktop-resources](/documentation/testing/lighthouse-desktop-resources.png)
+
+#### Surfboards
+
+![lighthouse-desktop-surfboards](/documentation/testing/lighthouse-desktop-surfboards.png)
+
+#### Surfboards Detail
+
+![lighthouse-desktop-surfboards-detail](/documentation/testing/lighthouse-desktop-surfboards-detail.png)
+
+#### Allauth 
+
+![lighthouse-desktop-allauth](/documentation/testing/lighthouse-desktop-allauth.png)
+
+#### Cart
+
+![lighthouse-desktop-cart](/documentation/testing/lighthouse-desktop-cart.png)
+
+![lighthouse-desktop-cart](/documentation/testing/lighthouse-desktop-cart.png)
 
 ### Known Bugs
 
