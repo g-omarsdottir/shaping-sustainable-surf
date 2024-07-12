@@ -327,6 +327,22 @@ Links to tutorial details raise a warning, although the aria-label is dynamic an
 
 ![test-accessibility-link](/documentation/testing/test-accessibility-link.png)
 
+![wave-home](/documentation/validator/wave-home.png)
+
+![wave-tutorials](/documentation/validator/wave-tutorials.png)
+
+![wave-tutorials-detail](/documentation/validator/wave-tutorials-detail.png)
+
+![wave-about-us](/documentation/validator/wave-about-us.png)
+
+![wave-surfboards](/documentation/validator/wave-surfboards.png)
+
+![wave-surfboards-detail](/documentation/validator/wave-surfboards-detail.png)
+
+![wave-about-us](/documentation/validator/wave-faq.png)
+
+![wave-resources](/documentation/validator/wave-resources.png)
+
 ### Coolors contrast checker
 
 [Coolors Color Contrast Checker](https://coolors.co/contrast-checker/333333-ffffff) was used to validate color contrast for web accessibility in terms of readability.

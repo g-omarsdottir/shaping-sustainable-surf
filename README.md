@@ -440,6 +440,10 @@ The user can view their order history, click on the link for a full order confir
 
 ![feature userprofile orderhistory](/documentation/feature-userprofile-orderhistory.png)
 
+The user can access the links to the purchased tutorials in the userprofile.
+
+![feature user profile](/documentation/feature-profile.png)
+
 #### Order confirmation
 
 The user receives an order confirmation with all details and a link to the purchased tutorial.

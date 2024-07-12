@@ -111,7 +111,7 @@ class StripeWH_Handler:
         # Check if order exists or else create the order.
         order_exists = False
         attempt = 1
-        while attempt <= 10:
+        while attempt <= 5:
             try:
                 order = Order.objects.get(
                     full_name__iexact=billing_details.name,
@@ -132,7 +132,7 @@ class StripeWH_Handler:
                 break
             except Order.DoesNotExist:
                 attempt += 1
-                time.sleep(2)
+                time.sleep(1)
         if order_exists:
             self._unlock_video_for_user(user_id)
             self._send_confirmation_email(order)
