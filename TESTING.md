@@ -324,7 +324,6 @@ Testing was performed across multiple browsers to ensure cross-browser compatibi
 ## Accessibility Testing
 
 Accessibility testing was conducted to ensure the website is usable by people with various disabilities. This section covers the tools used for testing, such as screen readers and accessibility validators, and the improvements made based on the results.
-[Results to be added]
 
 ### WAVE Web Accessibility Evaluation Tool
 
