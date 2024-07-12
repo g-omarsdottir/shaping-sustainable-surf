@@ -452,6 +452,16 @@ The user can click on the link in the order confirmation and view the tutorial h
 
 ![feature watch purchased tutorial](/documentation/feature-purchased-tutorial.png)
 
+#### Search Bar
+
+Users can enter a search query for the tutorials into the search field in the header, with the placeholder "search tutorials". The search displays all tutorials with the query in the titel or description.
+
+![feature search](/documentation/feature-search.png)
+
+If the search query does not match any of the tutorials, the user is notified and redirected to the the tutorials overview pagae.
+
+![feature search no result](/documentation/feature-search-noresult.png)
+
 ### Responsiveness
 
 Full responsiveness was achieved using Bootstrap's grid system. The website is designed to be viewed on a desktop, laptop, tablet or mobile device.
