@@ -323,6 +323,7 @@ In addition to libraries and frameworks already installed in the Code Institute 
 - [TinyPNG](https://tinypng.com/) to compress images
 - [favicon.io](https://favicon.io/favicon-converter/) to create favicon from website logo
 - [Leonardo AI](https://leonardoai.com/) to create the custom error pages images
+- [YouTube](https://www.youtube.com/) for hosting the tutorial videos
 - [Techsini.com](https://techsini.com/multi-mockup/index.php) to create the mockup for this README
 - [Chrome Extension Ignor X-Frame headers](https://chromewebstore.google.com/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe) to be able to create a mockup on Techsini from a django project
 - [Google Fonts](https://fonts.google.com/) for the website fonts
