@@ -272,6 +272,12 @@ As this is an educational project not intended for real-world deployment or to p
 
 **Authorization**: Ensured proper access controls are in place, especially for product management, personal information, and payment-related functionalities.
 
+![webhooks-successful](/documentation/testing/webhooks-successful.png)
+
+![webhooks-successful-charge](/documentation/testing/webhooks-successful-charge.png)
+
+![webhooks-successful-intent](/documentation/testing/webhooks-successful-intent.png)
+
 ## User Story Testing
 
 Each user story defined in the project requirements was tested to ensure that the implemented features meet the needs and expectations of our target users. This section maps user stories to specific functionalities and describes how they were validated.<br>
