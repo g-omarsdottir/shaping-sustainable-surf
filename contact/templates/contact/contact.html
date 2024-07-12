@@ -46,21 +46,21 @@
                     <h2 id="general-contact" class="h5">General Contact Information</h2>
                     <fieldset class="mb-3 mt-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Your Contact Details</legend>
-                        {{ contact_form.name.label_tag | as_crispy_field }}
-                        {{ contact_form.email.label_tag | as_crispy_field }}
-                        {{ contact_form.phone.label_tag | as_crispy_field }}
+                        {{ contact_form.name | as_crispy_field }}
+                        {{ contact_form.email | as_crispy_field }}
+                        {{ contact_form.phone | as_crispy_field }}
                     </fieldset>
 
                     <fieldset class="mb-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Regarding</legend>
                         <p id="category-description">Tutorials or Surfboards</p>
-                        {{ contact_form.category.label_tag | as_crispy_field }}
+                        {{ contact_form.category | as_crispy_field }}
                     </fieldset>
 
                     <fieldset class="mb-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Your Message to Us</legend>
-                        {{ contact_form.subject.label_tag | as_crispy_field }}
-                        {{ contact_form.message.label_tag | as_crispy_field }}
+                        {{ contact_form.subject | as_crispy_field }}
+                        {{ contact_form.message | as_crispy_field }}
                     </fieldset>
                 </section>
 
@@ -69,47 +69,47 @@
                     <fieldset class="mb-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Surfboard Details</legend>
                         <h3 class="h6 mt-3">Board Type</h3>
-                        {{ contact_form.board_type.label_tag | as_crispy_field }}
+                        {{ contact_form.board_type | as_crispy_field }}
                         <h3 class="h6 mt-3">Tail Type</h3>
-                        {{ contact_form.tail.label_tag | as_crispy_field }}
+                        {{ contact_form.tail | as_crispy_field }}
                     </fieldset>
 
                     <fieldset class="mb-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Volume & Length <span class="italic">(if known)</span></legend>
                         <h3 class="h6 mt-3">Board Length (Feet & Inches)</h3>
-                        {{ contact_form.board_length.label_tag | as_crispy_field }}
+                        {{ contact_form.board_length | as_crispy_field }}
                         <h3 class="h6 mt-3">Board Volume (Liters)</h3>
-                        {{ contact_form.board_volume.label_tag | as_crispy_field }}
+                        {{ contact_form.board_volume | as_crispy_field }}
                     </fieldset>
 
                     <fieldset class="mb-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Details to Calculate Volume & Length
                         </legend>
                         <h3 class="h6 mt-3">Body Height in Centimeters (cm)</h3>
-                        {{ contact_form.body_height.label_tag | as_crispy_field }}
+                        {{ contact_form.body_height | as_crispy_field }}
                         <h3 class="h6 mt-3">Body Weight in Kilograms (kg)</h3>
-                        {{ contact_form.body_weight.label_tag | as_crispy_field }}
+                        {{ contact_form.body_weight | as_crispy_field }}
                         <h3 class="h6 mt-3">Your Skill Level</h3>
-                        {{ contact_form.skill_level.label_tag | as_crispy_field }}
+                        {{ contact_form.skill_level | as_crispy_field }}
                         <h3 class="h6 mt-3">Your Surf Style</h3>
-                        {{ contact_form.surf_style.label_tag | as_crispy_field }}
+                        {{ contact_form.surf_style | as_crispy_field }}
                         <h3 class="h6 mt-3">Intended Wave Size</h3>
-                        {{ contact_form.wave_size.label_tag | as_crispy_field }}
+                        {{ contact_form.wave_size | as_crispy_field }}
                         <h3 class="h6 mt-3">Intended Wave Power</h3>
-                        {{ contact_form.wave_power.label_tag | as_crispy_field }}
+                        {{ contact_form.wave_power | as_crispy_field }}
                     </fieldset>
 
                     <fieldset class="mb-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Decorative Art & Color</legend>
                         <h3 class="h6 mt-3">Color Theme</h3>
-                        {{ contact_form.color_theme.label_tag | as_crispy_field }}
+                        {{ contact_form.color_theme | as_crispy_field }}
                         <h3 class="h6 mt-3">Decorative Art Theme</h3>
-                        {{ contact_form.art.label_tag | as_crispy_field }}
+                        {{ contact_form.art | as_crispy_field }}
                     </fieldset>
 
                     <fieldset class="mb-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Further Remarks</legend>
-                        {{ contact_form.remarks.label_tag | as_crispy_field }}
+                        {{ contact_form.remarks | as_crispy_field }}
                     </fieldset>
                 </section>
 
