@@ -1,0 +1,60 @@
+New Contact Message: {{ contact.subject }}
+
+Name: {{ contact.name }}
+Email: {{ contact.email }}
+Subject: {{ contact.subject }}
+Message: {{ contact.message }}
+{% if contact.category %}
+Category: {{ contact.category }}
+{% endif %}
+{% if contact.board_type %}
+Board Type: {{ contact.board_type }}
+{% endif %}
+{% if contact.tail %}
+Tail: {{ contact.tail }}
+{% endif %}
+
+{% if contact.board_length or contact.board_volume %}
+Volume & Length
+{% if contact.board_length %}
+Board Length: {{ contact.board_length }}
+{% endif %}
+{% if contact.board_volume %}
+Board Volume: {{ contact.board_volume }}
+{% endif %}
+{% endif %}
+
+Details to Calculate Volume & Length
+{% if contact.body_height %}
+Body Height: {{ contact.body_height }}
+{% endif %}
+{% if contact.body_weight %}
+Body Weight: {{ contact.body_weight }}
+{% endif %}
+{% if contact.skill_level %}
+Skill Level: {{ contact.skill_level }}
+{% endif %}
+{% if contact.surf_style %}
+Surf Style: {{ contact.surf_style }}
+{% endif %}
+{% if contact.wave_size %}
+Wave Size: {{ contact.wave_size }}
+{% endif %}
+{% if contact.wave_power %}
+Wave Power: {{ contact.wave_power }}
+{% endif %}
+
+{% if contact.color_theme or contact.art %}
+Decorative Art & Color
+{% if contact.color_theme %}
+Color Theme: {{ contact.color_theme }}
+{% endif %}
+{% if contact.art %}
+Decorative Art: {{ contact.art }}
+{% endif %}
+{% endif %}
+
+{% if contact.remarks %}
+Further Remarks
+{{ contact.remarks }}
+{% endif %}

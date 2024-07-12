@@ -4,11 +4,11 @@ import json
 import time
 
 from django.contrib.auth.models import User
-from django.core.mail import EmailMultiAlternatives
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
+from django.db.models import Q
 
 from .models import Order, OrderItem
 from products.models import Product
@@ -20,6 +20,7 @@ class StripeWH_Handler:
     """
     Handle Stripe webhooks.
     """
+    order = None
 
     def __init__(self, request):
         self.request = request
@@ -28,35 +29,42 @@ class StripeWH_Handler:
         """
         Send the user a confirmation email.
         """
+        if not order:
+            print("Error: No order provided to _send_confirmation_email")
+            return
 
-        cust_email = order.email
-        subject = render_to_string(
-            "checkout/confirmation_emails/confirmation_email_subject.txt",
-            {"order": order})
-        html_body = render_to_string(
-            "checkout/confirmation_emails/confirmation_email_body.txt",
-            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL})
+        if not order.email:
+            print(f"Error: No email address for order {order.order_number}")
+            return
+        try:
+            cust_email = order.email
+            subject = render_to_string(
+                "checkout/confirmation_emails/confirmation_email_subject.txt",
+                {"order": order})
 
-        text_body = strip_tags(html_body)
+            body = render_to_string(
+                "checkout/confirmation_emails/confirmation_email_body.txt",
+                {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL}
+            )
 
-    def _send_confirmation_email(self, order):
-        """
-        Send the user a confirmation email
-        """
-        cust_email = order.email
-        subject = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_subject.txt',
-            {'order': order})
-        body = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_body.txt',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+            print(f"Customer email: {cust_email}")
+            print(f"Subject: {subject}")
+            print(f"Body: {body}")
+            print(f"From email: {settings.DEFAULT_FROM_EMAIL}")
 
-        send_mail(
-            subject,
-            body,
-            settings.DEFAULT_FROM_EMAIL,
-            [cust_email]
-        )
+            send_mail(
+                subject,
+                body,
+                settings.DEFAULT_FROM_EMAIL,
+                [cust_email]
+            )
+            print(f"Confirmation email sent successfully to {cust_email}")
+        except Exception as e:
+            print(f"Error sending confirmation email: {str(e)}")
+            print(f"Order details: {order.__dict__}")
+        except Exception as e:
+            print(f"Error sending confirmation email: {str(e)}")
+
 
     def handle_event(self, event):
         """
@@ -65,7 +73,7 @@ class StripeWH_Handler:
         intent = event.data.object
 
         return HttpResponse(
-            content=f'Webhook received: {event["type"]}', status=200
+            content=f"Webhook received: {event["type"]}", status=200
         )
 
     def handle_payment_intent_succeeded(self, event):
@@ -80,10 +88,13 @@ class StripeWH_Handler:
         pid = intent.id
         cart = intent.metadata.cart
         save_info = intent.metadata.save_info
+
         discount_code = intent.metadata.get("discount_code")
         user_id = intent.metadata.get("user_id")
         username = intent.metadata.get("username")
+        
         stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
+        #billing_details = intent.charges.data[0].billing_details
         billing_details = stripe_charge.billing_details
         grand_total = round(stripe_charge.amount / 100, 2)
 
@@ -113,26 +124,45 @@ class StripeWH_Handler:
         attempt = 1
         while attempt <= 5:
             try:
-                order = Order.objects.get(
-                    full_name__iexact=billing_details.name,
-                    user_profile=profile,
-                    email__iexact=billing_details.email,
-                    phone_number__iexact=billing_details.phone,
-                    country__iexact=billing_details.address.country,
-                    postcode__iexact=billing_details.address.postal_code,
-                    town_or_city__iexact=billing_details.address.city,
-                    street_address1__iexact=billing_details.address.line1,
-                    street_address2__iexact=billing_details.address.line2,
-                    county__iexact=billing_details.address.state,
-                    grand_total=grand_total,
-                    original_cart=cart,
-                    stripe_pid=pid,
-                )
+                order = Order.objects.filter(
+                    Q(full_name__iexact=billing_details.name),
+                    Q(user_profile=profile),
+                    Q(email__iexact=billing_details.email),
+                    Q(phone_number__iexact=billing_details.phone),
+                    Q(country__iexact=billing_details.address.country),
+                    Q(postcode__iexact=billing_details.address.postal_code),
+                    Q(town_or_city__iexact=billing_details.address.city),
+                    Q(street_address1__iexact=billing_details.address.line1),
+                    Q(street_address2__iexact=billing_details.address.line2),
+                    Q(county__iexact=billing_details.address.state),
+                    Q(grand_total=grand_total),
+                    Q(original_cart=cart),
+                    Q(stripe_pid=pid),
+                ).latest("date")
                 order_exists = True
                 break
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
+            except Order.MultipleObjectsReturned:
+                order = Order.objects.filter(
+                    Q(full_name__iexact=billing_details.name),
+                    Q(user_profile=profile),
+                    Q(email__iexact=billing_details.email),
+                    Q(phone_number__iexact=billing_details.phone),
+                    Q(country__iexact=billing_details.address.country),
+                    Q(postcode__iexact=billing_details.address.postal_code),
+                    Q(town_or_city__iexact=billing_details.address.city),
+                    Q(street_address1__iexact=billing_details.address.line1),
+                    Q(street_address2__iexact=billing_details.address.line2),
+                    Q(county__iexact=billing_details.address.state),
+                    Q(grand_total=grand_total),
+                    Q(original_cart=cart),
+                    Q(stripe_pid=pid),
+                ).order_by('-date').first()
+                order_exists = True
+                print(f"Multiple orders found. Using most recent: {order.order_number}")
+                break
         if order_exists:
             self._unlock_video_for_user(user_id)
             self._send_confirmation_email(order)
@@ -178,6 +208,7 @@ class StripeWH_Handler:
                         pass
                 order.update_total()
             except Exception as e:
+                print("ERROR: ", e)
                 if order:
                     order.delete()
                 return HttpResponse(

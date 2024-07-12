@@ -115,6 +115,12 @@ class ContactForm(forms.ModelForm):
                 raise forms.ValidationError("Message field cannot be empty.")
         return message
 
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if not email:
+            raise forms.ValidationError("Email address is required.")
+        return email
+
     def __init__(self, *args, **kwargs):
         """
         Add placeholders and classes, remove auto-generated
