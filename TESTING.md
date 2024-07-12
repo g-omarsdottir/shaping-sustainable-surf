@@ -274,8 +274,33 @@ As this is an educational project not intended for real-world deployment or to p
 
 ## User Story Testing
 
-Each user story defined in the project requirements was tested to ensure that the implemented features meet the needs and expectations of our target users. This section maps user stories to specific functionalities and describes how they were validated.
-[Table to be added]
+Each user story defined in the project requirements was tested to ensure that the implemented features meet the needs and expectations of our target users. This section maps user stories to specific functionalities and describes how they were validated.<br>
+
+The following Epics (Feature Area) & User Stories all passed testing without issues.
+
+| Feature Area | User Story | Expected Result | Result |
+|-------------|------------|-----------------|--------|
+| Website Content | Homepage First Impression | As a USER, I can view a welcoming homepage and easily identify the website's purpose so that I feel welcome and understand what the website offers. | A welcome message and brief description of the websites offerings are displayed. |
+| Navigation and Orientation | As a USER, I can easily understand the structure of the website and identify navigation features/elements so that I can navigate the website to find what I am looking for. | The website has a clean layout with clear visual hierarchy and prominently placed navigation elements. | Passed |
+| Web Accessibility | As a USER with disabilities or using assistive technologies, I can easily navigate the website so that I can find what I am looking for and make a purchase. | The website complies with Web Content Accessibility Guidelines (WCAG). | Passed |
+| Product Exploration | View a List of Products | As a USER, I can view a list of products so that I can choose products I want to purchase. | Product images, names, brief descriptions, and prices are displayed. |
+| Product Exploration | View Individual Product | As a USER, I can click on an individual product so that I can view the price, full product description, product rating, and a larger product image. | Clicking on a product reveals full product details. |
+| Product Exploration | Filter Products by Category | As a USER, I can filter the products by category so that I can easily find what I am looking for. | A dropdown menu allows users to filter by category, and the product list updates accordingly. |
+| Product Exploration | Search Feature | As a USER, I can search the products by keywords so that I can quickly find what I am looking for. | A search bar is prominently displayed and returns relevant results. |
+| Shopping Cart | Add items to shopping cart | As a USER, I can add items to the shopping cart so that I can make a purchase. | Items are added to the shopping cart when the Add to cart button is clicked. |
+| Shopping Cart | View items in shopping cart | As a USER, I can view the items in my shopping cart so that I can identify what I purchase. | The items in the shopping cart are displayed. |
+| Shopping Cart | Update items in shopping cart | As a USER, I can adjust the items in my shopping cart so that I can easily make changes before I checkout and purchase. | Buttons to delete or modify items in the cart are clearly displayed. |
+| Payment Process | Payment Information | As a USER, I can easily enter my payment information so that I can complete the purchase easily. | A clear, easy-to-understand payment form is provided. |
+| Payment Process | Secure Payment | As a USER, I can feel confident that my personal details and the payment process are secure so that I can confidently enter the necessary information to make the purchase. | The payment process is secure and uses Stripe. |
+| Communication | Contact Store owner | As a USER, I can find a 'Contact' page with ways to reach the store owner so that I can provide feedback, ask questions, or send an enquiry to order a custom-made surfboard. | A Contact page is accessible from the navigation with clear instructions. |
+| Communication | Newsletter | As a USER, I can sign up for a newsletter so that I can get notifications on new tutorials and Q&A Sessions. | A newsletter sign-up field is clearly displayed. |
+| User Account | Sign Up for User Account | As a USER, I can sign up for a new user account so that I can create a user profile and have an overview of my purchases and save my personal information. | A Sign Up link is prominently displayed and leads to a user-friendly sign-up form. |
+| User Account | Update User Profile | As a USER, I can update my user profile so that I can change or correct my personal details. | Signed-in users can update their personal details. |
+| User Account | Delete User Account | As a USER, I can delete my user account so that I can delete all my information and reviews are removed from the website. | Users can delete their account, which also removes their reviews. |
+| Review & Rate Management | Rate a Product | As a USER, I can rate the product so that I can express my opinion with a score without having to write anything. | Logged-in users who have purchased the product can rate it. |
+| Product Management | Add a Product | As a STORE OWNER, I can add a product so that I can expand my product offer. | Superusers or staff can add new products through a form. |
+| User Experience | Custom Error page | As a USER, I want to see a user-friendly custom error page when I encounter an error based on forbidden access or object not found so that I can understand why the error occurred and feel safe. | Custom 403 and 404 error pages are displayed when appropriate. |
+
 
 ## Responsiveness Testing
 
