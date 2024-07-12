@@ -333,6 +333,8 @@ Links to tutorial details raise a warning, although the aria-label is dynamic an
 
 ![wave-tutorials-detail](/documentation/validator/wave-tutorials-detail.png)
 
+![wave-contact](/documentation/validator/wave-contact.png)
+
 ![wave-about-us](/documentation/validator/wave-about-us.png)
 
 ![wave-surfboards](/documentation/validator/wave-surfboards.png)
