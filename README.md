@@ -349,15 +349,127 @@ The project a custom HTML error page for status codes 403 (Forbidden), 404 (Not 
 
 To style the error pages during development, the error pages were rendered using temporary views and urls placed in the profile app for easy testing. The approach is documented in [TESTING.md](TESTING.md).
 
+#### Discount Code
+
+The discount code can be obtained by subscribing to the newsletter and for future features for campaigns. The discount code and the amount is displayed to the user in the shopping cart, and t. The user can remove the discount code, e.g. to enter a different discount code, if they wish to.
+
+![discount code](/documentation/discount-code.png)
+
+If a different discount code is entered without removing the previous discount code, the new discount is applied and the previous discount is automatically removed.
+
+![discount code replace](/documentation/discount-code-replace.png)
+
+The discount code is stored in the order as well for better overview for customer and store owner.
+
+![discount code](/documentation/discount-order-history.png)
+
+#### Tutorials
+
+Users can browse tutorials and purchase with the integrated purchase system by stripe. The button on the side brings users to the top of the page.
+
+![feature tutorials](/documentation/feature-tutorials.png)
+
+Clicking anywhere on the card opens up the tutorial detail. The user can put the tutorial in the shopping cart or return to overview using the buttons.
+
+![feature tutorials detail](/documentation/feature-tutorials-detail.png)
+
+#### About Us
+
+The user can read about the store owner and gain trust in the product. Links to other pages are anchored in the description and invitation to sign up for the newsletter.
+
+![feature about us](/documentation/feature-about-us.png)
+
+![feature about us links](/documentation/feature-about-us-links.png)
+
+#### Collection of Surfboards
+
+The user can view a collection of previous work made by the store owner. Clicking anywhere on the card opens up a detailed view of the surfboard. Since these are included in the ecommerce purchasing system, the page is placed in the about us app.
+
+![feature surfboards](/documentation/feature-surfboards.png)
+
+A link to the contact page for enquiries and a button to return to the top of the page are displayed at the bottom of the detailed page.
+
+![feature surfboard detail](/documentation/feature-tutorials-detail.png)
+
+#### FAQ
+
+The user can view frequently asked questions.
+
+![feature faq](/documentation/feature-faq.png)
+
 #### Newsletter
 
+The user can sign up for a newsletter to obtain a discount code. This feature is simulated by displaying website internal success page if the user clicks the sign up link in the website footer, since the free newsletter providers have a time limitation on the free service and might be discontinued before this project is assessed.
+
 ![newsletter](/documentation/newsletter.png)
+
+#### Resources
+
+The user can view an overview with reliable resources related to the store content with a short description, which can improve SEO results. Clicking anywhere on the card opens up the link in a new window.
+
+![feature resources](/documentation/feature-resources.png)
+
+#### Shopping Cart
+
+The user can place tutorials in the shopping cart and is notified of the action. The successmessage disappears after a while, since this took up a lot of the screen realestate on mobile screens, but the cart preview stays open for a convenient checkout.
+
+![feature userfeedback cart](/documentation/feature-userfeedback-cart.png)
+
+The user can remove the item from the cart, apply a discount code before continuing on to secure checkout, or return to overview using the buttons.
+
+![feature cart](/documentation/feature-cart.png)
+
+#### Contact Form
+
+If the user is logged in, the contact form is prefilled for their convenience with the data from their profile. The user can also enter a different email address or name if they wish to.
+
+![feature contact prefill](/documentation/feature-contact-prefill.png)
+
+The contact form is designed to obtain necessary information from users interested in buying a surfboard. The user can fill out the form and send it to the store owner, and choose to only fill out the required fields, name and email address. Displaying the information may spark interest in ordering or building a surfboard and skilled surfers will recognize the attention to detail and others may appreciate the guidance through the complicated process of calculating a surfboard’s parameters with regard to the surfer and intended use, which builds trust in the website and the products with users.
+
+![feature contact form](/documentation/feature-contact-form.png)
+
+#### User Profile
+
+The user can save the contact information used during the checkout process in their profile, which is stored in the database. 
+
+![Feature userprofile save info](/documentation/feature-userprofile-save.png)
+
+The user can view their order history, click on the link for a full order confirmation, and also update the personal information if they wish to.
+
+![feature userprofile orderhistory](/documentation/feature-userprofile-orderhistory.png)
+
+#### Order confirmation
+
+The user receives an order confirmation with all details and a link to the purchased tutorial.
+
+![feature order confirmation](/documentation/feature-order-confirmation.png)
+
+#### Purchased Tutorial
+
+The user can click on the link in the order confirmation and view the tutorial hosted on youtube (not listed for public view).
+
+![feature watch purchased tutorial](/documentation/feature-purchased-tutorial.png)
 
 ### Responsiveness
 
 Full responsiveness was achieved using Bootstrap's grid system. The website is designed to be viewed on a desktop, laptop, tablet or mobile device.
 
 ### Security
+
+#### User Authentication and Authorization
+
+The application ensures secure user authentication and authorization through the integration of Django Allauth. This powerful tool simplifies the process of managing user accounts, including registration, login, password reset, and email verification. By utilizing Django Allauth, the project adheres to best practices for web application security, providing our users with a safe and reliable environment.
+
+#### Access Control
+
+To safeguard user data and privacy, stringent access controls were implemented . These measures are designed to restrict unauthorized access to sensitive information, ensuring that each user can only view or interact with their own content. 
+
+#### Secure Payment Processing
+
+For handling financial transactions, the project utilizes Stripe, a leading payment processing service. Stripe is renowned for its commitment to security, providing a seamless and secure way for users to make payments online. By integrating Stripe, all financial operations are ensured to be conducted in compliance with industry-standard security protocols, protecting both users and the store owner from potential threats.
+
+In summary, the application prioritizes security at every level, from user account management to data protection and financial transactions simulation.
 
 ### Future Features
 
