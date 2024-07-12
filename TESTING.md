@@ -278,6 +278,10 @@ As this is an educational project not intended for real-world deployment or to p
 
 ![webhooks-successful-intent](/documentation/testing/webhooks-successful-intent.png)
 
+![test-webhook-last](/documentation/testing/test-webhook-last.png)
+
+![testing-email](/documentation/testing/test-email.png)
+
 ## User Story Testing
 
 Each user story defined in the project requirements was tested to ensure that the implemented features meet the needs and expectations of our target users. This section maps user stories to specific functionalities and describes how they were validated.<br>
@@ -483,7 +487,7 @@ This section lists significant bugs that were encountered during development and
 | Database                                                            | Issue in connecting to datase.                                                                                                                                                                        | Change database to Code Institute Database                                                                                                                                                       | Solved |
 | Summernote                                                          | Error in rendered hmtl validation.                                                                                                                                                                    | Type content manually instead of copy paste.                                                                                                                                                     | Solved |
 | paragraph tags                                                      | Extra paragraph tags caused error in html validation.                                                                                                                                                 | Remove paragraph around content since summernote adds the html tags.                                                                                                                             | Solved |
-| Invalid Stripe webhook signature: No signatures found matching the expected signature for payload | webhook secret not found.                                                                                                                                                                             | Set development variable for wh endpoint in dev and for deployed endpoint.                                                                                                                       | Solved |
+| Invalid Stripe webhook signature: No signatures found matching the expected signature for payload | webhook secret not found.                                                                                                                                                                             | Fix conditional statement in settings.py for DEV variable and email settings (reverse it)                                                                                                                       | Solved |
 
 
 ## Programs Used

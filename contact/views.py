@@ -22,12 +22,6 @@ def send_contact_email(contact):
 
     from_email = settings.DEFAULT_FROM_EMAIL
 
-    try:
-        validate_email(contact.email)
-    except ValidationError:
-        print(f"Invalid email address: {contact.email}")
-        return
-
     # Email to customer
     customer_subject = render_to_string(
         "contact/confirmation_emails/confirmation_email_subject.txt",
@@ -37,15 +31,13 @@ def send_contact_email(contact):
         "contact/confirmation_emails/confirmation_email_body.txt",
         {"contact": contact, "company_email": from_email}
     )
-    try:
-        send_mail(
-            customer_subject,
-            customer_body,
-            from_email,
-            [contact.email]
-        )
-    except Exception as e:
-        print(f"Error sending email to customer: {e}")
+    
+    send_mail(
+        customer_subject,
+        customer_body,
+        from_email,
+        [contact.email]
+    )
 
     # Email to store owner (using DEFAULT_FROM_EMAIL as recipient)
     owner_subject = f"New Contact Message: {contact.subject}"
@@ -53,15 +45,13 @@ def send_contact_email(contact):
         "contact/confirmation_emails/owner_notification_email.txt",
         {"contact": contact}
     )
-    try:
-        send_mail(
-            owner_subject,
-            owner_body,
-            from_email,
-            [from_email]
-        )
-    except Exception as e:
-        print(f"Error sending email to owner: {e}")
+
+    send_mail(
+        owner_subject,
+        owner_body,
+        from_email,
+        [from_email]
+    )
 
 
 def contact(request):
@@ -100,7 +90,6 @@ def contact(request):
             except Exception as e:
                 messages.error(request, f"An error occurred while sending your message: {str(e)}")
         else:
-            print(f"Form errors: {contact_form.errors}")
             messages.error(
                 request,
                 "There was an error with your form. "

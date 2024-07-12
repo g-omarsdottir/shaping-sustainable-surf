@@ -29,42 +29,21 @@ class StripeWH_Handler:
         """
         Send the user a confirmation email.
         """
-        if not order:
-            print("Error: No order provided to _send_confirmation_email")
-            return
+        cust_email = order.email
+        subject = render_to_string(
+            "checkout/confirmation_emails/confirmation_email_subject.txt",
+            {"order": order})
 
-        if not order.email:
-            print(f"Error: No email address for order {order.order_number}")
-            return
-        try:
-            cust_email = order.email
-            subject = render_to_string(
-                "checkout/confirmation_emails/confirmation_email_subject.txt",
-                {"order": order})
-
-            body = render_to_string(
-                "checkout/confirmation_emails/confirmation_email_body.txt",
-                {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL}
-            )
-
-            print(f"Customer email: {cust_email}")
-            print(f"Subject: {subject}")
-            print(f"Body: {body}")
-            print(f"From email: {settings.DEFAULT_FROM_EMAIL}")
-
-            send_mail(
-                subject,
-                body,
-                settings.DEFAULT_FROM_EMAIL,
-                [cust_email]
-            )
-            print(f"Confirmation email sent successfully to {cust_email}")
-        except Exception as e:
-            print(f"Error sending confirmation email: {str(e)}")
-            print(f"Order details: {order.__dict__}")
-        except Exception as e:
-            print(f"Error sending confirmation email: {str(e)}")
-
+        body = render_to_string(
+            "checkout/confirmation_emails/confirmation_email_body.txt",
+            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL}
+        )
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email]
+        )
 
     def handle_event(self, event):
         """
@@ -161,7 +140,6 @@ class StripeWH_Handler:
                     Q(stripe_pid=pid),
                 ).order_by('-date').first()
                 order_exists = True
-                print(f"Multiple orders found. Using most recent: {order.order_number}")
                 break
         if order_exists:
             self._unlock_video_for_user(user_id)
@@ -208,7 +186,6 @@ class StripeWH_Handler:
                         pass
                 order.update_total()
             except Exception as e:
-                print("ERROR: ", e)
                 if order:
                     order.delete()
                 return HttpResponse(
