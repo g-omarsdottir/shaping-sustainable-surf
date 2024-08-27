@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, render
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.urls import reverse
 
 from .models import UserProfile
 from .forms import UserProfileForm
@@ -40,6 +41,41 @@ def profile(request):
     template = "profiles/profile.html"
 
     return render(request, template, context)
+
+
+@login_required
+def delete_profile(request):
+    """
+    Delete the user profile and associated user account.
+    """
+    profile = get_object_or_404(UserProfile, user=request.user)
+
+    # Perform the deletion
+    if request.method == "POST":
+        user = request.user
+        profile = get_object_or_404(UserProfile, user=user)
+
+        # Delete the user profile
+        profile.delete()
+
+        # Delete the user account
+        user.delete()
+
+        messages.success(
+            request,
+            "Your profile and user account have been successfully deleted."
+        )
+        return redirect(reverse("home"))
+
+    # Render a confirmation page for deletion
+    else:
+        context = {
+            "profile": profile,
+        }
+
+        template = "profiles/profile_confirm_delete.html"
+
+        return render(request, template, context)
 
 
 @login_required

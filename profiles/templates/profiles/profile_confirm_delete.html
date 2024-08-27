@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">{{ profile.full_name|default:profile.user.username }}'s Profile</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-6 mb-5">
+            <p class="text-muted">Are you sure you want to permanently delete your profile and user account?</p>
+            <form class="mt-3" action="{% url 'delete_profile' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger rounded-0 text-uppercase">Confirm Deletion</button>
+                <a href="{% url 'profile' %}" class="btn btn-warning rounded-0 text-uppercase">No, Return to My Profile</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
