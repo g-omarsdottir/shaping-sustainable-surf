@@ -100,8 +100,9 @@ The [JSHint Validator]( https://jshint.com/), a JavaScript Code Quality Tool was
 |----------|--------|--------------------|------------------------------------------------------------------------------------------------------------------|--------|
 | checkout | static | stripe_elements.js | <details> <summary>**Click to View**</summary> ![checkout-js](documentation/validator/checkout-js.png)</details> | Passed |
 | contact  | static | contact.js         | <details> <summary>**Click to View**</summary> ![contact-js](documentation/validator/contact-js.png)</details>   | Passed |
-| root dir | templates | base.html          | <details> <summary>**Click to View**</summary> ![base-js](documentation/validator/base-js.png)</details>         | Passed |
 | products | templates | tutorials.html     | <details> <summary>**Click to View**</summary> ![tutorials-js](documentation/validator/tutorials-js.png)</details> | Passed |
+| profiles | static | profile.js     | <details> <summary>**Click to View**</summary> ![profile-js](documentation/validator/profile-js.png)</details> | Passed |
+| root dir | templates | base.html          | <details> <summary>**Click to View**</summary> ![base-js](documentation/validator/base-js.png)</details>         | Passed |
 
 ### HTML
 
