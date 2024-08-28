@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.urls import reverse
 
+from allauth.account.models import EmailAddress
+
 from .models import UserProfile
 from .forms import UserProfileForm
 from checkout.models import Order
@@ -13,32 +15,70 @@ from checkout.models import Order
 def profile(request):
     """
     Display the user profile, order history,
-    and tutorials according to video unlock status
-    and profile form.
+    and tutorials according to video unlock status.
     """
 
     profile = get_object_or_404(UserProfile, user=request.user)
     orders = profile.orders.all().order_by("-date")
 
-    if request.method == "POST":
-        form = UserProfileForm(request.POST, instance=profile)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Profile updated successfully")
-        else:
-            messages.error(
-                request, "Update failed. Please ensure the form is valid."
-            )
-    else:
-        form = UserProfileForm(instance=profile)
-
     context = {
-        "form": form,
         "profile": profile,
+        "user": request.user,
         "on_profile_page": True,
         "orders": orders,
     }
     template = "profiles/profile.html"
+
+    return render(request, template, context)
+
+
+@login_required
+def update_profile(request):
+    """
+    Handle the profile update form.
+    Related to models profile.UserProfile, and
+    auth.User, and
+    auth.EmailAddress.
+    """
+    profile = get_object_or_404(UserProfile, user=request.user)
+
+    if request.method == "POST":
+        form = UserProfileForm(
+            request.POST, instance=profile, user=request.user
+        )
+        if form.is_valid():
+            form.save()
+
+            # Compare new email address with allauth User model
+            new_email = form.cleaned_data["email"]
+            if new_email != request.user.email:
+                # Update User model email
+                request.user.email = new_email
+                request.user.save()
+
+                # Update allauth User model and EmailAddress model
+                EmailAddress.objects.filter(
+                    user=request.user, primary=True
+                ).update(email=new_email)
+
+            messages.success(request, "Profile updated successfully")
+            return redirect(reverse("profile"))
+        else:
+            # If the form is not valid, restore current user email.
+            if "email" in form.errors:
+                form.fields["email"].initial = request.user.email
+            messages.error(
+                request, "Update failed. Please ensure the form is valid."
+            )
+    else:
+        form = UserProfileForm(instance=profile, user=request.user)
+
+    context = {
+        "form": form,
+        "profile": profile,
+        "user": request.user,
+    }
+    template = "profiles/update_profile.html"
 
     return render(request, template, context)
 

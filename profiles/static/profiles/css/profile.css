@@ -2,6 +2,10 @@
     white-space: nowrap;
 }
 
+.error {
+    border-color: red !important;
+}
+
 .order-history {
     max-height: 416px; /* height of profile form + submit button */
     overflow-y: auto;

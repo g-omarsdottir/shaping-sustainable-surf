@@ -24,15 +24,38 @@
         </div>
     </div>
     <div class="row">
+        <!-- User Profile Personal Information -->
         <div class="col-12 col-lg-6 mb-5">
-            <p class="text-muted">Address</p>
-            <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
-            </form>
-            <a href="{% url 'delete_profile' %}" class="btn btn-danger rounded-0 text-uppercase float-right">Delete Profile</a>
+            <p class="text-muted">Personal Information</p>
+            {% if profile.default_full_name %}
+            <p class="text-muted">{{ profile.default_full_name }}</p>
+            {% endif %}
+            <p class="text-muted">{{ user.email }}</p>
+            {% if profile.default_phone_number %}
+            <p class="text-muted">{{ profile.default_phone_number }}</p>
+            {% endif %}
+            {% if profile.default_street_address1 %}
+            <p class="text-muted">{{ profile.default_street_address1 }}</p>
+            {% endif %}
+            {% if profile.default_street_address2 %}
+            <p class="text-muted">{{ profile.default_street_address2 }}</p>
+            {% endif %}
+            {% if profile.default_town_or_city %}
+            <p class="text-muted">{{ profile.default_town_or_city }}</p>
+            {% endif %}
+            {% if profile.default_postcode %}
+            <p class="text-muted">{{ profile.default_postcode }}</p>
+            {% endif %}
+            {% if profile.default_county %}
+            <p class="text-muted">{{ profile.default_county }}</p>
+            {% endif %}
+            {% if profile.default_country %}
+            <p class="text-muted">{{ profile.default_country }}</p>
+            {% endif %}
+            <a href="{% url 'update_profile' %}" class="btn btn-danger rounded-0 text-uppercase float-right mr-2">Manage My Profile</a>
         </div>
+
+        <!-- Order History -->
         <div class="col-12 col-lg-6">
             <p class="text-muted">Order History</p>
             {% if orders %}
@@ -91,6 +114,7 @@
         </div>
     </div>
 
+    <!-- Purchased Tutorials -->
     <div class="row">
         <div class="col">
             <h2>Your Purchased Tutorials:</h2>
@@ -166,9 +190,4 @@
     </div>
 </div>
 </div>
-{% endblock %}
-
-{% block postloadjs %}
-{{ block.super }}
-<script type="text/javascript" src="{% static 'profiles/js/profile.js' %}"></script>
 {% endblock %}
