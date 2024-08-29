@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     "checkout",
     "contact",
     "home",
+    "newsletter",
     "products",
     "profiles",
     # Third-party apps

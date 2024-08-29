@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_meta %}
+<meta name="description" content="
+    sustainable surfboard materials, eco-friendly surfboards,
+    update on eco-friendly surfboard materials,
+">
+{% endblock %}
+
+{% block page_header %}
+<a href="#subscriber-form" class="sr-only sr-only-focusable">Skip to newsletter subscription form</a>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container mb-2">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <h1 class="text-center logo-font mb-4">Shaping Sustainable Surf Newsletter</h1>
+            <hr>
+            <div class="mb-4">
+                <h2 class="h4">Sign up for our newsletter and get your discount code!</h2>
+                <p>We will be happy to update you on new tutorials and groundbreaking news in new eco-friendly sustainable surfboard materials. We will not be sending you pictures of our breakfast, we promise.</p>
+                <p>You can unsubscribe at any time with the click of a button, no questions asked. Your data will be permanently deleted but you can re-subscribe any time.</p>
+            </div>
+            <h3 class="h4">Newsletter Subscription Form</h3>
+            <form action="{% url 'subscribe' %}" method="POST" id="subscriber-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="submit-button text-right mt-5 mb-2">
+                    <button type="submit" class="btn btn-black rounded-0 mb-2">
+                        <span class="font-weight-bold">Subscribe</span>
+                        <span class="icon">
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </span>
+                    </button>
+                </div>
+            </form>
+
+            <p class="text-center">Check out our privacy policy HIER. For any questions or concerns about you data privacy, contact us by email at <a href="mailto:{{ company_email }}">{{ company_email }}</a> or
+                use our contact form <a href="{% url 'contact' %}">HIER</a>.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
