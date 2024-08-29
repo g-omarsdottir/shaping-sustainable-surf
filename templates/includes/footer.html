@@ -7,19 +7,22 @@
                     <i class="fa-brands fa-github fa-2x"></i>
                 </a>
             </li>
-            <li class="list-inline-item"><a href="{% url 'privacy_policy' %}" target="_blank">Privacy Policy</a></li>
+            <li class="list-inline-item">
+                <a href="{% url 'privacy_policy' %}">
+                    Privacy Policy
+                </a>
+            </li>
             <li class="list-inline-item">
                 <a href="https://www.facebook.com/" target="_blank" rel="noopener"
                     aria-label="visit our facebook page (opens in a new tab)">
                     <i class="fa-brands fa-facebook fa-2x"></i>
                 </a>
             </li>
-            <li class="list-inline-item"><a
-                    href="{% url 'newsletter_success' %}"
-                    target="_blank" aria-label="link to subscribe to newsletter form, opens in a new window">
+            <li class="list-inline-item">
+                <a href="{% url 'subscribe' %}" class="btn btn-outline-black rounded-0">
                     Subscribe to Newsletter
                 </a>
-                </li>
+            </li>
         </ul>
     </div>
 </footer>

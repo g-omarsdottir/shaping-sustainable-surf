@@ -42,8 +42,9 @@
                 </div>
             </form>
 
-            <p class="text-center">Check out our privacy policy HIER. For any questions or concerns about you data privacy, contact us by email at <a href="mailto:{{ company_email }}">{{ company_email }}</a> or
-                use our contact form <a href="{% url 'contact' %}">HIER</a>.</p>
+            <p class="text-muted">Check out our <a href="{% url 'privacy_policy' %}">privacy policy</a>.</p>
+            <p class="text-muted">For any questions or concerns about you data privacy, contact us by email at <a href="mailto:{{ company_email }}" aria-label="Email us">{{ company_email }}</a> or
+                use our <a href="{% url 'contact' %}">contact form</a></p>
         </div>
     </div>
 </div>

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_meta %}
+<meta name="description" content="
+    sustainable surfboard materials, eco-friendly surfboards,
+    update on eco-friendly surfboard materials,
+">
+{% endblock %}
+
+{% block page_header %}
+<a href="#subscriber-form" class="sr-only sr-only-focusable">Skip to newsletter subscription form</a>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container mb-2">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <h1 class="text-center logo-font mb-4">Thank you for subscribing!</h1>
+            <hr>
+            <div class="mb-4">
+                {% if newsletter_code %}
+                <h2 class="text-center">Here is your discount code:</h2>
+                <h2 class="text-center"><strong>{{ newsletter_code.code }}</strong></h2>
+                <p>You can use this code to get <strong>€{{ newsletter_code.amount }}</strong> off your next purchase!</p>
+                {% else %}
+                <h2 class="h4">Oops! We encountered a technical issue!</h2> 
+                <p>Something went wrong while fetching your discount code.</p>
+                <p>Not to worry, please contact us by email at <a href="mailto:{{ company_email }}" aria-label="Email us">{{ company_email }}</a> or
+                    use our <a href="{% url 'contact' %}">contact form</a> and we will make it up to you.</p>
+                {% endif %}
+            </div>
+            <p>A confirmation of your subscription and the discount code will be sent to your email address. Please check our spam folder or contact us if you do not hear from us.</p>
+            <p>You can unsubscribe at any time by clicking the link to unsubscribe we sent you in your confirmation email, no questions asked. Your data will be permanently deleted but you can re-subscribe any time.</p>
+            <p>Check out our <a href="{% url 'privacy_policy' %}">privacy policy</a>.</p>
+            <p>For any questions or concerns about you data privacy, contact us by email at <a href="mailto:{{ company_email }}" aria-label="Email us">{{ company_email }}</a> or
+                use our <a href="{% url 'contact' %}">contact form</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
