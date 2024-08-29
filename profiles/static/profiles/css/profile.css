@@ -7,8 +7,20 @@
 }
 
 .order-history {
-    max-height: 416px; /* height of profile form + submit button */
+    max-height: 416px;
     overflow-y: auto;
+}
+
+#profile-info a {
+    background: lightblue;
+    border: 1px solid black;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+#profile-info a:hover {
+    box-shadow: 1px -1px 7px 0 rgba(179, 164, 87, 0.70);
+    transform: scale(1.02);
 }
 
 #profile-update-form .form-control {
