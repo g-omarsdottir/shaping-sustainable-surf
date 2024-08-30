@@ -25,8 +25,8 @@
             <hr>
             <div class="mb-4">
                 <h2 class="h4">Sign up for our newsletter and get your discount code!</h2>
-                <p>We will be happy to update you on new tutorials and groundbreaking news in new eco-friendly sustainable surfboard materials. We will not be sending you pictures of our breakfast, we promise.</p>
-                <p>You can unsubscribe at any time with the click of a button, no questions asked. Your data will be permanently deleted but you can re-subscribe any time.</p>
+                <p>We will be happy to update you on new tutorials, groundbreaking news in new eco-friendly sustainable surfboard materials, and our live interactive Q&A sessions.</p>
+                <p>We send approx. 10 - 12 newsletters a year.</p>
             </div>
             <h3 class="h4">Newsletter Subscription Form</h3>
             <form action="{% url 'subscribe' %}" method="POST" id="subscriber-form">
@@ -44,8 +44,14 @@
 
             <p class="text-muted">Check out our <a href="{% url 'privacy_policy' %}">privacy policy</a>.</p>
             <p class="text-muted">For any questions or concerns about you data privacy, contact us by email at <a href="mailto:{{ company_email }}" aria-label="Email us">{{ company_email }}</a> or
-                use our <a href="{% url 'contact' %}">contact form</a></p>
+                use our <a href="{% url 'contact' %}">contact form</a>.</p>
+            
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'newsletter/js/newsletter.js' %}"></script>
 {% endblock %}

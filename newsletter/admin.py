@@ -6,17 +6,15 @@ from .models import Subscriber
 class Subscriber(admin.ModelAdmin):
 
     fields = (
-        "name",
         "email",
+        "accepted_terms",
         "unsubscribe_token",
     )
 
     list_display = (
-            "name",
             "email",
         )
 
     search_fields = (
-        "name",
         "email",
     )

@@ -8,11 +8,13 @@ class Subscriber(models.Model):
     Generate a secure token for unsubscribe link
     for each subscriber to unsubscribe from newsletter.
     """
-    name = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(
         max_length=254, unique=True, null=False, blank=False
     )
     date_added = models.DateTimeField(auto_now_add=True)
+    accepted_terms = models.BooleanField(
+        default=False, null=False, blank=False
+    )
     unsubscribe_token = models.CharField(max_length=64, unique=True)
 
     def save(self, *args, **kwargs):

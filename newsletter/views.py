@@ -19,36 +19,32 @@ def subscribe(request):
     if request.method == "POST":
         form = SubscriberForm(request.POST)
         if form.is_valid():
-            email = form.cleaned_data["email"]
-            name = form.cleaned_data["name"]
-            if not Subscriber.objects.filter(email=email).exists():
-                subscriber = Subscriber(email=email, name=name)
-                # Trigger save method and generate unsubscribe token
-                subscriber.save()
-                messages.success(
-                    request, "You have been subscribed to the newsletter!"
+            # Trigger save method, create subscriber and unsubscribe token
+            subscriber = form.save()
+            messages.success(
+                request, "You have been subscribed to the newsletter!"
+            )
+            # Get newsletter discount code
+            newsletter_code = DiscountCode.objects.filter(
+                code="ALOHA&WELCOME", active="Yes"
+            ).first()
+            context = {
+                    "newsletter_code": newsletter_code,
+                    "company_email": company_email,
+                }
+            if not newsletter_code:
+                messages.warning(
+                    request,
+                    f"Oops! Something went wrong "
+                    f"while getting your discount code. "
+                    f"Please contact us and we will make it up to you!"
                 )
-                # Get newsletter discount code
-                newsletter_code = DiscountCode.objects.filter(
-                    code="ALOHA&WELCOME", active="Yes"
-                ).first()
-                context = {
-                        "newsletter_code": newsletter_code,
-                        "company_email": company_email,
-                    }
-                if not newsletter_code:
-                    messages.warning(
-                        request,
-                        f"Oops! Something went wrong "
-                        f"while getting your discount code. "
-                        f"Please contact us and we will make it up to you!"
-                    )
-                template = "newsletter/subscribe_success.html"
-                return render(request, template, context)
-            else:
-                messages.info(request, "You are already subscribed!")
+            template = "newsletter/subscribe_success.html"
+            return render(request, template, context)
         else:
-            messages.error(request, "Please check if your email is correct.")
+            messages.error(
+                request, "Please check your input and try again."
+            )
     else:
         form = SubscriberForm()
 
