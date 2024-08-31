@@ -10,15 +10,13 @@ from .models import Subscriber
 from .forms import SubscriberForm
 from cart.models import DiscountCode
 
-import logging
-
-logger = logging.getLogger(__name__)
-
 
 def get_newsletter_discount_code():
     """
     Get newsletter discount code.
     Discount code is stored in :model:`cart.DiscountCode`.
+    Returns:
+        DiscountCode: DiscountCode object
     """
     return DiscountCode.objects.filter(
         code="ALOHA-WELCOME", active="Yes"
@@ -27,7 +25,13 @@ def get_newsletter_discount_code():
 
 def generate_unsubscribe_url(subscriber):
     """
-    Generate unsubscribe URL for the subscriber.
+    Generate unsubscribe URL for each subscriber.
+    Unique URL created from unique unsubscribe token and base url
+        to avoid malicious unsubscriptions.
+    Args:
+        subscriber (Subscriber): unsubscribe_token
+    Returns:
+        str: unsubscribe URL
     """
     token = subscriber.unsubscribe_token
     relative_url = reverse("unsubscribe", args=[token])
@@ -36,14 +40,16 @@ def generate_unsubscribe_url(subscriber):
 
 def send_subscribe_confirmation(subscriber):
     """
-    Send newsletter subscription confirmation email to the subscriber.
+    Send confirmation email to a new newsletter subscriber.
+    Includes unsubscribe URL and newsletter discount code.
+    Args:
+        subscriber (Subscriber): Subscriber
     """
     from_email = settings.DEFAULT_FROM_EMAIL
     # Get unsubscribe URL
     unsubscribe_url = generate_unsubscribe_url(subscriber)
     # Get newsletter discount code
     newsletter_code = get_newsletter_discount_code()
-    
     # Email to subscriber
     confirmation_subject = render_to_string(
         "newsletter/emails/subscribe_confirmation_subject.txt",
@@ -57,7 +63,6 @@ def send_subscribe_confirmation(subscriber):
             "unsubscribe_url": unsubscribe_url,
         }
     )
-    
     send_mail(
         confirmation_subject,
         confirmation_body,
@@ -69,8 +74,17 @@ def send_subscribe_confirmation(subscriber):
 def subscribe(request):
     """
     View to subscribe to newsletter.
-    Unsubscribe token is generated
-        in save method of :model:`newsletter.Subscriber`.
+    Upon successful subscription,
+        - trigger creation of unsubscribe token in
+            save method of :model:`newsletter.Subscriber`,
+        - trigger sending a confirmation email including
+            unsubscribe URL and newsletter discount code, and
+        - display a success page including newsletter discount code.
+    Args:
+        request (HttpRequest): request object
+    Returns:
+        HttpResponse: redirect to success page (POST), or
+        HttpResponse: render subscribe page (GET)
     """
     company_email = settings.DEFAULT_FROM_EMAIL
 
@@ -110,6 +124,7 @@ def subscribe(request):
         "form": form,
         "company_email": company_email,
     }
+
     template = "newsletter/subscribe.html"
 
     return render(request, template, context)
@@ -118,13 +133,15 @@ def subscribe(request):
 def unsubscribe(request, token):
     """
     View to unsubscribe from newsletter mailing list.
-    Unsubscribe token is generated
-        in save method of :model:`newsletter.Subscriber`
-        at subscription.
+    Process unsubscription requests using the unique token, which is
+        - generated in save method of :model:`newsletter.Subscriber`, and
+        - triggered in subscribe().
+    Upon successful unsubscription, deletes the subscriber from the database.
+    Args:
+        token (str): The unique unsubscribe token.
+    Returns:
+        HttpResponse: The rendered unsubscribe confirmation page.
     """
-    logger.debug(f"Unsubscribe view called with token: {token}")
-    logger.info(f"Received token: {token}")
-    print(f"Received token: {token}")
     try:
         subscriber = get_object_or_404(Subscriber, unsubscribe_token=token)
         subscriber.delete()
@@ -140,6 +157,4 @@ def unsubscribe(request, token):
 
     template = "newsletter/unsubscribe.html"
 
-    print(f"Received token: {token}")
-
-    return render(request, template, {"token": token})
+    return render(request, template)
