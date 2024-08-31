@@ -1,0 +1,30 @@
+Happy to have you on board!
+
+Thank you for subscribing to our Shaping Sustainable Surf newsletter. 
+{% if newsletter_code %}
+Your discount code:
+
+{{ newsletter_code.code }}
+
+You can use this code to get €{{ newsletter_code.amount }} off your next purchase!
+{% else %}
+Oops! Something went wrong while fetching your discount code.
+Not to worry, please contact us by email at {{ company_email }} and we will make it up to you.
+
+{% endif %}
+We will be happy to send you updates to your provided email address: {{ subscriber.email }}
+
+You can expect to receive our newsletter once a month.
+
+To unsubscribe, simply click on the unsubscribe link below. 
+
+If you have any questions, please do not hesitate to contact us at {{ company_email }}.
+
+Sincerely,
+
+Your Team at Shaping Sustainable Surf
+
+_____________________________________
+
+Your personal link to unsubscribe:
+{{ unsubscribe_url }}

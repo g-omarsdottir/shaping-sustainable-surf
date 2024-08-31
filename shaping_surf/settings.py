@@ -203,7 +203,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -219,6 +218,12 @@ if "DEV" in os.environ:
     )
 else:
     STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+
+# Base URL to generate newsletter unsubscribe links
+if "DEV" in os.environ:
+    BASE_URL = "http://127.0.0.1:8000/"
+else:
+    BASE_URL = "https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com/"
 
 # Cloudinary settings
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
