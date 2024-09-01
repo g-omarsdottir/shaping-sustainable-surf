@@ -2,11 +2,12 @@ import secrets
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.contrib import messages
+from django.utils import timezone
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
 
-from .models import Subscriber
+from .models import Subscriber, Newsletter
 from .forms import SubscriberForm
 from cart.models import DiscountCode
 
@@ -158,3 +159,108 @@ def unsubscribe(request, token):
     template = "newsletter/unsubscribe.html"
 
     return render(request, template)
+
+
+def send_newsletter(request, newsletter_id):
+    """
+    View to send a newsletter to all subscribers.
+    Handle calls from
+        - the admin interface (with a request object), and
+        - from the signal in :model:`newsletter.Newsletter
+            (without a request object) for front-end functionality (tbd).
+    Args:
+        request (HttpRequest): request object
+        newsletter_id (int): The ID of the newsletter to send.
+    Returns:
+        HttpResponse: upon successful sending conditional redirect to
+        - list of newsletters in admin panel if request comes from admin, or
+        - current path for front-end functionality (tbd).
+    """
+    newsletter = get_object_or_404(Newsletter, id=newsletter_id)
+    subscribers = Subscriber.objects.all()
+    from_email = settings.DEFAULT_FROM_EMAIL
+    website_url = settings.BASE_URL
+
+    # Check the status of the newsletter
+    if newsletter.status == "draft":
+        if request:
+            messages.error(
+                request, "You cannot send a draft. Check the 'Status' field.",
+                extra_tags="safe"
+            )
+        return False
+
+    if newsletter.sent_date:
+        if request:
+            messages.warning(
+                request, "This newsletter has already been sent.",
+                extra_tags="safe"
+            )
+            return False
+
+    if not subscribers.exists():
+        if request:
+            messages.warning(
+                request, "No subscribers to send the newsletter to.",
+                extra_tags="safe"
+            )
+            return False
+
+    # Render newsletter subject (not personalized)
+    newsletter_subject = render_to_string(
+        "newsletter/emails/newsletter_subject.txt",
+        {"newsletter": newsletter}
+        ).strip()
+
+    try:
+        # Add personalized content for each subscriber
+        for subscriber in subscribers:
+            # Generate the personalized unsubscribe URL for each subscriber
+            unsubscribe_url = generate_unsubscribe_url(subscriber)
+
+            # Render personalized newsletter body
+            personalized_body = render_to_string(
+                "newsletter/emails/newsletter_body.txt",
+                {
+                        "newsletter": newsletter,  # The newsletter object
+                        "subscriber": subscriber,
+                        "company_email": from_email,
+                        "website_url": website_url,
+                        "unsubscribe_url": unsubscribe_url,
+                }
+            )
+            send_mail(
+                newsletter_subject,
+                message=personalized_body,
+                from_email=from_email,
+                recipient_list=[subscriber.email],
+            )
+
+        newsletter.sent_date = timezone.now()
+        newsletter.status = "done"
+        newsletter.save()
+
+        if request:
+            messages.success(
+                request, "Newsletter sent successfully!",
+                extra_tags="safe"
+            )
+
+        return True
+
+    except Exception as e:
+        if request:
+            messages.error(
+                request, f"Failed to send newsletter: {str(e)}",
+                extra_tags="safe"
+            )
+        return False
+
+    # Conditional redirect
+    if request:
+        if request.path.startswith("/admin/"):
+            return redirect("admin:newsletter_newsletter_changelist")
+        else:
+            return redirect(request.path)
+    else:
+        return

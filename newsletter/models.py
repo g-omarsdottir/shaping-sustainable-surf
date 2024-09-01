@@ -28,3 +28,23 @@ class Subscriber(models.Model):
 
     def __str__(self):
         return self.email
+
+
+class Newsletter(models.Model):
+    """
+    Model for the newsletter.
+    """
+    STATUS = [
+        ("draft", "Save as Draft"),
+        ("finalized", "Save as Finalized Version"),
+        ("send", "Save and Send Newsletter Now"),
+        ("done", "Done and Sent"),
+    ]
+    subject = models.CharField(max_length=254, null=False, blank=False)
+    body = models.TextField(null=False, blank=False)
+    status = models.CharField(max_length=20, choices=STATUS, default="Draft")
+    created_date = models.DateTimeField(auto_now_add=True)
+    sent_date = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return self.subject
