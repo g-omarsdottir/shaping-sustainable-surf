@@ -166,7 +166,7 @@ def send_newsletter(request, newsletter_id):
     View to send a newsletter to all subscribers.
     Handle calls from
         - the admin interface (with a request object), and
-        - from the signal in :model:`newsletter.Newsletter
+        - from the signal in signals.py
             (without a request object) for front-end functionality (tbd).
     Args:
         request (HttpRequest): request object
