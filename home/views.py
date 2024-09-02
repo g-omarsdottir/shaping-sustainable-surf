@@ -19,10 +19,3 @@ def privacy_policy(request):
     Display the privacy policy.
     """
     return render(request, "home/privacy_policy.html")
-
-
-def newsletter_success(request):
-    """
-    Display the success message after subscribing to the newsletter.
-    """
-    return render(request, "home/newsletter_success.html")
