@@ -756,7 +756,7 @@ Inspiration and debugging help from:
 
 - Django framework official documentation, in particular:
   - [Django Docs](https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#inlinemodeladmin-objects) for the Django admin site.
-  - [Django Docs](https://docs.djangoproject.com/en/2.2/ref/signals/) and [Stack Overflow](https://www.reddit.com/r/django/comments/cerq2k/how_to_editing_the_add_modelsave_button_in_the/) for simple solution to handle calls to trigger sending newsletter from the admin interface and from signal for front-end functionality.
+  - [Django Docs](https://docs.djangoproject.com/en/2.2/ref/signals/) and [Reddit](https://www.reddit.com/r/django/comments/cerq2k/how_to_editing_the_add_modelsave_button_in_the/) for simple solution to handle calls to trigger sending newsletter from the admin interface and from signal for front-end functionality.
 
 - The Code Institute walkthrough project Boutique Ado for inspiration for the basic website structure.
 - Stack Overflow Community 
