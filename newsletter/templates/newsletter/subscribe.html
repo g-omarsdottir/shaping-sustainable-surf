@@ -23,12 +23,10 @@
         <div class="col-12 col-md-10 col-lg-8">
             <h1 class="text-center logo-font mb-4">Shaping Sustainable Surf Newsletter</h1>
             <hr>
-            <div class="mb-4">
-                <h2 class="h4">Sign up for our newsletter and get your discount code!</h2>
-                <p>We will be happy to update you on new tutorials, groundbreaking news in new eco-friendly sustainable surfboard materials, and our live interactive Q&A sessions.</p>
-                <p>We send approx. 10 - 12 newsletters a year.</p>
-            </div>
-            <h3 class="h4">Newsletter Subscription Form</h3>
+            <h2 class="h4 mt-4 mb-3">Sign up for our newsletter and get your discount code!</h2>
+            <p>Be the first to know about new tutorials, groundbreaking news in new eco-friendly sustainable surfboard materials, and invites our live interactive Q&A sessions.</p>
+
+            <h3 class="h4 mt-4">Newsletter Subscription Form</h3>
             <form action="{% url 'subscribe' %}" method="POST" id="subscriber-form">
                 {% csrf_token %}
                 {{ form|crispy }}
@@ -41,11 +39,57 @@
                     </button>
                 </div>
             </form>
-
-            <p class="text-muted">Check out our <a href="{% url 'privacy_policy' %}">privacy policy</a>.</p>
             <p class="text-muted">For any questions or concerns about you data privacy, contact us by email at <a href="mailto:{{ company_email }}" aria-label="Email us">{{ company_email }}</a> or
                 use our <a href="{% url 'contact' %}">contact form</a>.</p>
             
+        </div>
+    </div>
+</div>
+
+<!-- Privacy policy modal for accepted_terms checkbox -->
+<div class="modal fade" id="privacyPolicyModal" tabindex="-1" aria-labelledby="privacyPolicyModalLabel" aria-hidden="true" data-privacy-policy-url="{% url 'privacy_policy' %}">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="privacyPolicyModalLabel">Privacy Policy</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="privacyPolicyContent" class="modal-body">
+            <!-- Placeholder for privacy policy content loaded in with javascript -->>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Disclaimer modal for accepted_terms checkbox -->
+<div class="modal fade" id="disclaimerModal" tabindex="-1" role="dialog" aria-labelledby="disclaimerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="disclaimerModalLabel">Disclaimer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Disclaimer text for modal -->
+                <p>You can unsubscribe from our newsletter at any time by clicking the unsubscribe link provided in the confirmation email and in every newsletter.</p>
+                <p>Your email address will never be shared with third parties without your explicit consent.</p>
+                <p>Upon unsubscription, your email address will be permanently deleted from our records.</p>
+                <p>We are committed to complying with the EU General Data Protection Regulation (GDPR).</p>
+                <p>
+                    Please note that while we take measures to protect your data, 
+                    no method of transmission over the internet or electronic storage is completely secure.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>

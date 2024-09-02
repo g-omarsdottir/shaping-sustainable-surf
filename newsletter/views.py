@@ -121,9 +121,13 @@ def subscribe(request):
     else:
         form = SubscriberForm()
 
+    # Load content of privacy policy to modal in subscribe form for improved UX
+    privacy_policy_content = render_to_string("home/privacy_policy.html")
+
     context = {
         "form": form,
         "company_email": company_email,
+        "privacy_policy_content": privacy_policy_content,
     }
 
     template = "newsletter/subscribe.html"

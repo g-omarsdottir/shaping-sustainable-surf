@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import Index
+from .views import Index, privacy_policy
 
 urlpatterns = [
     path("", views.Index.as_view(), name="home"),

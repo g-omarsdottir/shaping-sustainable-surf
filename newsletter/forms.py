@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.safestring import mark_safe
 
 from .models import Subscriber
 
@@ -23,6 +24,7 @@ class SubscriberForm(forms.ModelForm):
             "email": forms.EmailInput(attrs={
                 "placeholder": "Your Email Address",
                 "id": "id_email",
+                "autofocus": True,
             }),
             "accepted_terms": forms.CheckboxInput(attrs={
                 "id": "id_accepted_terms",
@@ -31,12 +33,10 @@ class SubscriberForm(forms.ModelForm):
 
         # Add custom label for accepted_terms
         labels = {
-            "accepted_terms": (
+            "accepted_terms": mark_safe(
                 "Yes, send me newsletter emails! "
-                "I understand my data will be stored until I unsubscribe. "
-                "I can unsubscribe at any time using the link provided in "
-                "the confirmation email and every newsletter. "
-                "When I unsubscribe, my data will be permanently deleted."
+                "I understand my data will be stored until I unsubscribe. <br>"
+                "Check out our <a href='#' %}' data-toggle='modal' data-target='#disclaimerModal'>Disclaimer</a> and <a href='#' %}' data-toggle='modal' data-target='#privacyPolicyModal'>Privacy Policy</a> for more information."
             )
         }
 

@@ -49,11 +49,6 @@ main {
     color: var(--font-color) !important;
 }
 
-.header-container {
-    /* Push content down from header */
-    padding-top: 110px; 
-}
-
 /* Style from Bulma */
 .icon {
     align-items: center;
@@ -68,6 +63,11 @@ main {
 header {
     background: white;
     box-shadow: 0 2px 3px rgba(87, 167, 179, 0.70);
+}
+
+.header-container {
+    /* Push content down from header */
+    padding-top: 110px; 
 }
 
 .navbar {
@@ -85,6 +85,14 @@ header {
 }
 
 /* Main ---------------------------------------------------------------*/
+
+.modal-backdrop {
+    z-index: 1040 !important;
+}
+
+.modal-content {
+    z-index: 1050 !important;
+}
 
 .browse-tutorials-button {
     background: lightblue;

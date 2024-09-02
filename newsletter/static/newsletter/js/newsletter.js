@@ -1,5 +1,5 @@
 // Client-side validation for improved UX
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('subscriber-form');
     const emailField = document.getElementById('id_email');
     const termsCheckbox = document.getElementById('id_accepted_terms');
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     emailField.addEventListener('focus', clearErrors);
 
     // Add event listener for email input
-    emailField.addEventListener('input', function() {
+    emailField.addEventListener('input', function () {
         const cleanedEmail = cleanEmail(this.value);
         this.value = cleanedEmail;
     });
@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
     termsCheckbox.addEventListener('change', clearErrors);
 
     // Add event listener for form submission
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', function (event) {
         event.preventDefault();
         clearErrors();
-        
+
         // Clean email address
         const cleanedEmail = cleanEmail(emailField.value);
         emailField.value = cleanedEmail;
@@ -76,5 +76,16 @@ document.addEventListener('DOMContentLoaded', function() {
             emailField.reportValidity();
             termsCheckbox.reportValidity();
         }
+    });
+});
+
+// Load content of privacy policy template (without styling) into the modal
+$(document).ready(function () {
+    $('#privacyPolicyModal').on('show.bs.modal', function () {
+        var privacyPolicyUrl = $(this).data('privacy-policy-url');
+        $.get(privacyPolicyUrl, function (data) {
+            var content = $(data).find('.privacy-policy-content').html();
+            $('#privacyPolicyContent').html(content);
+        });
     });
 });
