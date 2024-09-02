@@ -221,9 +221,9 @@ else:
 
 # Base URL to generate newsletter unsubscribe links
 if "DEV" in os.environ:
-    BASE_URL = "http://127.0.0.1:8000/"
+    BASE_URL = "http://127.0.0.1:8000"
 else:
-    BASE_URL = "https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com/"
+    BASE_URL = "https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com"
 
 # Cloudinary settings
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
