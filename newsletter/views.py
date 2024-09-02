@@ -229,13 +229,13 @@ def send_newsletter(request, newsletter_id):
                         "unsubscribe_url": unsubscribe_url,
                 }
             )
+            print("personalized_body")
             send_mail(
                 newsletter_subject,
                 message=personalized_body,
                 from_email=from_email,
                 recipient_list=[subscriber.email],
             )
-
         newsletter.sent_date = timezone.now()
         newsletter.status = "done"
         newsletter.save()

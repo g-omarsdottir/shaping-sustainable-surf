@@ -2,4 +2,4 @@
 
 Visit our website: {{ website_url }}
 Contact us: {{ company_email }}.
-Click here to unsubscribe from our newsletter mailing list: {{ unsubcribe_url }}
+Click here to unsubscribe from our newsletter mailing list: {{ unsubscribe_url }}
