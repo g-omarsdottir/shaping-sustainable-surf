@@ -17,6 +17,7 @@ Welcome to Shaping Sustainable Surf, a fully functional Django ecommerce web app
   - [Layout](#layout)
   - [Wireframes](#wireframes)
   - [Colors](#colors)
+  - [Typography](#typography)
 - [Project planning](#project-planning)
   - [Database Schema](#database-schema)
   - [Agile Development Methods (Epics, User Stories, MoSCoW Prioritization, Kanban board)](#agile-development-methods)
@@ -104,6 +105,10 @@ As a frequent visitor, I want to
 
 ### Layout
 
+The layout of the website is devided into an area accessible to all and area exclusively for logged-in users, as dipicted in the flowchart below.
+
+![layout-flowchart](/documentation/layout-flowchart.png)
+
 ### Wireframes
 
 Wireframes were designed mobile-first, since the majority of ecommerce purchases are done with mobile devices or tablets.
@@ -152,6 +157,14 @@ The font color is a warm tone of black and background color is white, which make
 [Coolors Color Contrast Checker](https://coolors.co/contrast-checker/333333-ffffff) score:
 
 ![contrast checker](/documentation/color-contrast.png)
+
+### Typography
+
+Font types were chosen to create a clean and modern look with a focus on readability.
+
+[Roboto flex](https://fonts.google.com/specimen/Roboto+Flex) was chosen as the primary font for the website, used for all elements except for headings. The font is variable and offers a range of weights, making it suitable for various design elements.
+
+[Roboto slab](https://fonts.google.com/specimen/Roboto+Slab?query=roboto+slab) was chosen as the secondary font. This font is used for headings, ensuring a clear hierarchy and visual appeal. This font is a serif font with subtle decorative details at the ends of strokes. While serif fonts can be used for body text, they may be less readable than sans-serif fonts at smaller sizes due to the increased complexity of the characters. Serif fonts are generally more readable at larger sizes, making them well-suited for headings.
 
 ## Project planning
 
