@@ -165,6 +165,8 @@ This project leverages a serverless PostgreSQL database for efficient data manag
 
 Relationships between the model fields are indicated with relationship lines on the ERD.
 
+Each ERD represents an individual Django app. Relationships between models in different apps are indicated on the ERD if applicable.
+
 **Model-Based Design:** The principles of separation of concerns are adhered to by employing distinct Django models for each key system component (see ERD). This promotes code clarity, maintainability, and scalability.
 
 **Relational Data Modeling:** The ERD effectively visualizes the relationships between models and model fields, fostering the construction of streamlined and efficient database queries utilizing primary keys.
@@ -244,6 +246,18 @@ The user receives a copy of the message by email and the store owner is notified
 ![ERD Contact Model](/documentation/erd-contact.png)
 
 ![ERD Contact Model CONSTANTS and ForeignKey](/documentation/erd-contact-constants-fk.png)
+
+**Newsletter:** This custom model provides a way to draft, finalize, and send newsletters to subscribers. The STATUS choices for Newsletter provide a workflow for managing the creation and sending of newsletters. After a newsletter is sent, the data and time of the sending is applied, and the status is set to “Done and Sent”. This can also be manually applied in case the newsletter was sent directly from the email account as opposed to via the admin interface. Setting the newsletter status to “Save and Send Newsletter Now” saves and sends the newsletter to all subscribers.
+
+**Subscriber:** This custom model represents a user subscribed to the newsletter. The model collects only email address and no other personal data, such as name or phone number, which is not strictly necessary for the purpose of signing up for a newsletter. This adheres to  the EU General Data Protection Regulation’s (GDPR) principle of data minimization and to respect the data privacy of users, who are reluctant to give their personal information and might not sign up. The unique email address ensures that each subscriber can only sign up once.
+
+The user must explicitly agree to receiving the newsletter and the boolean field defaults to “False” for an unchecked checkbox in accordance with the EU GDPR.
+
+For each subscriber, an unsubscribe token is generated and allows for the secure handling of unsubscribe. This token is created using Python’s secrets function with 48 characters, ensuring a unique and secure token for each subscriber. This is to avoid malicious unsubscribing of subscribers using loops. The token is not regenerated to avoid conflicting tokens that may negatively affect UX when trying to subscribe using an expired token. Regenerating unsubscribe tokens at certain time points does have security benefits and would be considered for a larger scale project. Activating the unsubscription token deletes the subscriber’s email address permanently from the database, since there is no need to keep records and delete the data at a later time point as is permitted by the GDPR.
+
+A confirmation email is sent to the subscriber containing the unsubscribe token and a discount code as a small token of appreciation for subscribing. The personalized unsubscribe token is sent to each subscriber as well as in every newsletter. There is no confirmation of subscription necessary since that is beyond the scope of this project. The user is informed and equipped with the necessary means to object and unsubscribe immediately in case of a change of hearts or unintentional subscription.
+
+![erd-newsletter](/documentation/erd-newsletter.png)
 
 **About Us**
 
