@@ -14,6 +14,10 @@
 ">
 {% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 {% block head_title %}Tutorials{% endblock head_title %}
 
 {% block content %}
@@ -58,9 +62,5 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script>
-    $('.btt-link').click(function (e) {
-        window.scrollTo(0, 0);
-    });
-</script>
+<script type="text/javascript" src="{% static 'products/js/products.js' %}"></script>
 {% endblock %}

@@ -1,0 +1,11 @@
+#discount-field {
+    width: 210px;
+}
+
+#discount-field input {
+    width: 100%;
+}
+
+.custom-alert {
+    color: #7D3D67;
+}

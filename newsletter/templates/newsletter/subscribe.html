@@ -8,6 +8,10 @@
 ">
 {% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'newsletter/css/newsletter.css' %}">
+{% endblock %}
+
 {% block page_header %}
 <a href="#subscriber-form" class="sr-only sr-only-focusable">Skip to newsletter subscription form</a>
 <div class="container">

@@ -1,0 +1,45 @@
+.custom-card {
+    box-shadow: var(--blue-box-shadow);
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+    overflow: hidden;
+}
+
+.custom-card a {
+    color: var(--font-color);
+}
+
+.custom-card:hover {
+    box-shadow: var(--yellow-box-shadow);
+    transform: scale(1.05);
+}
+
+.card-link {
+    text-decoration: none;
+    color: var(--font-color);
+    display: block;
+}
+
+.card-link:hover .custom-card {
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+.card-img-container {
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.card-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
