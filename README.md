@@ -209,6 +209,7 @@ Superusers (store owners) are granted permission to create, update, and delete d
 **Relationship with Order model:** The Order model includes a foreign key to the DiscountCode model, allowing for easy access to the discount code applied to the order.<br>
 
 ![ERD DiscountCode model](/documentation/erd-discount-code.png)
+![ERD DiscountCode model constants](/documentation/erd-discount-code-constants.png)
 
 **Order Management:** The model Order stores all necessary information for a store order. The model OrderItem associates the products with orders. The models are placed in the checkout app<br>  
 
@@ -419,9 +420,9 @@ A link to the contact page for enquiries and a button to return to the top of th
 
 ![feature surfboard detail](/documentation/feature-tutorials-detail.png)
 
-#### FAQ
+#### Frequently asked questions (FAQ)
 
-The user can view frequently asked questions.
+The user can view frequently asked questions. Including a FAQ page is a common practice to improve SEO results.
 
 ![feature faq](/documentation/feature-faq.png)
 
@@ -827,7 +828,7 @@ Inspiration and debugging help from:
 
 - My mentor, Mitko Bachvarov, for his guidance and encouragement.
 - My sister, Malfridur Omarsdottir, Geographer and Specialist in Geothermal Energies, for brainstorming for keywords, proofreading content and fact checking on eco-friendly sustainable materials and links to relaiable resources.
-- My friend Stephan Reich, Software Developer, for his support and advice on how to implement html formatted emails.
+- My friend Stephan Reich, Software Developer, for his support and advice.
 - My fellow student at Code Institute [Amir Schkolnik](https://github.com/AmirShkolnik) for his valuable support with proofreading.
 - My Code Institute class facilitator, Kristyna Wach, for her cheerful motivation and encouragement.
 - Slack community for support and advice.
