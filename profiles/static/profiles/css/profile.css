@@ -1,9 +1,5 @@
-.nowrap {
-    white-space: nowrap;
-}
-
 .error {
-    border-color: red !important;
+    border-color: var(--aubergine) !important;
 }
 
 .order-history {

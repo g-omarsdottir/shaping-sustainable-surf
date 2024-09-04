@@ -1,27 +1,27 @@
-.custom-card {
+.custom-card-surfboard {
+    height: 100%;
+    overflow: hidden;
     box-shadow: var(--blue-box-shadow);
-    text-decoration: none;
     transition: all 0.3s ease-in-out;
     transform: scale(1);
-    overflow: hidden;
 }
 
-.custom-card a {
+.custom-card-surfboard a {
     color: var(--font-color);
 }
 
-.custom-card:hover {
+.custom-card-surfboard:hover {
     box-shadow: var(--yellow-box-shadow);
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
-.card-link {
+.surfboard-card-link {
     text-decoration: none;
     color: var(--font-color);
     display: block;
 }
 
-.card-link:hover .custom-card {
+.surfboard-card-link:hover {
     text-decoration: none;
     color: var(--font-color);
 }

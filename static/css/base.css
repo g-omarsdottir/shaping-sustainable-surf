@@ -88,17 +88,8 @@ header {
 
 .browse-tutorials-button {
     background: lightblue;
-    color: black;
+    color: var(--font-color);
     min-width: 260px;
-}
-
-.text-font {
-    font-family: "Roboto Flex", sans-serif;
-}
-
-/* Turn cursor into pointer when hovering over links */
-.product-list:hover, .remove-item:hover {
-    cursor: pointer;
 }
 
 .nowrap {
@@ -121,6 +112,7 @@ footer li a {
 
 /* Styles from walkthrough project */
 
+/* Scroll to top button */
 .btt-button {
     height: 42px;
     width: 42px;
@@ -130,11 +122,12 @@ footer li a {
     background: rgba(255, 255, 255, 0.548);
 }
 
-.btt-link,
-.update-link,
-.remove-item {
+.btt-link:hover {
     cursor: pointer;
+    text-decoration: none;
 }
+
+/* Buttons */
 
 .btn-black {
     background: black;
@@ -167,6 +160,8 @@ footer li a {
 .border-black {
     border: 1px solid black !important;
 }
+
+/* Toasts and messages -----------------------------------------------*/
 
 .message-container {
     position: fixed;
