@@ -1,4 +1,5 @@
-.custom-card-surfboard {
+/* Cards on about us and surfboard collection pages */
+.custom-card {
     height: 100%;
     overflow: hidden;
     box-shadow: var(--blue-box-shadow);
@@ -6,22 +7,22 @@
     transform: scale(1);
 }
 
-.custom-card-surfboard a {
+.custom-card a {
     color: var(--font-color);
 }
 
-.custom-card-surfboard:hover {
+.custom-card:hover {
     box-shadow: var(--yellow-box-shadow);
     transform: scale(1.02);
 }
 
-.surfboard-card-link {
+.card-link {
     text-decoration: none;
     color: var(--font-color);
     display: block;
 }
 
-.surfboard-card-link:hover {
+.card-link:hover {
     text-decoration: none;
     color: var(--font-color);
 }
@@ -42,4 +43,21 @@
     position: absolute;
     top: 0;
     left: 0;
+}
+
+/* About us links to website pages */
+.about-card {
+    height: 170px;
+}
+
+.center-icon {
+    display: block;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+/* About us richtext content w. summernote  */
+.content-wrapper p {
+    line-height: 1.4;
+    margin-bottom: 0.1rem;
 }

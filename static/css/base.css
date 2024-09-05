@@ -96,23 +96,11 @@ header {
     white-space: nowrap;
 }
 
-/* Footer -------------------------------------------------------------*/
-footer {
-    /* Stick footer to bottom */
-    flex-shrink: 0;
-    background-color: var(--background-color);
-    border-top: 1px groove var(--yellow);
-    margin-top: auto;
-    color: var(--font-color);
-}
-
-footer li a {
-    color: var(--font-color)
-}
-
 /* Styles from walkthrough project */
 
-/* Scroll to top button */
+/* Scroll-to-top button on 
+products / tutorials_list, and 
+about / custom_surfboards */
 .btt-button {
     height: 42px;
     width: 42px;
@@ -136,7 +124,7 @@ footer li a {
 
 .btn-outline-black {
     background: white;
-    color: black !important; /* use important to override link colors for <a> elements */
+    color: black !important; 
     border: 1px solid black;
 }
 
@@ -193,7 +181,21 @@ input[type="submit"], button[type="submit"] {
     padding: 5px;
 }
 
-/* -------------------------------- Media Queries */
+/* Footer -------------------------------------------------------------*/
+footer {
+    /* Stick footer to bottom */
+    flex-shrink: 0;
+    background-color: var(--background-color);
+    border-top: 1px groove var(--yellow);
+    margin-top: auto;
+    color: var(--font-color);
+}
+
+footer li a {
+    color: var(--font-color)
+}
+
+/* Media Queries ------------------------------------------------------ */
 
 @media (min-width: 360px) {
     #logo {
