@@ -261,13 +261,14 @@ The user receives a copy of the message by email and the store owner is notified
 
 ![ERD Contact Model CONSTANTS and ForeignKey](/documentation/erd-contact-constants-fk.png)
 
-**Newsletter:** This custom model provides a way to draft, finalize, and send newsletters to subscribers. The STATUS choices for Newsletter provide a workflow for managing the creation and sending of newsletters. After a newsletter is sent, the data and time of the sending is applied, and the status is set to “Done and Sent”. This can also be manually applied in case the newsletter was sent directly from the email account as opposed to via the admin interface. Setting the newsletter status to “Save and Send Newsletter Now” saves and sends the newsletter to all subscribers.
+<span id="anchor-newsletter"></span>
+**Newsletter:** This custom model provides a way to draft, finalize, and send newsletters to subscribers. The STATUS choices for the Newsletter model provide a workflow for managing the creation and sending of newsletters. After a newsletter is sent, the data and time of the sending is applied, and the status is set to “Done and Sent”. This can also be manually applied in case the newsletter was sent directly from the email account as opposed to via the admin interface. Setting the newsletter status to “Save and Send Newsletter Now” saves and sends the newsletter to all subscribers.
 
 **Subscriber:** This custom model represents a user subscribed to the newsletter. The model collects only email address and no other personal data, such as name or phone number, which is not strictly necessary for the purpose of signing up for a newsletter. This adheres to  the EU General Data Protection Regulation’s (GDPR) principle of data minimization and to respect the data privacy of users, who are reluctant to give their personal information and might not sign up. The unique email address ensures that each subscriber can only sign up once.
 
 The user must explicitly agree to receiving the newsletter and the boolean field defaults to “False” for an unchecked checkbox in accordance with the EU GDPR.
 
-For each subscriber, an unsubscribe token is generated and allows for the secure handling of unsubscribe. This token is created using Python’s secrets function with 48 characters, ensuring a unique and secure token for each subscriber. This is to avoid malicious unsubscribing of subscribers using loops. The token is not regenerated to avoid conflicting tokens that may negatively affect UX when trying to subscribe using an expired token. Regenerating unsubscribe tokens at certain time points does have security benefits and would be considered for a larger scale project. Activating the unsubscription token deletes the subscriber’s email address permanently from the database, since there is no need to keep records and delete the data at a later time point as is permitted by the GDPR.
+For each subscriber, an **unsubscribe token** is generated and allows for the secure handling of unsubscribe. This token is created using Python’s secrets function with 48 characters, ensuring a unique and secure token for each subscriber. This is to avoid malicious unsubscribing of subscribers using loops. The token is not regenerated to avoid conflicting tokens that may negatively affect UX when trying to subscribe using an expired token. Regenerating unsubscribe tokens at certain time points does have security benefits and would be considered for a larger scale project. Activating the unsubscription token deletes the subscriber’s email address permanently from the database, since there is no need to keep records and delete the data at a later time point as is permitted by the GDPR.
 
 A confirmation email is sent to the subscriber containing the unsubscribe token and a discount code as a small token of appreciation for subscribing. The personalized unsubscribe token is sent to each subscriber as well as in every newsletter. There is no confirmation of subscription necessary since that is beyond the scope of this project. The user is informed and equipped with the necessary means to object and unsubscribe immediately in case of a change of hearts or unintentional subscription.
 
@@ -428,9 +429,31 @@ The user can view frequently asked questions. Including a FAQ page is a common p
 
 #### Newsletter
 
-The user can sign up for a newsletter to obtain a discount code. This feature is simulated by displaying website internal success page if the user clicks the sign up link in the website footer, since the free newsletter providers have a time limitation on the free service and might be discontinued before this project is assessed.
+The user can **subscribe** to the newsletter by entering an email address into the input field. The input field is autofocused for conveniency. Only the email address is collected, adhering to the EU GDPR's data minimization principle.
 
-![newsletter](/documentation/newsletter.png)
+![feature-newsletter-signup](/documentation/feature-newsletter.png)
+
+The input field has basic backend **email validation** for correctness and database comparison with existing subscribers. The user is notified and errors in the form are cleared using JavaScript for improved UX.
+
+The user must **accept the terms** to subscribe.  
+
+![feature-newsletter-validation](/documentation/feature-newsletter-validation.png)
+
+The terms for subscription are described in the **disclaimer** and **privacy policy**, which open in a **modal** without refreshing the page to not to disrupt the UX.
+
+The content of the privacy policy is filled into the modal from the source document using JavaScript, ensuring best practices that in case of changes, the content is only edited in one place and always up to date on all pages.
+
+![feature-newsletter-modals](/documentation/feature-newsletter-modals.png)
+
+The user receives a confirmation displaying the **discount code** as well as a personalized link to unsubscribe on the website and per email.
+
+**Secure unsubscribe process** is implemented using unique tokens for each subscriber. One-click unsubscription permanently removes subscriber data, ensuring GDPR compliance.
+
+![feature-newsletter-confirmations](/documentation/feature-newsletter-confirmations.png)
+
+**Newsletters can be drafted, finalized, and sent** with status tracking directly from the admin interface.
+
+Please see a detailed description of data privacy in accordance with the GDPR, security measures for subscribing and unsubscribing, as well as the procedure and options to send the [newsletter in the communication section of the data base schema section](#anchor-newsletter).
 
 #### Resources
 
@@ -823,6 +846,7 @@ Inspiration and debugging help from:
 - [Photo by Emiliano Arano](https://www.pexels.com/photo/photography-of-barrel-wave-1298684/)
 - [Photo by Kammeran Gonzalez-Keola](https://www.pexels.com/photo/inside-of-a-turquoise-wave-13317495/)
 - [Photo by Kammeran Gonzalez-Keola](https://www.pexels.com/photo/man-riding-surfboard-in-wavy-ocean-7925859/)
+- [Photo by Yabi Oregi](https://www.pexels.com/photo/flags-of-countries-in-front-of-the-united-nations-office-at-geneva-16459372/)
 
 ### Acknowledgements
 
