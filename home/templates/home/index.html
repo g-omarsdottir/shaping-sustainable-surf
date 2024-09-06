@@ -14,21 +14,24 @@
 {% endblock %}
 
 {% block content %}
-<!-- h-100 height, my-auto vertically centered -->
+<div class="bg-image">
     <div class="container h-100">
-        <div class="row h-100 d-flex">
-            <div class="my-auto">
-                <!-- display-4 bootstrap, logo and text custom-->
-                <h1 class="display-4 logo-font text-black">
+        <div class="row h-100">
+            <div class="col-12 col-md-10 my-auto">
+                <h1 class="display-4">
                     Welcome to <br> Shaping Sustainable Surf!
                 </h1>
                 <div class="my-5">
                     <h2>
                         <!-- Tutorials-button custom, rest bootstrap -->
-                        <a href="{% url 'tutorials_list' %}" class="browse-tutorials-button btn btn-lg rounded-0 text-uppercase py-3">Browse Tutorials Now</a>
+                        <a href="{% url 'tutorials_list' %}"
+                            class="browse-tutorials-button btn btn-lg rounded-0 text-uppercase py-3">
+                            Browse Tutorials Now
+                        </a>
                     </h2>
                 </div>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

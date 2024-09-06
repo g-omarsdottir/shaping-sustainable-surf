@@ -86,14 +86,25 @@ header {
 
 /* Main ---------------------------------------------------------------*/
 
+.nowrap {
+    white-space: nowrap;
+}
+
+.bluebox {
+    box-shadow: var(--blue-box-shadow);
+}
+
 .browse-tutorials-button {
     background: lightblue;
     color: var(--font-color);
+    border: 1px solid black;
     min-width: 260px;
 }
 
-.nowrap {
-    white-space: nowrap;
+.bg-image {
+    background: url("/static/images/welcome.webp") no-repeat top center / cover;
+    height: 90%;
+    width: 100%;
 }
 
 /* Styles from walkthrough project */

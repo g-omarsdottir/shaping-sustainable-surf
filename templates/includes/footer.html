@@ -19,8 +19,11 @@
                 </a>
             </li>
             <li class="list-inline-item">
-                <a href="{% url 'subscribe' %}" class="btn btn-outline-black rounded-0">
+                <a href="{% url 'subscribe' %}" class="btn btn-outline-black rounded-0 btn-sm btn-md-lg d-none d-md-inline">
                     Subscribe to Newsletter
+                </a>
+                <a href="{% url 'subscribe' %}" class="btn btn-outline-black rounded-0 btn-sm btn-md-lg d-md-none">
+                    Newsletter
                 </a>
             </li>
         </ul>
