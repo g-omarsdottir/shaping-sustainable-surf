@@ -14,11 +14,13 @@ $(document).ready(function() {
     });
 });
 
-// Additional validation for email field for improved UX
+// Additional validation for email and postcode field for improved UX
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('profile-update-form');
     const emailField = document.getElementById('id_email');
     const originalEmail = form.getAttribute('data-user-email');
+    const postcodeField = document.getElementById('id_default_postcode');
+    const originalPostcode = postcodeField.value;
 
     // Function to restore original email
     function restoreOriginalEmail() {
@@ -29,13 +31,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Add event listener for when the email field loses focus
-    emailField.addEventListener('blur', restoreOriginalEmail);
+    // Function to restore original postcode
+    function restoreOriginalPostcode() {
+        if (!postcodeField.value.trim()) {
+            postcodeField.value = originalPostcode;
+            postcodeField.setCustomValidity('');
+            postcodeField.classList.remove('error');
+        }
+    }
 
-    form.addEventListener('submit', function(event) {
-        // Prevent default submission
-        event.preventDefault();
-
+    // Function to validate email
+    function validateEmail() {
         if (!emailField.value.trim()) {
             // If email field is empty, restore original and display error
             restoreOriginalEmail();
@@ -48,15 +54,56 @@ document.addEventListener('DOMContentLoaded', function() {
                 emailField.setCustomValidity('');
                 emailField.classList.remove('error');
             }, 2000); // 2 seconds delay
+            return false;
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
             // If email is invalid, display error
             emailField.setCustomValidity('Please enter a valid email address.');
             emailField.classList.add('error');
             emailField.reportValidity();
+            return false;
         } else {
-            // If email is valid, clear any errors and submit the form
+            // If email is valid, clear any errors
             emailField.setCustomValidity('');
             emailField.classList.remove('error');
+        }
+    }
+
+    // Function to validate postcode
+    function validatePostcode() {
+        const currentValue = postcodeField.value.trim();
+        if (currentValue !== '' && !/^\d+$/.test(currentValue)) {
+            postcodeField.setCustomValidity('Enter only numbers for postal code');
+            postcodeField.classList.add('error');
+            postcodeField.reportValidity();
+            
+            // Add timeout delay before restoring the original value and removing the error state
+            setTimeout(() => {
+                postcodeField.value = originalPostcode; // Restore original value
+                postcodeField.setCustomValidity('');
+                postcodeField.classList.remove('error');
+            }, 2000); // 2 seconds delay
+            
+            return false;
+        } else {
+            postcodeField.setCustomValidity('');
+            postcodeField.classList.remove('error');
+            return true;
+        }
+    }
+
+    // Add event listeners
+    emailField.addEventListener('blur', restoreOriginalEmail);
+    postcodeField.addEventListener('blur', restoreOriginalPostcode);
+    postcodeField.addEventListener('input', validatePostcode);
+
+    form.addEventListener('submit', function(event) {
+        // Prevent default submission
+        event.preventDefault();
+
+        const isEmailValid = validateEmail();
+        const isPostcodeValid = validatePostcode();
+
+        if (isEmailValid && isPostcodeValid) {
             form.submit();
         }
     });

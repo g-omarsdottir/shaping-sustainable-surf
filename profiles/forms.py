@@ -16,6 +16,11 @@ class UserProfileForm(forms.ModelForm):
         widget=forms.EmailInput(attrs={'id': 'id_email'})
     )
 
+    default_postcode = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'id': 'id_default_postcode'})
+    )
+
     class Meta:
         """
         Define form fields for UserProfile model.
@@ -73,6 +78,11 @@ class UserProfileForm(forms.ModelForm):
             class_string = "border-black rounded-0 profile-form-input"
             self.fields[field].widget.attrs["class"] = class_string
             self.fields[field].label = False
+
+        self.fields['default_postcode'].widget.attrs.update({
+            'pattern': '[0-9]*',
+            'inputmode': 'numeric'
+        })
 
     def clean_email(self):
         """
