@@ -1,0 +1,12 @@
+/* Turn cursor into pointer when hovering over links */
+.remove-item:hover {
+    cursor: pointer;
+}
+
+#discount-field {
+    width: 210px;
+}
+
+#discount-field input {
+    width: 100%;
+}

@@ -1,0 +1,63 @@
+/* Cards on about us and surfboard collection pages */
+.custom-card {
+    height: 100%;
+    overflow: hidden;
+    box-shadow: var(--blue-box-shadow);
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+}
+
+.custom-card a {
+    color: var(--font-color);
+}
+
+.custom-card:hover {
+    box-shadow: var(--yellow-box-shadow);
+    transform: scale(1.02);
+}
+
+.card-link {
+    text-decoration: none;
+    color: var(--font-color);
+    display: block;
+}
+
+.card-link:hover {
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+.card-img-container {
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.card-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* About us links to website pages */
+.about-card {
+    height: 170px;
+}
+
+.center-icon {
+    display: block;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+/* About us richtext content w. summernote  */
+.content-wrapper p {
+    line-height: 1.4;
+    margin-bottom: 0.1rem;
+}

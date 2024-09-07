@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('contact_form');
+    const form = document.getElementById('contact-form');
     const integerFields = document.querySelectorAll('input[inputmode="numeric"]');
 
     integerFields.forEach(field => {

@@ -86,118 +86,33 @@ header {
 
 /* Main ---------------------------------------------------------------*/
 
-.browse-tutorials-button {
-    background: lightblue;
-    color: black;
-    min-width: 260px;
-}
-
-.text-font {
-    font-family: "Roboto Flex", sans-serif;
-}
-
-/* Turn cursor into pointer when hovering over links */
-.product-list:hover, .remove-item:hover {
-    cursor: pointer;
-}
-
 .nowrap {
     white-space: nowrap;
 }
 
-/* Footer -------------------------------------------------------------*/
-footer {
-    /* Stick footer to bottom */
-    flex-shrink: 0;
-    background-color: var(--background-color);
-    border-top: 1px groove var(--yellow);
-    margin-top: auto;
-    color: var(--font-color);
-}
-
-footer li a {
-    color: var(--font-color)
-}
-
-/* Products --------------------------------------------------------------*/
-
-
-
-/* Cart ---------------------------------------------------------------*/
-
-#discount-field {
-    width: 210px;
-}
-
-#discount-field input {
-    width: 100%;
-}
-
-.custom-alert {
-    color: var(--aubergine);
-}
-
-/* About Us-------------------------------------------------------------*/
-
-.custom-card {
+.bluebox {
     box-shadow: var(--blue-box-shadow);
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-    transform: scale(1);
-    overflow: hidden;
 }
 
-.custom-card a {
+/* index.html */
+.browse-tutorials-button {
+    background: lightblue;
     color: var(--font-color);
+    border: 1px solid black;
+    min-width: 260px;
 }
 
-.custom-card:hover {
-    box-shadow: var(--yellow-box-shadow);
-    transform: scale(1.05);
-}
-
-.card-link {
-    text-decoration: none;
-    color: var(--font-color);
-    display: block;
-}
-
-.card-link:hover .custom-card {
-    text-decoration: none;
-    color: var(--font-color);
-}
-
-.card-img-container {
-    height: 200px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.card-img {
-    object-fit: cover;
+.bg-image {
+    background: url("/static/images/welcome.webp") no-repeat top center / cover;
+    height: 90%;
     width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-/* Contact*/
-
-.fieldset-label {
-    font-family: "Roboto Slab", sans-serif;
-    width: auto;
-    font-size: 1.2rem;  
-    font-weight: 500;
-    margin: 20px 0 10px -10px;
-    color: var(--font-color);
 }
 
 /* Styles from walkthrough project */
 
+/* Scroll-to-top button on 
+products / tutorials_list, and 
+about / custom_surfboards */
 .btt-button {
     height: 42px;
     width: 42px;
@@ -207,11 +122,12 @@ footer li a {
     background: rgba(255, 255, 255, 0.548);
 }
 
-.btt-link,
-.update-link,
-.remove-item {
+.btt-link:hover {
     cursor: pointer;
+    text-decoration: none;
 }
+
+/* Buttons */
 
 .btn-black {
     background: black;
@@ -220,7 +136,7 @@ footer li a {
 
 .btn-outline-black {
     background: white;
-    color: black !important; /* use important to override link colors for <a> elements */
+    color: black !important; 
     border: 1px solid black;
 }
 
@@ -244,6 +160,8 @@ footer li a {
 .border-black {
     border: 1px solid black !important;
 }
+
+/* Toasts and messages -----------------------------------------------*/
 
 .message-container {
     position: fixed;
@@ -275,7 +193,21 @@ input[type="submit"], button[type="submit"] {
     padding: 5px;
 }
 
-/* -------------------------------- Media Queries */
+/* Footer -------------------------------------------------------------*/
+footer {
+    /* Stick footer to bottom */
+    flex-shrink: 0;
+    background-color: var(--background-color);
+    border-top: 1px groove var(--yellow);
+    margin-top: auto;
+    color: var(--font-color);
+}
+
+footer li a {
+    color: var(--font-color)
+}
+
+/* Media Queries ------------------------------------------------------ */
 
 @media (min-width: 360px) {
     #logo {
@@ -293,7 +225,7 @@ input[type="submit"], button[type="submit"] {
     .product-info-xs img {
       margin-bottom: 10px;
     }
-  }
+}
 
 @media (max-width: 991.98px) {
     /* Animated eased transition of collapsable navbar content */
