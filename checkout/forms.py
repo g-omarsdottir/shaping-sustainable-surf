@@ -52,7 +52,7 @@ class OrderForm(forms.ModelForm):
                     placeholder = placeholders[field]
             self.fields[field].widget.attrs["placeholder"] = placeholder
             self.fields[field].widget.attrs["class"] = "stripe-style-input"
-            self.fields["default_postcode"].widget.attrs.update({
+            self.fields["postcode"].widget.attrs.update({
                 "pattern": "[0-9]*",
                 "inputmode": "numeric"
             })
