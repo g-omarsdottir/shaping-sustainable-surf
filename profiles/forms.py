@@ -13,12 +13,12 @@ class UserProfileForm(forms.ModelForm):
     """
     email = forms.EmailField(
         max_length=254, required=True,
-        widget=forms.EmailInput(attrs={'id': 'id_email'})
+        widget=forms.EmailInput(attrs={"id": "id_email"})
     )
 
     default_postcode = forms.CharField(
         required=False,
-        widget=forms.TextInput(attrs={'id': 'id_default_postcode'})
+        widget=forms.TextInput(attrs={"id": "id_default_postcode"})
     )
 
     class Meta:
@@ -79,9 +79,9 @@ class UserProfileForm(forms.ModelForm):
             self.fields[field].widget.attrs["class"] = class_string
             self.fields[field].label = False
 
-        self.fields['default_postcode'].widget.attrs.update({
-            'pattern': '[0-9]*',
-            'inputmode': 'numeric'
+        self.fields["default_postcode"].widget.attrs.update({
+            "pattern": "[0-9]*",
+            "inputmode": "numeric"
         })
 
     def clean_email(self):
