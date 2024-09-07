@@ -1,10 +1,55 @@
-.error {
-    border-color: var(--aubergine) !important;
+/* Buttons ------------------------------------------------------------ */
+
+.btn-delete {
+    color: #fff;
+    background-color: #dc3545 !important;
+    border: 1px solid black;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
 }
 
+.btn-delete:hover {
+    color: #fff;
+    background: #972430 !important;
+    box-shadow: 1px -1px 7px 0 var(--aubergine);
+    transform: scale(1.02);
+}
+
+.btn-cancel {
+    border: 1px solid black;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+.btn-cancel:hover {
+    background: #fbf7e5;
+    border: 1px solid black;
+    box-shadow: 1px -1px 7px 0 var(--yellow);
+    transform: scale(1.02);
+}
+
+.btn-update {
+    background-color: rgba(87, 167, 179, 0.70);
+    border: 1px solid black;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+.btn-update:hover {
+    background: rgba(101, 193, 207, 0.432);
+    border: 1px solid black;
+    box-shadow: 1px -1px 7px 0 var(--blue);
+    transform: scale(1.02);
+}
+
+/* profile.html ----------------------------------------------------- */
 .order-history {
     max-height: 416px;
     overflow-y: auto;
+}
+
+.profile-form-input::placeholder {
+    color: #aab7c4;
 }
 
 #profile-info a {
@@ -15,16 +60,19 @@
 }
 
 #profile-info a:hover {
-    box-shadow: 1px -1px 7px 0 rgba(179, 164, 87, 0.70);
+    background: #fbf7e5;
+    box-shadow: 1px -1px 7px 0 hsla(188, 38%, 52%);
+    /*box-shadow: 1px -1px 7px 0 rgba(179, 164, 87, 0.70);*/
     transform: scale(1.02);
+}
+
+/* update_profile.html ------------------------------------------------- */
+.error {
+    border-color: var(--aubergine) !important;
 }
 
 #profile-update-form .form-control {
     color: #000;
-}
-
-.profile-form-input::placeholder {
-    color: #aab7c4;
 }
 
 #id_default_country,
@@ -34,4 +82,15 @@
 
 #id_default_country option:first-child {
     color: #aab7c4;
+}
+
+/* Media Queries ------------------------------------------------------ */
+
+@media (max-width: 575.98px) {
+    .button-group {
+        width: 100%;
+    }
+    .button-group .btn {
+        width: 100%;
+    }
 }

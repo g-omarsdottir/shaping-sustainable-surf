@@ -24,15 +24,19 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-lg-6 mb-5">
+        <div class="col-12 col-lg-10 col-xl-8 mb-5">
             <p class="text-muted">Personal Information</p>
             <form class="mt-3" action="{% url 'update_profile' %}" method="POST" id="profile-update-form" data-user-email="{{ user.email|escapejs }}">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button type="submit" class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
+                <div class="button-group d-flex flex-column flex-sm-row justify-content-between align-items-stretch mt-3">
+                    <a href="{% url 'delete_profile' %}" type="button" class="btn btn-delete rounded-0 text-uppercase mb-2 mb-sm-0 order-3 order-sm-1">Delete Profile</a>
+                    <div class="d-flex flex-column flex-sm-row ml-sm-auto">
+                        <a href="{% url 'profile' %}" type="button" class="btn btn-warning btn-cancel rounded-0 text-uppercase mb-2 mb-sm-0 mr-sm-2 order-2">Cancel Update</a>
+                        <button type="submit" class="btn btn-update rounded-0 text-uppercase mb-2 mr-2 mb-sm-0 order-1">Update Information</button>
+                    </div>
+                </div>
             </form>
-            <a href="{% url 'profile' %}" class="btn btn-black rounded-0 text-uppercase float-right mr-2">Cancel</a>
-            <a href="{% url 'delete_profile' %}" class="btn btn-danger rounded-0 text-uppercase float-right mr-2">Delete Profile</a>
         </div>
     </div>
 </div>

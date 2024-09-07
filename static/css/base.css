@@ -94,6 +94,7 @@ header {
     box-shadow: var(--blue-box-shadow);
 }
 
+/* index.html */
 .browse-tutorials-button {
     background: lightblue;
     color: var(--font-color);
@@ -224,7 +225,7 @@ footer li a {
     .product-info-xs img {
       margin-bottom: 10px;
     }
-  }
+}
 
 @media (max-width: 991.98px) {
     /* Animated eased transition of collapsable navbar content */

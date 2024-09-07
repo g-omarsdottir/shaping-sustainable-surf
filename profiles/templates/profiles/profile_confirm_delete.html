@@ -28,11 +28,12 @@
             <p class="text-muted">Are you sure you want to permanently delete your profile and user account?</p>
             <form class="mt-3" action="{% url 'delete_profile' %}" method="POST">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-danger rounded-0 text-uppercase">Confirm Deletion</button>
-                <a href="{% url 'profile' %}" class="btn btn-warning rounded-0 text-uppercase">No, Return to My Profile</a>
+                <div class="button-group">
+                    <button type="submit" class="btn btn-delete rounded-0 text-uppercase mb-2">Confirm Deletion</button>
+                    <a href="{% url 'profile' %}" type="button" class="btn btn-warning btn-cancel rounded-0 text-uppercase mb-2">Cancel Deletion</a>
+                </div>
             </form>
         </div>
     </div>
 </div>
-
 {% endblock %}
