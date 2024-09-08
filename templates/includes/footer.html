@@ -8,8 +8,8 @@
                 </a>
             </li>
             <li class="list-inline-item">
-                <a href="{% url 'privacy_policy' %}">
-                    Privacy Policy
+                <a href="{% url 'privacy_policy' %}" role="button" class="p-sm-2">
+                    <i class="fa-solid fa-shield-halved d-none d-sm-inline mr-1"></i> Privacy Policy
                 </a>
             </li>
             <li class="list-inline-item">
@@ -19,10 +19,11 @@
                 </a>
             </li>
             <li class="list-inline-item">
-                <a href="{% url 'subscribe' %}" class="btn btn-outline-black rounded-0 btn-sm btn-md-lg d-none d-md-inline">
-                    Subscribe to Newsletter
+                <a href="{% url 'subscribe' %}" role="button" class="btn btn-newsletter btn-md-lg rounded-0 d-none d-sm-inline">
+                    <i class="fa-solid fa-envelope"></i> Subscribe to Newsletter
                 </a>
-                <a href="{% url 'subscribe' %}" class="btn btn-outline-black rounded-0 btn-sm btn-md-lg d-md-none">
+                <a href="{% url 'subscribe' %}" role="button" aria-label="Subscribe to our newsletter"
+                    class="btn btn-newsletter btn-md-lg rounded-0 d-sm-none">
                     Newsletter
                 </a>
             </li>

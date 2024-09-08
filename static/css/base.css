@@ -105,7 +105,7 @@ header {
     width: 100%;
 }
 
-/* Styles from walkthrough project */
+/* Buttons in main -----------------------------------------------------*/
 
 /* Scroll-to-top button on 
 products / tutorials_list, and 
@@ -123,7 +123,7 @@ about / custom_surfboards */
     cursor: pointer;
     text-decoration: none;
 }
-/* Buttons */
+/* Other buttons */
 
 .btn-blue {
     background-color: rgba(101, 193, 207, 0.247) !important;
@@ -180,27 +180,6 @@ about / custom_surfboards */
     border: 1px solid black !important;
 }
 
-/* Toasts and messages -----------------------------------------------*/
-
-.message-container {
-    position: fixed;
-    top: 72px;
-    right: 15px;
-    z-index: 99999999999;
-}
-
-.custom-toast {
-    overflow: visible;
-}
-
-.toast-capper {
-    height: 2px;
-}
-
-.cart-preview-toast {
-    margin-top: -0.8rem;
-}
-
 /* Forms Django allauth ---------------------------------------------- */
 
 label[for="id_remember"] {
@@ -226,7 +205,29 @@ button[type="submit"]:focus {
     transform: scale(1.02);
 }
 
+/* Toasts and messages -----------------------------------------------*/
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+.cart-preview-toast {
+    margin-top: -0.8rem;
+}
+
 /* Footer -------------------------------------------------------------*/
+
 footer {
     /* Stick footer to bottom */
     flex-shrink: 0;
@@ -237,7 +238,37 @@ footer {
 }
 
 footer li a {
-    color: var(--font-color)
+    color: var(--font-color);
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+footer li a:hover,
+footer li a:active,
+footer li a:focus,
+footer li a.btn-newsletter:hover,
+footer li a.btn-newsletter:active,
+footer li a.btn-newsletter:focus {
+    color: var(--background-color);
+    background: var(--font-color);
+    text-decoration: none;
+    transform: scale(1.05);
+    box-shadow: 1px -1px 7px 0 var(--blue);
+}
+
+footer li a.btn-newsletter {
+    font-size: 1.05em;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+footer li a.btn-newsletter:hover,
+footer li a.btn-newsletter:active,
+footer li a.btn-newsletter:focus {
+    font-size: 1.1em;
 }
 
 /* Media Queries ------------------------------------------------------ */
