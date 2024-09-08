@@ -51,6 +51,16 @@ select option[value=""] {
     border: 1px solid #000;
 }
 
+/* Buttons ---------------------------------------------------------- */
+
+.btn-cart {
+    width: 210px;
+    height: 45px;
+    align-items: center;
+}
+
+/* Loading spinner during payment processing--------------------------*/
+
 .loading-spinner {
 	display: flex;
     align-items: center;

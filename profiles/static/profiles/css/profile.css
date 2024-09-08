@@ -1,4 +1,19 @@
-/* Buttons ------------------------------------------------------------ */
+/* profile.html ----------------------------------------------------- */
+
+.order-history {
+    max-height: 416px;
+    overflow-y: auto;
+}
+
+.profile-form-input::placeholder {
+    color: #aab7c4;
+}
+
+/* update_profile.html ------------------------------------------------- */
+
+.error {
+    border-color: var(--aubergine) !important;
+}
 
 .btn-delete {
     color: #fff;
@@ -48,19 +63,8 @@
     transform: scale(1.02);
 }
 
-/* profile.html ----------------------------------------------------- */
-.order-history {
-    max-height: 416px;
-    overflow-y: auto;
-}
-
-.profile-form-input::placeholder {
-    color: #aab7c4;
-}
-
-/* update_profile.html ------------------------------------------------- */
-.error {
-    border-color: var(--aubergine) !important;
+.btn-watch {
+    height: 40px;
 }
 
 #profile-update-form .form-control {

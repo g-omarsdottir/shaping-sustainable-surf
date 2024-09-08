@@ -40,7 +40,7 @@
                 <div class="col-2 mb-1">
                     <a href="{% url 'tutorial_detail' item.product.id %}">
                         {% if item.product.image %}
-                        <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                        <img class="w-100" src="{{ item.product.image.url }}" alt="Image of {{ product.name }}">
                         {% else %}
                         <img class="w-100" src="{% static 'images/noimage.webp' %}" alt="No image yet for this product">
                         {% endif %}
@@ -107,7 +107,7 @@
                 <fieldset class="px-3">
                     <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
                     <!-- A Stripe card element will go here -->
-                    <div class="mb-3" id="card-element"></div>
+                    <div class="mb-3" id="card-element" aria-label="Credit or debit card"></div>
 
                     <!-- Used to display form errors -->
                     <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
@@ -117,30 +117,36 @@
                 </fieldset>
 
                 <div class="submit-button text-right mt-5 mb-2">
-                    <p class="small custom-alert my-0 mb-2">
+                    <p class="small custom-alert my-0 mb-2 mr-2">
                         <span class="icon">
-                            <i class="fas fa-exclamation-circle"></i>
+                            <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
                         </span>
+                        <span class="sr-only">Note:</span>
                         <span>Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong></span>
                     </p>
-                    <a href="{% url 'view_cart' %}" class="btn btn-outline-black rounded-0 mb-2">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="font-weight-bold">Adjust Cart</span>
-                    </a>
-                    <button id="submit-button" class="btn btn-black rounded-0 mb-2">
-                        <span class="font-weight-bold">Complete Order</span>
-                        <span class="icon">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                    </button>
+                    <div class="button-group d-flex flex-column flex-sm-row justify-content-sm-end">
+                        <a href="{% url 'view_cart' %}"
+                            class="btn btn-outline-black btn-cart btn-lg rounded-0 mb-2 mb-2 mb-sm-0 mr-sm-2 order-2 order-sm-1">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="font-weight-bold">Adjust Cart</span>
+                        </a>
+                        <button id="submit-button" type="submit"
+                            class="btn btn-blue btn-cart btn-lg rounded-0 mb-2 mr-sm-2 order-1 order-sm-2"
+                            aria-label="Complete order and process payment">
+                            <span class="font-weight-bold">Complete Order</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<div id="loading-overlay">
+<div id="loading-overlay" aria-label="Processing your order, please wait">
     <h1 class="text-light logo-font loading-spinner">
         <span class="icon">
             <i class="fas fa-3x fa-sync-alt fa-spin"></i>
