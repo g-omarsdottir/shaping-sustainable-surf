@@ -52,7 +52,9 @@
             {% if profile.default_country %}
             <p class="text-muted mb-0">{{ profile.default_country }}</p>
             {% endif %}
-            <a href="{% url 'update_profile' %}" class="btn rounded-0 text-uppercase float-right mr-5">Manage My Profile</a>
+            <a href="{% url 'update_profile' %}" class="btn btn-blue rounded-0 text-uppercase float-right mr-5" aria-label="Manage my personal profile information">
+                Manage My Profile
+            </a>
         </div>
 
         <!-- Order History -->
@@ -157,14 +159,14 @@
                                         alt="No image yet for this product">
                                     {% endif %}
                                     <a href="{{ item.product.video_url }}" target="_blank" rel="noopener noreferrer"
-                                        aria-label="Opens in a new window" class="nowrap">Click Here to Watch Tutorial</a>
+                                        aria-label="Opens in a new window" class="nowrap btn btn-outline-black"><i class="fa-solid fa-video"></i> Click Here to Watch Tutorial</a>
                                 </div>
                             </td>
 
                             <!-- Watch Tutorial link (hidden on x-small screens) -->
                             <td class="py-3 d-none d-sm-table-cell">
                                 <a href="{{ item.product.video_url }}" target="_blank" rel="noopener noreferrer"
-                                    aria-label="Opens in a new window" class="nowrap">Click Here to Watch Tutorial</a>
+                                    aria-label="Opens in a new window" class="nowrap btn btn-outline-black"><i class="fa-solid fa-video"></i> Click Here to Watch Tutorial</a>
                             </td>
                         </tr>
                         {% endif %}

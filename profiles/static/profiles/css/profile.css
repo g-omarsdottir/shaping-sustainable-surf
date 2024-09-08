@@ -58,19 +58,6 @@
     color: #aab7c4;
 }
 
-#profile-info a {
-    background: lightblue;
-    border: 1px solid black;
-    transition: all 0.2s ease-in-out;
-    transform: scale(1);
-}
-
-#profile-info a:hover {
-    background: #fbf7e5;
-    box-shadow: 1px -1px 7px 0 hsla(188, 38%, 52%);
-    transform: scale(1.02);
-}
-
 /* update_profile.html ------------------------------------------------- */
 .error {
     border-color: var(--aubergine) !important;
