@@ -8,7 +8,9 @@
     transform: scale(1);
 }
 
-.btn-delete:hover {
+.btn-delete:hover,
+.btn-delete:active,
+.btn-delete:focus {
     color: #fff;
     background: #972430 !important;
     box-shadow: 1px -1px 7px 0 var(--aubergine);
@@ -21,7 +23,9 @@
     transform: scale(1);
 }
 
-.btn-cancel:hover {
+.btn-cancel:hover,
+.btn-cancel:active,
+.btn-cancel:focus {
     background: #fbf7e5;
     border: 1px solid black;
     box-shadow: 1px -1px 7px 0 var(--yellow);
@@ -35,7 +39,9 @@
     transform: scale(1);
 }
 
-.btn-update:hover {
+.btn-update:hover,
+.btn-update:active,
+.btn-update:focus {
     background: rgba(101, 193, 207, 0.432);
     border: 1px solid black;
     box-shadow: 1px -1px 7px 0 var(--blue);
@@ -62,7 +68,6 @@
 #profile-info a:hover {
     background: #fbf7e5;
     box-shadow: 1px -1px 7px 0 hsla(188, 38%, 52%);
-    /*box-shadow: 1px -1px 7px 0 rgba(179, 164, 87, 0.70);*/
     transform: scale(1.02);
 }
 
@@ -84,13 +89,4 @@
     color: #aab7c4;
 }
 
-/* Media Queries ------------------------------------------------------ */
-
-@media (max-width: 575.98px) {
-    .button-group {
-        width: 100%;
-    }
-    .button-group .btn {
-        width: 100%;
-    }
-}
+/* Media Query to stack buttons in button-group on small screens in base.css */

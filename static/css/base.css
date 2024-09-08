@@ -96,9 +96,6 @@ header {
 
 /* index.html */
 .browse-tutorials-button {
-    background: lightblue;
-    color: var(--font-color);
-    border: 1px solid black;
     min-width: 260px;
 }
 
@@ -126,8 +123,38 @@ about / custom_surfboards */
     cursor: pointer;
     text-decoration: none;
 }
+/* to copy 
 
+#profile-info a {
+    background: lightblue;
+    border: 1px solid black;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+#profile-info a:hover {
+    background: #fbf7e5;
+    box-shadow: 1px -1px 7px 0 hsla(188, 38%, 52%);
+    transform: scale(1.02);
+}
+*/
 /* Buttons */
+
+.btn-blue {
+    background-color: rgba(101, 193, 207, 0.247) !important;
+    border: 1px solid black;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+.btn-blue:hover,
+.btn-blue:active,
+.btn-blue:focus {
+    background: rgba(87, 167, 179, 0.70) !important;
+    border: 1px solid black;
+    box-shadow: 1px -1px 7px 0 var(--blue);
+    transform: scale(1.02);
+}
 
 .btn-black {
     background: black;
@@ -138,18 +165,17 @@ about / custom_surfboards */
     background: white;
     color: black !important; 
     border: 1px solid black;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
 }
 
 .btn-outline-black:hover,
 .btn-outline-black:active,
 .btn-outline-black:focus {
-    background: black;
-    color: white !important;
+    box-shadow: 1px -1px 7px 0 hsla(188, 38%, 52%);
+    transform: scale(1.02);
 }
 
-.browse-tutorials:hover,
-.browse-tutorials:active,
-.browse-tutorials:focus,
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
@@ -157,6 +183,14 @@ about / custom_surfboards */
     color: white;
 }
 
+.btn-outline-secondary:hover,
+.btn-outline-secondary:active,
+.btn-outline-secondary:focus {
+    background: rgba(101, 193, 207, 0.247);
+    color: var(--font-color);
+}
+
+/* Tutorials, ... */
 .border-black {
     border: 1px solid black !important;
 }
@@ -189,8 +223,22 @@ label[for="id_remember"] {
 }
 
 input[type="submit"], button[type="submit"] {
-    background: lightblue;
+    background: rgba(101, 193, 207, 0.247);
     padding: 5px;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:active,
+input[type="submit"]:focus,
+button[type="submit"]:hover,
+button[type="submit"]:active,
+button[type="submit"]:focus {
+    background: rgba(87, 167, 179, 0.70);
+    border: 1px solid black;
+    box-shadow: 1px -1px 7px 0 var(--blue);
+    transform: scale(1.02);
 }
 
 /* Footer -------------------------------------------------------------*/
@@ -215,8 +263,9 @@ footer li a {
     }
 }
 
-/* Stacks product details on xs screens */
+
 @media (max-width: 575.98px) {
+    /* Stack product details on small screens */
     .product-info-xs {
       display: flex;
       flex-direction: column;
@@ -224,6 +273,14 @@ footer li a {
     }
     .product-info-xs img {
       margin-bottom: 10px;
+    }
+
+    /* Stack buttons on small screens */
+    .button-group {
+        width: 100%;
+    }
+    .button-group .btn {
+        width: 100%;
     }
 }
 

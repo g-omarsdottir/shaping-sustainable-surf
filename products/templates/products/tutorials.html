@@ -26,7 +26,7 @@
     <div class="row d-flex justify-content-center flex-wrap">
         {% for product in products %}
         <div class="col-md-6 col-lg-4 mb-4">
-            <a href="{% url 'tutorial_detail' product.id %}"
+            <a href="{% url 'tutorial_detail' product.id %}" role="button"
                 aria-label="Click to view details for product: {{ product.name }}" class="text-decoration-none">
                 <article class="card h-100 product-list">
                     {% if product.image %}
@@ -43,7 +43,7 @@
                         <p class="card-subtitle">€ {{ product.price }}</p>
                         <p class="card-text">{{ product.description|safe|striptags|truncatechars:70 }}</p>
                         <div class="d-flex justify-content-center">
-                            <span class="btn border border-black rounded-0">&laquo; Click to View
+                            <span class="btn btn-outline-secondary btn-sm rounded-0">&laquo; View
                                 Details &raquo;</span>
                         </div>
                     </div>

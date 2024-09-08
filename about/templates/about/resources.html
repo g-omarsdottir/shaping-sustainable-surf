@@ -26,7 +26,7 @@
     <div class="row">
         {% for resource in resources %}
         <div class="col-sm-12 col-md-6 col-lg-4 mb-4 d-flex align-items-stretch">
-            <a href="{{ resource.url }}" class="card-link w-100" target="_blank" rel="noopener nofollow"
+            <a href="{{ resource.url }}" class="card-link w-100" role="button" target="_blank" rel="noopener nofollow"
                 aria-label="Visit {{ resource.name }} (opens in a new tab)">
                 <div class="card h-100 custom-card">
                     <div class="card-img-container">
@@ -42,7 +42,7 @@
                         <h2 class="card-title h5">{{ resource.name }}</h2>
                         <p>{{ resource.description|safe|striptags }}</p>
                         <div class="text-center mt-3">
-                            <span class="btn btn-outline-secondary rounded-0">Visit Resource</span>
+                            <span class="btn btn-outline-secondary rounded-0">&laquo; Visit Resource &raquo;</span>
                         </div>
                     </div>
                 </div>
