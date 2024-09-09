@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const emailField = document.getElementById('id_email');
     const originalEmail = form.getAttribute('data-user-email');
     const postcodeField = document.getElementById('id_default_postcode');
-    const originalPostcode = postcodeField.value;
 
     // Function to restore original email
     function restoreOriginalEmail() {
@@ -68,9 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
             postcodeField.classList.add('error');
             postcodeField.reportValidity();
             
-            // Add timeout delay before restoring the original value and removing the error state
+            // Add timeout delay before removing the error state
             setTimeout(() => {
-                postcodeField.value = originalPostcode; // Restore original value
                 postcodeField.setCustomValidity('');
                 postcodeField.classList.remove('error');
             }, 2000); // 2 seconds delay
