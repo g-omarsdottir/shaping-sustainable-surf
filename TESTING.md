@@ -40,7 +40,7 @@ The webhooks.py file raises two issue with the linter due to the line lenght exc
 
 | App      | File        | Screenshot                                                                                                                   | Result |
 |----------|-------------|------------------------------------------------------------------------------------------------------------------------------|--------|
-| checkout | webhooks.py | <details> <summary>**Click to View**</summary> ![checkout-webhooks](documentation/validator/checkout-webhooks.png)</details> | noqa   |
+| checkout | webhooks.py | <details> <summary>**Click to View**</summary> ![checkout-webhooks](/documentation/validator/checkout-webhooks.png)</details> | noqa   |
 
 
 The Django’s Allauth templates do not pass through the linter because Django templates have their own style requirements to ensure proper rendering and translation of the templates and do not follow the PEP 8 guidelines. Thus, these are not included in the linter validation.<br>
@@ -49,67 +49,67 @@ All other custom written Python code files passed through the Python Linter Vali
 
 | App                 | File               | Screenshot                                                                                                                                 | Result |
 |---------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------|--------|
-| about               | admin.py           | <details> <summary>**Click to View**</summary> ![about-admin](documentation/validator/about-admin.png)</details>                           | Passed |
-| about               | models.py          | <details> <summary>**Click to View**</summary> ![about-models](documentation/validator/about-models.png)</details>                         | Passed |
-| about               | urls.py            | <details> <summary>**Click to View**</summary> ![about-urls](documentation/validator/about-urls.png)</details>                             | Passed |
-| about               | views.py           | <details> <summary>**Click to View**</summary> ![about-views](documentation/validator/about-views.png)</details>                           | Passed |
+| about               | admin.py           | <details> <summary>**Click to View**</summary> ![about-admin](/documentation/validator/about-admin.png)</details>                           | Passed |
+| about               | models.py          | <details> <summary>**Click to View**</summary> ![about-models](/documentation/validator/about-models.png)</details>                         | Passed |
+| about               | urls.py            | <details> <summary>**Click to View**</summary> ![about-urls](/documentation/validator/about-urls.png)</details>                             | Passed |
+| about               | views.py           | <details> <summary>**Click to View**</summary> ![about-views](/documentation/validator/about-views.png)</details>                           | Passed |
 |                     |                    |                                                                                                                                            |        |
-| cart                | admin.py           | <details> <summary>**Click to View**</summary> ![cart-admin](documentation/validator/cart-admin.png)</details>                             | Passed |
-| cart                | context.py         | <details> <summary>**Click to View**</summary> ![cart-context](documentation/validator/cart-context.png)</details>                         | Passed |
-| cart                | forms.py           | <details> <summary>**Click to View**</summary> ![cart-forms](documentation/validator/cart-forms.png)</details>                             | Passed |
-| cart                | models.py          | <details> <summary>**Click to View**</summary> ![cart-models](documentation/validator/cart-models.png)</details>                           | Passed |
-| cart                | urls.py            | <details> <summary>**Click to View**</summary> ![cart-urls](documentation/validator/cart-urls.png)</details>                               | Passed |
-| cart                | views.py           | <details> <summary>**Click to View**</summary> ![cart-views](documentation/validator/cart-views.png)</details>                             | Passed |
+| cart                | admin.py           | <details> <summary>**Click to View**</summary> ![cart-admin](/documentation/validator/cart-admin.png)</details>                             | Passed |
+| cart                | context.py         | <details> <summary>**Click to View**</summary> ![cart-context](/documentation/validator/cart-context.png)</details>                         | Passed |
+| cart                | forms.py           | <details> <summary>**Click to View**</summary> ![cart-forms](/documentation/validator/cart-forms.png)</details>                             | Passed |
+| cart                | models.py          | <details> <summary>**Click to View**</summary> ![cart-models](/documentation/validator/cart-models.png)</details>                           | Passed |
+| cart                | urls.py            | <details> <summary>**Click to View**</summary> ![cart-urls](/documentation/validator/cart-urls.png)</details>                               | Passed |
+| cart                | views.py           | <details> <summary>**Click to View**</summary> ![cart-views](/documentation/validator/cart-views.png)</details>                             | Passed |
 |                     |                    |                                                                                                                                            |        |
-| checkout            | admin.py           | <details> <summary>**Click to View**</summary> ![checkout-admin](documentation/validator/checkout-admin.png)</details>                     | Passed |
-| checkout            | forms.py           | <details> <summary>**Click to View**</summary> ![checkout-forms](documentation/validator/checkout-forms.png)</details>                     | Passed |
-| checkout            | models.py          | <details> <summary>**Click to View**</summary> ![checkout-models](documentation/validator/checkout-models.png)</details>                   | Passed |
-| checkout            | signals.py         | <details> <summary>**Click to View**</summary> ![checkout-signals](documentation/validator/checkout-signals.png)</details>                 | Passed |
-| checkout            | urls.py            | <details> <summary>**Click to View**</summary> ![checkout-urls](documentation/validator/checkout-urls.png)</details>                       | Passed |
-| checkout            | views.py           | <details> <summary>**Click to View**</summary> ![checkout-views](documentation/validator/checkout-views.png)</details>                     | Passed |
-| checkout            | webhook handler.py | <details> <summary>**Click to View**</summary> ![checkout-webhook-handler](documentation/validator/checkout-webhook-handler.png)</details> | Passed |
+| checkout            | admin.py           | <details> <summary>**Click to View**</summary> ![checkout-admin](/documentation/validator/checkout-admin.png)</details>                     | Passed |
+| checkout            | forms.py           | <details> <summary>**Click to View**</summary> ![checkout-forms](/documentation/validator/checkout-forms.png)</details>                     | Passed |
+| checkout            | models.py          | <details> <summary>**Click to View**</summary> ![checkout-models](/documentation/validator/checkout-models.png)</details>                   | Passed |
+| checkout            | signals.py         | <details> <summary>**Click to View**</summary> ![checkout-signals](/documentation/validator/checkout-signals.png)</details>                 | Passed |
+| checkout            | urls.py            | <details> <summary>**Click to View**</summary> ![checkout-urls](/documentation/validator/checkout-urls.png)</details>                       | Passed |
+| checkout            | views.py           | <details> <summary>**Click to View**</summary> ![checkout-views](/documentation/validator/checkout-views.png)</details>                     | Passed |
+| checkout            | webhook handler.py | <details> <summary>**Click to View**</summary> ![checkout-webhook-handler](/documentation/validator/checkout-webhook-handler.png)</details> | Passed |
 |                     |                    |                                                                                                                                            |        |
-| contact             | admin.py           | <details> <summary>**Click to View**</summary> ![contact-admin](documentation/validator/contact-admin.png)</details>                       | Passed |
-| contact             | forms.py           | <details> <summary>**Click to View**</summary> ![contact-forms](documentation/validator/contact-forms.png)</details>                       | Passed |
-| contact             | models.py          | <details> <summary>**Click to View**</summary> ![contact-models](documentation/validator/contact-models.png)</details>                     | Passed |
-| contact             | urls.py            | <details> <summary>**Click to View**</summary> ![contact-urls](documentation/validator/contact-urls.png)</details>                         | Passed |
-| contact             | views.py           | <details> <summary>**Click to View**</summary> ![contact-views](documentation/validator/contact-views.png)</details>                       | Passed |
+| contact             | admin.py           | <details> <summary>**Click to View**</summary> ![contact-admin](/documentation/validator/contact-admin.png)</details>                       | Passed |
+| contact             | forms.py           | <details> <summary>**Click to View**</summary> ![contact-forms](/documentation/validator/contact-forms.png)</details>                       | Passed |
+| contact             | models.py          | <details> <summary>**Click to View**</summary> ![contact-models](/documentation/validator/contact-models.png)</details>                     | Passed |
+| contact             | urls.py            | <details> <summary>**Click to View**</summary> ![contact-urls](/documentation/validator/contact-urls.png)</details>                         | Passed |
+| contact             | views.py           | <details> <summary>**Click to View**</summary> ![contact-views](/documentation/validator/contact-views.png)</details>                       | Passed |
 |                     |                    |                                                                                                                                            |        |
-| home                | urls.py            | <details> <summary>**Click to View**</summary> ![home-urls](documentation/validator/home-urls.png)</details>                               | Passed |
-| home                | views.py           | <details> <summary>**Click to View**</summary> ![home-views](documentation/validator/home-views.png)</details>                             | Passed |
+| home                | urls.py            | <details> <summary>**Click to View**</summary> ![home-urls](/documentation/validator/home-urls.png)</details>                               | Passed |
+| home                | views.py           | <details> <summary>**Click to View**</summary> ![home-views](/documentation/validator/home-views.png)</details>                             | Passed |
 |                     |                    |                                                                                                                                            |        |
-| newsletter          | admin.py           | <details> <summary>**Click to View**</summary> ![newsletter-admin](documentation/validator/newsletter-admin.png)</details>                 | Passed |
-| newsletter          | forms.py           | <details> <summary>**Click to View**</summary> ![newsletter-forms](documentation/validator/newsletter-forms.png)</details>                 | Passed |
-| newsletter          | models.py          | <details> <summary>**Click to View**</summary> ![newsletter-models](documentation/validator/newsletter-models.png)</details>               | Passed |
-| newsletter          | signals.py         | <details> <summary>**Click to View**</summary> ![newsletter-signals](documentation/validator/newsletter-signals.png)</details>             | Passed |
-| newsletter          | urls.py            | <details> <summary>**Click to View**</summary> ![newsletter-urls](documentation/validator/newsletter-urls.png)</details>                   | Passed |
-| newsletter          | views.py           | <details> <summary>**Click to View**</summary> ![newsletter-views](documentation/validator/newsletter-views.png)</details>                 | Passed |
+| newsletter          | admin.py           | <details> <summary>**Click to View**</summary> ![newsletter-admin](/documentation/validator/newsletter-admin.png)</details>                 | Passed |
+| newsletter          | forms.py           | <details> <summary>**Click to View**</summary> ![newsletter-forms](/documentation/validator/newsletter-forms.png)</details>                 | Passed |
+| newsletter          | models.py          | <details> <summary>**Click to View**</summary> ![newsletter-models](/documentation/validator/newsletter-models.png)</details>               | Passed |
+| newsletter          | signals.py         | <details> <summary>**Click to View**</summary> ![newsletter-signals](/documentation/validator/newsletter-signals.png)</details>             | Passed |
+| newsletter          | urls.py            | <details> <summary>**Click to View**</summary> ![newsletter-urls](/documentation/validator/newsletter-urls.png)</details>                   | Passed |
+| newsletter          | views.py           | <details> <summary>**Click to View**</summary> ![newsletter-views](/documentation/validator/newsletter-views.png)</details>                 | Passed |
 |                     |                    |                                                                                                                                            |        |
-| products            | admin.py           | <details> <summary>**Click to View**</summary> ![products-admin](documentation/validator/products-admin.png)</details>                     | Passed |
-| products            | models.py          | <details> <summary>**Click to View**</summary> ![products-models](documentation/validator/products-models.png)</details>                   | Passed |
-| products            | urls.py            | <details> <summary>**Click to View**</summary> ![products-urls](documentation/validator/products-urls.png)</details>                       | Passed |
-| products            | views.py           | <details> <summary>**Click to View**</summary> ![products-views](documentation/validator/products-views.png)</details>                     | Passed |
+| products            | admin.py           | <details> <summary>**Click to View**</summary> ![products-admin](/documentation/validator/products-admin.png)</details>                     | Passed |
+| products            | models.py          | <details> <summary>**Click to View**</summary> ![products-models](/documentation/validator/products-models.png)</details>                   | Passed |
+| products            | urls.py            | <details> <summary>**Click to View**</summary> ![products-urls](/documentation/validator/products-urls.png)</details>                       | Passed |
+| products            | views.py           | <details> <summary>**Click to View**</summary> ![products-views](/documentation/validator/products-views.png)</details>                     | Passed |
 |                     |                    |                                                                                                                                            |        |
-| profiles            | forms.py           | <details> <summary>**Click to View**</summary> ![profiles-forms](documentation/validator/profiles-forms.png)</details>                     | Passed |
-| profiles            | models.py          | <details> <summary>**Click to View**</summary> ![profiles-models](documentation/validator/profiles-models.png)</details>                   | Passed |
-| profiles            | urls.py            | <details> <summary>**Click to View**</summary> ![profiles-urls](documentation/validator/profiles-urls.png)</details>                       | Passed |
-| profiles            | views.py           | <details> <summary>**Click to View**</summary> ![profiles-views](documentation/validator/profiles-views.png)</details>                     | Passed |
+| profiles            | forms.py           | <details> <summary>**Click to View**</summary> ![profiles-forms](/documentation/validator/profiles-forms.png)</details>                     | Passed |
+| profiles            | models.py          | <details> <summary>**Click to View**</summary> ![profiles-models](/documentation/validator/profiles-models.png)</details>                   | Passed |
+| profiles            | urls.py            | <details> <summary>**Click to View**</summary> ![profiles-urls](/documentation/validator/profiles-urls.png)</details>                       | Passed |
+| profiles            | views.py           | <details> <summary>**Click to View**</summary> ![profiles-views](/documentation/validator/profiles-views.png)</details>                     | Passed |
 |                     |                    |                                                                                                                                            |        |
-| shaping-surf (core) | settings.py        | <details> <summary>**Click to View**</summary> ![settings](documentation/validator/settings.png)</details>                                 | Passed |
-| shaping-surf (core) | urls.py            | <details> <summary>**Click to View**</summary> ![urls](documentation/validator/urls.png)</details>                                         | Passed |
+| shaping-surf (core) | settings.py        | <details> <summary>**Click to View**</summary> ![settings](/documentation/validator/settings.png)</details>                                 | Passed |
+| shaping-surf (core) | urls.py            | <details> <summary>**Click to View**</summary> ![urls](/documentation/validator/urls.png)</details>                                         | Passed |
 
 
 ### JavaScript 
 
 The [JSHint Validator]( https://jshint.com/), a JavaScript Code Quality Tool was used to validate the JavaScript code. All custom written JavaScript code passed without errors through the validator.
 
-| App      | Folder | File               | Screenshot                                                                                                       | Result |
-|----------|--------|--------------------|------------------------------------------------------------------------------------------------------------------|--------|
-| checkout | static | stripe_elements.js | <details> <summary>**Click to View**</summary> ![checkout-js](documentation/validator/checkout-js.png)</details> | Passed |
-| contact  | static | contact.js         | <details> <summary>**Click to View**</summary> ![contact-js](documentation/validator/contact-js.png)</details>   | Passed |
-| products | templates | tutorials.html     | <details> <summary>**Click to View**</summary> ![tutorials-js](documentation/validator/tutorials-js.png)</details> | Passed |
-| profiles | static | profile.js     | <details> <summary>**Click to View**</summary> ![profile-js](documentation/validator/profile-js.png)</details> | Passed |
-| root dir | templates | base.html          | <details> <summary>**Click to View**</summary> ![base-js](documentation/validator/base-js.png)</details>         | Passed |
+| App        | Folder    | File               | Screenshot                                                                                                           | Result |
+|------------|-----------|--------------------|----------------------------------------------------------------------------------------------------------------------|--------|
+| checkout   | static    | stripe_elements.js | <details> <summary>**Click to View**</summary> ![checkout-js](/documentation/validator/checkout-js.png)</details>     | Passed |
+| contact    | static    | contact.js         | <details> <summary>**Click to View**</summary> ![contact-js](/documentation/validator/contact-js.png)</details>       | Passed |
+| newsletter | static    | newsletter.js      | <details> <summary>**Click to View**</summary> ![newsletter-js](/documentation/validator/newsletter.js.png)</details> | Passed |
+| products   | templates | tutorials.html     | <details> <summary>**Click to View**</summary> ![tutorials-js](/documentation/validator/tutorials-js.png)</details>   | Passed |
+| root dir   | templates | base.html          | <details> <summary>**Click to View**</summary> ![base-js](/documentation/validator/base-js.png)</details>             | Passed |
 
 ### HTML
 
@@ -492,7 +492,7 @@ This section lists significant bugs that were encountered during development and
 | Order_total not displayed on checkout_success.html                  | Update_total method on Order model was calculating grand_total                                                                                                                                        | Add order_total to calculate grand_total.                                                                                                                                                        | Solved |
 | Discount_amount not displayed on checkout_success.html              | Discount calculated in cart contexts.py is for temporary session-based calculations to display in shopping cart while the order model method is for permanent database-stored calculations.           | Add calculation for discount_code to update_total method on Order model.                                                                                                                         | Solved |
 | Error in stripe webhook: full_name is not provided                 | Print statements show the full_name in terminal but stripe webhooks do not receive the information.                                                                                                   | Add order to OrderItem when creating an order in webhook_handler to correctly pass order details to stripe payment intent.                                                                       | Solved |
-|                                                                     |                                                                                                                                                                                                       | <details> <summary>Click to View webhook error</summary> ![error-webhook](documentation/validator/error-webhook.png)</details>                                                                   |        |
+|                                                                     |                                                                                                                                                                                                       | <details> <summary>Click to View webhook error</summary> ![error-webhook](/documentation/validator/error-webhook.png)</details>                                                                   |        |
 | checkout  views.py                                                  | All orders created in webhook.                                                                                                                                                                        | Fix indentation error in checkout view which prevented order to be created after validating the order form.                                                                                      | Solved |
 | ContactForm                                                         | KeyError: user_profile not found in placeholders.                                                                                                                                                     | Add a placeholder for the user_profile field.                                                                                                                                                    | Solved |
 | djrichtextfield and ckeditor                                        | Security issues due to djrichtextfield reported in admin panel with suggestion to swicth to ckeditor but After switching to ckeditor a new warning in the terminal that ckeditor has security issues. | Install Summernote to use SummernoteModelAdmin in admin interface and as suggested by Code Institute tutor support reinstall djrichtextfield since otherwise inconsistency with migration files. | Solved |
