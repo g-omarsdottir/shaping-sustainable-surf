@@ -16,30 +16,31 @@
 {% block head_title %}Home{% endblock head_title %}
 
 {% block content %}
+<div class="d-flex flex-column h-100">
+    <div id="newsletter-banner" class="animated-banner pt-4 pb-4">
+        <h2 class="h5">Subscribe to our newsletter and get a €10 welcome discount!</h2>
+        <p>
+            Stay tuned for our <strong>Live Q&A Sessions</strong> and more!
+        </p>
+        <a href="{% url 'subscribe' %}" class="btn btn-newsletter btn-shadow-yellow">Subscribe Now!</a>
+    </div>
 
-<div id="newsletter-banner" class="animated-banner mt-0">
-    <h2 class="h5">Subscribe to our newsletter and get a €10 welcome discount!</h2> 
-    <p>
-        Stay tuned for our <strong>Live Q&A Sessions</strong> and <strong>New Arrivals</strong>!
-    </p>
-    <a href="{% url 'subscribe' %}" class="btn btn-newsletter btn-shadow-yellow mt-3">Subscribe Now!</a>
-</div>
-
-<div class="bg-image">
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-12 col-md-10 my-auto">
-                <h1 class="display-4">
-                    Welcome to <br> Shaping Sustainable Surf!
-                </h1>
-                <div class="my-5">
-                    <h2>
-                        <!-- Tutorials-button custom, rest bootstrap -->
-                        <a href="{% url 'tutorials_list' %}"
-                            class="btn btn-lg btn-blue browse-tutorials-button rounded-0 text-uppercase py-3">
-                            Browse Tutorials Now
-                        </a>
-                    </h2>
+    <div class="bg-image d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-10 my-auto">
+                    <h1 class="display-4">
+                        Welcome to <br> Shaping Sustainable Surf!
+                    </h1>
+                    <div class="my-5">
+                        <h2>
+                            <!-- Tutorials-button custom, rest bootstrap -->
+                            <a href="{% url 'tutorials_list' %}"
+                                class="btn btn-lg btn-blue browse-tutorials-button rounded-0 text-uppercase py-3">
+                                Browse Tutorials Now
+                            </a>
+                        </h2>
+                    </div>
                 </div>
             </div>
         </div>
