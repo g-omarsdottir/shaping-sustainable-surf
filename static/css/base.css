@@ -129,23 +129,37 @@ header {
     }
     50% {
         box-shadow: 
-            0 0 20px rgba(255, 255, 0, 0.8),
-            0 0 40px rgba(255, 255, 0, 0.6),
-            0 0 60px rgba(255, 255, 0, 0.4);
+            0 0 20px rgba(255, 255, 0, 0.6),
+            0 0 40px rgba(255, 255, 0, 0.4),
+            0 0 60px rgba(255, 255, 0, 0.2);
     }
     100% {
         box-shadow: 0 0 0 rgba(255, 255, 0, 0);
     }
 }
 
-.browse-tutorials-button {
-    min-width: 260px;
-}
-
 .bg-image {
     background: url("/static/images/welcome.webp") no-repeat top center / cover;
-    height: 90%;
+    height: 100%;
     width: 100%;
+}
+
+.browse-tutorials-button {
+    min-width: 260px;
+    font-weight: 500;
+    background: var(--blue);
+    border: 1px solid var(--font-color);
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+.browse-tutorials-button:hover,
+.browse-tutorials-button:active,
+.browse-tutorials-button:focus {
+    background: #87dae7;
+    border: 1px solid black;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.05);
 }
 
 /* Buttons in main -----------------------------------------------------*/
