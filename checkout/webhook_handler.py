@@ -71,7 +71,7 @@ class StripeWH_Handler:
         discount_code = intent.metadata.get("discount_code")
         user_id = intent.metadata.get("user_id")
         username = intent.metadata.get("username")
-        
+
         stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
         billing_details = stripe_charge.billing_details
         grand_total = round(stripe_charge.amount / 100, 2)

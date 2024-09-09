@@ -49,7 +49,7 @@ class NewsletterAdmin(admin.ModelAdmin):
 
     list_filter = ("status",)
 
-    actions = ["send_selected_newsletter",]
+    actions = ["send_selected_newsletter", ]
 
     def send_selected_newsletter(self, request, queryset):
         for newsletter in queryset:
@@ -57,5 +57,10 @@ class NewsletterAdmin(admin.ModelAdmin):
                 newsletter.status = "send"
                 newsletter.save()  # Trigger the signal
             else:
-                messages.warning(request, f"Newsletter '{newsletter.subject}' is already set to send.", level="WARNING")
+                messages.warning(
+                    request,
+                    f"Newsletter '{newsletter.subject}' is already "
+                    f"set to send.",
+                    level="WARNING"
+                )
     send_selected_newsletter.short_description = "Send selected newsletter"

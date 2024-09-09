@@ -10,6 +10,7 @@ import stripe
 
 logger = logging.getLogger(__name__)
 
+
 @require_POST
 @csrf_exempt
 def webhook(request):

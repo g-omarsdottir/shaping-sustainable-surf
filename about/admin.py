@@ -21,7 +21,9 @@ class AboutUsAdmin(SummernoteModelAdmin):
         # Strip HTML tags for a plain text preview
         from django.utils.html import strip_tags
         plain_text = strip_tags(obj.content)
-        return (plain_text[:50] + "...") if len(plain_text) > 50 else plain_text
+        return (
+            (plain_text[:50] + "...") if len(plain_text) > 50 else plain_text
+        )
     custom_content_preview.short_description = "Content Preview"
 
 

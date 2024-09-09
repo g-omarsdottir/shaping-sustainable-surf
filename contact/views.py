@@ -25,13 +25,13 @@ def send_contact_email(contact):
     # Email to customer
     customer_subject = render_to_string(
         "contact/confirmation_emails/confirmation_email_subject.txt",
-         {"contact": contact}
+        {"contact": contact}
     ).strip()
     customer_body = render_to_string(
         "contact/confirmation_emails/confirmation_email_body.txt",
         {"contact": contact, "company_email": from_email}
     )
-    
+
     send_mail(
         customer_subject,
         customer_body,
@@ -84,16 +84,19 @@ def contact(request):
             contact.save()
             try:
                 send_contact_email(contact)
-                return redirect(reverse(
-                    "contact_success", args=[contact.pk])
+                return redirect(
+                    reverse("contact_success", args=[contact.pk])
                 )
             except Exception as e:
-                messages.error(request, f"An error occurred while sending your message: {str(e)}")
+                messages.error(
+                    request,
+                    f"An error occurred while sending your message: {str(e)}"
+                )
         else:
             messages.error(
                 request,
                 "There was an error with your form. "
-                "Please double check your information.",
+                "Please double check your information."
             )
     else:
         initial_data = {}

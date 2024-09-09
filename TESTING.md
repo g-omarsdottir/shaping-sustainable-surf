@@ -54,7 +54,7 @@ All other custom written Python code files passed through the Python Linter Vali
 | about               | urls.py            | <details> <summary>**Click to View**</summary> ![about-urls](documentation/validator/about-urls.png)</details>                             | Passed |
 | about               | views.py           | <details> <summary>**Click to View**</summary> ![about-views](documentation/validator/about-views.png)</details>                           | Passed |
 |                     |                    |                                                                                                                                            |        |
-| cart                | admin.py           | <details> <summary>**Click to View**</summary> ![cart-admin](documentation/validator/cart-admin.png)</details>                              | Passed |
+| cart                | admin.py           | <details> <summary>**Click to View**</summary> ![cart-admin](documentation/validator/cart-admin.png)</details>                             | Passed |
 | cart                | context.py         | <details> <summary>**Click to View**</summary> ![cart-context](documentation/validator/cart-context.png)</details>                         | Passed |
 | cart                | forms.py           | <details> <summary>**Click to View**</summary> ![cart-forms](documentation/validator/cart-forms.png)</details>                             | Passed |
 | cart                | models.py          | <details> <summary>**Click to View**</summary> ![cart-models](documentation/validator/cart-models.png)</details>                           | Passed |
@@ -78,8 +78,14 @@ All other custom written Python code files passed through the Python Linter Vali
 | home                | urls.py            | <details> <summary>**Click to View**</summary> ![home-urls](documentation/validator/home-urls.png)</details>                               | Passed |
 | home                | views.py           | <details> <summary>**Click to View**</summary> ![home-views](documentation/validator/home-views.png)</details>                             | Passed |
 |                     |                    |                                                                                                                                            |        |
+| newsletter          | admin.py           | <details> <summary>**Click to View**</summary> ![newsletter-admin](documentation/validator/newsletter-admin.png)</details>                 | Passed |
+| newsletter          | forms.py           | <details> <summary>**Click to View**</summary> ![newsletter-forms](documentation/validator/newsletter-forms.png)</details>                 | Passed |
+| newsletter          | models.py          | <details> <summary>**Click to View**</summary> ![newsletter-models](documentation/validator/newsletter-models.png)</details>               | Passed |
+| newsletter          | signals.py         | <details> <summary>**Click to View**</summary> ![newsletter-signals](documentation/validator/newsletter-signals.png)</details>             | Passed |
+| newsletter          | urls.py            | <details> <summary>**Click to View**</summary> ![newsletter-urls](documentation/validator/newsletter-urls.png)</details>                   | Passed |
+| newsletter          | views.py           | <details> <summary>**Click to View**</summary> ![newsletter-views](documentation/validator/newsletter-views.png)</details>                 | Passed |
+|                     |                    |                                                                                                                                            |        |
 | products            | admin.py           | <details> <summary>**Click to View**</summary> ![products-admin](documentation/validator/products-admin.png)</details>                     | Passed |
-| products            | forms.py           | <details> <summary>**Click to View**</summary> ![products-forms](documentation/validator/products-forms.png)</details>                     | Passed |
 | products            | models.py          | <details> <summary>**Click to View**</summary> ![products-models](documentation/validator/products-models.png)</details>                   | Passed |
 | products            | urls.py            | <details> <summary>**Click to View**</summary> ![products-urls](documentation/validator/products-urls.png)</details>                       | Passed |
 | products            | views.py           | <details> <summary>**Click to View**</summary> ![products-views](documentation/validator/products-views.png)</details>                     | Passed |
@@ -91,6 +97,7 @@ All other custom written Python code files passed through the Python Linter Vali
 |                     |                    |                                                                                                                                            |        |
 | shaping-surf (core) | settings.py        | <details> <summary>**Click to View**</summary> ![settings](documentation/validator/settings.png)</details>                                 | Passed |
 | shaping-surf (core) | urls.py            | <details> <summary>**Click to View**</summary> ![urls](documentation/validator/urls.png)</details>                                         | Passed |
+
 
 ### JavaScript 
 

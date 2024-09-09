@@ -36,7 +36,12 @@ class SubscriberForm(forms.ModelForm):
             "accepted_terms": mark_safe(
                 "Yes, send me newsletter emails! "
                 "I understand my data will be stored until I unsubscribe. <br>"
-                "Check out our <a href='#' %}' data-toggle='modal' data-target='#disclaimerModal'>Disclaimer</a> and <a href='#' %}' data-toggle='modal' data-target='#privacyPolicyModal'>Privacy Policy</a> for more information."
+                "Check out our "
+                "<a href='#' %}' data-toggle='modal' "
+                "data-target='#disclaimerModal'>"
+                "Disclaimer</a> and <a href='#' %}' "
+                "data-toggle='modal' data-target='#privacyPolicyModal'>"
+                "Privacy Policy</a> for more information."
             )
         }
 
@@ -53,5 +58,7 @@ class SubscriberForm(forms.ModelForm):
         email = cleaned_data.get("email")
         accepted_terms = cleaned_data.get("accepted_terms")
         if email and not accepted_terms:
-            raise forms.ValidationError("You must accept the terms to subscribe.")
+            raise forms.ValidationError(
+                "You must accept the terms to subscribe."
+            )
         return cleaned_data

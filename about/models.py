@@ -10,7 +10,7 @@ class AboutUs(models.Model):
     """
     Stores the content of about us page.
     """
-    
+
     title = models.CharField(max_length=200)
     content = models.TextField(max_length=10000)
     image = ResizedImageField(
