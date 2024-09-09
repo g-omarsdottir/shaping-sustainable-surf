@@ -5,3 +5,7 @@
 .modal-content {
     z-index: 1050 !important;
 }
+
+.btn-subscribe {
+    width: 200px;
+}

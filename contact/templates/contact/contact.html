@@ -17,6 +17,8 @@
 <link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
 {% endblock %}
 
+{% block head_title %}Contact{% endblock head_title %}
+
 {% block page_header %}
 <a href="#contact-form" class="sr-only sr-only-focusable">Skip to contact form</a>
 <div class="container">
@@ -30,11 +32,10 @@
 <div class="container mb-2">
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
-            <h1 class="text-center logo-font mb-4">Contact</h1>
-            <hr>
+            <h1 class="text-center logo-font mb-4">Contact Us</h1>
             <p class="text-center">You can contact us at <a href="mailto:{{ company_email }}">{{ company_email }}</a> or
                 use the contact form below.</p>
-
+            <hr>
             <div class="mb-4">
                 <h2 class="h4">Custom Surfboards</h2>
                 <p>If you are looking for a custom-made surfboard, we encourage you to use the convenient contact form

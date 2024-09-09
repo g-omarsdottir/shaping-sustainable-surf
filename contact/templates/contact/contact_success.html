@@ -1,113 +1,110 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
+{% block head_title %}Contact successful{% endblock head_title %}
 
 {% block content %}
-<div class="overlay"></div>
 <div class="container mb-2">
     <div class="row">
-        <div class="col">
-            <hr>
-            <h2 class="logo-font mb-4">Thank you for your message!</h2>
+        <div class="col-12">
+            <h1 class="h2 mb-4">Thank you for contacting us!</h1>
             <hr>
             <p>We will get back to you shortly, usually within two days.</p>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 col-lg-10">
+            <h3 class="mb-4">Here is an overview of your message:</h3>
 
-    <div class="col-12 col-lg-6">
-        <h3>Here is an overview of your message:</h3>
+            <h4>Your Contact Details</h4>
 
-        <h4>Your Contact Details</h4>
+            <p>Name: {{ contact.name }}</p>
+            <p>Email: {{ contact.email }}</p>
+            {% if contact.phone %}
+            <p>Phone: {{ contact.phone }}</p>
+            {% endif %}
 
-        <p>Name: {{ contact.name }}</p>
-        <p>Email: {{ contact.email }}</p>
-        {% if contact.phone %}
-        <p>Phone: {{ contact.phone }}</p>
-        {% endif %}
+            <h4>Your Message</h4>
 
-        <h4>Your Message</h4>
+            {% if contact.subject %}
+            <p>Subject: {{ contact.subject }}</p>
+            {% endif %}
+            <p>{{ contact.message }}</p>
 
-        {% if contact.subject %}
-        <p>Subject: {{ contact.subject }}</p>
-        {% endif %}
-        <p>{{ contact.message }}</p>
+            {% if contact.category %}
+            <h4>Regarding</h4>
+            <p>{{ contact.category.name }}</p>
+            {% endif %}
 
-        {% if contact.category %}
-        <h4>Regarding</h4>
-        <p>{{ contact.category.name }}</p>
-        {% endif %}
+            {% if contact.board_type or contact.tail or contact.board_length or contact.board_volume %} 
+            <h4>Your Custom Surfboard</h4>
+            {% endif %}
 
-        <h4>Your Custom Surfboard</h4>
+            {% if contact.board_type %}
+            <p>Board Type: {{ contact.board_type }}</p>
+            {% endif %}
 
-        {% if contact.board_type %}
-        <p>Board Type: {{ contact.board_type }}</p>
-        {% endif %}
+            {% if contact.tail %}
+            <p>Tail: {{ contact.tail }}</p>
+            {% endif %}
 
-        {% if contact.tail %}
-        <p>Tail: {{ contact.tail }}</p>
-        {% endif %}
+            {% if contact.board_length or contact.board_volume %}
+            <h5>Volume & Length</h5>
+            {% endif %}
 
-        {% if contact.board_length or contact.board_volume %}
-        <h5>Volume & Length</h5>
-        {% endif %}
+            {% if contact.board_length %}
+            <p>Board Length: {{ contact.board_length }}</p>
+            {% endif %}
 
-        {% if contact.board_length %}
-        <p>Board Length: {{ contact.board_length }}</p>
-        {% endif %}
+            {% if contact.board_volume %}
+            <p>Board Volume: {{ contact.board_volume }}</p>
+            {% endif %}
 
-        {% if contact.board_volume %}
-        <p>Board Volume: {{ contact.board_volume }}</p>
-        {% endif %}
+            {% if contact.body_height or contact.body_weight or contact.skill_level or contact.surf_style or contact.wave_size or contact.wave_power %}
+            <h5>Details to Calculate Volume & Length</h5>
+            {% endif %}
 
-        <h5>Details to Calculate Volume & Length</h5>
+            {% if contact.body_height %}
+            <p>Body Height: {{ contact.body_height }}</p>
+            {% endif %}
 
-        {% if contact.body_height %}
-        <p>Body Height: {{ contact.body_height }}</p>
-        {% endif %}
+            {% if contact.body_weight %}
+            <p>Body Weight: {{ contact.body_weight }}</p>
+            {% endif %}
 
-        {% if contact.body_weight %}
-        <p>Body Weight: {{ contact.body_weight }}</p>
-        {% endif %}
+            {% if contact.skill_level %}
+            <p>Skill Level: {{ contact.skill_level }}</p>
+            {% endif %}
 
-        {% if contact.skill_level %}
-        <p>Skill Level: {{ contact.skill_level }}</p>
-        {% endif %}
+            {% if contact.surf_style %}
+            <p>Surf Style: {{ contact.surf_style }}</p>
+            {% endif %}
 
-        {% if contact.surf_style %}
-        <p>Surf Style: {{ contact.surf_style }}</p>
-        {% endif %}
+            {% if contact.wave_size %}
+            <p>Wave Size: {{ contact.wave_size }}</p>
+            {% endif %}
 
-        {% if contact.wave_size %}
-        <p>Wave Size: {{ contact.wave_size }}</p>
-        {% endif %}
+            {% if contact.wave_power %}
+            <p>Wave Power: {{ contact.wave_power }}</p>
+            {% endif %}
 
-        {% if contact.wave_power %}
-        <p>Wave Power: {{ contact.wave_power }}</p>
-        {% endif %}
+            {% if contact.color_theme or contact.art %}
+            <h5>Decorative Art & Color</h5>
+            {% endif %}
 
-        {% if contact.color_theme or contact.art %}
-        <h5>Decorative Art & Color</h5>
-        {% endif %}
+            {% if contact.color_theme %}
+            <p>Color Theme: {{ contact.color_theme }}</p>
+            {% endif %}
 
-        {% if contact.color_theme %}
-        <p>Color Theme: {{ contact.color_theme }}</p>
-        {% endif %}
+            {% if contact.art %}
+            <p>Decorative Art: {{ contact.art }}</p>
+            {% endif %}
 
-        {% if contact.art %}
-        <p>Decorative Art: {{ contact.art }}</p>
-        {% endif %}
-
-        {% if contact.remarks %}
-        <h4>Further Remarks</h4>
-        <p>{{ contact.remarks }}</p>
-        {% endif %}
+            {% if contact.remarks %}
+            <h4>Further Remarks</h4>
+            <p>{{ contact.remarks }}</p>
+            {% endif %}
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -5,21 +5,13 @@
 <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
+{% block head_title %}My Profile{% endblock head_title %}
 
 {% block content %}
-<div class="overlay"></div>
 <div class="container">
     <div class="row">
         <div class="col">
-            <hr>
-            <h2 class="logo-font mb-4">{{ profile.full_name|default:profile.user.username }}'s Profile</h2>
+            <h1 class="h2 logo-font mb-4">{{ profile.full_name|default:profile.user.username }}'s Profile</h1>
             <hr>
         </div>
     </div>
