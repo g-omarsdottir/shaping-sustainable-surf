@@ -4,7 +4,7 @@ $(document).ready(function() {
     if (!countrySelected) {
         $('#id_default_country').css('color', '#aab7c4');
     }
-    $('#id_default_country').change(function () {
+    $('#id_default_country').change(function() {
         countrySelected = $(this).val();
         if (!countrySelected) {
             $(this).css('color', '#aab7c4');
@@ -28,15 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
             emailField.value = originalEmail;
             emailField.setCustomValidity('');
             emailField.classList.remove('error');
-        }
-    }
-
-    // Function to restore original postcode
-    function restoreOriginalPostcode() {
-        if (!postcodeField.value.trim()) {
-            postcodeField.value = originalPostcode;
-            postcodeField.setCustomValidity('');
-            postcodeField.classList.remove('error');
         }
     }
 
@@ -65,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // If email is valid, clear any errors
             emailField.setCustomValidity('');
             emailField.classList.remove('error');
+            return true;
         }
     }
 
@@ -93,7 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add event listeners
     emailField.addEventListener('blur', restoreOriginalEmail);
-    postcodeField.addEventListener('blur', restoreOriginalPostcode);
     postcodeField.addEventListener('input', validatePostcode);
 
     form.addEventListener('submit', function(event) {
@@ -104,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const isPostcodeValid = validatePostcode();
 
         if (isEmailValid && isPostcodeValid) {
-            form.submit();
+            this.submit();
         }
     });
 });
