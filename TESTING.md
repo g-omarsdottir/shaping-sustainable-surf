@@ -326,6 +326,14 @@ Testing was performed across multiple browsers to ensure cross-browser compatibi
 
 Accessibility testing was conducted to ensure the website is usable by people with various disabilities. This section covers the tools used for testing, such as screen readers and accessibility validators, and the improvements made based on the results.
 
+**Focusable Elements**
+After manual testing, the html element anchor was changed to semantically correct  button for scroll-to-top button to make it focusable. The button, just like other focusable elements on the website, has visual feedback and aria-label and sr-only explanation for its purpose when using a screen reader.
+
+![test-accessibility-button](/documentation/testing/test-accessibility-button.png)
+
+**Screen Readers**
+For improved UX when using a screen reader, aria-hidden="true" was added to all fontawesome icons.
+
 ### WAVE Web Accessibility Evaluation Tool
 
 The [Wave WebAIM Validator](https://wave.webaim.org/) was used to validate web accessibility on the deployed website.

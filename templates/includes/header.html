@@ -24,7 +24,7 @@
 
                         <!-- Search bar (code in products / views.py) -->
                         <li class="nav-item">
-                            <form method="GET" action="{% url 'tutorials_list' %}" class="form-inline my-2 my-lg-0">
+                            <form method="GET" action="{% url 'tutorials_list' %}" role="search" class="form-inline my-2 my-lg-0">
                                 <!-- width 100, input group from bootstrap contains fontawesome search icon -->
                                 <div class="input-group w-100">
                                     <label for="search-tutorials" class="sr-only">Search Tutorials</label>
@@ -92,7 +92,7 @@
                             <a class="text-black nav-link dropdown-toggle {% if url_name == 'profile' or url_name == 'account_logout' or url_name == 'account_signup' or url_name == 'account_login' %}active{% endif %}"
                                 aria-current="page" href="#" id="user-options" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user fa-lg"></i> My Account<span class="sr-only">(current page)</span>
+                                <i class="fas fa-user fa-lg" aria-hidden="true"></i> My Account<span class="sr-only">(current page)</span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
@@ -115,7 +115,7 @@
                         <li class="nav-item">
                             <a class="nav-link {% if total %}text-info {% else %}text-black{% endif %} {% if url_name == 'view_cart' %}active{% endif %}"
                                 aria-current="page" href=" {% url 'view_cart' %}">
-                                <i class="fas fa-shopping-bag fa-lg"></i> Cart
+                                <i class="fas fa-shopping-bag fa-lg" aria-hidden="true"></i> Cart
                                 <span class="sr-only">Shopping cart</span>
                                 <p class="my-0">
                                     {% if total %}
