@@ -6,3 +6,9 @@
     margin: 20px 0 10px -10px;
     color: var(--font-color);
 }
+
+#submit-message {
+    font-size: 1.1em;
+    width: 250px;
+    height: 40px;
+}

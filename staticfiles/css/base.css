@@ -67,7 +67,7 @@ header {
 
 .header-container {
     /* Push content down from header */
-    padding-top: 110px; 
+    padding-top: 60px; 
 }
 
 .navbar {
@@ -77,6 +77,12 @@ header {
 .active {
     border-bottom: 4px groove rgba(173, 216, 230, 0.712);
     font-weight: 500;
+}
+
+.dropdown-menu .custom-dropdown-item.active,
+.dropdown-menu .custom-dropdown-item:active {
+  background-color: rgba(173, 216, 230, 0.712) !important;
+  color: var(--font-color) !important;
 }
 
 #logo {
@@ -95,10 +101,44 @@ header {
 }
 
 /* index.html */
+
+.animated-banner {
+    padding: 10px;
+    text-align: center;
+    animation: 
+        slideDown 0.5s ease-out,
+        gradientGlow 2s ease-in-out; /* Use gradientGlow animation */
+    position: relative; /* Position relative for absolute positioning of the glow */
+    overflow: hidden; /* Hide overflow to keep the glow effect contained */
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes gradientGlow {
+    0% {
+        box-shadow: 0 0 0 rgba(255, 255, 0, 0);
+    }
+    50% {
+        box-shadow: 
+            0 0 20px rgba(255, 255, 0, 0.8),
+            0 0 40px rgba(255, 255, 0, 0.6),
+            0 0 60px rgba(255, 255, 0, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 0 rgba(255, 255, 0, 0);
+    }
+}
+
 .browse-tutorials-button {
-    background: lightblue;
-    color: var(--font-color);
-    border: 1px solid black;
     min-width: 260px;
 }
 
@@ -108,7 +148,7 @@ header {
     width: 100%;
 }
 
-/* Styles from walkthrough project */
+/* Buttons in main -----------------------------------------------------*/
 
 /* Scroll-to-top button on 
 products / tutorials_list, and 
@@ -126,8 +166,23 @@ about / custom_surfboards */
     cursor: pointer;
     text-decoration: none;
 }
+/* Other buttons */
 
-/* Buttons */
+.btn-blue {
+    background-color: rgba(101, 193, 207, 0.247) !important;
+    border: 1px solid black;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+.btn-blue:hover,
+.btn-blue:active,
+.btn-blue:focus {
+    background: rgba(87, 167, 179, 0.70) !important;
+    border: 1px solid black;
+    box-shadow: 1px -1px 7px 0 var(--blue);
+    transform: scale(1.02);
+}
 
 .btn-black {
     background: black;
@@ -138,18 +193,17 @@ about / custom_surfboards */
     background: white;
     color: black !important; 
     border: 1px solid black;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
 }
 
 .btn-outline-black:hover,
 .btn-outline-black:active,
 .btn-outline-black:focus {
-    background: black;
-    color: white !important;
+    box-shadow: 1px -1px 7px 0 hsla(188, 38%, 52%);
+    transform: scale(1.02);
 }
 
-.browse-tutorials:hover,
-.browse-tutorials:active,
-.browse-tutorials:focus,
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
@@ -157,8 +211,61 @@ about / custom_surfboards */
     color: white;
 }
 
+.btn-outline-secondary:hover,
+.btn-outline-secondary:active,
+.btn-outline-secondary:focus {
+    background: rgba(101, 193, 207, 0.247);
+    color: var(--font-color);
+}
+
 .border-black {
     border: 1px solid black !important;
+}
+
+.btn-shadow-yellow {
+    box-shadow: var(--yellow-box-shadow);
+    border: 0.2px solid var(--font-color);
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+.btn-shadow-yellow:hover,
+.btn-shadow-yellow:active,
+.btn-shadow-yellow:focus {
+    box-shadow: var(--blue-box-shadow);
+    border: 0.2px solid var(--font-color);
+    transform: scale(1.02);
+}
+
+.btn-newsletter {
+    font-size: 1.05em;
+    font-weight: 500;
+    color: var(--font-color);
+}
+
+/* Forms Django allauth ---------------------------------------------- */
+
+label[for="id_remember"] {
+    margin-right: 30px; 
+}
+
+input[type="submit"], button[type="submit"] {
+    background: rgba(101, 193, 207, 0.247);
+    padding: 5px;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:active,
+input[type="submit"]:focus,
+button[type="submit"]:hover,
+button[type="submit"]:active,
+button[type="submit"]:focus {
+    background: rgba(87, 167, 179, 0.70);
+    border: 1px solid black;
+    box-shadow: 1px -1px 7px 0 var(--blue);
+    transform: scale(1.02);
 }
 
 /* Toasts and messages -----------------------------------------------*/
@@ -182,18 +289,8 @@ about / custom_surfboards */
     margin-top: -0.8rem;
 }
 
-/* Forms Django allauth ---------------------------------------------- */
-
-label[for="id_remember"] {
-    margin-right: 30px; 
-}
-
-input[type="submit"], button[type="submit"] {
-    background: lightblue;
-    padding: 5px;
-}
-
 /* Footer -------------------------------------------------------------*/
+
 footer {
     /* Stick footer to bottom */
     flex-shrink: 0;
@@ -204,7 +301,36 @@ footer {
 }
 
 footer li a {
-    color: var(--font-color)
+    color: var(--font-color);
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.4s ease-in-out;
+}
+
+footer li a:hover,
+footer li a:active,
+footer li a:focus,
+footer li a.btn-newsletter:hover,
+footer li a.btn-newsletter:active,
+footer li a.btn-newsletter:focus {
+    color: var(--background-color);
+    background: var(--font-color);
+    text-decoration: none;
+    box-shadow: 1px -1px 7px 0 var(--blue);
+}
+
+footer li a.btn-newsletter {
+    font-size: 1.05em;
+    font-weight: 500;
+    transition: all 0.4s ease-in-out;
+    transform: scale(1);
+}
+
+footer li a.btn-newsletter:hover,
+footer li a.btn-newsletter:active,
+footer li a.btn-newsletter:focus {
+    font-size: 1.07em;
+    transform: scale(1.02);
 }
 
 /* Media Queries ------------------------------------------------------ */
@@ -215,8 +341,9 @@ footer li a {
     }
 }
 
-/* Stacks product details on xs screens */
+
 @media (max-width: 575.98px) {
+    /* Stack product details on small screens */
     .product-info-xs {
       display: flex;
       flex-direction: column;
@@ -224,6 +351,14 @@ footer li a {
     }
     .product-info-xs img {
       margin-bottom: 10px;
+    }
+
+    /* Stack buttons on small screens */
+    .button-group {
+        width: 100%;
+    }
+    .button-group .btn {
+        width: 100%;
     }
 }
 
@@ -248,7 +383,13 @@ footer li a {
       padding-left: 1rem;
       padding-right: 1rem;
     }
-  }
+
+    .header-container {
+        /* Push content down from header */
+        padding-top: 90px; 
+    }
+}
+
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
@@ -259,4 +400,4 @@ footer li a {
     #logo {
         width: 260px;
     }
-  }
+}

@@ -67,7 +67,7 @@ header {
 
 .header-container {
     /* Push content down from header */
-    padding-top: 110px; 
+    padding-top: 60px; 
 }
 
 .navbar {
@@ -101,6 +101,43 @@ header {
 }
 
 /* index.html */
+
+.animated-banner {
+    padding: 10px;
+    text-align: center;
+    animation: 
+        slideDown 0.5s ease-out,
+        gradientGlow 2s ease-in-out; /* Use gradientGlow animation */
+    position: relative; /* Position relative for absolute positioning of the glow */
+    overflow: hidden; /* Hide overflow to keep the glow effect contained */
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes gradientGlow {
+    0% {
+        box-shadow: 0 0 0 rgba(255, 255, 0, 0);
+    }
+    50% {
+        box-shadow: 
+            0 0 20px rgba(255, 255, 0, 0.8),
+            0 0 40px rgba(255, 255, 0, 0.6),
+            0 0 60px rgba(255, 255, 0, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 0 rgba(255, 255, 0, 0);
+    }
+}
+
 .browse-tutorials-button {
     min-width: 260px;
 }
@@ -181,9 +218,29 @@ about / custom_surfboards */
     color: var(--font-color);
 }
 
-/* Tutorials, ... */
 .border-black {
     border: 1px solid black !important;
+}
+
+.btn-shadow-yellow {
+    box-shadow: var(--yellow-box-shadow);
+    border: 0.2px solid var(--font-color);
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+.btn-shadow-yellow:hover,
+.btn-shadow-yellow:active,
+.btn-shadow-yellow:focus {
+    box-shadow: var(--blue-box-shadow);
+    border: 0.2px solid var(--font-color);
+    transform: scale(1.02);
+}
+
+.btn-newsletter {
+    font-size: 1.05em;
+    font-weight: 500;
+    color: var(--font-color);
 }
 
 /* Forms Django allauth ---------------------------------------------- */
@@ -326,7 +383,13 @@ footer li a.btn-newsletter:focus {
       padding-left: 1rem;
       padding-right: 1rem;
     }
-  }
+
+    .header-container {
+        /* Push content down from header */
+        padding-top: 90px; 
+    }
+}
+
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
@@ -337,4 +400,4 @@ footer li a.btn-newsletter:focus {
     #logo {
         width: 260px;
     }
-  }
+}

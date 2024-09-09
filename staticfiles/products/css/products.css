@@ -41,3 +41,8 @@ a:hover {
 .product-list h3 {
     font-size: 1em;
 }
+
+.btn-detail {
+    width: 200px;
+    height: 40px;
+}

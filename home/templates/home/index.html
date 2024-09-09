@@ -13,7 +13,18 @@
 ">
 {% endblock %}
 
+{% block head_title %}Home{% endblock head_title %}
+
 {% block content %}
+
+<div id="newsletter-banner" class="animated-banner mt-0">
+    <h2 class="h5">Subscribe to our newsletter and get a €10 welcome discount!</h2> 
+    <p>
+        Stay tuned for our <strong>Live Q&A Sessions</strong> and <strong>New Arrivals</strong>!
+    </p>
+    <a href="{% url 'subscribe' %}" class="btn btn-newsletter btn-shadow-yellow mt-3">Subscribe Now!</a>
+</div>
+
 <div class="bg-image">
     <div class="container h-100">
         <div class="row h-100">
