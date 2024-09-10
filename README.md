@@ -379,6 +379,8 @@ The project a custom HTML error page for status codes 403 (Forbidden), 404 (Not 
 
 To style the error pages during development, the error pages were rendered using temporary views and urls placed in the profile app for easy testing. The approach is documented in [TESTING.md](TESTING.md).
 
+![custom error pages](/documentation/feature-error-pages.png)
+
 #### Discount Code
 
 The discount code can be obtained by subscribing to the newsletter and for future features for campaigns. The discount code and the amount is displayed to the user in the shopping cart, and t. The user can remove the discount code, e.g. to enter a different discount code, if they wish to.
@@ -410,6 +412,8 @@ The user can read about the store owner and gain trust in the product. Links to 
 ![feature about us](/documentation/feature-about-us.png)
 
 ![feature about us links](/documentation/feature-about-us-links.png)
+
+![feature about us links 2](/documentation/feature-about-us-links-2.png)
 
 #### Collection of Surfboards
 
@@ -471,6 +475,10 @@ The user can remove the item from the cart, apply a discount code before continu
 
 ![feature cart](/documentation/feature-cart.png)
 
+The user cannot place more than one amount of the same tutorial in the shopping cart to avoid mistakes since it is a digital product. Mistakes can negatively impact UX and mean time consuming corrections of invoices for the store owner.
+
+![feature cart](/documentation/feature-cart-double.png)
+
 #### Contact Form
 
 If the user is logged in, the contact form is prefilled for their convenience with the data from their profile. The user can also enter a different email address or name if they wish to.
@@ -483,13 +491,27 @@ The contact form is designed to obtain necessary information from users interest
 
 #### User Profile
 
-The user can save the contact information used during the checkout process in their profile, which is stored in the database. 
+
+
+**CRUD functionality: Create** <br>
+The user can **create** an account by signing up. For convenience, the user can save the contact information used during the checkout process to their profile.
 
 ![Feature userprofile save info](/documentation/feature-userprofile-save.png)
 
-The user can view their order history, click on the link for a full order confirmation, and also update the personal information if they wish to.
+**CRUD functionality: Read** <br>
+The user can view their order history and click on the link to view the original full order confirmation. 
 
-![feature userprofile orderhistory](/documentation/feature-userprofile-orderhistory.png)
+![feature profile orderhistory](/documentation/feature-profile-orderhistory.png)
+
+**CRUD functionality: Update** <br>
+The user can manage their profile information by clicking the button. Here they can **update personal information**. The user can update their email address used for signing up here as well. 
+
+**CRUD functionality: Delete** <br>
+The user can **delete the user profile** permanently from the database. If they wish to delete the profile, they must confirm the deletion before proceeding.
+
+Of course, the user can **cancel** and return to user profile without taking any action.
+
+![feature profile manage](/documentation/feature-profile-manage.png)
 
 The user can access the links to the purchased tutorials in the userprofile.
 
@@ -503,9 +525,13 @@ The user receives an order confirmation with all details and a link to the purch
 
 #### Purchased Tutorial
 
-The user can click on the link in the order confirmation and view the tutorial hosted on youtube (not listed for public view).
+The user can click on the link in the order confirmation and view the tutorial hosted on youtube (not listed for public view). The title of each tutorial is displayed in the beginning and fades out while the video plays. The video itself is a similation for the tutorial.
 
-![feature watch purchased tutorial](/documentation/feature-purchased-tutorial.png)
+![feature watch purchased tutorial introduction](/documentation/feature-vid-building.png)
+
+![feature watch purchased tutorial shortboard](/documentation/feature-vid-shortboard.png)
+
+![feature watch purchased tutorial boyancy](/documentation/feature-vid-boyancy.png)
 
 #### Search Bar
 
