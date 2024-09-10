@@ -457,9 +457,31 @@ The user receives a confirmation displaying the **discount code** as well as a p
 
 ![feature-newsletter-confirmations](/documentation/feature-newsletter-confirmations.png)
 
-**Newsletters can be drafted, finalized, and sent** with status tracking directly from the admin interface.
-
 Please see a detailed description of data privacy in accordance with the GDPR, security measures for subscribing and unsubscribing, as well as the procedure and options to send the [newsletter in the communication section of the data base schema section](#anchor-newsletter).
+
+**Newsletters can be drafted, finalized, and sent** with status tracking directly from the admin interface using gmail API.
+
+**Promoting the Newsletter on the website**: 
+
+A link to the newsletter subscription page is prominently placed and can be accessed at any time with one click, without invasively blocking the users screen at any point. 
+
+In the page **footer**:
+
+![feature-newsletter-footer](/documentation/feature-newsletter-footer.png)
+
+As a **banner** on the homepage with subtle animation: 
+
+- The whole surface of the banner is clickable to navigate to the newsletter subscription page for improved UX, especially people with motor disabilities.
+
+![feature-newsletter-banner](/documentation/feature-newsletter-banner.png)
+
+As an item on the **navigation bar** under the section about us:
+
+![feature-newsletter-navbar](/documentation/feature-newsletter-navbar.png)
+
+As a **link** in the website's content where fitting:
+
+![feature-newsletter-prom](/documentation/feature-newsletter-prom.png)
 
 #### Resources
 
@@ -487,14 +509,16 @@ If the user is logged in, the contact form is prefilled for their convenience wi
 
 ![feature contact prefill](/documentation/feature-contact-prefill.png)
 
-The contact form is designed to obtain necessary information from users interested in buying a surfboard. The user can fill out the form and send it to the store owner, and choose to only fill out the required fields, name and email address. Displaying the information may spark interest in ordering or building a surfboard and skilled surfers will recognize the attention to detail and others may appreciate the guidance through the complicated process of calculating a surfboard’s parameters with regard to the surfer and intended use, which builds trust in the website and the products with users.
+The contact form is designed to obtain necessary information from users interested in buying a surfboard. The user can fill out the form and send it to the store owner, and choose to only fill out the required fields, name and email address. 
+
+Displaying the whole contact form at once, instead of toggling parts of it as needed, may spark interest in ordering or building a surfboard. Skilled surfers, who are are primary target group for selling custom made surfboards, will recognize the attention to detail and others may appreciate the guidance through the complicated process of calculating a surfboard’s parameters based on the surfer and its intended use. This can help build trust in the website and in the products.
 
 ![feature contact form](/documentation/feature-contact-form.png)
 
 #### User Profile
 
 **CRUD functionality: Create** <br>
-The user can **create** an account by signing up. For convenience, the user can save the contact information used during the checkout process to their profile.
+The user can **create** an account by signing up. For convenience, the user can save the personal information to their profile, which they entered during the checkout process when purchasing a tutorial.
 
 ![Feature userprofile save info](/documentation/feature-userprofile-save.png)
 

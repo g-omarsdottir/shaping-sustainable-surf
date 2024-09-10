@@ -17,12 +17,17 @@
 
 {% block content %}
 <div class="d-flex flex-column h-100">
-    <div id="newsletter-banner" class="animated-banner pt-4 pb-4">
-        <h2 class="h5">Subscribe to our newsletter and get a €10 welcome discount!</h2>
-        <p class="d-none d-sm-block">
-            Stay tuned for our <strong>Live Q&A Sessions</strong> and more!
-        </p>
-        <a href="{% url 'subscribe' %}" class="btn btn-newsletter btn-shadow-yellow">Subscribe Now!</a>
+    <div class="animated-banner pt-4 pb-4">
+        <a href="{% url 'subscribe' %}" role="button"
+        aria-labelledby="banner-heading banner-description" class="text-decoration-none">
+            <div class="banner-content">
+                <h2 id="banner-heading" class="h5 mr-4">Subscribe to our newsletter and get a €10 welcome discount!</h2>
+                <p id="banner-description" class="d-none d-md-block mr-4">
+                    Stay tuned for our <strong>Live Q&A Sessions</strong> and more!
+                </p>
+                <button type="button" class="btn btn-newsletter btn-shadow-yellow">Subscribe Now!</button>
+            </div>
+        </a>
     </div>
     
     <div class="bg-image d-flex align-items-center">
