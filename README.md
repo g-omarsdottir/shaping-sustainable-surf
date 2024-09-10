@@ -417,13 +417,15 @@ The user can read about the store owner and gain trust in the product. Links to 
 
 #### Collection of Surfboards
 
-The user can view a collection of previous work made by the store owner. Clicking anywhere on the card opens up a detailed view of the surfboard. Since these are included in the ecommerce purchasing system, the page is placed in the about us app.
+The user can view a collection of previous work made by the store owner. Clicking anywhere on the card opens up a detailed view of the surfboard. Since these custom surfboards are **not included in the ecommerce purchasing system**, the page is placed in the about us app to distinguish between the two types of products.
+
+A scroll-to-top button is placed at the bottom of the list view to return to the top of the page when clicked.
 
 ![feature surfboards](/documentation/feature-surfboards.png)
 
-A link to the contact page for enquiries and a button to return to the top of the page are displayed at the bottom of the detailed page.
+In the detailed view of a surfboard, the user can send an enquiry about the surfboard by clicking the link. The user is then forwarded to the contact page. Or to return to the overview, the user can click the button.
 
-![feature surfboard detail](/documentation/feature-tutorials-detail.png)
+![feature surfboard detail](/documentation/feature-surfboard-detail.png)
 
 #### Frequently asked questions (FAQ)
 
@@ -490,8 +492,6 @@ The contact form is designed to obtain necessary information from users interest
 ![feature contact form](/documentation/feature-contact-form.png)
 
 #### User Profile
-
-
 
 **CRUD functionality: Create** <br>
 The user can **create** an account by signing up. For convenience, the user can save the contact information used during the checkout process to their profile.
