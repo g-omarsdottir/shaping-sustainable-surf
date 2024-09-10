@@ -26,5 +26,7 @@ Your Team at Shaping Sustainable Surf
 
 _____________________________________
 
+Visit our website: {{ website_url }}
+
 Your personal link to unsubscribe:
 {{ unsubscribe_url }}

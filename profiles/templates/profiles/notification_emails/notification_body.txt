@@ -1,0 +1,16 @@
+Hi there surfer!
+
+This is to notify you that your email address has been successfully updated.
+
+Your previous email address: {{ old_email }}
+
+Your newly updated email address: {{ new_email }}
+
+We are sending this notification as a precaution to your previous and your new email address. If you did not make this change, please contact us immediately.
+
+Sincerely,
+
+Your Team at Shaping Sustainable Surf
+
+Contact us: {{ company_email }}
+Visit our website: {{ website_url }}

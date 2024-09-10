@@ -47,14 +47,19 @@ def send_subscribe_confirmation(subscriber):
         subscriber (Subscriber): Subscriber
     """
     from_email = settings.DEFAULT_FROM_EMAIL
+    website_url = settings.BASE_URL
+    
     # Get unsubscribe URL
     unsubscribe_url = generate_unsubscribe_url(subscriber)
+    
     # Get newsletter discount code
     newsletter_code = get_newsletter_discount_code()
+    
     # Email to subscriber
     confirmation_subject = render_to_string(
         "newsletter/emails/subscribe_confirmation_subject.txt",
-    )
+    ).strip()
+
     confirmation_body = render_to_string(
         "newsletter/emails/subscribe_confirmation_body.txt",
         {
@@ -62,8 +67,10 @@ def send_subscribe_confirmation(subscriber):
             "newsletter_code": newsletter_code,
             "company_email": from_email,
             "unsubscribe_url": unsubscribe_url,
+            "website_url": website_url,
         }
     )
+
     send_mail(
         confirmation_subject,
         confirmation_body,

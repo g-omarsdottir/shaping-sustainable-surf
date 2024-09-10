@@ -3,12 +3,73 @@ from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.urls import reverse
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
 
 from allauth.account.models import EmailAddress
 
 from .models import UserProfile
 from .forms import UserProfileForm
 from checkout.models import Order
+
+
+def send_notification(old_email, new_email, user, profile):
+    """
+    Function to send notification by email
+        if the email address of a user account is changed.
+    Notification is sent to the old and the new email address.
+    In case of a failure,
+        fails silently to avoid breaking the user experience.
+    Args:
+        old_email (str):
+            previous auth.EmailAddress. associated with the user account.
+        new_email (str):
+            new auth.EmailAddress. the user has changed to.
+        user (auth.User):
+            User instance of the account.
+        profile (profile.UserProfile):
+            The UserProfile instance associated with the user.
+    """
+    from_email = settings.DEFAULT_FROM_EMAIL
+    website_url = settings.BASE_URL
+
+    context = {
+        "old_email": old_email,
+        "new_email": new_email,
+        "profile": profile,
+        "user": user,
+        "company_email": from_email,
+        "website_url": website_url,
+    }
+
+    notification_subject = render_to_string(
+        "profiles/notification_emails/notification_subject.txt",
+        context
+    ).strip()
+
+    notification_body = render_to_string(
+        "profiles/notification_emails/notification_body.txt",
+        context
+    )
+
+    # Send to old email
+    send_mail(
+        subject=notification_subject,
+        message=notification_body,
+        from_email=from_email,
+        recipient_list=[old_email],
+        fail_silently=True,
+    )
+
+    # Send to new email
+    send_mail(
+        subject=notification_subject,
+        message=notification_body,
+        from_email=from_email,
+        recipient_list=[new_email],
+        fail_silently=True,
+    )
 
 
 @login_required
@@ -51,7 +112,8 @@ def update_profile(request):
 
             # Compare new email address with allauth User model
             new_email = form.cleaned_data["email"]
-            if new_email != request.user.email:
+            old_email = request.user.email
+            if new_email != old_email:
                 # Update User model email
                 request.user.email = new_email
                 request.user.save()
@@ -60,6 +122,9 @@ def update_profile(request):
                 EmailAddress.objects.filter(
                     user=request.user, primary=True
                 ).update(email=new_email)
+
+                # Send notification emails
+                send_notification(old_email, new_email, request.user, profile)
 
             messages.success(request, "Profile updated successfully")
             return redirect(reverse("profile"))

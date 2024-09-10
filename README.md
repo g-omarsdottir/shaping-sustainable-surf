@@ -383,7 +383,7 @@ To style the error pages during development, the error pages were rendered using
 
 #### Discount Code
 
-The discount code can be obtained by subscribing to the newsletter and for future features for campaigns. The discount code and the amount is displayed to the user in the shopping cart, and t. The user can remove the discount code, e.g. to enter a different discount code, if they wish to.
+The discount code can be obtained by subscribing to the newsletter and for future features in advertising campaigns. The discount code and the amount is displayed to the user in the shopping cart. The user can remove the discount code, e.g. to enter a different discount code, if they wish to.
 
 ![discount code](/documentation/discount-code.png)
 
@@ -528,16 +528,30 @@ The user can view their order history and click on the link to view the original
 ![feature profile orderhistory](/documentation/feature-profile-orderhistory.png)
 
 **CRUD functionality: Update** <br>
-The user can manage their profile information by clicking the button. Here they can **update personal information**. The user can update their email address used for signing up here as well. 
+The user can manage their profile information by clicking the button. Here they can **update personal information**. 
+
+If the email address associated with the user account is updated, the system implements a security measure:
+- Notification emails are sent to both the previous and new email addresses.
+- This serves as a precautionary step to alert the user of the change.
+- Users are advised to contact the store owner if they didn't initiate this change themselves.
+
+Security and User Experience Considerations: 
+- If the email sending process fails, the user is not notified of this failure. 
+- This design choice prevents disruption to the user experience and avoids potential confusion. 
+- Django allauth's password and authentication settings are configured to safeguard against brute force attacks.
+
+The notification system demonstrates respect for user data protection, enhances trust in the website's security measures, and provides an additional layer of account security.
+
+![feature profile manage](/documentation/feature-profile-manage.png)
 
 **CRUD functionality: Delete** <br>
 The user can **delete the user profile** permanently from the database. If they wish to delete the profile, they must confirm the deletion before proceeding.
 
-Of course, the user can **cancel** and return to user profile without taking any action.
+![feature profile delete](/documentation/feature-profile-delete.png)
 
-![feature profile manage](/documentation/feature-profile-manage.png)
+Of course, the user can **cancel** and return to their user profile without taking any action.
 
-The user can access the links to the purchased tutorials in the userprofile.
+The user can access the links to the **purchased tutorials in the userprofile**.
 
 ![feature user profile](/documentation/feature-profile.png)
 
