@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('contact-form');
     const integerFields = document.querySelectorAll('input[inputmode="numeric"]');
+    const messageField = document.getElementById('id_message');
 
     integerFields.forEach(field => {
         field.addEventListener('input', function () {
@@ -16,6 +17,29 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    if (messageField) {
+        const charCount = document.createElement('div');
+        charCount.id = 'char-count';
+        messageField.parentNode.insertBefore(charCount, messageField.nextSibling);
+
+        messageField.addEventListener('input', function() {
+            const maxLength = 3000;
+            const remaining = maxLength - this.value.length;
+            charCount.textContent = `${remaining} characters remaining`;
+            
+            if (remaining < 0) {
+                charCount.style.color = 'red';
+                this.setCustomValidity(`Message must be ${maxLength} characters or less.`);
+                this.classList.add('error');
+            } else {
+                charCount.style.color = '';
+                this.setCustomValidity('');
+                this.classList.remove('error');
+            }
+            this.reportValidity();
+        });
+    }
+
     form.addEventListener('submit', function(event) {
         let isValid = true;
         integerFields.forEach(field => {
@@ -27,7 +51,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 field.setCustomValidity('');
             }
         });
-
+        if (messageField && messageField.value.length > 3000) {
+            messageField.setCustomValidity('Message must be 3000 characters or less.');
+            messageField.reportValidity();
+            isValid = false;
+        }
         if (!isValid) {
             event.preventDefault();
         }
