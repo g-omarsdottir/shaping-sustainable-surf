@@ -148,7 +148,7 @@ header {
 }
 
 .bg-image {
-    background: url("/static/images/welcome.webp") no-repeat top center / cover;
+    background: url("https://res.cloudinary.com/deqkqler9/image/upload/v1726054492/sss-base/welcome.webp") no-repeat top center / cover;
     height: 100%;
     width: 100%;
 }

@@ -19,12 +19,10 @@
                 </a>
             </li>
             <li class="list-inline-item">
-                <a href="{% url 'subscribe' %}" role="button" class="btn btn-newsletter btn-md-lg rounded-0 d-none d-sm-inline">
-                    <i class="fa-solid fa-envelope"></i> Subscribe to Newsletter
-                </a>
-                <a href="{% url 'subscribe' %}" role="button" aria-label="Subscribe to our newsletter"
-                    class="btn btn-newsletter btn-md-lg rounded-0 d-sm-none">
-                    Newsletter
+                <a href="{% url 'subscribe' %}" role="button" class="btn btn-newsletter btn-md-lg rounded-0">
+                    <i class="fa-solid fa-envelope d-none d-sm-inline"></i> 
+                    <span class="d-sm-none">Newsletter</span>
+                    <span class="d-none d-sm-inline">Subscribe to Newsletter</span>
                 </a>
             </li>
         </ul>
