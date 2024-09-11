@@ -87,7 +87,7 @@ header {
 
 #logo {
     width: 180px;
-    height: auto;
+    height: 79px;
 }
 
 /* Main ---------------------------------------------------------------*/
@@ -309,6 +309,16 @@ button[type="submit"]:focus {
     transform: scale(1.02);
 }
 
+body .allauth-content a {
+    color: #0000FF !important;
+}
+
+body .allauth-content input[type="submit"], 
+body .allauth-content button[type="submit"] {
+    width: 150px;
+    height: auto;
+}
+
 /* Toasts and messages -----------------------------------------------*/
 
 .message-container {
@@ -379,9 +389,9 @@ footer li a.btn-newsletter:focus {
 @media (min-width: 360px) {
     #logo {
         width: 220px;
+        height: 79px;
     }
 }
-
 
 @media (max-width: 575.98px) {
     /* Stack product details on small screens */
@@ -440,5 +450,6 @@ footer li a.btn-newsletter:focus {
 
     #logo {
         width: 260px;
+        height: 94px;
     }
 }
