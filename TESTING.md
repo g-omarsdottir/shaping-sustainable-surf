@@ -376,6 +376,10 @@ Links to tutorial details raise a warning, although the aria-label is dynamic an
 
 ![Color contrast test](/documentation/color-contrast.png)
 
+For the link color, the color #0000FF was chosen on recommendation from the [WebAIM community blog](https://webaim.org/blog/wcag-2-0-and-link-colors/) and the [WebAIM Color Contrast Checker](https://webaim.org/resources/contrastchecker/), since the default link color does not meet the minimum contrast of accessibility guidelines. 
+
+![color-contrast-links](/documentation/color-contrast-links.png)
+
 ## Performance Testing
 
 Website performance was evaluated using the tool Google Lighthouse. This section presents the performance metrics, including load times, optimization opportunities, and the steps taken to enhance the site's speed and efficiency.

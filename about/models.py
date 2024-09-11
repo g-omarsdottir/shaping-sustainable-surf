@@ -16,7 +16,7 @@ class AboutUs(models.Model):
     image = ResizedImageField(
         size=[400, None],
         upload_to="sss-about/",
-        quality=75,
+        quality=85,
         force_format="webp",
         null=True, blank=True
     )
