@@ -226,7 +226,9 @@ def custom_404(request, exception):
 ```
 In `urls.py`:
 
+```python
 handler404 = 'profiles.views.custom_404'
+```
 
 To test: Navigate to any non-existent URL, e.g., /profile/test-404/
 
@@ -246,7 +248,9 @@ def test_403(request):
     raise PermissionDenied
 ```
 In `urls.py`:
+```python
 path('test-403/', views.test_403, name='test_403'),
+```
 
 To test: Navigate to /profile/test-403/
 
@@ -334,21 +338,27 @@ Testing was performed across multiple browsers to ensure cross-browser compatibi
 Accessibility testing was conducted to ensure the website is usable by people with various disabilities. This section covers the tools used for testing, such as screen readers and accessibility validators, and the improvements made based on the results.
 
 **Focusable Elements**
-After manual testing, the html element anchor was changed to semantically correct  button for scroll-to-top button to make it focusable. The button, just like other focusable elements on the website, has visual feedback and aria-label and sr-only explanation for its purpose when using a screen reader.
+After manual testing, the html element anchor was changed to semantically correct button for scroll-to-top button to make it focusable. The button, just like other focusable elements on the website, has visual feedback as well as `aria-label` and `sr-only` explanation for its purpose when using a screen reader.
 
 ![test-accessibility-button](/documentation/testing/test-accessibility-button.png)
 
 **Screen Readers**
-For improved UX when using a screen reader, aria-hidden="true" was added to all fontawesome icons.
+For improved UX when using a screen reader, `aria-hidden="true"` was added to all fontawesome icons.
+
+As recommended by the [W3C, Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/tutorials/images/decorative/), alternative text was removed from purely decorative images for links to scientific resources in the about app, to avoid audible clutter.
 
 ### WAVE Web Accessibility Evaluation Tool
 
 The [Wave WebAIM Validator](https://wave.webaim.org/) was used to validate web accessibility on the deployed website.
 
 Links to tutorial details raise a warning, although the aria-label is dynamic and descriptive. Changed "tutorial" to "product" in aria-label to match model field.
-
-- href="{% url 'tutorial_detail' product.id %}" aria-label="Click to view details for **tutorial**: {{ product.name }}" 
-- **changed to:** aria-label="Click to view details for **product**: {{ product.name }}"
+```python 
+href="{% url 'tutorial_detail' product.id %}" aria-label="Click to view details for **tutorial**: {{ product.name }}"
+```
+- **changed to:** 
+```python
+aria-label="Click to view details for **product**: {{ product.name }}"
+```
 
 ![test-accessibility-link](/documentation/testing/test-accessibility-link.png)
 
@@ -376,7 +386,7 @@ Links to tutorial details raise a warning, although the aria-label is dynamic an
 
 ![Color contrast test](/documentation/color-contrast.png)
 
-For the link color, the color #0000FF was chosen on recommendation from the [WebAIM community blog](https://webaim.org/blog/wcag-2-0-and-link-colors/) and the [WebAIM Color Contrast Checker](https://webaim.org/resources/contrastchecker/), since the default link color does not meet the minimum contrast of accessibility guidelines. 
+For the **link color**, the color #0000FF was chosen on recommendation from the [WebAIM community blog](https://webaim.org/blog/wcag-2-0-and-link-colors/) and the [WebAIM Color Contrast Checker](https://webaim.org/resources/contrastchecker/), since the default link color does not meet the minimum contrast of accessibility guidelines. 
 
 ![color-contrast-links](/documentation/color-contrast-links.png)
 

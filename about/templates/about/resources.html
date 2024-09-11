@@ -32,10 +32,10 @@
                     <div class="card-img-container">
                         {% if resource.image %}
                         <img src="{{ resource.image.url }}" class="card-img"
-                            alt="Image for resource {{ resource.name }}">
+                            alt="">
                         {% else %}
                         <img src="{% static 'images/noimage.webp' %}" class="card-img"
-                            alt="No image available resource {{ surfboard.name }}">
+                            alt="">
                         {% endif %}
                     </div>
                     <div class="card-body d-flex flex-column justify-content-between">
