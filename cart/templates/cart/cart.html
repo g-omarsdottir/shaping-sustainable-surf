@@ -7,11 +7,15 @@
 
 {% block head_title %}Shopping Cart{% endblock head_title %}
 
+{% block skip_link %}
+<a href="#sr-main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+{% endblock %}
+
 {% block content %}
 <div class="container mb-2">
     <div class="row">
         <div class="col-12">
-            <h1 class="h2">Shaping Sustainable Surf <br> Shopping Cart</h1>
+            <h1 id="sr-main-content" class="h2">Shaping Sustainable Surf <br> Shopping Cart</h1>
             <hr>
         </div>
     </div>

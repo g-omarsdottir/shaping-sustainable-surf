@@ -8,8 +8,13 @@
 ">
 {% endblock %}
 
+{% block head_title %}Subscribed Successful{% endblock head_title %}
+
+{% block skip_link %}
+<a href="#sr-main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+{% endblock %}
+
 {% block page_header %}
-<a href="#subscriber-form" class="sr-only sr-only-focusable">Skip to newsletter subscription form</a>
 <div class="container">
     <div class="row">
         <div class="col"></div>
@@ -21,7 +26,7 @@
 <div class="container mb-2">
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
-            <h1 class="text-center logo-font mb-4">Thank you for subscribing!</h1>
+            <h1 id="sr-main-content" class="text-center logo-font mb-4">Thank you for subscribing!</h1>
             <hr>
             <div class="mb-4">
                 {% if newsletter_code %}

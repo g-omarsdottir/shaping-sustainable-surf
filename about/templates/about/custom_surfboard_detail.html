@@ -20,9 +20,13 @@
 
 {% block head_title %}{{ surfboard.name }} - Custom Surfboard Details{% endblock head_title %}
 
+{% block skip_link %}
+<a href="#sr-main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+{% endblock %}
+
 {% block content %}
 <div class="container">
-    <h1 class="text-center mb-4">{{ surfboard.name }} - Eco-Friendly Custom Surfboard Details</h1>
+    <h1 id="sr-main-content" class="text-center mb-4">{{ surfboard.name }} - Eco-Friendly Custom Surfboard Details</h1>
     <div class="row justify-content-center">
         <div class="col-md-7 mb-4 mb-md-0">
             {% if surfboard.image %}

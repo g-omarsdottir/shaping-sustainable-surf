@@ -20,6 +20,10 @@
 
 {% block head_title %}About Us{% endblock head_title %}
 
+{% block skip_link %}
+<a href="#sr-main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+{% endblock %}
+
 {% block content %}
 <div class="container">
     <h1 class="text-center mb-4">About Us</h1>
@@ -34,7 +38,7 @@
                     </div>
                 </div>
                 {% endif %}
-                <div class="content-wrapper">
+                <div id="sr-main-content" class="content-wrapper">
                     {{ about_content.content|safe }}
                 </div>
                 <p class="small text-muted text-right">Last updated: {{ about_content.updated_at|date:"F d, Y" }}</p>

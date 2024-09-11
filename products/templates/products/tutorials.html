@@ -2,6 +2,10 @@
 {% load i18n %}
 {% load static %}
 
+{% block skip_link %}
+<a href="#sr-main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+{% endblock %}
+
 {% block extra_meta %}
 <meta name="description" content="
     measure surfboard length, surfboard volume calculator, choosing the right size surfboard, 
@@ -22,7 +26,7 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="text-center mb-4">Tutorials</h1>
+    <h1 id="sr-main-content" class="text-center mb-4">Tutorials</h1>
     <div class="row d-flex justify-content-center flex-wrap">
         {% for product in products %}
         <div class="col-md-6 col-lg-4 mb-4">

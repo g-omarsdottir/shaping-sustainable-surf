@@ -5,6 +5,12 @@
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
+{% block head_title %}Secure Checkout{% endblock head_title %}
+
+{% block skip_link %}
+<a href="#sr-main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -19,7 +25,7 @@
     <div class="row">
         <div class="col">
             <hr>
-            <h2 class="logo-font mb-4">Checkout</h2>
+            <h2 id="sr-main-content" class="logo-font mb-4">Checkout</h2>
             <hr>
         </div>
     </div>

@@ -20,9 +20,13 @@
 
 {% block head_title %}Custom Surfboards{% endblock head_title %}
 
+{% block skip_link %}
+<a href="#sr-main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+{% endblock %}
+
 {% block content %}
 <div class="container">
-    <h1 class="text-center mb-4">Our Collection of Custom-Made Sustainably Shaped Surfboards</h1>
+    <h1 id="sr-main-content" class="text-center mb-4">Our Collection of Custom-Made Sustainably Shaped Surfboards</h1>
     <div class="row d-flex justify-content-center">
         {% for surfboard in custom_surfboards %}
         <div class="col-sm-12 col-md-6 col-lg-4 mb-4 d-flex align-items-stretch">

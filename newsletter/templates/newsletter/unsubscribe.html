@@ -8,11 +8,19 @@
 ">
 {% endblock %}
 
+{% block head_title %}Unsubscribed Successful{% endblock head_title %}
+
+{% block skip_link %}
+<a href="#sr-main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+{% endblock %}
+
+{% block page_header %}
+
 {% block content %}
 <div class="container mb-2">
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
-            <h1 class="text-center logo-font mb-4">You are sucessfully unsubscribed!</h1>
+            <h1 id="sr-main-content" class="text-center logo-font mb-4">You are sucessfully unsubscribed!</h1>
             <hr>
             <p class="mb-4">You have been unsubscribed from our newsletter and your email address has been deleted from our database!</p>
             <p class="mb-4">You are welcome to sign up again at any time.</p>

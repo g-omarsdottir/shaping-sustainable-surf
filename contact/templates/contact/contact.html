@@ -19,8 +19,12 @@
 
 {% block head_title %}Contact{% endblock head_title %}
 
-{% block page_header %}
+{% block skip_link %}
+<a href="#sr-main-content" class="sr-only sr-only-focusable">Skip to main content</a>
 <a href="#contact-form" class="sr-only sr-only-focusable">Skip to contact form</a>
+{% endblock %}
+
+{% block page_header %}
 <div class="container">
     <div class="row">
         <div class="col"></div>
@@ -32,7 +36,7 @@
 <div class="container mb-2">
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
-            <h1 class="text-center logo-font mb-4">Contact Us</h1>
+            <h1 id="sr-main-content" class="text-center logo-font mb-4">Contact Us</h1>
             <p class="text-center">You can contact us at <a href="mailto:{{ company_email }}">{{ company_email }}</a> or
                 use the contact form below.</p>
             <hr>

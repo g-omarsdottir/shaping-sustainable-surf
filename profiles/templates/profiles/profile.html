@@ -7,11 +7,15 @@
 
 {% block head_title %}My Profile{% endblock head_title %}
 
+{% block skip_link %}
+<a href="#sr-main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+{% endblock %}
+
 {% block content %}
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1 class="h2 logo-font mb-4">{{ profile.full_name|default:profile.user.username }}'s Profile</h1>
+            <h1 id="sr-main-content" class="h2 logo-font mb-4">{{ profile.full_name|default:profile.user.username }}'s Profile</h1>
             <hr>
         </div>
     </div>

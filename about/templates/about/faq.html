@@ -14,9 +14,13 @@
 
 {% block head_title %}FAQs{% endblock head_title %}
 
+{% block skip_link %}
+<a href="#sr-main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+{% endblock %}
+
 {% block content %}
 <div class="container">
-    <h1 class="text-center mb-4">Frequently Asked Questions (FAQs)</h1>
+    <h1 id="sr-main-content" class="text-center mb-4">Frequently Asked Questions (FAQs)</h1>
     <hr>
     {% for faq in faqs %}
     <div class="row mb-4 mt-4">

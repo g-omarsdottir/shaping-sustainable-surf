@@ -20,9 +20,13 @@
 
 {% block head_title %}Product Detail{% endblock head_title %}
 
+{% block skip_link %}
+<a href="#sr-main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+{% endblock %}
+
 {% block content %}
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Tutorial Detail</h1>
+    <h1 id="sr-main-content" class="text-center mb-4">Tutorial Detail</h1>
     <div class="row">
         <article class="d-flex flex-wrap justify-content-center mb-4">
             <div class="col-12 col-lg-6 mb-3">

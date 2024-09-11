@@ -12,8 +12,14 @@
 <link rel="stylesheet" href="{% static 'newsletter/css/newsletter.css' %}">
 {% endblock %}
 
-{% block page_header %}
+{% block head_title %}Subscribe to Newsletter{% endblock head_title %}
+
+{% block skip_link %}
+<a href="#sr-main-content" class="sr-only sr-only-focusable">Skip to main content</a>
 <a href="#subscriber-form" class="sr-only sr-only-focusable">Skip to newsletter subscription form</a>
+{% endblock %}
+
+{% block page_header %}
 <div class="container">
     <div class="row">
         <div class="col"></div>
@@ -25,7 +31,7 @@
 <div class="container mb-2">
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
-            <h1 class="text-center logo-font mb-4">Shaping Sustainable Surf Newsletter</h1>
+            <h1 id="sr-main-content" class="text-center logo-font mb-4">Shaping Sustainable Surf Newsletter</h1>
             <hr>
             <h2 class="mt-4 mb-3">Sign up for our newsletter and get your discount code!</h2>
             <p>Be the first to know about new tutorials, groundbreaking news in new eco-friendly sustainable surfboard materials, and invites our live interactive Q&A sessions.</p>

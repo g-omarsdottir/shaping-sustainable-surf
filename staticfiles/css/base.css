@@ -49,6 +49,16 @@ main {
     color: var(--font-color) !important;
 }
 
+/* Accessibility screen reader */
+
+.sr-only-focusable:focus {
+    position: absolute;
+    z-index: 2000;
+    padding: 15px;
+    background: white;
+    color: black;
+}
+
 /* Style from Bulma */
 .icon {
     align-items: center;
@@ -325,7 +335,7 @@ body .allauth-content button[type="submit"] {
     position: fixed;
     top: 72px;
     right: 15px;
-    z-index: 99999999999;
+    z-index: 1000;
 }
 
 .custom-toast {
