@@ -27,10 +27,10 @@
         <div class="col-12 col-md-10 col-lg-8">
             <h1 class="text-center logo-font mb-4">Shaping Sustainable Surf Newsletter</h1>
             <hr>
-            <h2 class="h4 mt-4 mb-3">Sign up for our newsletter and get your discount code!</h2>
+            <h2 class="mt-4 mb-3">Sign up for our newsletter and get your discount code!</h2>
             <p>Be the first to know about new tutorials, groundbreaking news in new eco-friendly sustainable surfboard materials, and invites our live interactive Q&A sessions.</p>
 
-            <h3 class="h4 mt-4">Newsletter Subscription Form</h3>
+            <h3 class="mt-4">Newsletter Subscription Form</h3>
             <form action="{% url 'subscribe' %}" method="POST" id="subscriber-form">
                 {% csrf_token %}
                 {{ form|crispy }}
