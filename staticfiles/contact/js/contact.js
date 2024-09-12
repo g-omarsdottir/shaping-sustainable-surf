@@ -1,10 +1,11 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-form');
-    const integerFields = document.querySelectorAll('input[inputmode="numeric"]');
+    const integerFieldIds = ['id_board_length', 'id_board_volume', 'id_body_height', 'id_body_weight'];
+    const integerFields = integerFieldIds.map(id => document.getElementById(id)).filter(Boolean);
     const messageField = document.getElementById('id_message');
 
     integerFields.forEach(field => {
-        field.addEventListener('input', function () {
+        field.addEventListener('input', function() {
             if (this.value && !(/^\d*$/.test(this.value))) {
                 this.setCustomValidity('Please enter only numbers for this field.');
                 this.classList.add('error');
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const maxLength = 3000;
             const remaining = maxLength - this.value.length;
             charCount.textContent = `${remaining} characters remaining`;
-            
+
             if (remaining < 0) {
                 charCount.style.color = 'red';
                 this.setCustomValidity(`Message must be ${maxLength} characters or less.`);

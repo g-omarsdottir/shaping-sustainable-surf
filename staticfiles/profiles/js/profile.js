@@ -14,12 +14,11 @@ $(document).ready(function() {
     });
 });
 
-// Additional validation for email and postcode field for improved UX
+// Additional validation for email field for improved UX
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('profile-update-form');
     const emailField = document.getElementById('id_email');
     const originalEmail = form.getAttribute('data-user-email');
-    const postcodeField = document.getElementById('id_default_postcode');
 
     // Function to restore original email
     function restoreOriginalEmail() {
@@ -59,40 +58,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Function to validate postcode
-    function validatePostcode() {
-        const currentValue = postcodeField.value.trim();
-        if (currentValue !== '' && !/^\d+$/.test(currentValue)) {
-            postcodeField.setCustomValidity('Enter only numbers for postal code');
-            postcodeField.classList.add('error');
-            postcodeField.reportValidity();
-            
-            // Add timeout delay before removing the error state
-            setTimeout(() => {
-                postcodeField.setCustomValidity('');
-                postcodeField.classList.remove('error');
-            }, 2000); // 2 seconds delay
-            
-            return false;
-        } else {
-            postcodeField.setCustomValidity('');
-            postcodeField.classList.remove('error');
-            return true;
-        }
-    }
-
     // Add event listeners
     emailField.addEventListener('blur', restoreOriginalEmail);
-    postcodeField.addEventListener('input', validatePostcode);
 
     form.addEventListener('submit', function(event) {
         // Prevent default submission
         event.preventDefault();
 
         const isEmailValid = validateEmail();
-        const isPostcodeValid = validatePostcode();
 
-        if (isEmailValid && isPostcodeValid) {
+        if (isEmailValid) {
             this.submit();
         }
     });

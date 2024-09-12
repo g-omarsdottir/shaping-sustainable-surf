@@ -17,7 +17,6 @@ class ContactForm(forms.ModelForm):
             attrs={
                 "type": "text",
                 "pattern": "[0-9]*",
-                "inputmode": "numeric"
             }
         ),
         required=False,
@@ -27,7 +26,6 @@ class ContactForm(forms.ModelForm):
             attrs={
                 "type": "text",
                 "pattern": "[0-9]*",
-                "inputmode": "numeric"
             }
         ),
         required=False,
@@ -37,7 +35,6 @@ class ContactForm(forms.ModelForm):
             attrs={
                 "type": "text",
                 "pattern": "[0-9]*",
-                "inputmode": "numeric"
             }
         ),
         required=False,
@@ -47,7 +44,7 @@ class ContactForm(forms.ModelForm):
             attrs={
                 "type": "text",
                 "pattern": "[0-9]*",
-                "inputmode": "numeric"
+                "class": "integer-input",
             }
         ),
         required=False,
