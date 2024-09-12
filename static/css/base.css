@@ -157,12 +157,6 @@ header {
     color: var(--font-color);
 }
 
-.bg-image {
-    background: url("https://res.cloudinary.com/deqkqler9/image/upload/v1726054492/sss-base/welcome.webp") no-repeat top center / cover;
-    height: 100%;
-    width: 100%;
-}
-
 .browse-tutorials-button {
     min-width: 260px;
     font-weight: 500;

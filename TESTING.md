@@ -194,8 +194,6 @@ A warning was reported for the input validation for browser compatibility. Atten
 ![html-cart](/documentation/validator/html-cart.png)
 </details>
 
-
-
 ### CSS
 
 The official [World Wide Web Consortium (W3C) validator for CSS](https://jigsaw.w3.org/css-validator/validator) was used to validate the CSS style sheet code. The code passed through the validator with no issues.
@@ -318,11 +316,11 @@ The following Epics (Feature Area) & User Stories all passed testing without iss
 | Communication | Newsletter | As a USER, I can sign up for a newsletter so that I can get notifications on new tutorials and Q&A Sessions. | A newsletter sign-up field is clearly displayed. |
 | User Account | Sign Up for User Account | As a USER, I can sign up for a new user account so that I can create a user profile and have an overview of my purchases and save my personal information. | A Sign Up link is prominently displayed and leads to a user-friendly sign-up form. |
 | User Account | Update User Profile | As a USER, I can update my user profile so that I can change or correct my personal details. | Signed-in users can update their personal details. |
-| User Account | Delete User Account | As a USER, I can delete my user account so that I can delete all my information and reviews are removed from the website. | Users can delete their account, which also removes their reviews. |
-| Review & Rate Management | Rate a Product | As a USER, I can rate the product so that I can express my opinion with a score without having to write anything. | Logged-in users who have purchased the product can rate it. |
-| Product Management | Add a Product | As a STORE OWNER, I can add a product so that I can expand my product offer. | Superusers or staff can add new products through a form. |
-| User Experience | Custom Error page | As a USER, I want to see a user-friendly custom error page when I encounter an error based on forbidden access or object not found so that I can understand why the error occurred and feel safe. | Custom 403 and 404 error pages are displayed when appropriate. |
-
+| User Account | Delete User Account | As a USER, I can delete my user account so that I can delete all my information. | Signed-in users can delete their account and personal information from the website. |
+| Product Management | Add a Product | As a STORE OWNER, I can add a product so that I can expand my product offer. | Superusers or staff can add new products. Products can be published immediately or saved as a draft for a future publishing date. |
+| Product Management | Update a Product | As a STORE OWNER, I can update a product so that I can update details with minimum effort. | Superusers or staff can update products. |
+| Product Management | Delete a Product | As a STORE OWNER, I can delete a product from my product offer. | Superusers or staff can delete products. |
+| User Experience | Custom Error page | As a USER, I want to see a user-friendly custom error page when I encounter an error based on forbidden access or object not found so that I can understand why the error occurred and feel safe. | Custom 403, 404, and 500 error pages are displayed when appropriate. |
 
 ## Responsiveness Testing
 

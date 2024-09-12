@@ -25,6 +25,18 @@
 {% block head_title %}Tutorials{% endblock head_title %}
 
 {% block content %}
+<div class="animated-banner pt-4 pb-4">
+    <a href="{% url 'subscribe' %}" role="button" aria-labelledby="banner-heading banner-description"
+        class="text-decoration-none">
+        <div class="banner-content">
+            <p id="banner-heading" class="mr-4">Subscribe to our newsletter and get a €10 welcome discount!</p>
+            <p id="banner-description" class="d-none d-md-block mr-4">
+                Stay tuned for our <strong>Live Q&A Sessions</strong> and more!
+            </p>
+            <button type="button" class="btn btn-newsletter btn-shadow-yellow">Subscribe Now!</button>
+        </div>
+    </a>
+</div>
 <div class="container">
     <h1 id="sr-main-content" class="text-center mb-4">Tutorials</h1>
     <div class="row d-flex justify-content-center flex-wrap">
