@@ -5,6 +5,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Product, Category, Subcategory
+from newsletter.models import Subscriber
 
 
 def tutorials_list(request):
@@ -12,6 +13,7 @@ def tutorials_list(request):
     A view to display overview of tutorials.
     Objects to display from model Product
         are filtered by category and status.
+    Conditional display of banner for newsletter registration.
     """
 
     template_name = "products/tutorials.html"
@@ -82,13 +84,26 @@ def tutorials_list(request):
         if sort and direction else "None_None"
     )
 
-    # So products will be available in the template
+    # Show newsletter registration banner
+    show_banner = True
+
+    if request.user.is_authenticated:
+        # Check if the logged-in user is a subscriber
+        try:
+            Subscriber.objects.get(email=request.user.email)
+            show_banner = False
+        except Subscriber.DoesNotExist:
+            show_banner = True
+    else:
+        show_banner = True
+
     context = {
         "products": products,
         "search_term": query,
         "current_categories": categories,
         "current_subcategories": subcategories,
         "current_sorting": current_sorting,
+        "show_banner": show_banner,
     }
     return render(request, "products/tutorials.html", context)
 

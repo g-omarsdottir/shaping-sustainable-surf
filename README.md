@@ -461,27 +461,37 @@ Please see a detailed description of data privacy in accordance with the GDPR, s
 
 **Newsletters can be drafted, finalized, and sent** with status tracking directly from the admin interface using gmail API.
 
-**Promoting the Newsletter on the website**: 
+##### Promoting the Newsletter on the website: 
 
-A link to the newsletter subscription page is prominently placed and can be accessed at any time with one click, without invasively blocking the users screen at any point. 
+The newsletter subscription page is prominently linked and can be accessed at any time with one click, without invasively blocking the users screen at any point for imporoved UX. 
 
-In the page **footer**:
+- **As a link in the footer**:
 
-![feature-newsletter-footer](/documentation/feature-newsletter-footer.png)
+  ![feature-newsletter-footer](/documentation/feature-newsletter-footer.png)
 
-As a **banner** on the homepage with subtle animation: 
+- As a **banner** on the tutorials page: 
 
-- The whole surface of the banner is clickable to navigate to the newsletter subscription page for improved UX, especially people with motor disabilities.
+  - **Subtle animation:** slow slide down with a gradient glow that fades.
 
-![feature-newsletter-banner](/documentation/feature-newsletter-banner.png)
+    ![feature-newsletter-banner](/documentation/feature-newsletter-banner.png)
 
-As an item on the **navigation bar** under the section about us:
+  - **Conditional display:** 
+    - If a registered user has already subscribed to the newsletter, the banner is not displayed to avoid visual clutter (products / views.py). 
+    - Banner text: Subheading only displayed on medium screens and up.
 
-![feature-newsletter-navbar](/documentation/feature-newsletter-navbar.png)
+    ![feature-newsletter-subheading](/documentation/feature-newsletter-subheading.png)
 
-As a **link** in the website's content where fitting:
+  - **Accessibility:** The whole surface of the banner is clickable to navigate to the newsletter subscription page for improved UX, especially people with motor disabilities.
 
-![feature-newsletter-prom](/documentation/feature-newsletter-prom.png)
+
+
+- As an item on the **navigation bar** under the section about us:
+
+  ![feature-newsletter-navbar](/documentation/feature-newsletter-navbar.png)
+
+- As a **link** in the website's content where fitting:
+
+  ![feature-newsletter-prom](/documentation/feature-newsletter-prom.png)
 
 #### Resources
 
