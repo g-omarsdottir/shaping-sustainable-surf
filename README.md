@@ -483,8 +483,6 @@ The newsletter subscription page is prominently linked and can be accessed at an
 
   - **Accessibility:** The whole surface of the banner is clickable to navigate to the newsletter subscription page for improved UX, especially people with motor disabilities.
 
-
-
 - As an item on the **navigation bar** under the section about us:
 
   ![feature-newsletter-navbar](/documentation/feature-newsletter-navbar.png)
