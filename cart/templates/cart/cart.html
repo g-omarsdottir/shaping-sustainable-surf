@@ -47,7 +47,7 @@
                             {% endif %}
                         </td>
 
-                        <!-- Display image, product name and remove-link with flex column properties to stack on x-small screens using custom css -->
+                        <!-- Display image, product name and remove-link with flex column properties to stack on x-small screens -->
                         <td class="py-3 text-wrap product-info-xs">
                             <div class="d-sm-none">
                                 {% if item.product.image %}
@@ -59,7 +59,7 @@
                                 {% endif %}
                             </div>
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <a class="remove-item text-danger d-sm-none nowrap" id="remove_{{ item.item_id }}"
+                            <a class="remove-item text-danger d-sm-none nowrap" id="remove_mobile_{{ item.item_id }}"
                                 role="button" aria-label="Remove {{ item.product.name }} from cart">
                                 <small><i class="fa-solid fa-xmark" aria-hidden="true"></i> Remove</small>
                             </a>
@@ -68,7 +68,7 @@
                         <!-- Display remove link in a row on screen sizes small and up -->
                         <td class="py-3 d-none d-sm-table-cell">
                             <a href="{% url 'remove_from_cart' item.item_id %}" class="remove-item text-danger nowrap"
-                                id="remove_{{ item.item_id }}" role="button"
+                                id="remove_desktop_{{ item.item_id }}" role="button"
                                 aria-label="Remove {{ item.product.name }} from cart">
                                 <small><i class="fa-solid fa-xmark" aria-hidden="true"></i>
                                     Remove
@@ -100,7 +100,7 @@
                     {% endif %}
 
                     <tr>
-                        <td colspan="5" class="text-right">
+                        <td colspan="4" class="text-right">
                             <p>
                                 Total: €{{ total|floatformat:2 }}
                             </p>
@@ -109,7 +109,7 @@
 
                     {% if discount_amount > 0 %}
                     <tr>
-                        <td colspan="5" class="text-right text-muted">
+                        <td colspan="4" class="text-right text-muted">
                             <p>
                                 Discount Applied: - €{{ discount_amount }}
                             </p>
@@ -118,7 +118,7 @@
                     {% endif %}
 
                     <tr>
-                        <td colspan="5" class="text-right">
+                        <td colspan="4" class="text-right">
                             <h3><strong>
                                     Grand Total: €{{ grand_total|floatformat:2 }}
                                 </strong></h3>
@@ -126,7 +126,7 @@
                     </tr>
 
                     <tr>
-                        <td colspan="5">
+                        <td colspan="4">
                             <!-- Form to enter discount code -->
                             <form method="POST" action="{% url 'view_cart' %}">
                                 {% csrf_token %}
@@ -141,7 +141,7 @@
                     </tr>
 
                     <tr>
-                        <td colspan="5" class="text-right">
+                        <td colspan="4" class="text-right">
                             <a href="{% url 'tutorials_list' %}" role="button"
                                 class="btn btn-outline-black rounded-0 btn-lg mb-2">
                                 <span class="icon">

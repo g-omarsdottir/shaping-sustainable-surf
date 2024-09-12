@@ -45,6 +45,10 @@ select option[value=""] {
     color: var(--aubergine);
 }
 
+.form-check-label > a {
+    color: #0000FF !important;
+}
+
 #payment-form .form-control,
 #card-element {
     color: #000;
@@ -62,7 +66,8 @@ select option[value=""] {
 /* Loading spinner during payment processing--------------------------*/
 
 .loading-spinner {
-	display: flex;
+	font-size: 2.5rem;
+    display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;

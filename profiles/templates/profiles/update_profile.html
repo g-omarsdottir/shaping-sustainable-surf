@@ -26,9 +26,9 @@
                 {% csrf_token %}
                 {{ form|crispy }}
                 <div class="button-group d-flex flex-column flex-sm-row justify-content-between align-items-stretch mt-3">
-                    <a href="{% url 'delete_profile' %}" type="button" class="btn btn-delete rounded-0 text-uppercase mb-2 mb-sm-0 order-3 order-sm-1">Delete Profile</a>
+                    <a href="{% url 'delete_profile' %}" role="button" class="btn btn-delete rounded-0 text-uppercase mb-2 mb-sm-0 order-3 order-sm-1">Delete Profile</a>
                     <div class="d-flex flex-column flex-sm-row ml-sm-auto">
-                        <a href="{% url 'profile' %}" type="button" class="btn btn-warning btn-cancel rounded-0 text-uppercase mb-2 mb-sm-0 mr-sm-2 order-2">Cancel Update</a>
+                        <a href="{% url 'profile' %}" role="button" class="btn btn-warning btn-cancel rounded-0 text-uppercase mb-2 mb-sm-0 mr-sm-2 order-2">Cancel Update</a>
                         <button type="submit" class="btn btn-update rounded-0 text-uppercase mb-2 mr-2 mb-sm-0 order-1">Update Information</button>
                     </div>
                 </div>
@@ -40,5 +40,5 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript" src="{% static 'profiles/js/profile.js' %}"></script>
+<script src="{% static 'profiles/js/profile.js' %}"></script>
 {% endblock %}

@@ -37,9 +37,9 @@ class SubscriberForm(forms.ModelForm):
                 "Yes, send me newsletter emails! "
                 "I understand my data will be stored until I unsubscribe. <br>"
                 "Check out our "
-                "<a href='#' %}' data-toggle='modal' "
+                "<a href='#' data-toggle='modal' "
                 "data-target='#disclaimerModal'>"
-                "Disclaimer</a> and <a href='#' %}' "
+                "Disclaimer</a> and <a href='#' "
                 "data-toggle='modal' data-target='#privacyPolicyModal'>"
                 "Privacy Policy</a> for more information."
             )
