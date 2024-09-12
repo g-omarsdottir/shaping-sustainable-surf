@@ -46,7 +46,7 @@
                 <div class="col-2 mb-1">
                     <a href="{% url 'tutorial_detail' item.product.id %}">
                         {% if item.product.image %}
-                        <img class="w-100" src="{{ item.product.image.url }}" alt="Image of {{ product.name }}">
+                        <img class="w-100" src="{{ item.product.image.url }}" alt="Image of product {{ item.product.name }}">
                         {% else %}
                         <img class="w-100" src="{% static 'images/noimage.webp' %}" alt="No image yet for this product">
                         {% endif %}
@@ -113,7 +113,7 @@
                 <fieldset class="px-3">
                     <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
                     <!-- A Stripe card element will go here -->
-                    <div class="mb-3" id="card-element" aria-label="Credit or debit card"></div>
+                    <div class="mb-3" id="card-element"></div>
 
                     <!-- Used to display form errors -->
                     <div class="mb-3 text-danger" id="card-errors" role="alert"></div>

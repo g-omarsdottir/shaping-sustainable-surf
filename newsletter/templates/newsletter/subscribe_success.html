@@ -8,22 +8,18 @@
 ">
 {% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'newsletter/css/newsletter.css' %}">
+{% endblock %}
+
 {% block head_title %}Subscribed Successful{% endblock head_title %}
 
 {% block skip_link %}
 <a href="#sr-main-content" class="sr-only sr-only-focusable">Skip to main content</a>
 {% endblock %}
 
-{% block page_header %}
-<div class="container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
-
 {% block content %}
-<div class="container mb-2">
+<div class="container header-container mb-2">
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
             <h1 id="sr-main-content" class="text-center logo-font mb-4">Thank you for subscribing!</h1>

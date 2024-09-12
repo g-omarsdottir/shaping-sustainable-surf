@@ -52,7 +52,7 @@
                             <div class="d-sm-none">
                                 {% if item.product.image %}
                                 <img class="img-fluid rounded mb-2" src="{{ item.product.image.url }}"
-                                    alt="image for product {{ product.name }}">
+                                    alt="image for product {{ item.product.name }}">
                                 {% else %}
                                 <img src="{% static 'images/noimage.webp' %}" class="img-fluid rounded mb-2"
                                     alt="No image yet for this product">
