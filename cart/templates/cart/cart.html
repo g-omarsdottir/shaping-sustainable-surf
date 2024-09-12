@@ -15,7 +15,7 @@
 <div class="container mb-2">
     <div class="row">
         <div class="col-12">
-            <h1 id="sr-main-content" class="h2">Shaping Sustainable Surf <br> Shopping Cart</h1>
+            <h1 id="sr-main-content">Shopping Cart</h1>
             <hr>
         </div>
     </div>
@@ -87,8 +87,8 @@
                     <!-- Display discount code if present -->
                     {% if discount_amount > 0 %}
                     <tr>
-                        <td class="pt-5 py-3">
-                            <p class="my-0 ml-2 mb-3 text-muted">Discount Code: {{ discount_code }}</p>
+                        <td class="py-3">
+                            <p class="my-0 ml-2 text-muted">Discount Code: {{ discount_code }}</p>
                             <a href="{% url 'remove_discount_code' %}" role="button" class="remove-item text-danger">
                                 <small><i class="fa-solid fa-xmark" aria-hidden="true"></i>
                                     Remove Discount Code
@@ -100,8 +100,8 @@
                     {% endif %}
 
                     <tr>
-                        <td colspan="5" class="pt-3 text-right">
-                            <p class="mt-1">
+                        <td colspan="5" class="text-right">
+                            <p>
                                 Total: €{{ total|floatformat:2 }}
                             </p>
                         </td>
@@ -109,8 +109,8 @@
 
                     {% if discount_amount > 0 %}
                     <tr>
-                        <td colspan="5" class="pt-1 text-right text-muted">
-                            <p class="pt-1">
+                        <td colspan="5" class="text-right text-muted">
+                            <p>
                                 Discount Applied: - €{{ discount_amount }}
                             </p>
                         </td>
@@ -118,21 +118,21 @@
                     {% endif %}
 
                     <tr>
-                        <td colspan="5" class="pt-1 text-right">
-                            <h3 class="mt-1"><strong>
+                        <td colspan="5" class="text-right">
+                            <h3><strong>
                                     Grand Total: €{{ grand_total|floatformat:2 }}
                                 </strong></h3>
                         </td>
                     </tr>
 
                     <tr>
-                        <td colspan="5" class="pt-5 pb-3">
+                        <td colspan="5">
                             <!-- Form to enter discount code -->
                             <form method="POST" action="{% url 'view_cart' %}">
                                 {% csrf_token %}
                                 <div id="discount-field">
                                     {{ discount_form |crispy }}
-                                    <button class="btn btn-outline-black rounded-0" type="submit">
+                                    <button class="btn btn-outline-black rounded-0 mb-2" type="submit">
                                         Apply Discount
                                     </button>
                                 </div>

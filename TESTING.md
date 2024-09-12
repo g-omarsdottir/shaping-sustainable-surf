@@ -345,6 +345,15 @@ After manual testing, the html element anchor was changed to semantically correc
 **Screen Readers**
 For improved UX when using a screen reader, `aria-hidden="true"` was added to all fontawesome icons.
 
+Skip links were added to all pages for easy navigation while using a screen reader. If there is a form present, the user has the option to skip to the main content or skip to the form.
+
+```html	
+{% block skip_link %}
+<a href="#sr-main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+<a href="#subscriber-form" class="sr-only sr-only-focusable">Skip to newsletter subscription form</a>
+{% endblock %}
+```
+
 As recommended by the [W3C, Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/tutorials/images/decorative/), alternative text was removed from purely decorative images for links to scientific resources in the about app, to avoid audible clutter.
 
 ### WAVE Web Accessibility Evaluation Tool
