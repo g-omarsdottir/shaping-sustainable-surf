@@ -102,44 +102,26 @@ class StripeWH_Handler:
         attempt = 1
         while attempt <= 5:
             try:
-                order = Order.objects.filter(
-                    Q(full_name__iexact=billing_details.name),
-                    Q(user_profile=profile),
-                    Q(email__iexact=billing_details.email),
-                    Q(phone_number__iexact=billing_details.phone),
-                    Q(country__iexact=billing_details.address.country),
-                    Q(postcode__iexact=billing_details.address.postal_code),
-                    Q(town_or_city__iexact=billing_details.address.city),
-                    Q(street_address1__iexact=billing_details.address.line1),
-                    Q(street_address2__iexact=billing_details.address.line2),
-                    Q(county__iexact=billing_details.address.state),
-                    Q(grand_total=grand_total),
-                    Q(original_cart=cart),
-                    Q(stripe_pid=pid),
-                ).latest("date")
+                order = Order.objects.get(
+                    full_name__iexact=billing_details.name,
+                    user_profile=profile,
+                    email__iexact=billing_details.email,
+                    phone_number__iexact=billing_details.phone,
+                    country__iexact=billing_details.address.country,
+                    postcode__iexact=billing_details.address.postal_code,
+                    town_or_city__iexact=billing_details.address.city,
+                    street_address1__iexact=billing_details.address.line1,
+                    street_address2__iexact=billing_details.address.line2,
+                    county__iexact=billing_details.address.state,
+                    grand_total=grand_total,
+                    original_cart=cart,
+                    stripe_pid=pid,
+                )
                 order_exists = True
                 break
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
-            except Order.MultipleObjectsReturned:
-                order = Order.objects.filter(
-                    Q(full_name__iexact=billing_details.name),
-                    Q(user_profile=profile),
-                    Q(email__iexact=billing_details.email),
-                    Q(phone_number__iexact=billing_details.phone),
-                    Q(country__iexact=billing_details.address.country),
-                    Q(postcode__iexact=billing_details.address.postal_code),
-                    Q(town_or_city__iexact=billing_details.address.city),
-                    Q(street_address1__iexact=billing_details.address.line1),
-                    Q(street_address2__iexact=billing_details.address.line2),
-                    Q(county__iexact=billing_details.address.state),
-                    Q(grand_total=grand_total),
-                    Q(original_cart=cart),
-                    Q(stripe_pid=pid),
-                ).order_by('-date').first()
-                order_exists = True
-                break
         if order_exists:
             self._unlock_video_for_user(user_id)
             self._send_confirmation_email(order)
