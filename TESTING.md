@@ -527,6 +527,7 @@ This section lists significant bugs that were encountered during development and
 | 404 Error for unsubscribe_url | Unsubscribe_url not working in production environment due to a double slash between BASE_URL and unsubscribe_token. | reverse() function in the generate_unsubscribe_url view adds a slash at the beginning of the relative URL. Remove trailing slash from BASE_URL set in settings.py. | Solved |
 | profile-update-form           | Form submission failed due to undefined validation of email field. | Add return statement true to valid email field condition.                                       | Solved |
 | Footer not sticking to bottom | Footer not sticking to bottom on index.html with little content.   | Add flex-grow-1 to main section in base.html and flex-box property to wrapper div on index.html | Solved |
+| Duplicate orders | Duplicate orders with the same stripe payment id were created for each checkout process. | Change check in webhook_handler.py of existing orders from `Order.objects.filter()` by database queryset to `Order.objects.get()` by single object retrieveal. | Solved |
 
 ## Programs Used
 
