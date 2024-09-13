@@ -99,7 +99,7 @@ def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
-    order_form = OrderForm()
+    order_form = OrderForm()  # Not in source code
 
     if request.method == "POST":
         cart = request.session.get("cart", {})
@@ -119,18 +119,17 @@ def checkout(request):
         order_form = OrderForm(form_data)
 
         if order_form.is_valid():
-            try:
-                order = order_form.save(commit=False)
-                pid = request.POST.get("client_secret").split("_secret")[0]
-                order.stripe_pid = pid
-                order.original_cart = json.dumps(cart)
-                order.save()
-            except Exception as e:
-                messages.error(
-                    request, "There was an error processing your order. "
-                    "Please try again."
-                )
-                return redirect(reverse("checkout"))
+
+            order = order_form.save(commit=False)
+            pid = request.POST.get("client_secret").split("_secret")[0]
+            order.stripe_pid = pid
+            order.original_cart = json.dumps(cart)
+            order.save()
+
+            # Source code: "for item_id, item_data in bag.items():"
+            # Here: "for item_id, quantity in cart.items():" below, after discount code
+
+            # Not in source code: Discount code
 
             # Get the discount information from the cart contents
             current_cart = cart_contents(request)
@@ -146,6 +145,8 @@ def checkout(request):
                     )
                     request.session.pop("discount_code", None)
             order.save()
+            
+            # Create order items
             for item_id, quantity in cart.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -208,6 +209,7 @@ def checkout(request):
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
+            # Not in source code: automatic_payment_methods
             automatic_payment_methods={
                 "enabled": True,
             },
@@ -220,7 +222,7 @@ def checkout(request):
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
-                    "full_name": profile.user.get_full_name(),
+                    "full_name": profile.default_full_name,
                     "email": profile.user.email,
                     "phone_number": profile.default_phone_number,
                     "country": profile.default_country,
