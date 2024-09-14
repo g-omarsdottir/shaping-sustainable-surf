@@ -20,7 +20,7 @@ def view_cart(request):
         if discount_form.is_valid():
             code = discount_form.cleaned_data["code"]
             try:
-                discount = DiscountCode.objects.get(code=code, active=True)
+                discount = DiscountCode.objects.get(code=code, active="Yes")
                 request.session["discount_code"] = discount.code
                 messages.success(
                     request,
