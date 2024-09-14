@@ -18,17 +18,19 @@ def view_cart(request):
     if request.method == "POST":
         discount_form = DiscountCodeForm(request.POST)
         if discount_form.is_valid():
-            discount = discount_form.cleaned_data["code"]
-            if discount:
+            code = discount_form.cleaned_data["code"]
+            try:
+                discount = DiscountCode.objects.get(code=code, active=True)
                 request.session["discount_code"] = discount.code
                 messages.success(
                     request,
                     f"Discount code '{discount.code}' applied. "
                     f"Amount: €{discount.amount}",
                 )
-            else:
+            except DiscountCode.DoesNotExist:
                 request.session.pop("discount_code", None)
-                messages.error(request, "Invalid or inactive discount code.")
+        else:
+            messages.error(request, "Invalid or inactive discount code.")
         return redirect("view_cart")
 
     # Retrieves discount code from the session if it exists
