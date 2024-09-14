@@ -21,10 +21,6 @@ Welcome to Shaping Sustainable Surf, a fully functional Django ecommerce web app
 - [Project planning](#project-planning)
   - [Database Schema](#database-schema)
   - [Agile Development Methods (Epics, User Stories, MoSCoW Prioritization, Kanban board)](#agile-development-methods)
--	[Technology Used](#technology-used)
-    -	[Languages Used](#languages-used)
-    -	[Libraries and Frameworks Used](#libraries-and-frameworks-used)
-    -	[Programs Used](#programs-used)
 - [Features](#features)
   - [Main Features](#main-features)
   - [Responsiveness](#responsiveness)
@@ -35,6 +31,10 @@ Welcome to Shaping Sustainable Surf, a fully functional Django ecommerce web app
     -	[Marketing Strategies](#marketing-strategies)
     -	[Search Engine Optimization (SEO)](#search-engine-optimization-seo)
     -	[Privacy Policy](#privacy-policy)
+-	[Technology Used](#technology-used)
+    -	[Languages Used](#languages-used)
+    -	[Libraries and Frameworks Used](#libraries-and-frameworks-used)
+    -	[Programs Used](#programs-used)
 - [Deployment and Local Development](#deployment-and-local-development)
   - [Local Clone](#local-clone)
   - [Fork](#fork)
@@ -313,67 +313,9 @@ This method is a structural approach to determine which features are essential f
 
 The Kanban board is a handy tool in agile project management to provide a clear visual representation of the project planning and development workflow. This board displays the various stages each work item progresses through, along with the current status of individual tasks. This project’s Kanban board can be viewed [here](https://github.com/users/g-omarsdottir/projects/5).
 
-## Technology Used
-
-### Languages Used
-
-- Python
-- HTML
-- CSS
-- JavaScript
-
-### Libraries and Frameworks Used
-
-In addition to libraries and frameworks already installed in the Code Institute template:
-
-- [Django v3.2.25](https://docs.djangoproject.com/en/5.0/releases/3.2.25/) - Python web framework
-- [django-allauth v0.63.3](https://docs.allauth.org/en/latest/installation/index.html) - User account authentication
-- [black v24.4.2](https://black.readthedocs.io/en/stable/) - Formats code compliant to pep8
-- [django-extensions v3.2.3](https://pypi.org/project/django-extensions/) - Show urls and location of installed packages
-- [django-crispy-forms v2.2](https://django-crispy-forms.readthedocs.io/en/1.14.0/) - Simplifies the creation of forms
-- [crispy-bootstrap v4](https://pypi.org/project/crispy-bootstrap4/) - Bootstrap-specific classes to style forms
-- [django-resized v1.0.2](https://pypi.org/project/django-resized/) - Handles resizing and format converting of images uploaded by store owners
-- [pillow v10.3.0](https://pillow.readthedocs.io/en/stable/) - A Python imaging library, handles images in combination with the Django Resized Image Field
-- [django-summernote v0.8.20.0](https://github.com/summernote/django-summernote) - A a simple WYSIWYG editor to use SummernoteModelAdmin in the admin panel interface
-- [django-richtextfield v1.6.2](https://pypi.org/project/django-richtextfield/) - Not actively used but unable to uninstall due to dependies of previous migrations of richtextfields (as suggested by CI tutor support)
-- [cloudinary v1.40.0](https://cloudinary.com/documentation/django_integration) - Allows to upload product images
-- [django-cloudinary-storage v0.3.0](https://cloudinary.com/documentation/rails_activestorage) - Provides storage of uploaded product images 
-- [django-countries v7.6.1](https://pypi.org/project/django-countries/) -  Provides country choices for use with forms and a country field for models
-- [stripe v10.1.0](https://docs.stripe.com/) - Provides secure payment processing
-- [whitenoise v5.3.0](https://pypi.org/project/whitenoise/) - Python package to simplify static file serving for web apps
-- [psycopg2 v2.9.9](https://pypi.org/project/psycopg2/) - PostgreSQL database adapter for the Python programming language
-- [gunicorn v20.1.0](https://docs.gunicorn.org/en/20.1.0/) - Gunicorn serves as a Python WSGI HTTP server for UNIX, designed to interface with WSGI-compliant web applications to serve applications efficiently and reliably, handling multiple concurrent connections and requests optimisation (equivalent to manage.py runserver used in development for the deployed app)
-- [django-autoslug==1.9.9](https://pypi.org/project/django-autoslug/) - Automatically generates slug field
-
-### Programs Used
-- [Canva](https://www.canva.com/) to create the website logo
-- [Photoroom](https://www.photoroom.com/tools/background-remover) to remove background from images and website logo
-- [Pixelied](https://pixelied.com/convert) to convert images to webp format
-- [TinyPNG](https://tinypng.com/) to compress images
-- [favicon.io](https://favicon.io/favicon-converter/) to create favicon from website logo
-- [Leonardo AI](https://leonardoai.com/) to create the custom error pages images
-- [YouTube](https://www.youtube.com/) for hosting the tutorial videos
-- [Techsini.com](https://techsini.com/multi-mockup/index.php) to create the mockup for this README
-- [Chrome Extension Ignor X-Frame headers](https://chromewebstore.google.com/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe) to be able to create a mockup on Techsini from a django project
-- [Google Fonts](https://fonts.google.com/) for the website fonts
-- [Google Gemini AI](https://gemini.ai/) for expanding the content of product descriptions
-- [Coolors Contrast Checker](https://coolors.co/contrast-checker) for the color contrast check
-- [Fontawesome](https://fontawesome.com/) for icons
-[Muzli Colors](https://colors.muz.li/palette/57a7b3/3d757d/b35794/7d3d67/b3a357) for color palette
-- [Balsamiq](https://balsamiq.com/wireframes/) for wireframes
-- [Privacypolicy Generator](https://www.privacypolicygenerator.info/) for the privacy policy
-- [XML-Sitemaps.com](https://www.xml-sitemaps.com/details-shaping-sustainable-surf-8794b08a1b3a.herokuapp.com-da3dd3a88.html) for the Sitemap for this project
-- [Code Institute Database Maker](https://dbs.ci-dbs.net/) for the database
-- [Google Gmail](https://www.google.com/intl/de/gmail/about/) for website confirmation emails
-- [Heroku](https://www.heroku.com/) for deployment
-- [GitHub](https://github.com/) for storing repository
-- [Gitpod](https://www.gitpod.io/) for development environment
-
 ## Features
 
-### Main Features
-
-#### Custom Error Pages
+### Custom Error Pages
 
 The project a custom HTML error page for status codes 403 (Forbidden), 404 (Not Found) and 500 (Internal Server Error) for improved user experience. The error page maintains a consistent design with the rest of the website. The error pages clearly explains the meaning of the error code in a user-friendly way avoiding technical jargon and uses clear, concise language. The error pages display a friendly image in line with the website theme to make the error page more visually appealing.<br>
 
@@ -381,7 +323,7 @@ To style the error pages during development, the error pages were rendered using
 
 ![custom error pages](/documentation/feature-error-pages.png)
 
-#### Discount Code
+### Discount Code
 
 The discount code can be obtained by subscribing to the newsletter and for future features in advertising campaigns. The discount code and the amount is displayed to the user in the shopping cart. The user can remove the discount code, e.g. to enter a different discount code, if they wish to.
 
@@ -395,7 +337,7 @@ The discount code is stored in the order as well for better overview for custome
 
 ![discount code](/documentation/discount-order-history.png)
 
-#### Tutorials
+### Tutorials
 
 Users can browse tutorials and purchase with the integrated purchase system by stripe. The button on the side brings users to the top of the page.
 
@@ -405,7 +347,7 @@ Clicking anywhere on the card opens up the tutorial detail. The user can put the
 
 ![feature tutorials detail](/documentation/feature-tutorials-detail.png)
 
-#### About Us
+### About Us
 
 The user can read about the store owner and gain trust in the product. Links to other pages are anchored in the description and invitation to sign up for the newsletter.
 
@@ -415,7 +357,7 @@ The user can read about the store owner and gain trust in the product. Links to 
 
 ![feature about us links 2](/documentation/feature-about-us-links-2.png)
 
-#### Collection of Surfboards
+### Collection of Surfboards
 
 The user can view a collection of previous work made by the store owner. Clicking anywhere on the card opens up a detailed view of the surfboard. Since these custom surfboards are **not included in the ecommerce purchasing system**, the page is placed in the about us app to distinguish between the two types of products.
 
@@ -427,13 +369,13 @@ In the detailed view of a surfboard, the user can send an enquiry about the surf
 
 ![feature surfboard detail](/documentation/feature-surfboard-detail.png)
 
-#### Frequently asked questions (FAQ)
+### Frequently asked questions (FAQ)
 
 The user can view frequently asked questions. Including a FAQ page is a common practice to improve SEO results.
 
 ![feature faq](/documentation/feature-faq.png)
 
-#### Newsletter
+### Newsletter
 
 The user can **subscribe** to the newsletter by entering an email address into the input field. The input field is autofocused for conveniency. Only the email address is collected, adhering to the EU GDPR's data minimization principle.
 
@@ -463,7 +405,7 @@ Please see a detailed description of data privacy in accordance with the GDPR, s
 
 **Newsletters can be drafted, finalized, and sent** with status tracking directly from the admin interface using gmail API.
 
-##### Promoting the Newsletter on the website: 
+#### Promoting the Newsletter on the website: 
 
 The newsletter subscription page is prominently linked and can be accessed at any time with one click, without invasively blocking the users screen at any point for imporoved UX. 
 
@@ -493,13 +435,13 @@ The newsletter subscription page is prominently linked and can be accessed at an
 
   ![feature-newsletter-prom](/documentation/feature-newsletter-prom.png)
 
-#### Resources
+### Resources
 
 The user can view an overview with reliable resources related to the store content with a short description, which can improve SEO results. Clicking anywhere on the card opens up the link in a new window.
 
 ![feature resources](/documentation/feature-resources.png)
 
-#### Shopping Cart
+### Shopping Cart
 
 The user can place tutorials in the shopping cart and is notified of the action. The successmessage disappears after a while, since this took up a lot of the screen realestate on mobile screens, but the cart preview stays open for a convenient checkout.
 
@@ -513,7 +455,7 @@ The user cannot place more than one amount of the same tutorial in the shopping 
 
 ![feature cart](/documentation/feature-cart-double.png)
 
-#### Contact Form
+### Contact Form
 
 If the user is logged in, the contact form is prefilled for their convenience with the data from their profile. The user can also enter a different email address or name if they wish to.
 
@@ -525,7 +467,7 @@ Displaying the whole contact form at once, instead of toggling parts of it as ne
 
 ![feature contact form](/documentation/feature-contact-form.png)
 
-#### User Profile
+### User Profile
 
 **CRUD functionality: Create** <br>
 The user can **create** an account by signing up. For convenience, the user can save the personal information to their profile, which they entered during the checkout process when purchasing a tutorial.
@@ -565,13 +507,13 @@ The user can access the links to the **purchased tutorials in the userprofile**.
 
 ![feature user profile](/documentation/feature-profile.png)
 
-#### Order confirmation
+### Order confirmation
 
 The user receives an order confirmation with all details and a link to the purchased tutorial.
 
 ![feature order confirmation](/documentation/feature-order-confirmation.png)
 
-#### Purchased Tutorial
+### Purchased Tutorial
 
 The user can click on the link in the order confirmation and view the tutorial hosted on youtube (not listed for public view). The title of each tutorial is displayed in the beginning and fades out while the video plays. The video itself is a similation for the tutorial.
 
@@ -581,7 +523,7 @@ The user can click on the link in the order confirmation and view the tutorial h
 
 ![feature watch purchased tutorial boyancy](/documentation/feature-vid-boyancy.png)
 
-#### Search Bar
+### Search Bar
 
 Users can enter a search query for the tutorials into the search field in the header, with the placeholder "search tutorials". The search displays all tutorials with the query in the titel or description.
 
@@ -627,7 +569,7 @@ This section elaborates on the ecommerce marketing value and SEO benefits of the
 
 The focus and main goal of this project is to create an ecommerce website with integrated purchase process and features that increase the marketing value and SEO benefits. The design of the technical architecture of the individual Django models was created to enhance web marketing efforts beyond the organic growth with social media marketing and reducing costs related to traditional advertising.
 
-#### Products models
+#### Products Models
 
 The Product model and related Category and Subcategory models ensure a coherent and consistent use of terminology regarding the surfboard parameters throughout the website. 
 
@@ -711,10 +653,10 @@ The metadata for this project has been carefully crafted to enhance search engin
 
 5. **Keyword Diversity**: A mix of both short-tail and long-tail keywords to create a balanced and comprehensive SEO strategy.
 
-### Implementation
+**Keyword Implementation**
 
 - Keywords are strategically placed in meta descriptions, page titles, and content headers.
-- A natural integration of keywords within the website content to maintain readability and user experience. Keywords were used in headings and in semantic and <strong> html tags.
+- A natural integration of keywords within the website content to maintain readability and user experience. Keywords were used in headings and in semantic and html `<strong>` tags.
 - The metadata is structured to be both search engine friendly and informative to potential visitors.
 
 #### Sitemap
@@ -743,6 +685,62 @@ The privacy policy is rendered on the websites template to make it visually more
 Trust Building: It builds trust with users by being transparent about what data is collected, how it's used, and for what purposes. 
 
 **Riskmanagement:** In a real-life ecommerce project, having a clear privacy policy in place helps identify potential risks associated with data handling and processing. Addressing these risks proactively can prevent legal issues and reputational damage.
+
+## Technology Used
+
+### Languages Used
+
+- Python
+- HTML
+- CSS
+- JavaScript
+
+### Libraries and Frameworks Used
+
+In addition to libraries and frameworks already installed in the Code Institute template:
+
+- [Django v3.2.25](https://docs.djangoproject.com/en/5.0/releases/3.2.25/) - Python web framework
+- [django-allauth v0.63.3](https://docs.allauth.org/en/latest/installation/index.html) - User account authentication
+- [black v24.4.2](https://black.readthedocs.io/en/stable/) - Formats code compliant to pep8
+- [django-extensions v3.2.3](https://pypi.org/project/django-extensions/) - Show urls and location of installed packages
+- [django-crispy-forms v2.2](https://django-crispy-forms.readthedocs.io/en/1.14.0/) - Simplifies the creation of forms
+- [crispy-bootstrap v4](https://pypi.org/project/crispy-bootstrap4/) - Bootstrap-specific classes to style forms
+- [django-resized v1.0.2](https://pypi.org/project/django-resized/) - Handles resizing and format converting of images uploaded by store owners
+- [pillow v10.3.0](https://pillow.readthedocs.io/en/stable/) - A Python imaging library, handles images in combination with the Django Resized Image Field
+- [django-summernote v0.8.20.0](https://github.com/summernote/django-summernote) - A a simple WYSIWYG editor to use SummernoteModelAdmin in the admin panel interface
+- [django-richtextfield v1.6.2](https://pypi.org/project/django-richtextfield/) - Not actively used but unable to uninstall due to dependies of previous migrations of richtextfields (as suggested by CI tutor support)
+- [cloudinary v1.40.0](https://cloudinary.com/documentation/django_integration) - Allows to upload product images
+- [django-cloudinary-storage v0.3.0](https://cloudinary.com/documentation/rails_activestorage) - Provides storage of uploaded product images 
+- [django-countries v7.6.1](https://pypi.org/project/django-countries/) -  Provides country choices for use with forms and a country field for models
+- [stripe v10.1.0](https://docs.stripe.com/) - Provides secure payment processing
+- [whitenoise v5.3.0](https://pypi.org/project/whitenoise/) - Python package to simplify static file serving for web apps
+- [psycopg2 v2.9.9](https://pypi.org/project/psycopg2/) - PostgreSQL database adapter for the Python programming language
+- [gunicorn v20.1.0](https://docs.gunicorn.org/en/20.1.0/) - Gunicorn serves as a Python WSGI HTTP server for UNIX, designed to interface with WSGI-compliant web applications to serve applications efficiently and reliably, handling multiple concurrent connections and requests optimisation (equivalent to manage.py runserver used in development for the deployed app)
+- [django-autoslug==1.9.9](https://pypi.org/project/django-autoslug/) - Automatically generates slug field
+
+### Programs Used
+- [Canva](https://www.canva.com/) to create the website logo
+- [Photoroom](https://www.photoroom.com/tools/background-remover) to remove background from images and website logo
+- [Pixelied](https://pixelied.com/convert) to convert images to webp format
+- [TinyPNG](https://tinypng.com/) to compress images
+- [favicon.io](https://favicon.io/favicon-converter/) to create favicon from website logo
+- [Leonardo AI](https://leonardoai.com/) to create the custom error pages images
+- [YouTube](https://www.youtube.com/) for hosting the tutorial videos
+- [Techsini.com](https://techsini.com/multi-mockup/index.php) to create the mockup for this README
+- [Chrome Extension Ignor X-Frame headers](https://chromewebstore.google.com/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe) to be able to create a mockup on Techsini from a django project
+- [Google Fonts](https://fonts.google.com/) for the website fonts
+- [Google Gemini AI](https://gemini.ai/) for expanding the content of product descriptions
+- [Coolors Contrast Checker](https://coolors.co/contrast-checker) for the color contrast check
+- [Fontawesome](https://fontawesome.com/) for icons
+[Muzli Colors](https://colors.muz.li/palette/57a7b3/3d757d/b35794/7d3d67/b3a357) for color palette
+- [Balsamiq](https://balsamiq.com/wireframes/) for wireframes
+- [Privacypolicy Generator](https://www.privacypolicygenerator.info/) for the privacy policy
+- [XML-Sitemaps.com](https://www.xml-sitemaps.com/details-shaping-sustainable-surf-8794b08a1b3a.herokuapp.com-da3dd3a88.html) for the Sitemap for this project
+- [Code Institute Database Maker](https://dbs.ci-dbs.net/) for the database
+- [Google Gmail](https://www.google.com/intl/de/gmail/about/) for website confirmation emails
+- [Heroku](https://www.heroku.com/) for deployment
+- [GitHub](https://github.com/) for storing repository
+- [Gitpod](https://www.gitpod.io/) for development environment
 
 ## Deployment and Local Development
 
