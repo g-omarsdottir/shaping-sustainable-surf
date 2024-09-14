@@ -405,96 +405,84 @@ Lighthouse performance evaluation was performed on the deployed website using [C
 
 ### General issues
 
-- Unused CSS was removed after test results showed that it was not being used.
-- Stripe: Stripe is causing some issues with the Lighthouse performance test. Attending to this was beyond the current scope.
+- Stripe: Stripe is causing issues with the Lighthouse performance test.
 
-![lighthouse-issues-stripe](/documentation/testing/lighthouse-issues-stripe.png)
+| Issue                        | Screenshot                                                                                                                                                       |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Third party cookies (stripe) | <details> <summary>**Click to View**</summary> ![lighthouse-stripe-cookie](documentation/validator/lighthouse-stripe-cookie.png)</details>                       |
+| Unused JavaScript            | <details> <summary>**Click to View**</summary> ![lighthouse-stripe-javascript](documentation/validator/lighthouse-stripe-javascript.png)</details>               |
+| JavaScript                   | <details> <summary>**Click to View**</summary> ![lighthouse-unused-stripe-javascript](documentation/validator/lighthouse-unused-stripe-javascript.png)</details> |
+
 
 ### Mobile 
 
-#### Home
-
-![lighthouse-mobile-home](/documentation/testing/lighthouse-mobile-home.png)
-
-#### Tutorials
-
-![lighthouse-mobile-tutorials](/documentation/testing/lighthouse-mobile-tutorials.png)
-
-#### Tutorials Detail
-
-![lighthouse-mobile-tutorials-detail](/documentation/testing/lighthouse-mobile-tutorials-detail.png)
-
-#### About us
-
-![lighthouse-mobile-about-us](/documentation/testing/lighthouse-mobile-about-us.png)
-
-#### FAQ
-
-![lighthouse-mobile-faq](/documentation/testing/lighthouse-mobile-faq.png)
-
-#### Resources
-
-![lighthouse-mobile-resources](/documentation/testing/lighthouse-mobile-resources.png)
-
-#### Surfboards
-
-![lighthouse-mobile-surfboards](/documentation/testing/lighthouse-mobile-surfboards.png)
-
-#### Surfboards Detail
-
-![lighthouse-mobile-surfboards-detail](/documentation/testing/lighthouse-mobile-surfboards-detail.png)
-
-#### Allauth 
-
-![lighthouse-mobile-allauth](/documentation/testing/lighthouse-mobile-allauth.png)
-
-#### Cart
-
-![lighthouse-mobile-cart](/documentation/testing/lighthouse-mobile-cart.png)
+| App              | File                                      | Screenshot                                                                                                                                                                   |
+|------------------|-------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| about            | lighthouse-mobile-about-faq               | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-about-faq](documentation/validator/lighthouse-mobile-about-faq.png)</details>                             |
+| about            | lighthouse-mobile-about-resources         | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-about-resources](documentation/validator/lighthouse-mobile-about-resources.png)</details>                 |
+| about            | lighthouse-mobile-about-surfboards        | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-about-surfboards](documentation/validator/lighthouse-mobile-about-surfboards.png)</details>               |
+| about            | lighthouse-mobile-about-surfboards-detail | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-about-surfboards-detail](documentation/validator/lighthouse-mobile-about-surfboards-detail.png)</details> |
+| about            | lighthouse-mobile-about-us                | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-about-usl](documentation/validator/lighthouse-mobile-about-us.png)</details>                              |
+|                  |                                           |                                                                                                                                                                              |
+| cart             | lighthouse-mobile-cart-empty              | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-cart-empty](documentation/validator/lighthouse-mobile-cart-empty.png)</details>                           |
+| cart             | lighthouse-mobile-cart-full               | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-cart-full](documentation/validator/lighthouse-mobile-cart-full.png)</details>                             |
+|                  |                                           |                                                                                                                                                                              |
+| checkout         | lighthouse-mobile-checkout                | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-checkout](documentation/validator/lighthouse-mobile-checkout.png)</details>                               |
+| checkout         | lighthouse-mobile-checkout-success        | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-checkout-success](documentation/validator/lighthouse-mobile-checkout-success.png)</details>               |
+|                  |                                           |                                                                                                                                                                              |
+| contact          | lighthouse-mobile-contact                 | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-contact](documentation/validator/lighthouse-mobile-contact.png)</details>                                 |
+| contact          | lighthouse-mobile-contact-success         | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-contact-success](documentation/validator/lighthouse-mobile-contact-success.png)</details>                 |
+|                  |                                           |                                                                                                                                                                              |
+| home             | lighthouse-mobile-home                    | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-home](documentation/validator/lighthouse-mobile-home.png)</details>                                       |
+|                  |                                           |                                                                                                                                                                              |
+| newsletter       | lighthouse-mobile-newsletter              | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-newsletter](documentation/validator/lighthouse-mobile-newsletter.png)</details>                           |
+|                  |                                           |                                                                                                                                                                              |
+| private policy   | lighthouse-mobile-privacy-policy          | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-privacy-policy](documentation/validator/lighthouse-mobile-privacy-policy.png)</details>                   |
+|                  |                                           |                                                                                                                                                                              |
+| profile          | lighthouse-mobile-profile                 | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-profile](documentation/validator/lighthouse-mobile-profile.png)</details>                                 |
+| profile update   | lighthouse-mobile-profile-update          | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-profile-update](documentation/validator/lighthouse-mobile-profile-update.png)</details>                   |
+|                  |                                           |                                                                                                                                                                              |
+| products        | lighthouse-mobile-tutorials               | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-tutorials](documentation/validator/lighthouse-mobile-tutorials.png)</details>                             |
+| products-detail | lighthouse-mobile-tutorials-detail        | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-tutorials-detail](documentation/validator/lighthouse-mobile-tutorials-detail.png)</details>               |
+|                  |                                           |                                                                                                                                                                              |
+| allauth signin   | lighthouse-mobile-signin                  | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-signin](documentation/validator/lighthouse-mobile-signin.png)</details>                                   |
+| allauth signout  | lighthouse-mobile-signout                 | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-signout](documentation/validator/lighthouse-mobile-signout.png)</details>                                 |
+| allauth signup   | lighthouse-mobile-signup                  | <details> <summary>**Click to View**</summary> ![lighthouse-mobile-signup](documentation/validator/lighthouse-mobile-signup.png)</details>                                   |
 
 ### Desktop
 
-#### Home
-
-![lighthouse-desktop-home](/documentation/testing/lighthouse-mobile-home.png)
-
-#### Tutorials
-
-![lighthouse-desktop-tutorials](/documentation/testing/lighthouse-desktop-tutorials.png)
-
-#### Tutorials Detail
-
-![lighthouse-desktop-tutorials-detail](/documentation/testing/lighthouse-desktop-tutorials-details.png)
-
-#### About us
-
-![lighthouse-desktop-about-us](/documentation/testing/lighthouse-desktop-about-us.png)
-
-#### FAQ
-
-![lighthouse-desktop-faq](/documentation/testing/lighthouse-desktop-faq.png)
-
-#### Resources
-
-![lighthouse-desktop-resources](/documentation/testing/lighthouse-desktop-resources.png)
-
-#### Surfboards
-
-![lighthouse-desktop-surfboards](/documentation/testing/lighthouse-desktop-surfboards.png)
-
-#### Surfboards Detail
-
-![lighthouse-desktop-surfboards-detail](/documentation/testing/lighthouse-desktop-surfboards-detail.png)
-
-#### Allauth 
-
-![lighthouse-desktop-allauth](/documentation/testing/lighthouse-desktop-allauth.png)
-
-#### Cart
-
-![lighthouse-desktop-cart](/documentation/testing/lighthouse-desktop-cart.png)
-
-![lighthouse-desktop-cart](/documentation/testing/lighthouse-desktop-cart.png)
+| App              | Page                                       | Screenshot                                                                                                                                                                     |
+|------------------|--------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| about            | lighthouse-desktop-about-faq               | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-about-faq](documentation/validator/lighthouse-desktop-about-faq.png)</details>                             |
+| about            | lighthouse-desktop-about-resources         | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-about-resources](documentation/validator/lighthouse-desktop-about-resources.png)</details>                 |
+| about            | lighthouse-desktop-about-surfboards        | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-about-surfboards](documentation/validator/lighthouse-desktop-about-surfboards.png)</details>               |
+| about            | lighthouse-desktop-about-surfboards-detail | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-about-surfboards-detail](documentation/validator/lighthouse-desktop-about-surfboards-detail.png)</details> |
+| about            | lighthouse-desktop-about-us                | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-about-us](documentation/validator/lighthouse-desktop-about-us.png)</details>                               |
+|                  |                                            |                                                                                                                                                                                |
+| cart             | lighthouse-desktop-cart-empty              | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-cart-empty](documentation/validator/lighthouse-desktop-cart-empty.png)</details>                           |
+| cart             | lighthouse-desktop-cart-full               | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-cart-full](documentation/validator/lighthouse-desktop-cart-full.png)</details>                             |
+|                  |                                            |                                                                                                                                                                                |
+| checkout         | lighthouse-desktop-checkout                | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-checkout](documentation/validator/lighthouse-desktop-checkout.png)</details>                               |
+| checkout         | lighthouse-desktop-checkout-success        | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-checkout-success](documentation/validator/lighthouse-desktop-checkout-success.png)</details>               |
+|                  |                                            |                                                                                                                                                                                |
+| contact          | lighthouse-desktop-contact                 | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-contact](documentation/validator/lighthouse-desktop-contact.png)</details>                                 |
+| contact          | lighthouse-desktop-contact-success         | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-contact-success](documentation/validator/lighthouse-desktop-contact-success.png)</details>                 |
+|                  |                                            |                                                                                                                                                                                |
+| home             | lighthouse-desktop-home                    | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-home](documentation/validator/lighthouse-desktop-home.png)</details>                                       |
+|                  |                                            |                                                                                                                                                                                |
+| newsletter       | lighthouse-desktop-newsletter              | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-newsletter](documentation/validator/lighthouse-desktop-newsletter.png)</details>                           |
+|                  |                                            |                                                                                                                                                                                |
+| private policy   | lighthouse-desktop-privacy-policy          | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-privacy-policy](documentation/validator/lighthouse-desktop-privacy-policy.png)</details>                   |
+|                  |                                            |                                                                                                                                                                                |
+| profile          | lighthouse-desktop-profile                 | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-profile](documentation/validator/lighthouse-desktop-profile.png)</details>                                 |
+| profile update   | lighthouse-desktop-profile-update          | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-profile-update](documentation/validator/lighthouse-desktop-profile-update.png)</details>                   |
+|                  |                                            |                                                                                                                                                                                |
+| products        | lighthouse-desktop-tutorials               | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-tutorials](documentation/validator/lighthouse-desktop-tutorials.png)</details>                             |
+| products-detail | lighthouse-desktop-tutorials-detail        | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-tutorials-detail](documentation/validator/lighthouse-desktop-tutorials-detail.png)</details>               |
+|                  |                                            |                                                                                                                                                                                |
+| allauth signin   | lighthouse-desktop-signin                  | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-signin](documentation/validator/lighthouse-desktop-signin.png)</details>                                   |
+| allauth signout  | lighthouse-desktop-signout                 | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-signout](documentation/validator/lighthouse-desktop-signout.png)</details>                                 |
+| allauth signup   | lighthouse-desktop-signup                  | <details> <summary>**Click to View**</summary> ![lighthouse-desktop-signup](documentation/validator/lighthouse-desktop-signup.png)</details>                                   |
 
 ### Known Bugs
 
