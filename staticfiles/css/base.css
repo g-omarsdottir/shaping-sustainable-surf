@@ -112,8 +112,13 @@ header {
 
 /* index.html */
 
+.small-pics {
+    height: 8em;
+    width: auto;
+}
+
 .browse-tutorials-button {
-    min-width: 260px;
+    width: 280px;
     font-weight: 500;
     background: var(--blue);
     border: 1px solid var(--font-color);

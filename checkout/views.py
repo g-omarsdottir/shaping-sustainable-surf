@@ -99,7 +99,7 @@ def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
-    order_form = OrderForm()  # Not in source code
+    order_form = OrderForm()
 
     if request.method == "POST":
         cart = request.session.get("cart", {})
@@ -126,11 +126,6 @@ def checkout(request):
             order.original_cart = json.dumps(cart)
             order.save()
 
-            # Source code: "for item_id, item_data in bag.items():"
-            # Here: "for item_id, quantity in cart.items():" below, after discount code
-
-            # Not in source code: Discount code
-
             # Get the discount information from the cart contents
             current_cart = cart_contents(request)
             discount_code = request.session.get("discount_code")
@@ -145,7 +140,7 @@ def checkout(request):
                     )
                     request.session.pop("discount_code", None)
             order.save()
-            
+
             # Create order items
             for item_id, quantity in cart.items():
                 try:
