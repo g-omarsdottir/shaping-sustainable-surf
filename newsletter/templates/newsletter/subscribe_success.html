@@ -27,10 +27,10 @@
             <div class="mb-4">
                 {% if newsletter_code %}
                 <h2 class="text-center">Here is your discount code:</h2>
-                <h2 class="text-center"><strong>{{ newsletter_code.code }}</strong></h2>
+                <h2 class="text-center mb-4"><strong>{{ newsletter_code.code }}</strong></h2>
                 <p>You can use this code to get <strong>€{{ newsletter_code.amount }}</strong> off your next purchase!</p>
                 {% else %}
-                <h2 class="h4">Oops! We encountered a technical issue!</h2> 
+                <h2 class="mb-4">Oops! We encountered a technical issue!</h2> 
                 <p>Something went wrong while fetching your discount code.</p>
                 <p>Not to worry, please contact us by email at <a href="mailto:{{ company_email }}" aria-label="Email us">{{ company_email }}</a> or
                     use our <a href="{% url 'contact' %}">contact form</a> and we will make it up to you.</p>

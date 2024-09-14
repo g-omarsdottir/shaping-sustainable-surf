@@ -14,23 +14,25 @@
 <a href="#sr-main-content" class="sr-only sr-only-focusable">Skip to main content</a>
 {% endblock %}
 
-{% block page_header %}
-
 {% block content %}
 <div class="container mb-2">
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
-            <h1 id="sr-main-content" class="text-center logo-font mb-4">You are sucessfully unsubscribed!</h1>
-            <hr>
-            <p class="mb-4">You have been unsubscribed from our newsletter and your email address has been deleted from our database!</p>
-            <p class="mb-4">You are welcome to sign up again at any time.</p>
-            <div class="text-center mb-4">
-                    <a href="{% url 'subscribe' %}" class="btn btn-outline-black rounded-0 btn-lg mb-2">
+            <div class="my-3 my-lg-5">
+                <h1 id="sr-main-content" class="text-center logo-font mb-4 mt-4 mt-lg-0">You are sucessfully
+                    unsubscribed!</h1>
+                <hr>
+                <p class="mb-4 mt-4">You have been unsubscribed from our newsletter and your email address has been deleted
+                    from our database!</p>
+                <p class="mb-4">You are welcome to sign up again at any time.</p>
+                <div class="text-center mb-4 mt-4">
+                    <a href="{% url 'subscribe' %}" class="btn browse-tutorials-button rounded-0 btn-lg mb-2 mr-4">
                         <span class="text-uppercase">Subscribe Again</span>
                     </a>
-                    <a href="{% url 'tutorials_list' %}" class="btn btn-outline-black rounded-0 btn-lg mb-2">
+                    <a href="{% url 'tutorials_list' %}" class="btn browse-tutorials-button rounded-0 btn-lg mb-2 mr-4">
                         <span class="text-uppercase">Browse Tutorials</span>
                     </a>
+                </div>
             </div>
         </div>
     </div>

@@ -453,9 +453,11 @@ The content of the privacy policy is filled into the modal from the source docum
 
 The user receives a confirmation displaying the **discount code** as well as a personalized link to unsubscribe on the website and per email.
 
+![feature-newsletter-success page](/documentation/feature-newsletter-success.png)
+
 **Secure unsubscribe process** is implemented using unique tokens for each subscriber. One-click unsubscription permanently removes subscriber data, ensuring GDPR compliance.
 
-![feature-newsletter-confirmations](/documentation/feature-newsletter-confirmations.png)
+![feature-newletter-unsubscribe](/documentation/feature-newsletter-unsubscribe.png)
 
 Please see a detailed description of data privacy in accordance with the GDPR, security measures for subscribing and unsubscribing, as well as the procedure and options to send the [newsletter in the communication section of the data base schema section](#anchor-newsletter).
 
