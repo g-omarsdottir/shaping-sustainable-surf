@@ -110,6 +110,11 @@ header {
     box-shadow: var(--blue-box-shadow);
 }
 
+/* Skip links */
+.sr-only-focusable {
+    color: #0000FF;
+}
+
 /* index.html */
 
 .small-pics {
@@ -346,6 +351,11 @@ footer li a.btn-newsletter:active,
 footer li a.btn-newsletter:focus {
     font-size: 1.07em;
     transform: scale(1.02);
+}
+
+/* Privacy Policy ---------------------------------------------------- */
+a {
+    color: #0000FF;
 }
 
 /* Media Queries ------------------------------------------------------ */

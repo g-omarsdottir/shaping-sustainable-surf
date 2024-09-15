@@ -377,16 +377,9 @@ As recommended by the [W3C, Web Accessibility Initiative (WAI)](https://www.w3.o
 
 The [Wave WebAIM Validator](https://wave.webaim.org/) was used to validate web accessibility on the deployed website.
 
-Links to tutorial details raise a warning, although the aria-label is dynamic and descriptive. Changed "tutorial" to "product" in aria-label to match model field.
-```python 
-href="{% url 'tutorial_detail' product.id %}" aria-label="Click to view details for **tutorial**: {{ product.name }}"
-```
-- **changed to:** 
-```python
-aria-label="Click to view details for **product**: {{ product.name }}"
-```
+The WAVE tool was used to test the accessibility of the website. The results of the test are successful and the website is fully accessible. 
 
-![test-accessibility-link](/documentation/testing/test-accessibility-link.png)
+One warning of redundant links is displayed. The navigation item 'homepage' has the same url as the adjacent logo, which is a common practice for good UX. The warning will not be heeded.
 
 ![wave-home](/documentation/validator/wave-home.png)
 
@@ -402,9 +395,11 @@ aria-label="Click to view details for **product**: {{ product.name }}"
 
 ![wave-surfboards-detail](/documentation/validator/wave-surfboards-detail.png)
 
-![wave-about-us](/documentation/validator/wave-faq.png)
+![wave-about-faq](/documentation/validator/wave-faq.png)
 
 ![wave-resources](/documentation/validator/wave-resources.png)
+
+![wave-newsletter](/documentation/validator/wave-newsletter.png)
 
 ### Coolors Contrast Checker
 
