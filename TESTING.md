@@ -116,23 +116,15 @@ The [JSHint Validator]( https://jshint.com/), a JavaScript Code Quality Tool was
 The [World Wide Web Consortium's Validation Service for Markup](https://validator.w3.org/) was used to check the HTML.
 
 The rendered HTML source code  of each page from the browser of the deployed project by direct input into the validator was tested. The HTML source code of the rendered website is used to validate code with Django template tags. The HTML code passed through the validator without errors.
-
-A warning was reported for the input validation for browser compatibility. Attending to this was not within the scope of the current iteration due to time constraints.
-
-<details>
-<summary>Click to View Overview of Browser Compatibility of Input Field</summary>
-
-![html-warning](/documentation/validator/html-input-field.png)
-</details>
-
-<details>
-<summary>Click to View Validator Warning</summary>
-
-![html-warning](/documentation/validator/html-input-field-warning.png)
-</details>
 <br>
 
 **HTML Validator Results:**
+
+<details>
+<summary>Click to View Validation by URI</summary>
+
+![html-validation-uri](/documentation/validator/html-validation-uri.png)
+</details>
 
 <details>
 <summary>Click to View Home</summary>
@@ -159,18 +151,6 @@ A warning was reported for the input validation for browser compatibility. Atten
 </details>
 
 <details>
-<summary>Click to View FAQ</summary>
-
-![html-faq](/documentation/validator/html-faq.png)
-</details>
-
-<details>
-<summary>Click to View Resources</summary>
-
-![html-resources](/documentation/validator/html-resources.png)
-</details>
-
-<details>
 <summary>Click to View Surfboards</summary>
 
 ![html-surfboard](/documentation/validator/html-surfboard.png)
@@ -183,15 +163,75 @@ A warning was reported for the input validation for browser compatibility. Atten
 </details>
 
 <details>
+<summary>Click to View FAQ</summary>
+
+![html-faq](/documentation/validator/html-faq.png)
+</details>
+
+<details>
+<summary>Click to View Resources</summary>
+
+![html-resources](/documentation/validator/html-resources.png)
+</details>
+
+<details>
+<summary>Click to View Newsletter</summary>
+
+![html-newsletter](/documentation/validator/html-newsletter.png)
+</details>
+
+<details>
+<summary>Click to View Newsletter Subscribed Success</summary>
+
+![html-newsletter-success](/documentation/validator/html-newsletter-success.png)
+</details>
+
+<details>
+<summary>Click to View Contact</summary>
+
+![html-contact](/documentation/validator/html-contact.png)
+</details>
+
+<details>
+<summary>Click to View Contact Success</summary>
+
+![html-contact-success](/documentation/validator/html-contact-success.png)
+</details>
+
+<details>
 <summary>Click to View Allauth</summary>
 
 ![html-allauth](/documentation/validator/html-allauth.png)
 </details>
 
 <details>
+<summary>Click to View Profile</summary>
+
+![html-profile](/documentation/validator/html-profile.png)
+</details>
+
+<details>
+<summary>Click to View Profile Update</summary>
+
+![html-profile-update](/documentation/validator/html-profile-update.png)
+</details>
+
+<details>
+<summary>Click to View Profile Delete</summary>
+
+![html-profile-delete](/documentation/validator/html-profile-delete.png)
+</details>
+
+<details>
 <summary>Click to View Cart</summary>
 
 ![html-cart](/documentation/validator/html-cart.png)
+</details>
+
+<details>
+<summary>Click to View Privacy Policy</summary>
+
+![html-privacy-policy](/documentation/validator/html-privacy-policy.png)
 </details>
 
 ### CSS
