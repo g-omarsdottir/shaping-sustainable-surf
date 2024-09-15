@@ -6,17 +6,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     integerFields.forEach(field => {
         field.addEventListener('input', function() {
-            if (this.value && !(/^\d*$/.test(this.value))) {
-                this.setCustomValidity('Please enter only numbers for this field.');
-                this.classList.add('error');
-                this.value = '';
-            } else {
+            validateIntegerField(this);
+        });
+        field.addEventListener('blur', function() {
+            if (this.value === '') {
                 this.setCustomValidity('');
                 this.classList.remove('error');
+                this.reportValidity();
             }
-            this.reportValidity();
         });
     });
+
+    function validateIntegerField(field) {
+        if (field.value && !(/^\d*$/.test(field.value))) {
+            field.setCustomValidity('Please enter only numbers for this field.');
+            field.classList.add('error');
+            field.value = '';
+        } else {
+            field.setCustomValidity('');
+            field.classList.remove('error');
+        }
+        field.reportValidity();
+    }
 
     if (messageField) {
         const charCount = document.createElement('div');
