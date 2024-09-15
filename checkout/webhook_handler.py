@@ -72,9 +72,11 @@ class StripeWH_Handler:
         user_id = intent.metadata.get("user_id")
         username = intent.metadata.get("username")
 
-        stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
-        billing_details = stripe_charge.billing_details
-        grand_total = round(stripe_charge.amount / 100, 2)
+        # not in source code: stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
+        # corrected to source code - was: billing_details = stripe_charge.billing_details
+        # corrected to source code - was: grand_total = round(stripe_charge.amount / 100, 2)
+        billing_details = intent.charges.data[0].billing_details
+        grand_total = round(intent.charges.data[0].amount / 100, 2)
 
         # Clean data in the billing details
         for field, value in billing_details.address.items():
@@ -85,7 +87,8 @@ class StripeWH_Handler:
         profile = None
         username = intent.metadata.get("username")
         if username != 'AnonymousUser':
-            profile = UserProfile.objects.get(user__username=username)
+            # corrected to source code - was: profile = UserProfile.objects.get(user__username=username)
+            username = intent.metadata.username
             if save_info:
                 profile.default_full_name = billing_details.name
                 profile.default_phone_number = billing_details.phone
