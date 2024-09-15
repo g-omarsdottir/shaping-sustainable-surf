@@ -72,9 +72,6 @@ class StripeWH_Handler:
         user_id = intent.metadata.get("user_id")
         username = intent.metadata.get("username")
 
-        # not in source code: stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
-        # corrected to source code - was: billing_details = stripe_charge.billing_details
-        # corrected to source code - was: grand_total = round(stripe_charge.amount / 100, 2)
         billing_details = intent.charges.data[0].billing_details
         grand_total = round(intent.charges.data[0].amount / 100, 2)
 
@@ -86,8 +83,7 @@ class StripeWH_Handler:
         # Update profile information if save_info was checked
         profile = None
         username = intent.metadata.get("username")
-        if username != 'AnonymousUser':
-            # corrected to source code - was: profile = UserProfile.objects.get(user__username=username)
+        if username != "AnonymousUser":
             username = intent.metadata.username
             if save_info:
                 profile.default_full_name = billing_details.name
