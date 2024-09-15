@@ -379,27 +379,87 @@ The [Wave WebAIM Validator](https://wave.webaim.org/) was used to validate web a
 
 The WAVE tool was used to test the accessibility of the website. The results of the test are successful and the website is fully accessible. 
 
-One warning of redundant links is displayed. The navigation item 'homepage' has the same url as the adjacent logo, which is a common practice for good UX. The warning will not be heeded.
+One warning of redundant links is displayed. The navigation item 'homepage' has the same url as the adjacent logo, which is a common practice for good UX. The warning will therefore not be heeded.
 
 ![wave-home](/documentation/validator/wave-home.png)
 
+<details>
+<summary>Click to View Products: Tutorials</summary>
+
 ![wave-tutorials](/documentation/validator/wave-tutorials.png)
+</details>
 
-![wave-tutorials-detail](/documentation/validator/wave-tutorials-detail.png)
+<details>
+<summary>Click to View Click to View Products: Tutorials Detail</summary>
 
-![wave-contact](/documentation/validator/wave-contact.png)
+![wave-tutorials-detail](/documentation/validator/wave-tutorials-details.png)
+</details>
+
+<details>
+<summary>Click to View About Us</summary>
 
 ![wave-about-us](/documentation/validator/wave-about-us.png)
+</details>
+
+<details>
+<summary>Click to View About: Surfboards</summary>
 
 ![wave-surfboards](/documentation/validator/wave-surfboards.png)
+</details>
+
+<details>
+<summary>Click to View Click to View About: Surfboards Detail</summary>
 
 ![wave-surfboards-detail](/documentation/validator/wave-surfboards-detail.png)
+</details>
+
+<details>
+<summary>Click to View Click to View About: FAQ</summary>
 
 ![wave-about-faq](/documentation/validator/wave-faq.png)
+</details>
+
+<details>
+<summary>Click to View Click to View About: Resources</summary>
 
 ![wave-resources](/documentation/validator/wave-resources.png)
+</details>
+
+<details>
+<summary>Click to View Click to View Newsletter</summary>
 
 ![wave-newsletter](/documentation/validator/wave-newsletter.png)
+</details>
+
+<details>
+<summary>Click to View Contact</summary>
+
+![wave-contact](/documentation/validator/wave-contact.png)
+</details>
+
+<details>
+<summary>Click to View Allauth Account</summary>
+
+![wave-allauth](/documentation/validator/wave-allauth.png)
+</details>
+
+<details>
+<summary>Click to View Cart</summary>
+
+![wave-cart](/documentation/validator/wave-cart.png)
+</details>
+
+<details>
+<summary>Click to View Checkout</summary>
+
+![wave-checkout](/documentation/validator/wave-checkout.png)
+</details>
+
+<details>
+<summary>Click to View Privacy Policy</summary>
+
+![wave-privacy-policy](/documentation/validator/wave-privacy-policy.png)
+</details>
 
 ### Coolors Contrast Checker
 
