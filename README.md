@@ -2,7 +2,20 @@
 
 ![mockup](/documentation/mockup.png)
 
-View the live project [here](https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com/).<br>
+![Static Badge](https://img.shields.io/badge/last_commit-september_2024-Ffcad4)
+![Static Badge](https://img.shields.io/badge/contributors-1-B0d0d3)
+![Static Badge](https://img.shields.io/badge/languages-4-C08497)
+![Static Badge](https://img.shields.io/badge/javascript-46.2%25-F7af9d)
+![Static Badge](https://img.shields.io/badge/css-21.2%25-fbcac1)
+![Static Badge](https://img.shields.io/badge/html-18.8%25-ffdfc6)
+![Static Badge](https://img.shields.io/badge/python-13.4%25-fffbd5)
+![Static Badge](https://img.shields.io/badge/framework-django-a5e1cd)
+![Static Badge](https://img.shields.io/badge/payments-stripe-fff)
+![Static Badge](https://img.shields.io/badge/wave_a11y-validated-e1f7cb)
+![Static Badge](https://img.shields.io/badge/w3c-validated-caafdf)
+
+
+**View the live project [here](https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com/).**<br>
 *(To open in a new window, press "ctrl" (or ⌘ for Mac) + click on the link)*
 
 Welcome to Shaping Sustainable Surf, a fully functional Django ecommerce web application that offers access to online video tutorials.
@@ -732,6 +745,7 @@ In addition to libraries and frameworks already installed in the Code Institute 
 - [TinyPNG](https://tinypng.com/) to compress images
 - [favicon.io](https://favicon.io/favicon-converter/) to create favicon from website logo
 - [Leonardo AI](https://leonardoai.com/) to create the custom error pages images
+- [Shields.io](https://shields.io/badges/) to create static badges for this README
 - [YouTube](https://www.youtube.com/) for hosting the tutorial videos
 - [Techsini.com](https://techsini.com/multi-mockup/index.php) to create the mockup for this README
 - [Chrome Extension Ignor X-Frame headers](https://chromewebstore.google.com/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe) to be able to create a mockup on Techsini from a django project
@@ -739,7 +753,7 @@ In addition to libraries and frameworks already installed in the Code Institute 
 - [Google Gemini AI](https://gemini.ai/) for expanding the content of product descriptions
 - [Coolors Contrast Checker](https://coolors.co/contrast-checker) for the color contrast check
 - [Fontawesome](https://fontawesome.com/) for icons
-[Muzli Colors](https://colors.muz.li/palette/57a7b3/3d757d/b35794/7d3d67/b3a357) for color palette
+- [Muzli Colors](https://colors.muz.li/palette/57a7b3/3d757d/b35794/7d3d67/b3a357) for color palette
 - [Balsamiq](https://balsamiq.com/wireframes/) for wireframes
 - [Privacypolicy Generator](https://www.privacypolicygenerator.info/) for the privacy policy
 - [XML-Sitemaps.com](https://www.xml-sitemaps.com/details-shaping-sustainable-surf-8794b08a1b3a.herokuapp.com-da3dd3a88.html) for the Sitemap for this project
