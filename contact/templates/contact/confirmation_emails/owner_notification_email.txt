@@ -1,4 +1,4 @@
-New Contact Message: {{ contact.subject }}
+New Contact Message From: {{ contact.name }}
 
 Name: {{ contact.name }}
 Email: {{ contact.email }}

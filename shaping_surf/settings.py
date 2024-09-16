@@ -41,7 +41,6 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    #"https://8000-gomarsdotti-shapingsust-wirzm9fqqo3.ws.codeinstitute-ide.net",
     "https://8000-gomarsdotti-shapingsust-h0kchpxwruz.ws.codeinstitute-ide.net/",
     "https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com",
     "https://*.codeinstitute-ide.net",

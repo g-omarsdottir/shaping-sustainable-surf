@@ -5,7 +5,7 @@ This document outlines the testing procedures and results for the ecommerce proj
 For development documentation, please refer to the [README.md](README.md).
 
 View the live project [here](https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com/).<br>  
-*(To open in a new window, press "Ctrl" + click on the link, or "⌘ + click" on Mac)*
+*(To open in a new window, press "ctrl" (or ⌘ for Mac) + click on the link)*
 
 ## Overview
 

@@ -2,7 +2,7 @@
 
 ![mockup](/documentation/mockup.png)
 
-You can view the live project [here](https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com/)<br>
+View the live project [here](https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com/).<br>
 *(To open in a new window, press "ctrl" (or ⌘ for Mac) + click on the link)*
 
 Welcome to Shaping Sustainable Surf, a fully functional Django ecommerce web application that offers access to online video tutorials.
@@ -315,6 +315,8 @@ The Kanban board is a handy tool in agile project management to provide a clear 
 
 ## Features
 
+### Main Features
+
 ### Custom Error Pages
 
 The project a custom HTML error page for status codes 403 (Forbidden), 404 (Not Found) and 500 (Internal Server Error) for improved user experience. The error page maintains a consistent design with the rest of the website. The error pages clearly explains the meaning of the error code in a user-friendly way avoiding technical jargon and uses clear, concise language. The error pages display a friendly image in line with the website theme to make the error page more visually appealing.<br>
@@ -393,9 +395,13 @@ The content of the privacy policy is filled into the modal from the source docum
 
 ![feature-newsletter-modals](/documentation/feature-newsletter-modals.png)
 
-The user receives a confirmation displaying the **discount code** as well as a personalized link to unsubscribe on the website and per email.
+The user receives a confirmation displaying the **discount code**. The confirmation, discount code as well as a **personalized link to unsubscribe** is **sent by email** to the subscribed email address.
 
 ![feature-newsletter-success page](/documentation/feature-newsletter-success.png)
+
+If there is currently no discount code active or the discount code cannot be retrieved for other reasons, the user is notified by a message in the browser and by email of technical issues. The user is encouraged to contact the store owner for a functional discount code.
+
+![feature-newsletter-discount-error](/documentation/feature-newsletter-discount-error.png)
 
 **Secure unsubscribe process** is implemented using unique tokens for each subscriber. One-click unsubscription permanently removes subscriber data, ensuring GDPR compliance.
 
@@ -694,6 +700,7 @@ Trust Building: It builds trust with users by being transparent about what data 
 - HTML
 - CSS
 - JavaScript
+- Markdown for this README.md and TESTING.md
 
 ### Libraries and Frameworks Used
 
