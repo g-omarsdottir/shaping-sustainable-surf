@@ -23,7 +23,7 @@ Welcome to Shaping Sustainable Surf, a fully functional Django ecommerce web app
 ## Table of contents
 
 - [Project Goals](#project-goal)
-- [User Experience](#user-experience)
+  - [User Experience](#user-experience)
   - [Target Group](#target-group)
   - [Visitors Goals](#visitors-goals)
 - [Design](#design)
@@ -33,7 +33,7 @@ Welcome to Shaping Sustainable Surf, a fully functional Django ecommerce web app
   - [Typography](#typography)
 - [Project planning](#project-planning)
   - [Database Schema](#database-schema)
-  - [Agile Development Methods (Epics, User Stories, MoSCoW Prioritization, Kanban board)](#agile-development-methods)
+  - [Agile Development Methods (Epics, User Stories, MoSCoW Prioritization, Kanban board)](#agile-development-methods-epics-user-stories-moscow-prioritization-kanban-board)
 - [Features](#features)
   - [Main Features](#main-features)
   - [Responsiveness](#responsiveness)
@@ -54,9 +54,11 @@ Welcome to Shaping Sustainable Surf, a fully functional Django ecommerce web app
   - [Database](#database)
   -	[Cloudinary](#cloudinary)
   -	[Stripe](#stripe)
-  - [Google Mail (Gmail) API](#gmail)
-  - [Deployment](#deployement-using-heroku)
+  - [Google Mail (Gmail) API](#google-mail-gmail-api)
+  - [Deployment](#deployment-using-heroku)
 - [Credits](#credits)
+  - [Content & Imagery](#content)
+  -  [Acknowledgements](#acknowledgements)
 
 **Testing and Bugs** are documented in the separate file [TESTING.md](TESTING.md).
 
@@ -642,7 +644,7 @@ Overall, the project has the potential to expand to selling further products and
 
 ### Social Media & Newsletter Marketing
 
-Users are invited on the website to subscribe to the newsletter and obtain a discount code for tutorials. The newsletter providers have a limit of free plans, thus the newsletter subscription is imitated by displaying a success message thanking the user for subscribing and displaying the discount code. With a real subscribing feature, the store owner can send a newsletter to the subscribers to increase the likelihood of the subscribers to purchase the products. <br>
+Users are invited on a banner on the website to subscribe to the newsletter and obtain a discount code for a discount off their next purchase. The store owner can send a newsletter to the subscribers to increase the likelihood of the subscribers to purchase the products.<br>
 
 The social media marketing strategy relies on organic growth. The facebook page is set up to promote the products through postings of new tutorials, images of new custom-made surfboards, and for discount code campaigns.<br>
 
