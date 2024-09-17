@@ -48,7 +48,7 @@
             {% if profile.default_country %}
             <p class="text-muted mb-0">{{ profile.default_country }}</p>
             {% endif %}
-            <a href="{% url 'update_profile' %}" class="btn btn-blue rounded-0 text-uppercase float-right mr-5" aria-label="Manage my personal profile information">
+            <a href="{% url 'update_profile' %}" class="btn btn-blue rounded-0 text-uppercase float-right mt-4 mr-5" aria-label="Manage my personal profile information">
                 Manage My Profile
             </a>
         </div>
@@ -114,7 +114,7 @@
 
     <!-- Purchased Tutorials -->
     <div class="row">
-        <div class="col">
+        <div class="col mt-4">
             <h2>Your Purchased Tutorials:</h2>
             {% if profile.video_unlocked %}
             <div class="table-responsive rounded">
