@@ -260,6 +260,8 @@ label[for="id_remember"] {
 
 input[type="submit"], button[type="submit"] {
     background: rgba(101, 193, 207, 0.247);
+    color: black !important;
+    border: 1px solid black !important;
     padding: 5px;
     transition: all 0.2s ease-in-out;
     transform: scale(1);
@@ -272,7 +274,7 @@ button[type="submit"]:hover,
 button[type="submit"]:active,
 button[type="submit"]:focus {
     background: rgba(87, 167, 179, 0.70);
-    border: 1px solid black;
+    border: 1px solid black !important;
     box-shadow: 1px -1px 7px 0 var(--blue);
     transform: scale(1.02);
 }
