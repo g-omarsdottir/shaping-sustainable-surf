@@ -42,11 +42,17 @@
             <hr>
             <div class="mb-4">
                 <h2 class="h4">Custom Surfboards</h2>
-                <p>If you are looking for a custom-made surfboard, we encourage you to use the convenient contact form
-                    below to guide you through the details necessary to shape your own custom surfboard.</p>
-                <p>Feel free to leave fields empty as you please and we can discuss these details further along the way.
-                    </p>
-                    <p class="text-muted">Required fields are marked with *.</p>
+                <p>
+                    If you are looking for a custom-made surfboard, we encourage you to use the convenient contact form
+                    below to guide you through the details necessary to calculate the volume of your surfboard.
+                </p>
+                <p>
+                    Feel free to leave fields empty as you please and we can discuss these details further along the way.
+                </p>
+                <p>
+                    Check out our previous work in our collection of <a href="{% url 'custom_surfboards' %}">custom surfboards</a>.
+                </p>
+                <p class="text-muted">Required fields are marked with *.</p>
             </div>
 
             <form action="{% url 'contact' %}" method="POST" id="contact-form">
