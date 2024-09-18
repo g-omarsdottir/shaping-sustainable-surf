@@ -52,7 +52,7 @@ class StripeWH_Handler:
         intent = event.data.object
 
         return HttpResponse(
-            content=f"Webhook received: {event["type"]}", status=200
+            content=f'Webhook received: {event["type"]}', status=200
         )
 
     def handle_payment_intent_succeeded(self, event):
@@ -90,7 +90,7 @@ class StripeWH_Handler:
                 profile.default_full_name = billing_details.name
                 profile.default_phone_number = billing_details.phone
                 profile.default_country = billing_details.address.country
-                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_postcode = billing_details.address.postal_code
                 profile.default_town_or_city = billing_details.address.city
                 profile.default_street_address1 = billing_details.address.line1
                 profile.default_street_address2 = billing_details.address.line2
@@ -108,7 +108,7 @@ class StripeWH_Handler:
                     email__iexact=billing_details.email,
                     phone_number__iexact=billing_details.phone,
                     country__iexact=billing_details.address.country,
-                    postcode__iexact=shipping_details.address.postal_code,
+                    postcode__iexact=billing_details.address.postal_code,
                     town_or_city__iexact=billing_details.address.city,
                     street_address1__iexact=billing_details.address.line1,
                     street_address2__iexact=billing_details.address.line2,
@@ -126,10 +126,10 @@ class StripeWH_Handler:
             self._unlock_video_for_user(user_id)
             self._send_confirmation_email(order)
             return HttpResponse(
-                content=f"Webhook received: "
-                f"{event["type"]} | SUCCESS: "
-                f"Verified order already in database",
-                status=200,
+                content=f'Webhook received: '
+                f'{event["type"]} | SUCCESS: '
+                f'Verified order already in database',
+                status=200
             )
         else:
             order = None
@@ -141,7 +141,7 @@ class StripeWH_Handler:
                     phone_number=billing_details.phone,
                     street_address1=billing_details.address.line1,
                     street_address2=billing_details.address.line2,
-                    postcode=shipping_details.address.postal_code,
+                    postcode=billing_details.address.postal_code,
                     town_or_city=billing_details.address.city,
                     county=billing_details.address.state,
                     country=billing_details.address.country,
@@ -171,15 +171,15 @@ class StripeWH_Handler:
                     order.delete()
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
-                    status=500,
+                    status=500
                 )
         self._send_confirmation_email(order)
         self._unlock_video_for_user(user_id)
         # Create the order
         return HttpResponse(
-            content=f"Webhook received: "
-            f"{event["type"]} | SUCCESS: Created order in webhook",
-            status=200,
+            content=f'Webhook received: '
+            f'{event["type"]} | SUCCESS: Created order in webhook',
+            status=200
         )
 
     def _unlock_video_for_user(self, user_id):
