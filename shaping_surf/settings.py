@@ -232,11 +232,7 @@ CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL", "")
 STRIPE_CURRENCY = "eur"
 STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY", "")
 STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", "")
-
-if "DEV" in os.environ:
-    STRIPE_WH_SECRET = os.getenv("STRIPE_WH_SECRET_DEV", "")
-else:
-    STRIPE_WH_SECRET = os.getenv("STRIPE_WH_SECRET", "")
+STRIPE_WH_SECRET = os.getenv("STRIPE_WH_SECRET", "")
 
 if "DEV" in os.environ:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
