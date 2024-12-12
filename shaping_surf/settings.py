@@ -33,15 +33,14 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = "DEV" in os.environ
 
 ALLOWED_HOSTS = [
-    "8000-gomarsdotti-shapingsust-h0kchpxwruz.ws.codeinstitute-ide.net",
-    "https://8000-gomarsdotti-shapingsust-h0kchpxwruz.ws.codeinstitute-ide.net/",
+    "8000-gomarsdotti-shapingsust-4b0coief403.ws-eu117.gitpod.io",
     "localhost",
     "127.0.0.1",
     "shaping-sustainable-surf-8794b08a1b3a.herokuapp.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://8000-gomarsdotti-shapingsust-h0kchpxwruz.ws.codeinstitute-ide.net/",
+    "https://8000-gomarsdotti-shapingsust-4b0coief403.ws-eu117.gitpod.io",
     "https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com",
     "https://*.codeinstitute-ide.net",
     "https://*.gitpod.io",

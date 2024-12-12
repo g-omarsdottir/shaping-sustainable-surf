@@ -1,0 +1,440 @@
+[
+{
+  "model": "sites.site",
+  "pk": 1,
+  "fields": {
+    "domain": "example.com",
+    "name": "example.com"
+  }
+},
+{
+  "model": "about.aboutus",
+  "pk": 3,
+  "fields": {
+    "title": "We Are Shaping Sustainable Surf",
+    "content": "<h2 class=\"\">Our passion is surfing, our commitment is sustainability.</h2><p><br></p><p>We offer online video tutorials for surfers and shapers, who want to acquire or progress their surfboard shaping skills while minimizing their environmental impact.</p><p><br></p><h3 class=\"\">Why Buy From Us?</h3><h4 class=\"\">Committed to Sustainability:</h4><p>We are dedicated to providing a sustainable alternative in the surfing industry.</p><p><br></p><h4 class=\"\">Unmatched Support:</h4><p>Our dedicated shapers will provide you the support you need throughout your build, no matter your skills (or lack of them).</p><p><br></p><h4 class=\"\">Interactive Q&amp;A Sessions:</h4><p>Participate in regular live Q&amp;A sessions with our surfboard shaping instructors. Get your questions answered directly and gain valuable insights from experienced shapers - and surfers! We live what we love.</p><p>Exclusive access for customers.</p><p><br></p><h4 class=\"\">High-Quality Content:</h4><p>Our lessons are professionally produced and regularly updated with new techniques and materials.</p><p><br></p><h4 class=\"\">Order your custom-made surfboard from us:</h4><p>If you lack the time or are not confident enough to shape the perfect eco-friendly wave-catcher yourself, contact us for a custom-made sustainable surfboard.&nbsp;</p><p><br></p><p>Just fill out our detailed <a href=\"https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com/contact/\"><b>contact form</b></a> and we'll get in touch with a custom-made proposal.</p><p><br></p><p>Check out <a href=\"https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com/about/custom-surfboards/\"><b>our collection</b></a> of custom-made sustainable eco-friendly surfboards for inspiration in the about section of our website.</p><p><br></p><h4 class=\"\">Ride the wave of change and shape the future of surf with us! Get your sustainable surfboards and help us mitigate climate change, one wave at a time.</h4><p><br></p><h4 class=\"\">Coming soon: </h4><p><b>Community Forum</b>&nbsp;and <b>Riversurfboards.</b> <b><a href=\"https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com/newsletter/subscribe/\">Subscribe to our Newsletter</a></b>&nbsp;and be the first to know! </p><p><br></p><p>All newsletter subscribers receive a <b>welcoming discount code!</b></p><p><br></p><p><br></p><p>&nbsp;<br></p>",
+    "image": "sss-about/about-us_z2bxkl",
+    "updated_at": "2024-09-11T09:24:31.863Z"
+  }
+},
+{
+  "model": "about.faq",
+  "pk": 3,
+  "fields": {
+    "question": "What materials are commonly used for building sustainable surfboards and fins?",
+    "answer": "<h2 class=\"\">Recycled EPS Foam:&nbsp;</h2><p>This replaces the traditional polyurethane foam, which has a higher environmental impact during production. Recycled EPS foam uses pre-consumer or post-consumer waste, reducing reliance on virgin materials.</p><h2 class=\"\">Cork:</h2><p>This lightweight and naturally buoyant material can be used as a deck layer or incorporated into the rails of a surfboard for added dampening and a unique aesthetic.</p><h2 class=\"\">Bamboo:</h2><p>Can be used on top of recycled EPS foam for a strong, lightweight, and fast-growing sustainable alternative.</p><h2 class=\"\">Wood:</h2><p>For an even more natural ride, hollow wood can be a sustainable alternative, offering excellent glide ability without fiberglass or EPS foam. Reclaimed wood or fast-growing bamboo are ideal choices to minimize negative or detrimental environmental impact.</p>",
+    "created_at": "2024-07-11T20:39:57.771Z",
+    "order": 2
+  }
+},
+{
+  "model": "about.faq",
+  "pk": 4,
+  "fields": {
+    "question": "LCA - Life Cycle Analysis. What is it and why is it important?",
+    "answer": "<h2 class=\"\">LCA - Life Cycle Analysis:</h2><p>Ultimately, a LCA focusses on what we take from the environment, in terms of raw materials and energy, and what impact the product then has on the environment during its lifetime (its use, its service, etc.).</p>",
+    "created_at": "2024-07-11T20:45:30.913Z",
+    "order": 3
+  }
+},
+{
+  "model": "about.customsurfboard",
+  "pk": 1,
+  "fields": {
+    "name": "Fishboard with wave decoration",
+    "description": "Fishboard with wave decoration in a wooden finish.",
+    "image": "sss-custom_surfboards/fishboard_v7alrj",
+    "created_at": "2024-07-11T11:56:12.534Z",
+    "slug": "fishboard-with-wave-decoration"
+  }
+},
+{
+  "model": "about.customsurfboard",
+  "pk": 2,
+  "fields": {
+    "name": "Funboard with fun decoration",
+    "description": "Funboard with squash tail in colorful design.",
+    "image": "sss-custom_surfboards/Funboard_pe6idc",
+    "created_at": "2024-07-11T11:56:52.501Z",
+    "slug": "funboard-with-fun-decoration"
+  }
+},
+{
+  "model": "about.customsurfboard",
+  "pk": 3,
+  "fields": {
+    "name": "Gun",
+    "description": "Gun surfboard with jellyfish decoration with white finish.",
+    "image": "sss-custom_surfboards/Gun_as254t",
+    "created_at": "2024-07-11T11:57:34.073Z",
+    "slug": "gun"
+  }
+},
+{
+  "model": "about.customsurfboard",
+  "pk": 4,
+  "fields": {
+    "name": "Mini-Malibu wooden color",
+    "description": "Mini-Malibu surfboard with turtle and wave design and wooden finish.",
+    "image": "sss-custom_surfboards/Malibu_ojpw6m",
+    "created_at": "2024-07-11T11:58:31.288Z",
+    "slug": "mini-malibu-wooden-color"
+  }
+},
+{
+  "model": "about.customsurfboard",
+  "pk": 5,
+  "fields": {
+    "name": "Shortboard wooden color",
+    "description": "Shortboard with swallow tail. Turtle and jellyfish art decoration",
+    "image": "sss-custom_surfboards/Shortboard_hw9s3w",
+    "created_at": "2024-07-11T12:00:19.711Z",
+    "slug": "shortboard-wooden-color"
+  }
+},
+{
+  "model": "about.customsurfboard",
+  "pk": 6,
+  "fields": {
+    "name": "Longboard in wooden finish",
+    "description": "Longboard with turtle decoration.",
+    "image": "sss-custom_surfboards/malibu-turtle_expucz",
+    "created_at": "2024-07-11T12:01:20.138Z",
+    "slug": "longboard-in-wooden-finish"
+  }
+},
+{
+  "model": "about.customsurfboard",
+  "pk": 7,
+  "fields": {
+    "name": "Funboard",
+    "description": "Funboard with turtle decoration in white and wooden colors.",
+    "image": "sss-custom_surfboards/funboard-turtle_mqpk3y",
+    "created_at": "2024-07-11T12:02:08.278Z",
+    "slug": "funboard"
+  }
+},
+{
+  "model": "about.resource",
+  "pk": 1,
+  "fields": {
+    "name": "United Nations Climate Change - Latest News",
+    "image": "sss-resources/wavebarrel_xdomhj",
+    "description": "Get the latest climate change news directly from the United Nation's reliable international panel of highly qualified scientists.",
+    "url": "https://unfccc.int/",
+    "order": 0
+  }
+},
+{
+  "model": "about.resource",
+  "pk": 2,
+  "fields": {
+    "name": "United Nations Climate Change - Ocean Topics",
+    "image": "sss-resources/ocean-life_rqoml8",
+    "description": "The ocean is a fundamental part of the climate system and the global response to climate change.  Read about it!",
+    "url": "https://unfccc.int/topics/ocean",
+    "order": 0
+  }
+},
+{
+  "model": "about.resource",
+  "pk": 3,
+  "fields": {
+    "name": "United Nations Climate Change - Ocean Action",
+    "image": "sss-resources/wave_t5ftiw",
+    "description": "Ocean-related action on climate change is currently addressed under a range of UNFCCC agenda items, bodies and processes.",
+    "url": "https://unfccc.int/topics/ocean/ocean-action-under-the-unfccc",
+    "order": 0
+  }
+},
+{
+  "model": "about.resource",
+  "pk": 4,
+  "fields": {
+    "name": "United Nations Documents",
+    "image": "sss-resources/UN_culvvu",
+    "description": "Most UN bodies, such as committees, commissions, boards, councils, and conferences, report on their work here.",
+    "url": "https://research.un.org/en/docs/reports",
+    "order": 0
+  }
+},
+{
+  "model": "about.resource",
+  "pk": 5,
+  "fields": {
+    "name": "United Nations Study: Ocean life and mitigating climate change",
+    "image": "sss-resources/dolphins_i9u10l",
+    "description": "Ocean life can help mitigate climate change: new study",
+    "url": "https://www.unep.org/technical-highlight/ocean-life-can-help-mitigate-climate-change-new-study",
+    "order": 0
+  }
+},
+{
+  "model": "about.resource",
+  "pk": 6,
+  "fields": {
+    "name": "United Nations Environment Programme",
+    "image": "sss-resources/turtle-swimming_tl8ymy",
+    "description": "UNEP promotes the protection, conservation, restoration and sustainable management of the world’s marine and coastal areas.",
+    "url": "https://www.unep.org/topics/ocean-seas-and-coasts",
+    "order": 0
+  }
+},
+{
+  "model": "about.resource",
+  "pk": 7,
+  "fields": {
+    "name": "Ecoboard Sustainable Surf",
+    "image": "sss-resources/surfing_u8i8zv",
+    "description": "Eco-friendly surfboard materials. Overview.",
+    "url": "https://ecoboard.sustainablesurf.org/qualified-materials/",
+    "order": 0
+  }
+},
+{
+  "model": "cart.discountcode",
+  "pk": 1,
+  "fields": {
+    "code": "WELCOME10",
+    "amount": "10.00",
+    "active": "Yes"
+  }
+},
+{
+  "model": "cart.discountcode",
+  "pk": 2,
+  "fields": {
+    "code": "WAVE15",
+    "amount": "15.00",
+    "active": "Yes"
+  }
+},
+{
+  "model": "cart.discountcode",
+  "pk": 3,
+  "fields": {
+    "code": "SURFING20",
+    "amount": "20.00",
+    "active": "Yes"
+  }
+},
+{
+  "model": "cart.discountcode",
+  "pk": 4,
+  "fields": {
+    "code": "ALOHA-WELCOME",
+    "amount": "10.00",
+    "active": "Yes"
+  }
+},
+{
+  "model": "contact.art",
+  "pk": 1,
+  "fields": {
+    "type": "None"
+  }
+},
+{
+  "model": "contact.art",
+  "pk": 2,
+  "fields": {
+    "type": "Mandala"
+  }
+},
+{
+  "model": "contact.art",
+  "pk": 3,
+  "fields": {
+    "type": "Flower"
+  }
+},
+{
+  "model": "contact.art",
+  "pk": 4,
+  "fields": {
+    "type": "Turtle"
+  }
+},
+{
+  "model": "contact.art",
+  "pk": 5,
+  "fields": {
+    "type": "Whale"
+  }
+},
+{
+  "model": "contact.art",
+  "pk": 6,
+  "fields": {
+    "type": "Octopus"
+  }
+},
+{
+  "model": "contact.art",
+  "pk": 7,
+  "fields": {
+    "type": "Fish"
+  }
+},
+{
+  "model": "contact.art",
+  "pk": 8,
+  "fields": {
+    "type": "Waves"
+  }
+},
+{
+  "model": "contact.art",
+  "pk": 9,
+  "fields": {
+    "type": "Abstract"
+  }
+},
+{
+  "model": "contact.art",
+  "pk": 10,
+  "fields": {
+    "type": "Surprise Me"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 3,
+  "fields": {
+    "name": "Tutorial"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 4,
+  "fields": {
+    "name": "Surfboard"
+  }
+},
+{
+  "model": "products.subcategory",
+  "pk": 1,
+  "fields": {
+    "name": "Shaping"
+  }
+},
+{
+  "model": "products.subcategory",
+  "pk": 2,
+  "fields": {
+    "name": "Materials"
+  }
+},
+{
+  "model": "products.subcategory",
+  "pk": 3,
+  "fields": {
+    "name": "Accessories"
+  }
+},
+{
+  "model": "products.subcategory",
+  "pk": 4,
+  "fields": {
+    "name": "Surfing"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 1,
+  "fields": {
+    "name": "Dial In Your Ride: Measuring Surfboard Length and Volume",
+    "category": 3,
+    "subcategory": 2,
+    "price": "30.00",
+    "description": "<p class=\"MsoNormal\" style=\"margin-bottom:0in;line-height:normal\">Finding the\r\nperfect surfboard size is crucial for performance and enjoyment! <br><br>This video\r\nlesson dives deep into measuring surfboard length and volume, empowering you to\r\nchoose the ideal board for your surfing location, surfing style and body type.\r\nLearn how to use simple tools to accurately measure your desired board\r\ndimensions and calculate its volume. <br><br>Before you begin building your own\r\nsustainable surfboard, this video equips you with the knowledge to make\r\ninformed decisions.&nbsp;<o:p></o:p></p>",
+    "image": "sss_products/shaper-material_apuvm5",
+    "video_url": "https://youtu.be/oU-4d41mpiw",
+    "status": "Publish"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 2,
+  "fields": {
+    "name": "Sustainable Surfboard Design: Performance Characteristics Explained",
+    "category": 3,
+    "subcategory": 2,
+    "price": "30.00",
+    "description": "<p class=\"MsoNormal\" style=\"margin-bottom:0in;line-height:normal\"><span lang=\"EN-US\">Dive deeper into the world of\r\nsurfboard design! <br><br>This video lesson explores the relationship between board\r\nshape, materials, and performance characteristics.<br><br>Learn how to choose the\r\nright eco-friendly materials and design elements to build a surfboard that\r\nperfectly matches your surfing style and desired wave conditions.&nbsp;<o:p></o:p></span></p>",
+    "image": "sss_products/shaper-board_egobek",
+    "video_url": "https://youtu.be/JVfrWvZgIiQ",
+    "status": "Publish"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 3,
+  "fields": {
+    "name": "Beyond the Shape: Eco-Friendly Fin Systems and Sustainable Fin Selection",
+    "category": 3,
+    "subcategory": 3,
+    "price": "30.00",
+    "description": "<p class=\"MsoNormal\" style=\"margin-bottom:0in;line-height:normal\"><span lang=\"EN-US\">Optimize your eco-surfboard's\r\nperformance! <br></span><br>This video lesson explores sustainable fin system options\r\nand guides you in selecting the perfect eco-friendly fins to complement your\r\nboard's design. <br><br>Learn how to maximize control, maneuverability, and overall\r\nsurfing experience with fins and a focus on environmental responsibility.<o:p></o:p></p>",
+    "image": "sss_products/surfboard_ik0aez",
+    "video_url": "https://youtu.be/6mDF3pEynNc",
+    "status": "Publish"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 4,
+  "fields": {
+    "name": "Shortboard Shaping for High-Performance Surfing",
+    "category": 3,
+    "subcategory": 1,
+    "price": "50.00",
+    "description": "<p class=\"MsoNormal\" style=\"margin-bottom:0in;line-height:normal\"><span lang=\"EN-US\">Carve turns like a pro! <br></span><br>This\r\nvideo lesson guides you through building a high-performance shortboard using\r\nsustainable materials. <br><br>Learn how to shape a board for speed, maneuverability,\r\nand optimal wave riding in powerful conditions!</p>",
+    "image": "sss_products/shaping-action_ggr4wh",
+    "video_url": "https://youtu.be/awWKGTtA-Ys",
+    "status": "Publish"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 5,
+  "fields": {
+    "name": "Fish Shape Mastery: Sustainable Speed and Fun",
+    "category": 3,
+    "subcategory": 1,
+    "price": "50.00",
+    "description": "<p class=\"MsoNormal\" style=\"margin-bottom:0in;line-height:normal\"><span lang=\"EN-US\">Embrace the versatility of a fish\r\nshape! <br></span><br>This video lesson explores building a sustainable fish surfboard,\r\nideal for catching smaller waves and performing radical maneuvers. <br><br>Learn how to\r\nshape a board for looseness, speed generation, and playful surfing.<o:p></o:p></p>",
+    "image": "sss_products/fish_qbx2a5",
+    "video_url": "https://youtu.be/Xr_ox0idnKo",
+    "status": "Publish"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 6,
+  "fields": {
+    "name": "Sustainable Mini-Malibu Shaping: Craft Your Surfing Journey from the Ground Up",
+    "category": 3,
+    "subcategory": 1,
+    "price": "50.00",
+    "description": "<p class=\"MsoNormal\" style=\"margin-bottom:0in;line-height:normal\"><span lang=\"EN-US\">Imagine riding your first wave on a\r\nsurfboard you built with your own hands! <br></span><br>This video lesson empowers you\r\nto shape a sustainable mini-malibu surfboard, the perfect launchpad for your\r\nsurfing journey to experience a deeper connection to the ocean and the sport of\r\nsurfing. <br><br>Learn how to shape a board that prioritizes stability, paddling ease,\r\nand wave-catching ability, all while minimizing your environmental impact.&nbsp;<o:p></o:p></p>",
+    "image": "sss_products/hero_rawrul",
+    "video_url": "https://youtu.be/jxDNfd_O1b0",
+    "status": "Publish"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "name": "Eco-Friendly Buoyancy - How to Choose Materials",
+    "category": 3,
+    "subcategory": 2,
+    "price": "30.00",
+    "description": "<p><span lang=\"EN-US\" style=\"font-size:11.0pt;line-height:\r\n107%;font-family:&quot;Aptos&quot;,sans-serif;mso-ascii-theme-font:minor-latin;\r\nmso-fareast-font-family:Aptos;mso-fareast-theme-font:minor-latin;mso-hansi-theme-font:\r\nminor-latin;mso-bidi-font-family:&quot;Times New Roman&quot;;mso-bidi-theme-font:minor-bidi;\r\nmso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA\">This video dives into the deep sea of materials commonly used for building sustainable surfboards and\r\nfins.<br></span><br>Learn how to choose the right material for your surfing style!</p>",
+    "image": "sss_products/coast_eanjuy",
+    "video_url": "https://youtu.be/iHwP8GnpjBs",
+    "status": "Publish"
+  }
+}
+]
