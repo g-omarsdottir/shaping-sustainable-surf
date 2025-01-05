@@ -2,7 +2,6 @@
 
 ![mockup](/documentation/mockup.png)
 
-![Static Badge](https://img.shields.io/badge/last_commit-september_2024-Ffcad4)
 ![Static Badge](https://img.shields.io/badge/contributors-1-B0d0d3)
 ![Static Badge](https://img.shields.io/badge/languages-4-C08497)
 ![Static Badge](https://img.shields.io/badge/javascript-46.2%25-F7af9d)
@@ -64,7 +63,7 @@ Welcome to Shaping Sustainable Surf, a fully functional Django ecommerce web app
 
 ## Project Goal
 
-The website offers access to online video tutorials for surfers and shapers, who want to acquire or progress their surfboard shaping skills while minimizing their environmental impact. The name itself draws a parallel to the process of crafting a surfboard, which is called shaping. 
+This website is the final project in the Full-Stack Development course at Code Institute. The website offers access to online video tutorials for surfers and shapers, who want to acquire or progress their surfboard shaping skills while minimizing their environmental impact. The name itself draws a parallel to the process of crafting a surfboard, which is called shaping. 
 
 The name implies that the goal is not only shaping physical surfboards but shaping the future of surfing itself by promoting eco-friendly practices and education.
 
