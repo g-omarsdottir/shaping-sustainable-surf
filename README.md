@@ -166,7 +166,7 @@ This project uses Neon database, a serverless PostgreSQL database for efficient 
 - DiscountCode model in the Cart app manages and validates discount codes.
 - Validation checks include code existence in the database and current active status.
 - Placement in the cart app allows for code validation without interfering with the checkout process.
-- Store owners can create, update, delete, and manage discount codes, including temporary activation/deactivation.
+- Adm can create, update, delete, and manage discount codes, including temporary activation/deactivation.
 
 **Relationship with Order model:** 
 - Order model in the Checkout app links to the DiscountCode model via a Foreign Key.
@@ -240,7 +240,7 @@ This project uses Neon database, a serverless PostgreSQL database for efficient 
 - Users receive a copy of the message to the provided email address. 
 - The store owner is notified of new messages by email and can reply by email and/or via the admin interface.
 
-**Relationship with UserProfile model:** 
+**Relationship with UserProfile and Category models:** 
 - The Contact model links to the models: 
   - UserProfile model (placed in the Profiles app)
     - Allows for convenient prefilling of the user's contact information in the form.
@@ -252,27 +252,56 @@ This project uses Neon database, a serverless PostgreSQL database for efficient 
 ![ERD Contact Model CONSTANTS and ForeignKey](/documentation/erd-contact-constants-fk.png)
 
 <span id="anchor-newsletter"></span>
-**Newsletter:** This custom model provides a way to draft, finalize, and send newsletters to subscribers. The STATUS choices for the Newsletter model provide a workflow for managing the creation and sending of newsletters. After a newsletter is sent, the data and time of the sending is applied, and the status is set to “Done and Sent”. This can also be manually applied in case the newsletter was sent directly from the email account as opposed to via the admin interface. Setting the newsletter status to “Save and Send Newsletter Now” saves and sends the newsletter to all subscribers.
+**Newsletter model:** 
+- This custom model provides a way to 
+  - Draft, finalize, and send newsletters to subscribers. 
+  - Provide a status workflow for managing newsletter creation and delivery. 
+  - Record the timestamp of dispatch.
+  - Automatically update the status to “Done and Sent”
+    - This can also be updated manually in case the newsletter was sent from the email account as opposed to via the admin interface. 
+  - Keep records of newsletter content.
 
-**Subscriber:** This custom model represents a user subscribed to the newsletter. The model collects only email address and no other personal data, such as name or phone number, which is not strictly necessary for the purpose of signing up for a newsletter. This adheres to  the EU General Data Protection Regulation’s (GDPR) principle of data minimization and to respect the data privacy of users, who are reluctant to give their personal information and might not sign up. The unique email address ensures that each subscriber can only sign up once.
+**Subscriber model:** 
+- This custom model represents users subscribed to the newsletter. 
+- Collects only email address and no unnecessary personal data (e.g. name or phone number) not strictly necessary to newsletter subscription. 
+  - This adheres to  the EU General Data Protection Regulation’s (GDPR) principle of data minimization, promoting user privacy and encouraging subscriptions.
+- Ensures that each subscriber can only sign up once through unique email addresses.
 
-The user must explicitly agree to receiving the newsletter and the boolean field defaults to “False” for an unchecked checkbox in accordance with the EU GDPR.
-
-For each subscriber, an **unsubscribe token** is generated and allows for the secure handling of unsubscribe. This token is created using Python’s secrets function with 48 characters, ensuring a unique and secure token for each subscriber. This is to avoid malicious unsubscribing of subscribers using loops. The token is not regenerated to avoid conflicting tokens that may negatively affect UX when trying to subscribe using an expired token. Regenerating unsubscribe tokens at certain time points does have security benefits and would be considered for a larger scale project. Activating the unsubscription token deletes the subscriber’s email address permanently from the database, since there is no need to keep records and delete the data at a later time point as is permitted by the GDPR.
-
-A confirmation email is sent to the subscriber containing the unsubscribe token and a discount code as a small token of appreciation for subscribing. The personalized unsubscribe token is sent to each subscriber as well as in every newsletter. There is no confirmation of subscription necessary since that is beyond the scope of this project. The user is informed and equipped with the necessary means to object and unsubscribe immediately in case of a change of hearts or unintentional subscription.
+- Users must explicitly agree to receiving the newsletter.
+  - The boolean field defaults to “False” for an unchecked checkbox to consent, in compliance with the EU GDPR.
+- An **unsubscribe token** is generated for each subscriber for handling secure unsubscriptions. 
+  - The token is created using Python’s secrets function, ensuring uniqueness and security. 
+  - This is to avoid malicious unsubscribing of subscribers using loops. 
+  - The token is not regenerated to avoid conflicts with expired tokens that negatively affect user experience. Regenerating unsubscribe tokens at certain time points does have security benefits and would be considered for a larger scale project. 
+  - Activating the unsubscription token permanently deletes the subscriber’s email address from the database, aligning with GDPR data retention guidelines.
+- A confirmation email is sent to the subscriber, containing:
+  - Information about the ability to unsubscribe at any time, ensuring transparency and control over their subscription.
+  - Personalized unsubscribe token.
+  - Discount code as a small token of appreciation for subscribing. 
+- The personalized unsubscribe token is sent to each subscriber in every newsletter. 
 
 ![erd-newsletter](/documentation/erd-newsletter.png)
 
 **About Us**
 
-**About Us Page:** The About Us page contains information about the store owner and the website goal. The page is placed in the about app, and the model is used to store the page content.
+**AboutUs model:** 
+- The AboutUs model contains information about the store owner and the website's mission. 
+- Placement is in the About app. 
 
-**Custom Surfboard:** The Custom Surfboard page contains a collection of custom surfboards created by the store owner. The page is placed in the about app, and the model is used to store the page content. Although there is no entity relation between the models, the CustomSurfboard model enhances the Contact model, which aims to collect information from customers for a customized surfboard.
+**CustomSurfboard model:** 
+- The custom model contains a collection of custom surfboards created by the store owner. 
+- Placement is in the About app.
+- While there is no direct entity relation between the models, the CustomSurfboard model enhances the Contact model, which collects data from customers for a customized surfboard.
 
-**FAQs:** The FAQs page contains frequently asked questions and answers. The page is placed in the about app, and the model is used to store the page content. Websites that include a FAQs page can enhance the credibility and authority of the website content, which search engines like Google value and thereby beneficial for SEO.
+**FAQ model:** 
+- The custom model stores frequently asked questions and their answers. 
+- Placement is in the About app.
+- Including a FAQs page can enhance the credibility and authority of the website content, which search engines like Google value and thereby benefitting search engine optimization (SEO).
 
-**Resources:** The Resources page contains links to reliable sources on environmental and ocean conservation. The page is placed in the about app, and the model is used to store the page content. Websites that include external links to reputable sources can enhance the credibility and authority of the website content, which search engines like Google value and thereby beneficial for SEO.
+**Resource model:** 
+- The custom model stores external weblinks to reliable sources on environmental and ocean conservation. 
+- Placement is in the About app.
+- Including external links to reputable sources can enhance the credibility and authority of the website content, which search engines like Google value and thereby benefitting search engine optimization (SEO).
 
 ![ERD About Us](/documentation/erd-about.png)
 
@@ -551,7 +580,7 @@ In summary, the application prioritizes security at every level, from user accou
 
 ### Future Features
 
-**Review & Rate Management:** As a future feature, the project envisions expansion to include a user-driven review and rating system for products. This enhancement aims to empower store owners with insights into customer preferences, identifying popular and less favored tutorials. Such information will facilitate strategic decisions regarding content expansion or refinement, ultimately guiding users towards making informed purchasing choices. <br>
+**Review & Rate Management:** As a future feature, the project envisions expansion to include a user-driven review and rating system for products. This enhancement aims to empower administrators (store owners) with insights into customer preferences, identifying popular and less favored tutorials. Such information will facilitate strategic decisions regarding content expansion or refinement, ultimately guiding users towards making informed purchasing choices. <br>
 
 While reviews and ratings are prevalent in ecommerce platforms, prioritizing this feature is beyond the current scope due to time limitations. The project's primary goal remains focused on raising awareness for ocean conservation efforts and showcasing the unique, custom-shaped surfboards crafted by the store owner. Given the distinct pricing challenges associated with custom-made products, these are not made available for purchase on the website. A review and rating system to enhance the platform incrementally is at the top list of future considerations.
 
@@ -702,7 +731,7 @@ In addition to libraries and frameworks already installed in the Code Institute 
 - [django-extensions v3.2.3](https://pypi.org/project/django-extensions/) - Show urls and location of installed packages
 - [django-crispy-forms v2.2](https://django-crispy-forms.readthedocs.io/en/1.14.0/) - Simplifies the creation of forms
 - [crispy-bootstrap v4](https://pypi.org/project/crispy-bootstrap4/) - Bootstrap-specific classes to style forms
-- [django-resized v1.0.2](https://pypi.org/project/django-resized/) - Handles resizing and format converting of images uploaded by store owners
+- [django-resized v1.0.2](https://pypi.org/project/django-resized/) - Handles resizing and format converting of images uploaded by administrators
 - [pillow v10.3.0](https://pillow.readthedocs.io/en/stable/) - A Python imaging library, handles images in combination with the Django Resized Image Field
 - [django-summernote v0.8.20.0](https://github.com/summernote/django-summernote) - A a simple WYSIWYG editor to use SummernoteModelAdmin in the admin panel interface
 - [django-richtextfield v1.6.2](https://pypi.org/project/django-richtextfield/) - Not actively used but unable to uninstall due to dependies of previous migrations of richtextfields (as suggested by CI tutor support)
