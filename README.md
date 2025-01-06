@@ -151,14 +151,10 @@ This project uses Neon database, a serverless PostgreSQL database for efficient 
 #### Key Features
 
 **Product Management:** 
-
-Products, Categories and Subcategories are stored in separate models, which allows for scalability and streamlines further technical design. 
-
-Consistent terminology is guaranteed throughout the application to enhance user experience and simplify search queries by pre-defining constants within the models.
-
-This approach allows for a streamlined shopping and purchase process.
-
-Administrators (store owners) have comprehensive permissions to manage content and product data across the platform, including creation, updates, deletion, and pricing adjustments.
+- Products, Categories and Subcategories are stored in separate models, which allows for scalability and streamlines further technical design. 
+- Consistent terminology is guaranteed throughout the application to enhance user experience and simplify search queries by pre-defining constants within the models.
+- This approach allows for a streamlined shopping and purchase process.
+- Administrators (store owners) have comprehensive permissions to manage content and product data across the platform, including creation, updates, deletion, and pricing adjustments.
 
 ![ERD Product model](/documentation/erd-product.png)
 
@@ -166,60 +162,90 @@ Administrators (store owners) have comprehensive permissions to manage content a
 
 **Ecommerce Functionality**
 
-**Discount Codes:** The custom model facilitates the storage and management of individual discount codes in the cart app. The model is used to validate the code and apply the discount to the shopping cart. To ensure the code is valid, the model checks if the code is in the database, and if the code is in the database, if the code is currently active. As precaution, the model and the form are placed in the shopping cart app to allow the form to be submitted to check for validation without interfering with the order form in the checkout app.<br>
+**Discount Codes:** 
+- DiscountCode model in the Cart app manages and validates discount codes.
+- Validation checks include code existence in the database and current active status.
+- Placement in the cart app allows for code validation without interfering with the checkout process.
+- Store owners can create, update, delete, and manage discount codes, including temporary activation/deactivation.
 
-Superusers (store owners) are granted permission to create, update, and delete discount codes, as well as manage settings to activate or disable discount codes temporarily.
-
-**Relationship with Order model:** The Order model includes a foreign key to the DiscountCode model, allowing for easy access to the discount code applied to the order.<br>
+**Relationship with Order model:** 
+- Order model in the Checkout app links to the DiscountCode model via a Foreign Key.
+- Enables quick reference to applied discounts for each order (see ERD for Order model below). 
 
 ![ERD DiscountCode model](/documentation/erd-discount-code.png)
 ![ERD DiscountCode model constants](/documentation/erd-discount-code-constants.png)
 
-**Order Management:** The model Order stores all necessary information for a store order. The model OrderItem associates the products with orders. The models are placed in the checkout app<br>  
+**Order Management:** 
+- Models are placed in the Checkout app.
+- Order model stores essential order information. 
+- OrderItem model links products to orders and stores product details at time of purchase.
+  - This feature maintains data integrity of the order history in case of changes in product name, price or deletion. 
+- Administrators (store owners) have permission to 
+  - View and add new orders
+  - Edit post-purchase order details stored in the Order model (contact information, delivery addresses, and discounts applied)
+  - View order items stored in the OrderItem model (read-only to maintain order integrity)
+- These features ensure data integrity, operational flexibility, and customer satisfaction
 
-Superusers (store owners) are granted permission to view and add new orders, as well as editing essential order details post-purchase, including contact information, delivery addresses, and discounts applied. This flexibility is particularly useful for correcting errors or accommodating changes requested by customers.<br>
-
-Non-Editable Order Items: For security and integrity, the individual items within each order are presented inline but are marked as read-only. This prevents accidental modifications to the items ordered.<br>
-
-These extensive permissions empower superusers to maintain and optimize the application's functionality, ensuring smooth operations and customer satisfaction.
-
-The model OrderItem associates the purchased products with orders. Furthermore, it stores the product name and price at the time of order in case of changes in product name, price or if a product is deleted to maintain data integrity of the order history. These values are passed to the model in the checkout view.
-
-**Integrated Payment Processing:** The system facilitates secure online transactions for product purchases by integrating with Stripe, a payment gateway provider. This ensures a seamless and secure user experience during checkout.
-
-**Relationship with Product, DiscountCode and UserProfile models:** The Order model establishes relationships with the models Product in app products, DiscountCode in app cart, and UserProfile in app profiles (see ERD). This facilitates data retrieval and management of purchase history for both users and store administrators.
+**Relationship with Product, DiscountCode and UserProfile models:** 
+- Order model links to the models:
+  - Product (placed in the Products app)
+  - DiscountCode (placed in the Cart app) 
+  - UserProfile (placed in Profiles app)
+- This structure facilitates data retrieval and management of purchase history for users and store administrators.
 
 ![ERD checkout](/documentation/erd-checkout.png)
 
+**Integrated Payment Processing:** 
+- The application uses secure online transactions for product purchases by integrating Stripe, a payment gateway provider. 
+- Payment processing is placed in the Checkout app.
+
+#### Security
+
 **Payment Security**
 
-**Stripe Integration:** By leveraging Stripe's secure payment infrastructure, the application safeguards sensitive financial information during transactions. This ensures user trust and adheres to industry-standard security protocols.
+- **Stripe Integration:** Leveraging Stripe's secure payment infrastructure, the application safeguards sensitive financial information during transactions, ensuring user trust and compliance with industry security standards.
 
 **Data security Measures** 
 
-**CSRF Protection:** To safeguard against Cross-Site Request Forgery (CSRF) attacks, the application enforces the use of CSRF tokens in all forms using the POST method. This bolsters data integrity and prevents unauthorized actions.
+- **CSRF Protection:** To safeguard against Cross-Site Request Forgery (CSRF) attacks, the application enforces CSRF tokens in all forms using the POST method, enhancing data integrity and preventing unauthorized actions.
 
 **User Management**
 
-**Django Allauth Integration for User Management:** User authentication and authorization are implemented by leveraging the Django Allauth, a third-party library that upholds robust security practices. This provides a robust and secure foundation for user access control.
+**Django Allauth Integration:** 
+- User authentication and authorization are implemented through Django Allauth, a third-party library that ensures robust security for secure user access control.
 
-**UserProfile model:** The UserProfile model is used to store user data. This includes user name, email, and password. The model is placed in the profiles app. To differentiate the information stored in the UserProfile model from the similar information stored in the Order model, the fields have the prefix default. Users can place an order without signing up for an account.<br>
+**UserProfile model:** 
+- The UserProfile model is used to store user data (user name, email, password). 
+- The model is placed in the Profiles app. 
+- To differentiate from similar data stored in the Order model, the fields in the UserProfile mode are prefixed with "default_". 
+- Users can place orders without creating a user account.
+- The "video_unlocked" boolean field indicates whether a registered user has purchased access to a video tutorial. 
+  - The field is updated via the webhook handler in the Checkout app.
 
-The custom model field video_unlocked is a boolean field, used to detect if a registered user has purchased a video tutorial and has access the video's url in their user profile page on the website. The boolean field is triggered in the webhook handler in the checkout app.
-
-**Relationship with Order and Contact models:** The UserProfile model establishes relationships with the models Order and Contact in app checkout and contact, respectively. This facilitates data retrieval and management of user contact information and purchase history.<br>
+**Relationship with Order and Contact models:** 
+- The UserProfile model links to the models:
+  - Order (placed in the Checkout app)
+  - Contact (placed in the Contact app)
+- These relationships facilitate data retrieval and management of user contact information and purchase history.
 
 ![ERD UserProfile](/documentation/erd-userprofile.png)
 
 **Communication**
 
-**Contact Form:** Users can contect the store owner using a contact form on the website. The form is placed in the contact app, and the model is used to store the form data. The contact form guides user through all necessary details for the store owner to make a detailled offer on a customized surfboard.<br> 
+**Contact model:** 
+- Users can contect the store owner using a contact form. 
+- The form data is stored in the Contact model placed in the Contact app.
+- This form collects necessary details for the store owner to provide a tailored offer for a customized surfboard.
+- The form can be used for general enquiries, feedback, or questions. 
+- Users receive a copy of the message to the provided email address. 
+- The store owner is notified of new messages by email and can reply by email and/or via the admin interface.
 
-The form can just as easily be used to send a simple enquiry, feedback or a question to the store owner. <br>
-
-The user receives a copy of the message by email and the store owner is notified by email of the new message. <br>
-
-**Relationship with UserProfile model:** The Contact model establishes relationships with the UserProfile model in the app profiles (see ERD). This facilitates data retrieval of contact information to conveniently prefill the user's contact information in the form.
+**Relationship with UserProfile model:** 
+- The Contact model links to the models: 
+  - UserProfile model (placed in the Profiles app)
+    - Allows for convenient prefilling of the user's contact information in the form.
+  - Category model (placed in the Products app)
+    - For a quick and easy overview of messages for the store owner.
 
 ![ERD Contact Model](/documentation/erd-contact.png)
 
