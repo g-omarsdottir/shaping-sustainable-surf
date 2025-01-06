@@ -305,32 +305,38 @@ This project uses Neon database, a serverless PostgreSQL database for efficient 
 
 ![ERD About Us](/documentation/erd-about.png)
 
-### Agile Development Methods (Epics, User Stories, MoSCoW Prioritization, Kanban board)
+### Agile Development Methods
 
 This project utilizes Agile Development Methods to manage development and ensure efficient delivery.
 
 #### Epics 
 
-These represent the high-level objectives and functionalities of the project. Each one can be further decomposed into smaller, more manageable tasks described in the user stories. The user stories can be viewed on [this project’s Kanban board](https://github.com/users/g-omarsdottir/projects/5).
+- Epics represent the high-level objectives and functionalities of the project. - Each epic can be further decomposed into smaller, more manageable tasks described in the user stories. 
+- The epics can be viewed on [this project’s Kanban board](https://github.com/users/g-omarsdottir/projects/5).
 
 #### User Stories
 
-These detailed descriptions outline functionalities from the user's perspective. They follow the format "As a [role], I can [capability] so that [received benefit]". Each user story has well-defined acceptance criteria outlining the specific requirements for successful implementation. The user stories can be viewed on [this project’s Kanban board](https://github.com/users/g-omarsdottir/projects/5).
+- User stories are detailed descriptions outlining functionalities from the user's perspective. 
+- They follow the format "As a [role], I can [capability] so that [received benefit]". 
+- Each user story has well-defined acceptance criteria outlining the specific requirements for successful implementation. 
+- The user stories can be viewed on [this project’s Kanban board](https://github.com/users/g-omarsdottir/projects/5).
 
 #### The MoSCoW Prioritization Method
 
-To effectively manage resources and development flow, based on urgency and necessity, the prioritization method MoSCoW was employed. The acronym stands for Must Have, Should Have, Could Have, and Won't Have. 
+- To effectively manage resources and development flow, based on urgency and necessity, the prioritization method MoSCoW was employed. 
+- The acronym MoSCoW stands for **M**ust Have, **S**hould Have, **C**ould Have, and **W**on't Have. *(The o's were added for easier pronounciation.)*
 
-**Must Have:** Features absolutely essential for the current iteration's functionality and guaranteed to be delivered.<br>
-**Should Have:** Desirable features that add significant value to the current iteration but can be reconsidered if needed.<br>
-**Could Have:** Features that would be nice to have but can be deferred for later iterations without impacting core functionality.<br>
-**Won't Have:** Features that are not a priority for the current iteration and are excluded from the current scope, possibly not implemented at all.<br>
-
-This method is a structural approach to determine which features are essential for the current stage (Must Have), which can be incorporated if time allows (Should Have), which might be deferred for later iterations (Could Have), and which are excluded from this iteration or unlikely to be implemented (Won’t Have). The priorities are reflected with **labels** on each user story on [this project’s Kanban board](https://github.com/users/g-omarsdottir/projects/5).
+  - **Must Have:** Features absolutely essential for the current iteration's functionality and guaranteed to be delivered.
+  - **Should Have:** Desirable features that add significant value to the current iteration if time allows.<br>
+  - **Could Have:** Features that would be nice to have but can be deferred for later iterations without impacting core functionality.<br>
+  - **Won't Have:** Features that are not a priority for the current iteration and are excluded from the current scope or unlikely to be implemented.<br>
+- The priorities are reflected with **labels** on each user story on [this project’s Kanban board](https://github.com/users/g-omarsdottir/projects/5).
 
 #### Kanban Board for Visual Workflow Management
 
-The Kanban board is a handy tool in agile project management to provide a clear visual representation of the project planning and development workflow. This board displays the various stages each work item progresses through, along with the current status of individual tasks. This project’s Kanban board can be viewed [here](https://github.com/users/g-omarsdottir/projects/5).
+- The Kanban board is a handy tool in agile project management to provide a clear visual representation of the project planning and development workflow. 
+- It displays the various stages each work item progresses through and the current status of each individual tasks.
+- This project’s Kanban board can be viewed [here](https://github.com/users/g-omarsdottir/projects/5).
 
 ## Features
 
@@ -338,7 +344,14 @@ The Kanban board is a handy tool in agile project management to provide a clear 
 
 ### Custom Error Pages
 
-The project a custom HTML error page for status codes 403 (Forbidden), 404 (Not Found) and 500 (Internal Server Error) for improved user experience. The error page maintains a consistent design with the rest of the website. The error pages clearly explains the meaning of the error code in a user-friendly way avoiding technical jargon and uses clear, concise language. The error pages display a friendly image in line with the website theme to make the error page more visually appealing.<br>
+- The custom HTML error pages 
+  - For status codes
+    - 403 (Forbidden)
+    - 404 (Not Found)
+    - 500 (Internal Server Error) 
+    - Maintain a consistent design with the rest of the website for improved user experience. 
+  - Clearly explain the meaning of the error code in a user-friendly clear, concise language, and avoid technical jargon. 
+  - Display a friendly image in line with the website theme to make the error page more visually appealing.
 
 To style the error pages during development, the error pages were rendered using temporary views and urls placed in the profile app for easy testing. The approach is documented in [TESTING.md](TESTING.md).
 
