@@ -17,66 +17,21 @@
 **View the live project [here](https://shaping-sustainable-surf-8794b08a1b3a.herokuapp.com/).**<br>
 *(To open in a new window, press "ctrl" (or ⌘ for Mac) + click on the link)*
 
-Welcome to Shaping Sustainable Surf, a fully functional Django ecommerce web application that offers access to online video tutorials.
-
-## Table of contents
-
-- [Project Goals](#project-goal)
-  - [User Experience](#user-experience)
-  - [Target Group](#target-group)
-  - [Visitors Goals](#visitors-goals)
-- [Design](#design)
-  - [Layout](#layout)
-  - [Wireframes](#wireframes)
-  - [Colors](#colors)
-  - [Typography](#typography)
-- [Project planning](#project-planning)
-  - [Database Schema](#database-schema)
-  - [Agile Development Methods (Epics, User Stories, MoSCoW Prioritization, Kanban board)](#agile-development-methods-epics-user-stories-moscow-prioritization-kanban-board)
-- [Features](#features)
-  - [Main Features](#main-features)
-  - [Responsiveness](#responsiveness)
-  - [Security](#security)
-  - [Future Features](#future-features)
--	[Web Marketing](#web-marketing)
-    -	[Ecommerce Business Model](#ecommerce-business-model)
-    -	[Marketing Strategies](#marketing-strategies)
-    -	[Search Engine Optimization (SEO)](#search-engine-optimization-seo)
-    -	[Privacy Policy](#privacy-policy)
--	[Technology Used](#technology-used)
-    -	[Languages Used](#languages-used)
-    -	[Libraries and Frameworks Used](#libraries-and-frameworks-used)
-    -	[Programs Used](#programs-used)
-- [Deployment and Local Development](#deployment-and-local-development)
-  - [Local Clone](#local-clone)
-  - [Fork](#fork)
-  - [Database](#database)
-  -	[Cloudinary](#cloudinary)
-  -	[Stripe](#stripe)
-  - [Google Mail (Gmail) API](#google-mail-gmail-api)
-  - [Deployment](#deployment-using-heroku)
-- [Credits](#credits)
-  - [Content & Imagery](#content)
-  -  [Acknowledgements](#acknowledgements)
-
-**Testing and Bugs** are documented in the separate file [TESTING.md](TESTING.md).
+Welcome to Shaping Sustainable Surf.
 
 ## Project Goal
 
-This website is the final project in the Full-Stack Development course at Code Institute. The website offers access to online video tutorials for surfers and shapers, who want to acquire or progress their surfboard shaping skills while minimizing their environmental impact. The name itself draws a parallel to the process of crafting a surfboard, which is called shaping. 
+This is my final project of the full-stack software development diploma at Code Institute. It is a fully functional Django ecommerce web application that offers access to online video tutorials for surfers and shapers, who want to acquire or progress their surfboard shaping skills while minimizing their environmental impact. 
 
-The name implies that the goal is not only shaping physical surfboards but shaping the future of surfing itself by promoting eco-friendly practices and education.
+The name "Shaping Sustainable Surf" draws a parallel to the process of crafting a surfboard, which is called shaping and reflects the dual mission: crafting eco-friendly surfboards and shaping a more sustainable future for the sport by promoting eco-friendly practices and education.
 
 ## User Experience
 
 ### Target Group
 
-Eco-conscious surfers, shapers and people in general who
--	Are passionate about surfing, the environment, the ocean, and seek to minimize their environmental impact and prioritize environmental responsibility while pursuing the sport they love.
--	Want to learn how to shape a surfboard using sustainable materials.
--	Are concerned about the environmental impact of traditional surfboard construction and may feel disconnected from the sport due to the mass-produced nature of surfboards.
--	Enjoy hands-on DIY projects and take pride in building their own equipment.
--	Want to learn or further define their skills and techniques needed to shape their own surfboards.
+- Eco-conscious surfers and shapers.
+- People seeking to learn or improve surfboard shaping skills using eco-friendly materials.
+- DIY enthusiasts interested in sustainable surfboard shaping.
 
 ### Visitors Goals
 
@@ -84,42 +39,37 @@ Eco-conscious surfers, shapers and people in general who
 
 As a first-time visitor, I can
 
--	Enjoy the visually appealing homepage featuring beautiful images showcasing the beauty of the ocean, surfing and sustainable surfboard shaping.
--	Quickly grasp the website's core offering
--	Easily navigate the website to find relevant information.
--	Learn about the different types of tutorials offered.
--	Explore the video tutorial library.
--	Purchase a tutorial that interests me.
--	Learn about sustainable surfboard shaping and the benefits of eco-friendly materials.
--	Understand the benefits of using eco-friendly materials.
--	Browse through images of sustainable surfboards that the store owner shaped
--	Sign up for a newsletter so that I can stay updated.
--	Contact the store owner if I have questions about the tutorials or want to receive an offer for a custom-made surfboard.
+-	Enjoy the visually appealing homepage.
+-	Quickly understand the website's core offering.
+-	Navigate easily to find relevant information.
+-	Explore and purchase video tutorials.
+-	Learn about sustainable surfboard shaping and eco-friendly materials.
+- View examples of sustainable surfboards.
+- Sign up for the newsletter.
+- Contact the store owner for custom surfboard enquiries using the contact form.
 
 #### Returning Visitors Goals
 
 As a returning visitor, I want to
 
--	Search for new tutorials based on my interests.
--	Purchase additional tutorials that interest me.
--	Seek inspiration for my own project by browsing through images of custom-made sustainable surfboards.
+-	Access new tutorials and content.
+-	Seek inspiration from custom-made sustainable surfboard gallery.
 -	Sign up for a newsletter because so that I can participate in the Q&A sessions announced in the newsletter.
--	Contact the store owner if I need advice.
+-	Contact the store owner for advice on ongoing projects.
 
 #### Frequent Visitors Goals
 
 As a frequent visitor, I want to
 
--	See if new tutorials or information on new eco-friendly materials have been added.
--	Purchase additional tutorials that interest me.
--	See if there are new images of custom-made sustainable surfboards.
--	Contact the store owner if I have questions in the course of shaping my own surfboard by following the tutorials.
+-	Check for new tutorials and information on eco-friendly materials.
+-	Check for updates to the custom-made surfboard gallery.
+-	Contact the store owner for advice and give feedback.
 
 ## Design
 
 ### Layout
 
-The layout of the website is devided into an area accessible to all and area exclusively for logged-in users, as dipicted in the flowchart below.
+The layout of the website is divided into two areas: one for all visitors and another for logged-in users, as dipicted in the flowchart below.
 
 ![layout-flowchart](/documentation/layout-flowchart.png)
 
@@ -160,13 +110,13 @@ Screen sizes smaller than 320 were not considered in the design.
 
 ### Colors
 
-The website's colors are inspired by the ocean and the beach. The main color of the website is the blue #57a7b3 used in the website logo.
+The website's colors are inspired by the blue ocean waves and whitewater, centered around the blue #57a7b3 used in the website logo.
+
+Using a complimenting colorpalette from [Muzli Colors](https://colors.muz.li/palette/57a7b3/3d757d/b35794/7d3d67/b3a357), accent colors are strategically applied to box-shadows and hover effects to keep the overall layout sleek and avoid visual clutter.
 
 ![colors](/documentation/colors.png)
 
-A complimenting colorpalette with the website logo's color was created by [Muzli Colors](https://colors.muz.li/palette/57a7b3/3d757d/b35794/7d3d67/b3a357). To keep the overall layout sleek and avoiding visual clutter, the complementing colors were mainly used as accents in box-shadows and for pseudo-class hover effect.
-
-The font color is a warm tone of black and background color is white, which make a very good match for accessability, readability and contrast while being easy on the eye.
+The font color is a warm tone of black and background color is white, ensuring excellent contrast for accessability and readability, while being easy on the eye.
 
 [Coolors Color Contrast Checker](https://coolors.co/contrast-checker/333333-ffffff) score:
 
@@ -176,39 +126,39 @@ The font color is a warm tone of black and background color is white, which make
 
 Font types were chosen to create a clean and modern look with a focus on readability.
 
-[Roboto flex](https://fonts.google.com/specimen/Roboto+Flex) was chosen as the primary font for the website, used for all elements except for headings. The font is variable and offers a range of weights, making it suitable for various design elements.
+**Primary Font:** [Roboto Flex](https://fonts.google.com/specimen/Roboto+Flex) a variable font used for body text, offering versatile weight options.
 
-[Roboto slab](https://fonts.google.com/specimen/Roboto+Slab?query=roboto+slab) was chosen as the secondary font. This font is used for headings, ensuring a clear hierarchy and visual appeal. This font is a serif font with subtle decorative details at the ends of strokes. While serif fonts can be used for body text, they may be less readable than sans-serif fonts at smaller sizes due to the increased complexity of the characters. Serif fonts are generally more readable at larger sizes, making them well-suited for headings.
+![Primary Font](/documentation/typography-primary.png)
+
+**Heading Font:** [Roboto Slab](https://fonts.google.com/specimen/Roboto+Slab?query=roboto+slab) a serif font with subtle decorative details, establishing clear visual hierarchy.
+
+![Heading Font](/documentation/typography-heading.png)
 
 ## Project planning
 
 ### Database Schema
 
-This project leverages a serverless PostgreSQL database for efficient data management. A well-defined Entity Relationship Diagram (ERD) (see below) was created upfront to guide development. This approach minimizes database complexity and streamlines the development process, reducing the need for future modifications and debugging. Each model within the project directly corresponds to a table in the ERD, ensuring a clear and consistent data structure.
+This project uses Neon database, a serverless PostgreSQL database for efficient data management. The development was guided by a pre-defined **Entity Relationship Diagram (ERD)** (see below), which streamlined the development process and reduced database complexity. Each model in the project corresponds directly to a table in the ERD, ensuring a clear and consistent data structure.
 
 #### Technical Architecture
 
-**Technical Design:** Separation of concern was implemented by dividing key components into individual Django Models (see ERD). This allows for simple and reliable queries based on the primary key, as well as easy management and scalability.
+**Model-Based Design:** Key components are separated into individual Django Models (see ERD), adhering to separation of concerns principles. This promotes code clarity, maintainability, and scalability.
 
-Relationships between the model fields are indicated with relationship lines on the ERD.
+**Relational Data Modeling:** The ERD visualizes relationships between models and model fields, enabling efficient database queries using primary keys.
 
-Each ERD represents an individual Django app. Relationships between models in different apps are indicated on the ERD if applicable.
-
-**Model-Based Design:** The principles of separation of concerns are adhered to by employing distinct Django models for each key system component (see ERD). This promotes code clarity, maintainability, and scalability.
-
-**Relational Data Modeling:** The ERD effectively visualizes the relationships between models and model fields, fostering the construction of streamlined and efficient database queries utilizing primary keys.
+**App Structure:** Each ERD represents a Django app, with inter-app model relationships indicated where applicable.
 
 #### Key Features
 
-**Product Management:** The custom models facilitate the storage and management of individual product entities in the products app.
+**Product Management:** 
 
-Products are stored in one model. Categories and Subcategories are stored in separate models, which allows for scalability and streamlines further technical design. 
+Products, Categories and Subcategories are stored in separate models, which allows for scalability and streamlines further technical design. 
 
-Choices for the Category and Subcategory models are defined as constants within the models. This guarantees consistent terminology throughout the application, enhancing user experience and simplifying search queries.
+Consistent terminology is guaranteed throughout the application to enhance user experience and simplify search queries by pre-defining constants within the models.
 
-This approach simplifies the models for the shopping and purchase process, as well as allows for code consistency in code, by referring to products in all html template by the name product, while assuring a separation of concerns and explicitness.
+This approach allows for a streamlined shopping and purchase process.
 
-Superusers (store owners) are granted comprehensive permissions within the application, allowing them to efficiently manage content across the platform. These permissions encompass creation, update, and deletion of product data, and pricing adjustments.
+Administrators (store owners) have comprehensive permissions to manage content and product data across the platform, including creation, updates, deletion, and pricing adjustments.
 
 ![ERD Product model](/documentation/erd-product.png)
 
