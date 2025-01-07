@@ -352,6 +352,7 @@ This project utilizes Agile Development Methods to manage development and ensure
     - Maintain a consistent design with the rest of the website for improved user experience. 
   - Clearly explain the meaning of the error code in a user-friendly clear, concise language, and avoid technical jargon. 
   - Display a friendly image in line with the website theme to make the error page more visually appealing.
+  - The user is invited to return to Homepage by clicking a button.
 
 To style the error pages during development, the error pages were rendered using temporary views and urls placed in the profile app for easy testing. The approach is documented in [TESTING.md](TESTING.md).
 
@@ -359,31 +360,43 @@ To style the error pages during development, the error pages were rendered using
 
 ### Discount Code
 
-The discount code can be obtained by subscribing to the newsletter and for future features in advertising campaigns. The discount code and the amount is displayed to the user in the shopping cart. The user can remove the discount code, e.g. to enter a different discount code, if they wish to.
+The siscount code system is a feature implemented to enhance user experience and support marketing efforts:
+- Users can obtain discount codes by subscribing to the newsletter or through promotional campaigns.
+- The active discount code and its amount are clearly displayed in the shopping cart.
+- Users have the flexibility to remove or replace discount codes as needed.
+- When a new discount code is entered, it automatically replaces any existing code, ensuring only one discount is applied at a time.
+- For transparency and record-keeping, the applied discount code is stored with the order details (stored in the Order model, placed in the Checkout app), benefitting both customers and store management.
 
-![discount code](/documentation/discount-code.png)
+![discount code](/documentation/feature-discount-code.png)
 
-If a different discount code is entered without removing the previous discount code, the new discount is applied and the previous discount is automatically removed.
-
-![discount code replace](/documentation/discount-code-replace.png)
-
-The discount code is stored in the order as well for better overview for customer and store owner.
-
-![discount code](/documentation/discount-order-history.png)
+![discount code order details](/documentation/feature-discount-order-history.png)
 
 ### Tutorials
 
-Users can browse tutorials and purchase with the integrated purchase system by stripe. The button on the side brings users to the top of the page.
+The tutorials section offers a user-friendly browsing and purchasing experience:
+- Tutorials are displayed as grid of image cards, each containing an image, title, and brief description.
+- Users can purchase tutorials using the integrated Stripe payment system and receive immediate access to it.
+- A convenient "Back to Top" button is available on the side of the page for easy navigation.
 
 ![feature tutorials](/documentation/feature-tutorials.png)
 
-Clicking anywhere on the card opens up the tutorial detail. The user can put the tutorial in the shopping cart or return to overview using the buttons.
+- Clicking an image card reveals a detailed view of the selected tutorial.
+In the detailed view, users can:
+- View more comprehensive information about the tutorial.
+- Add the tutorial to their shopping cart. 
+- Return to the overview using a clearly labeled button.
 
 ![feature tutorials detail](/documentation/feature-tutorials-detail.png)
 
 ### About Us
 
-The user can read about the store owner and gain trust in the product. Links to other pages are anchored in the description and invitation to sign up for the newsletter.
+The "About Us" section serves critical purposes in building customer trust and engagement:
+- Provides transparency by introducing the store owner and business background.
+- Humanizes the brand by sharing personal story and motivation.
+- Establishes credibility and authenticity for potential customers.
+- Creates an emotional connection with visitors.
+- Strategically includes calls-to-action like newsletter signup and internal page links.
+- Helps potential customers understand the brand's values and mission.
 
 ![feature about us](/documentation/feature-about-us.png)
 
@@ -393,13 +406,17 @@ The user can read about the store owner and gain trust in the product. Links to 
 
 ### Collection of Surfboards
 
-The user can view a collection of previous work made by the store owner. Clicking anywhere on the card opens up a detailed view of the surfboard. Since these custom surfboards are **not included in the ecommerce purchasing system**, the page is placed in the about us app to distinguish between the two types of products.
-
-A scroll-to-top button is placed at the bottom of the list view to return to the top of the page when clicked.
+This section showcases the store owner's craftsmanship through a curated collection of previously created custom surfboards:
+- Displayed as a grid of image cards, each representing a unique surfboard.
+- Located within the "About Us" section to differentiate from purchasable products.
+- A convenient "Back to Top" button is available on the side of the page for easy navigation.
+- Clicking an image card reveals a detailed view of the selected surfboard.
+- In the detailed view, users can:
+  - Examine a larger image and specifications of the custom surfboard.
+  - Send an enquiry via a link to the contact page.
+  - Return to the gallery overview using a clearly labelled button.
 
 ![feature surfboards](/documentation/feature-surfboards.png)
-
-In the detailed view of a surfboard, the user can send an enquiry about the surfboard by clicking the link. The user is then forwarded to the contact page. Or to return to the overview, the user can click the button.
 
 ![feature surfboard detail](/documentation/feature-surfboard-detail.png)
 
