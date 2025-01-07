@@ -381,10 +381,10 @@ The tutorials section offers a user-friendly browsing and purchasing experience:
 ![feature tutorials](/documentation/feature-tutorials.png)
 
 - Clicking an image card reveals a detailed view of the selected tutorial.
-In the detailed view, users can:
-- View more comprehensive information about the tutorial.
-- Add the tutorial to their shopping cart. 
-- Return to the overview using a clearly labeled button.
+- In the detailed view, users can:
+  - View more comprehensive information about the tutorial.
+  - Add the tutorial to their shopping cart. 
+  - Return to the overview using a clearly labeled button.
 
 ![feature tutorials detail](/documentation/feature-tutorials-detail.png)
 
@@ -422,65 +422,71 @@ This section showcases the store owner's craftsmanship through a curated collect
 
 ### Frequently asked questions (FAQ)
 
-The user can view frequently asked questions. Including a FAQ page is a common practice to improve SEO results.
+- The user can view frequently asked questions. 
+- Including a FAQ page is a common practice to improve SEO.
 
 ![feature faq](/documentation/feature-faq.png)
 
 ### Newsletter
 
-The user can **subscribe** to the newsletter by entering an email address into the input field. The input field is autofocused for conveniency. Only the email address is collected, adhering to the EU GDPR's data minimization principle.
+- Key Technical Features:
+  - Developed a robust newsletter subscription system demonstrating full-stack development skills.
+  - **Newsletters can be drafted, finalized, and sent** with status tracking directly from the admin interface using gmail API.
+  - Implemented comprehensive frontend (client-side) and backend (server-side) form validation.
+  - Backend email validation with database uniqueness check
+  - Dynamic modal content loading without page refresh for optimal version control of privacy policy and terms.
+- Security and Data Protection:
+    - CSRF protection on subscription form.
+    - Secure unsubscription mechanisms using unique tokens against malicious unsubscribing.
+    - GDPR-compliant data collection (minimal personal data, permanent deletion at unsubscription, active consent to terms).
+- User Experience (UX):
+  - Autofocused input field for seamless user interaction.
+  - Real-time form validation with clear error messaging.
+  - Automated email confirmation including:
+    - One-click unsubscribe functionality using a personalized unsubscription token. 
+      - Personalized unsubscription token is resent to each subscriber with each newsletter.
+    - Welcoming discount code.
+      - Error handling is in place in case of invalid discount code.
+  - Please see a detailed description of data privacy in accordance with the GDPR, security measures for subscribing and unsubscribing, as well as the procedure and options to send the [newsletter in the communication section of the data base schema section](#anchor-newsletter).
 
-![feature-newsletter-signup](/documentation/feature-newsletter.png)
+  ![feature-newsletter-validation](/documentation/feature-newsletter-validation.png)
 
-The input field has basic backend **email validation** for correctness and database comparison with existing subscribers. The user is notified and errors in the form are cleared using JavaScript for improved UX.
+  ![feature-newsletter-modals](/documentation/feature-newsletter-modals.png)
 
-The user must **accept the terms** to subscribe.  
+  ![feature-newsletter-success page](/documentation/feature-newsletter-success.png)
 
-![feature-newsletter-validation](/documentation/feature-newsletter-validation.png)
+- **Error handling** for discount code retrieval: 
 
-The terms for subscription are described in the **disclaimer** and **privacy policy**, which open in a **modal** without refreshing the page to not to disrupt the UX.
 
-The content of the privacy policy is filled into the modal from the source document using JavaScript, ensuring best practices that in case of changes, the content is only edited in one place and always up to date on all pages.
+  ![feature-newsletter-discount-error](/documentation/feature-newsletter-discount-error.png)
 
-![feature-newsletter-modals](/documentation/feature-newsletter-modals.png)
+- **Secure unsubscription process:**
 
-The user receives a confirmation displaying the **discount code**. The confirmation, discount code as well as a **personalized link to unsubscribe** is **sent by email** to the subscribed email address.
+  ![feature-newletter-unsubscribe](/documentation/feature-newsletter-unsubscribe.png)
 
-![feature-newsletter-success page](/documentation/feature-newsletter-success.png)
-
-If there is currently no discount code active or the discount code cannot be retrieved for other reasons, the user is notified by a message in the browser and by email of technical issues. The user is encouraged to contact the store owner for a functional discount code.
-
-![feature-newsletter-discount-error](/documentation/feature-newsletter-discount-error.png)
-
-**Secure unsubscribe process** is implemented using unique tokens for each subscriber. One-click unsubscription permanently removes subscriber data, ensuring GDPR compliance.
-
-![feature-newletter-unsubscribe](/documentation/feature-newsletter-unsubscribe.png)
-
-Please see a detailed description of data privacy in accordance with the GDPR, security measures for subscribing and unsubscribing, as well as the procedure and options to send the [newsletter in the communication section of the data base schema section](#anchor-newsletter).
-
-**Newsletters can be drafted, finalized, and sent** with status tracking directly from the admin interface using gmail API.
 
 #### Promoting the Newsletter on the website: 
 
-The newsletter subscription page is prominently linked and can be accessed at any time with one click, without invasively blocking the users screen at any point for imporoved UX. 
+- The newsletter subscription page is prominently linked and can be accessed at any time with one click, without invasively blocking the users screen at any point for imporoved UX. 
 
 - **As a link in the footer**:
 
   ![feature-newsletter-footer](/documentation/feature-newsletter-footer.png)
 
-- As a **banner** on the tutorials page: 
+- **As a banner** on the tutorials page: 
 
   - **Subtle animation:** slow slide down with a gradient glow that fades.
 
     ![feature-newsletter-banner](/documentation/feature-newsletter-banner.png)
 
   - **Conditional display:** 
-    - If a registered user has already subscribed to the newsletter, the banner is not displayed to avoid visual clutter (products / views.py). 
+    - If a registered user has already subscribed to the newsletter, the banner is not displayed to avoid visual clutter (see code placed in views in the Products app). 
     - Banner text: Subheading only displayed on medium screens and up.
 
     ![feature-newsletter-subheading](/documentation/feature-newsletter-subheading.png)
 
-  - **Accessibility:** The whole surface of the banner is clickable to navigate to the newsletter subscription page for improved UX, especially people with motor disabilities.
+  - **Accessibility:** 
+    - The whole surface of the banner is clickable to navigate to the newsletter subscription page for improved UX, especially people with motor disabilities.
 
 - As an item on the **navigation bar** under the section about us:
 
@@ -492,133 +498,171 @@ The newsletter subscription page is prominently linked and can be accessed at an
 
 ### Resources
 
-The user can view an overview with reliable resources related to the store content with a short description, which can improve SEO results. Clicking anywhere on the card opens up the link in a new window.
+- Including external links to reputable sources can enhance the credibility and authority of the website content, which search engines like Google value and thereby benefitting search engine optimization (SEO).
+- Grid-based layout displaying resources as clickable cards for improved accessibility and UX, especially for people with motor disabilities.
+- The links open in a new window.
 
 ![feature resources](/documentation/feature-resources.png)
 
 ### Shopping Cart
 
-The user can place tutorials in the shopping cart and is notified of the action. The successmessage disappears after a while, since this took up a lot of the screen realestate on mobile screens, but the cart preview stays open for a convenient checkout.
+- Key Functionality Features:
+  -	Add tutorials to cart with instant user notification.
+  -	Remove items from cart.
+  -	Apply discount codes.
+  -	Proceed to secure checkout.
+  -	Return to tutorial overview.
+- Key Technical Features:
+  - Dynamic cart updates without page reload.
+  -	Integrated discount code system.
+  -	Secure checkout process.
+- Error Prevention:
+  -	Limit of one unit per tutorial in cart.
+  - Safeguards against accidental duplicate purchases.
+  -	Reduced risk of invoice errors.
+- User Experience (UX):
+  -	Temporary success messages to minimize screen clutter.
+  -	Persistent cart preview for easy checkout access.
+  -	Prevention of duplicate tutorial purchases to avoid errors.
+  - Order confirmation by email and in "My Account" for registered users.
 
-![feature userfeedback cart](/documentation/feature-userfeedback-cart.png)
+- Optimal screen real estate through temporary user feedback:
+  ![feature userfeedback cart](/documentation/feature-userfeedback-cart.png)
 
-The user can remove the item from the cart, apply a discount code before continuing on to secure checkout, or return to overview using the buttons.
+- **Shopping Cart:**
+  ![feature cart](/documentation/feature-cart.png)
 
-![feature cart](/documentation/feature-cart.png)
-
-The user cannot place more than one amount of the same tutorial in the shopping cart to avoid mistakes since it is a digital product. Mistakes can negatively impact UX and mean time consuming corrections of invoices for the store owner.
-
-![feature cart](/documentation/feature-cart-double.png)
+- **Error Handling:**
+  ![feature cart](/documentation/feature-cart-double.png)
 
 ### Contact Form
 
-If the user is logged in, the contact form is prefilled for their convenience with the data from their profile. The user can also enter a different email address or name if they wish to.
+- Key Functionality Features:
+  -	Comprehensive contact form for custom surfboard enquiries.
+  -	Showcases expertise and attention to detail.
+  -	Educates users on surfboard customization process.
+  -	Streamlines communication between customers and administrators (store owner) for the complicated calculating a surfboard’s parameters based on the surfer and its intended use
+- Key Technical Features:
+  -	Implemented comprehensive frontend (client-side) and backend (server-side) form validation.
+  - Comprehensive user feedback and instant display of sent message.
+- User Experience (UX):
+  -	Auto-fills form for logged-in users with profile data.
+    -	Allows easy modification of pre-filled information.
+  -	Non-registered users can use the contact form.
+  - Balances required fields with optional detailed information.
+  -	Users receive an instand display of their message and a copy sent to the provided email address.
+- Security:
+  -	Integrates with the Allauth user authentication system.
+  -	Implements industry security standards (CSRF protection).
 
 ![feature contact prefill](/documentation/feature-contact-prefill.png)
-
-The contact form is designed to obtain necessary information from users interested in buying a surfboard. The user can fill out the form and send it to the store owner, and choose to only fill out the required fields, name and email address. 
-
-Displaying the whole contact form at once, instead of toggling parts of it as needed, may spark interest in ordering or building a surfboard. Skilled surfers, who are are primary target group for selling custom made surfboards, will recognize the attention to detail and others may appreciate the guidance through the complicated process of calculating a surfboard’s parameters based on the surfer and its intended use. This can help build trust in the website and in the products.
 
 ![feature contact form](/documentation/feature-contact-form.png)
 
 ### User Profile
 
 **CRUD functionality: Create** <br>
-The user can **create** an account by signing up. For convenience, the user can save the personal information to their profile, which they entered during the checkout process when purchasing a tutorial.
+- Users can **create** an account by signing up. 
+- For convenience, the user can save the personal information to their profile, which they entered during the checkout process when purchasing a tutorial.
 
-![Feature userprofile save info](/documentation/feature-userprofile-save.png)
+  ![Feature userprofile save info](/documentation/feature-userprofile-save.png)
 
 **CRUD functionality: Read** <br>
-The user can view their order history and click on the link to view the original full order confirmation. 
+- The user can view their order history.
+- Users can click on the order number link to view the original full order confirmation.
 
-![feature profile orderhistory](/documentation/feature-profile-orderhistory.png)
+  ![feature profile orderhistory](/documentation/feature-profile-orderhistory.png)
 
 **CRUD functionality: Update** <br>
-The user can manage their profile information by clicking the button. Here they can **update personal information**. 
+- Users can manage their profile information by clicking the button "Manage My Profile". 
+- Here they can **update personal information**. 
+- Security:
+  	- Django Allauth's password and authentication settings are configured to safeguard against brute force attacks.
+  - If the email address associated with the user account is updated, the system implements a security measure:
+    - Notification emails are sent to both the previous and new email addresses.
+    - This serves as a precautionary step to alert the user in case of a an unintended or malicious change of email addresses.
+    - Users are advised to contact the store owner if they didn't initiate this change themselves.
 
-If the email address associated with the user account is updated, the system implements a security measure:
-- Notification emails are sent to both the previous and new email addresses.
-- This serves as a precautionary step to alert the user of the change.
-- Users are advised to contact the store owner if they didn't initiate this change themselves.
-
-Security and User Experience Considerations: 
-- If the email sending process fails, the user is not notified of this failure. 
-- This design choice prevents disruption to the user experience and avoids potential confusion. 
-- Django allauth's password and authentication settings are configured to safeguard against brute force attacks.
-
-The notification system demonstrates respect for user data protection, enhances trust in the website's security measures, and provides an additional layer of account security.
-
-![feature profile manage](/documentation/feature-profile-manage.png)
+  ![feature profile manage](/documentation/feature-profile-manage.png)
 
 **CRUD functionality: Delete** <br>
-The user can **delete the user profile** permanently from the database. If they wish to delete the profile, they must confirm the deletion before proceeding.
+- Users can **delete the user profile** permanently from the database. 
+- Deletion must confirmed before proceeding to avoid unintended deletion.
+- Of course, users can **cancel** and return to their user profile without taking any action.
 
-![feature profile delete](/documentation/feature-profile-delete.png)
+  ![feature profile delete](/documentation/feature-profile-delete.png)
 
-Of course, the user can **cancel** and return to their user profile without taking any action.
+- The user can access the links to the **purchased tutorials in the userprofile**.
 
-The user can access the links to the **purchased tutorials in the userprofile**.
-
-![feature user profile](/documentation/feature-profile.png)
+  ![feature user profile](/documentation/feature-profile.png)
 
 ### Order confirmation
 
-The user receives an order confirmation with all details and a link to the purchased tutorial.
+- An order confirmation with all details and a link to the purchased tutorial is displayed immediately after successful purchase.
+- The order confirmation is sent to the provided email address as well.
 
-![feature order confirmation](/documentation/feature-order-confirmation.png)
+  ![feature order confirmation](/documentation/feature-order-confirmation.png)
 
 ### Purchased Tutorial
 
-The user can click on the link in the order confirmation and view the tutorial hosted on youtube (not listed for public view). The title of each tutorial is displayed in the beginning and fades out while the video plays. The video itself is a similation for the tutorial.
+- The tutorials are a similation for the purpose of this ecommerce project.
+- The link in the order confirmation links to the tutorial hosted on youtube (not listed for public view).
+- In this simulation, the title of each tutorial is displayed in the beginning and fades out while the video plays.
 
-![feature watch purchased tutorial introduction](/documentation/feature-vid-building.png)
+  ![feature watch purchased tutorial introduction](/documentation/feature-vid-building.png)
 
-![feature watch purchased tutorial shortboard](/documentation/feature-vid-shortboard.png)
+  ![feature watch purchased tutorial shortboard](/documentation/feature-vid-shortboard.png)
 
-![feature watch purchased tutorial boyancy](/documentation/feature-vid-boyancy.png)
+  ![feature watch purchased tutorial boyancy](/documentation/feature-vid-boyancy.png)
 
 ### Search Bar
 
-Users can enter a search query for the tutorials into the search field in the header, with the placeholder "search tutorials". The search displays all tutorials with the query in the titel or description.
+- Users can enter a search query for the tutorials into the search field in the header, with the placeholder "search tutorials". 
+- The search results display a list of tutorials containing the search query in the titel or description.
+- If the search query does not match any of the tutorial titels or description, the user is notified and redirected to the the tutorials overview page.
 
-![feature search](/documentation/feature-search.png)
-
-If the search query does not match any of the tutorials, the user is notified and redirected to the the tutorials overview pagae.
-
-![feature search no result](/documentation/feature-search-noresult.png)
+  ![feature search](/documentation/feature-search.png)
 
 ### Responsiveness
 
-Full responsiveness was achieved using Bootstrap's grid system. The website is designed to be viewed on a desktop, laptop, tablet or mobile device.
+- Full responsiveness was achieved using Bootstrap's grid system. 
+- The website is designed to be viewed on a desktop, laptop, tablet or mobile device.
 
 ### Security
 
+This application prioritizes security at every level, from user account management to data protection and financial transactions simulation.
+
 #### User Authentication and Authorization
 
-The application ensures secure user authentication and authorization through the integration of Django Allauth. This powerful tool simplifies the process of managing user accounts, including registration, login, password reset, and email verification. By utilizing Django Allauth, the project adheres to best practices for web application security, providing our users with a safe and reliable environment.
+- The application ensures secure user authentication and authorization through the integration of Django Allauth. 
+- This powerful tool simplifies the process of managing user accounts, including registration, login, password reset, and email verification. 
+- By utilizing Django Allauth, the project adheres to best practices for web application security, providing our users with a safe and reliable environment.
 
 #### Access Control
 
-To safeguard user data and privacy, stringent access controls were implemented . These measures are designed to restrict unauthorized access to sensitive information, ensuring that each user can only view or interact with their own content. 
+- To safeguard user data and privacy, stringent access controls were implemented. 
+- These measures are designed to restrict unauthorized access to sensitive information, ensuring that each user can only view or interact with their own content. 
 
 #### Secure Payment Processing
 
-For handling financial transactions, the project utilizes Stripe, a leading payment processing service. Stripe is renowned for its commitment to security, providing a seamless and secure way for users to make payments online. By integrating Stripe, all financial operations are ensured to be conducted in compliance with industry-standard security protocols, protecting both users and the store owner from potential threats.
-
-In summary, the application prioritizes security at every level, from user account management to data protection and financial transactions simulation.
+- For handling financial transactions, the project utilizes Stripe, a leading payment processing service. 
+- Stripe is renowned for its commitment to security, providing a seamless and secure way for users to make payments online. 
+- By integrating Stripe, all financial operations are ensured to be conducted in compliance with industry-standard security protocols, protecting both users and the store owner from potential threats.
 
 ### Future Features
 
-**Review & Rate Management:** As a future feature, the project envisions expansion to include a user-driven review and rating system for products. This enhancement aims to empower administrators (store owners) with insights into customer preferences, identifying popular and less favored tutorials. Such information will facilitate strategic decisions regarding content expansion or refinement, ultimately guiding users towards making informed purchasing choices. <br>
+- **Review and Rate Management:** 
+  - User-driven review and rating system for products. 
+  - Empowers administrators (store owners) with insights into customer preferences, identifying popular and less favored tutorials to facilitate strategic decisions regarding content expansion or refinement.
+  - Guides users towards making informed purchasing choices.
 
-While reviews and ratings are prevalent in ecommerce platforms, prioritizing this feature is beyond the current scope due to time limitations. The project's primary goal remains focused on raising awareness for ocean conservation efforts and showcasing the unique, custom-shaped surfboards crafted by the store owner. Given the distinct pricing challenges associated with custom-made products, these are not made available for purchase on the website. A review and rating system to enhance the platform incrementally is at the top list of future considerations.
+- **Light Mode and Dark Mode**
 
 ## Web Marketing
 
 ### Ecommerce Business Model
 
-The business model for this ecommerce website is a Business to Customer (B2C) model, currently only selling digital content for single one-time payments. <br>
+The business model for this ecommerce website is a Business to Customer (B2C) model, selling digital content for single one-time payments.
 
 This section elaborates on the ecommerce marketing value and SEO benefits of the project’s custom models.
 
@@ -626,120 +670,167 @@ The focus and main goal of this project is to create an ecommerce website with i
 
 #### Products Models
 
-The Product model and related Category and Subcategory models ensure a coherent and consistent use of terminology regarding the surfboard parameters throughout the website. 
+- The Product model and related Category and Subcategory models ensure a coherent and consistent use of terminology regarding the surfboard parameters throughout the website. 
 
-**Marketing Value:** Consistent use of terminology makes a trustworthy and serious impression. This avoids misspelling in the product description, thus avoiding concerns about the store owner’s expertise, which could potentially reduce the market value.
+- **Marketing Value:** 
+  - Consistent use of terminology makes a trustworthy and serious impression. - Avoids misspelling in the product description, thus avoiding concerns about the store owner’s expertise, potentially leading to reduction of the market value.
 
-**SEO Benefits:** Using predefined parameters reduces the risk of misspelling while creating the entry for the product, potentially leading to failed searches in search engines or on the website’s integrated search field.
+- **SEO Benefits:** 
+  - Using predefined parameters reduces the risk of misspelling while creating the entry for the product, potentially leading to failed searches in search engines or on the website’s integrated search field.
 
 #### Discount Code Model
 
-**Marketing Value:** Discount codes incentivize users to subscribe to the newsletter, increasing brand awareness and potentially leading to repeat customers.
+- **Marketing Value:** 
+  - Discount codes incentivize users to subscribe to the newsletter, increasing brand awareness and potentially leading to repeat customers.
 
-**SEO Benefits:** Discount codes can be promoted through social media and email marketing campaigns, driving traffic to the website.
+**SEO Benefits:** 
+  - Discount codes can be promoted through social media and email marketing campaigns, driving traffic to the website.
 
 #### Video Unlocked Field of the Profile model
 
-**Marketing Value:** The video_unlocked field unlocks the access to a tutorial in the user's profile page, which is triggered during the purchase process of the tutorial (by the webhook handler at successful payment). This feature invites users a conveniently keep an overview of and access to their purchased tutorials on their profile page on the website. Repeated visits to the website and the thoughtful placement of buttons to browse through the collection of tutorials increases the likelihood to purchase further videos.
+- **Marketing Value:** 
+  - The video_unlocked field unlocks the access to a tutorial in the user's profile page, which is triggered during the purchase process of the tutorial (by the webhook handler at successful payment). 
+  - This feature invites users a conveniently keep an overview of and access to their purchased tutorials on their profile page on the website. 
+  - Repeated visits to the website and the thoughtful placement of buttons to browse through the collection of tutorials increases the likelihood to purchase further videos.
 
 #### Contact Form Model
 
-**Marketing Value:** The contact form facilitates communication with potential customers, allowing them to inquire about custom products or ask questions. Even if users did not visit the website to place an order for a custom-made surfboard by the store owner, they are likely to take interest in the  various details necessary to shape a custom-made surfboard and enticed to make an enquiry, which may lead to a sale.<br>
+- **Marketing Value:** 
+  - The contact form facilitates communication with potential customers, allowing them to inquire about custom products or ask questions. 
+  - Even if users did not visit the website to place an order for a custom-made surfboard by the store owner, they are likely to take interest in the  various details necessary to shape a custom-made surfboard and enticed to make an enquiry, possibly leading to a sale.
+  - Connoisseurs will recognize the attention to detail and amateurs will appreciate the guidance through the complicated process of calculating a surfboard’s parameters with regard to the surfer and intended use, potentially enhancing the marketing value and increasing website traffic.
 
-Connoisseurs will recognize the attention to detail and amateurs will appreciate the guidance through the complicated process of calculating a surfboard’s parameters with regard to the surfer and intended use, potentially enhancing the marketing value and increasing website traffic.
-
-**SEO Benefits:** A well-designed contact form can improve user experience, which is a positive SEO ranking factor.
+- **SEO Benefits:** 
+  - A well-designed contact form can improve user experience, which is a positive SEO ranking factor.
 
 #### About Us Model
 
-**Marketing Value:** The About Us page tells the brand story and builds trust with potential customers.
+- **Marketing Value:** 
+  - The About Us page tells the brand story and builds trust with potential customers.
 
-**SEO Benefits:** High-quality content on the About Us page can improve website authority and ranking for relevant keywords. The date of entry increases the seriousness of the website.
+- **SEO Benefits:** 
+  - High-quality content on the About Us page can improve website authority and ranking for relevant keywords. 
+  - The date of entry increases the seriousness of the website.
 
 #### Custom Surfboard Model
 
-**Marketing Value:** The Custom Surfboard page provides a collection of custom-made surfboards with elegant images for potential customers showcasing the store owner’s expertise. The detail view of a custom surfboard invites the user to visit the contact page to enquire about the surfboard, potentially leading to a sale of a custom surfboard or a tutorial for creative DIY users.
+- **Marketing Value:** 
+  - The Custom Surfboard page provides a collection of custom-made surfboards with elegant images for potential customers showcasing the store owner’s expertise. 
+  - The detail view of a custom surfboard invites the user to visit the contact page to enquire about the surfboard, potentially leading to a sale of a custom surfboard or a tutorial for creative DIY users.
 
 #### FAQ Model
 
-**Marketing Value:** The frequently asked questions page provides valuable information to potential customers addressing their concerns and demonstrates the commitment to customer service and expertise in the field of environmental-friendly materials and reducing the carbon footprint of the surfboard industry. 
+- **Marketing Value:** 
+  - The frequently asked questions page provides valuable information to potential customers addressing their concerns and demonstrates the commitment to customer service and expertise in the field of environmental-friendly materials and reducing the carbon footprint of the surfboard industry. 
 
-**SEO Benefits:** These pages target long-tail keywords related to custom surfboards, environmental conservation, and climate change mitigation, which are not only vital and utmost import, but also vouge and widely used search terms. Websites with a section for  frequently asked questions enhance the authority and seriousness of the website by search engines like google, thus improving organic search traffic.
+- **SEO Benefits:** 
+  - The FAQs target long-tail keywords related to custom surfboards, environmental conservation, and climate change mitigation, which improves SEO. 
+  - Websites with a section for  frequently asked questions enhance the authority and seriousness of the website by search engines like google, thus improving organic search traffic.
 
 #### Resources Model
 
-**Marketing Value:** The Resources page demonstrate the commitment to environmental and ocean conservation causes, potentially resonating with environmentally conscious customers. 
+- **Marketing Value:** 
+  - The Resources page demonstrate the commitment to environmental and ocean conservation causes, potentially resonating with environmentally conscious customers. 
 
-**SEO Benefits:** Including external links to reputable and high-quality sources like the United Nations and the Intergovernmental Panel on Climate Change can enhance the credibility and authority of the website content, which search engines like Google value and thereby beneficial for SEO. The store owner can manually change the order of the resources on the website according to current popularity of search terms or environmental occurrences.
+- **SEO Benefits:** 
+  - Including external links to reputable and high-quality sources like the United Nations and the Intergovernmental Panel on Climate Change can enhance the credibility and authority of the website content, which search engines like Google value and thereby beneficial for SEO. 
+  - The administrators (store owner) can manually change the order of the resources on the website according to current popularity of search terms or environmental occurrences.
 
-Overall, the project has the potential to expand to selling further products and physical goods, as the product category and subcategory models can be expanded by the store owner in the admin panel. The content displayed on the website can be updated according to current market trends and popular search terms.
+#### Future Project Expansion
+- The project is designed with a potential to expand to selling further products and physical goods. 
+- The content displayed on the website can be updated according to current market trends and popular search terms.
 
 ### Marketing Strategies
 
 ### Social Media & Newsletter Marketing
 
-Users are invited on a banner on the website to subscribe to the newsletter and obtain a discount code for a discount off their next purchase. The store owner can send a newsletter to the subscribers to increase the likelihood of the subscribers to purchase the products.<br>
+- Marketing Objectives:
+  - Newsletter signup with discount incentive.
+  - Organic social media growth on Facebook.
+  - Promote products and educational content.
+- Content Strategy:
+  - Showcase new tutorials and custom surfboards.
+  - Share discount code campaigns.
+  - Highlight sustainability and environmental topics.
+- Key Focus Areas:
+  - Ocean conservation.
+  - Climate change awareness.
+  - Surfboard industry environmental impact.
+  - Life cycle analysis (LCA) and carbon footprint reduction.
+- Business Goals:
+  - Increase brand visibility.
+  - Drive website traffic.
+  - Educate and engage target audience.
+  - Encourage product purchases through value-driven content.
 
-The social media marketing strategy relies on organic growth. The facebook page is set up to promote the products through postings of new tutorials, images of new custom-made surfboards, and for discount code campaigns.<br>
-
-Furthermore, it aims to be a source of information for the users, raise general aweareness regarding sustainable materials, environmental and ocean conservation causes, climate change mitigation and the environmental impact of the surfboard industry, life cycle analysis (LCA) and minimizing the carbon footprint through re-posting of posts by relevant reliable sources.<br>
-
-The facebook page provides a link to the website, which can be used to promote the products and increase the likelihood of the users to purchase the products by users that land on the facebook page through posts related to environmental related topics.
-
-![facebook-mockup](/documentation/facebook-mockup.png)
+- Facebook Page Simulation:
+  ![facebook-mockup](/documentation/facebook-mockup.png)
 
 ### Search Engine Optimization (SEO)
 
-The website design was planned with SEO in mind. This is described in detail in the relevant ERD models.
+- The website design was planned with SEO in mind. 
+- This is described in detail in section [Web Marketing above](#web-marketing) and the relevant [ERDs for each Django model](#key-features).
 
 #### Keywords
 
-The metadata for this project has been carefully crafted to enhance search engine optimization (SEO) and improve discoverability. The overall approach to keyword selection and implementation is as follows:
+- The metadata for this project has been carefully crafted to enhance search engine optimization (SEO) and improve discoverability. 
+- The overall approach to keyword selection and implementation is as follows:
 
-**Keyword Development Process**
+##### Keyword Development Process
 
-1. **Initial Brainstorming with fellow surfers and my sister, Geographer and Specialist in Geothermal Energies **: We began with a comprehensive brainstorming session to identify relevant terms and concepts related to our surfboard tutorials and eco-friendly surfing products. This ensured targeting the most effective terms for the niche.
+- **Initial Brainstorming with fellow surfers and my sister, Geographer and Specialist in Geothermal Energies**: 
+    - Identification of relevant terms and concepts related to surfboard tutorials and eco-friendly surfing products to target the most effective terms for the niche.
 
-2. **Google Search Analysis**: Related searches and suggestions provided by Google for initial terms, which helped uncover additional relevant keywords and phrases.
+- **Google Search Analysis**: 
+    - Related searches and suggestions provided by Google for initial terms.
 
-3. **Professional Consultation**: We consulted with SEO professionals to refine our keyword list and 
+- **Professional Consultation**: 
+    - Consultation with SEO professionals to refine the keyword list. 
 
-4. **Long-Tail Keyword Focus**: Emphasizes is on long-tail keywords to target specific user intents and capture more qualified traffic. These longer, more specific phrases often have less competition and higher conversion rates.
+- **Long-Tail Keyword Focus**: 
+  - Emphasis is on long-tail keywords to target specific user intents and capture more qualified traffic. 
+  - Longer, more specific phrases tend to have less competition and higher conversion rates.
 
-5. **Keyword Diversity**: A mix of both short-tail and long-tail keywords to create a balanced and comprehensive SEO strategy.
+- **Keyword Diversity**: 
+    - A mix of both short-tail and long-tail keywords to create a balanced and comprehensive SEO strategy.
 
-**Keyword Implementation**
-
+##### Keyword Implementation
 - Keywords are strategically placed in meta descriptions, page titles, and content headers.
 - A natural integration of keywords within the website content to maintain readability and user experience. Keywords were used in headings and in semantic and html `<strong>` tags.
 - The metadata is structured to be both search engine friendly and informative to potential visitors.
 
 #### Sitemap
 
-[XML-Sitemaps.com](https://www.xml-sitemaps.com/) was used to generate the sitemap for the deployed project. The generator crawls the entire website and generates a sitemap.xml file that was downloaded and placed in the rootdirectory of this project. The sitemap is an XML file that contains a list of all the pages on the website. The sitemap is used by search engines to crawl the website and index the pages.
+- [XML-Sitemaps.com](https://www.xml-sitemaps.com/) was used to generate the sitemap for the deployed project. 
+- The generator crawls the entire website and generates a sitemap.xml file that was downloaded and placed in the rootdirectory of this project. 
+- The sitemap is an XML file that contains a list of all the pages on the website. 
+- The sitemap is used by search engines to crawl the website and index the pages.
 
 #### Robots.txt
 
-The robots.txt file is a text file that tells search engines how to crawl the website. The robots.txt file is located in the root directory of the website. The robots.txt file is used to disallow certain pages from crawling by search engines and are not indexed by search engines.
+- The robots.txt file is a text file that tells search engines how to crawl the website. 
+- The robots.txt file is located in the root directory of the website. 
+- The robots.txt file is used to disallow certain pages from crawling by search engines and are not indexed by search engines.
+- The [Sitemap for this project](https://www.xml-sitemaps.com/details-shaping-sustainable-surf-8794b08a1b3a.herokuapp.com-da3dd3a88.html) is included in the robots.txt file.
 
-The [Sitemap for this project](https://www.xml-sitemaps.com/details-shaping-sustainable-surf-8794b08a1b3a.herokuapp.com-da3dd3a88.html) is included in the robots.txt file.
+- Disallowed pages are the **user account** and **shopping cart** pages.
 
-In this project, the disallowed pages are the account pages and the shopping cart page.
+- The ownership of the robots.txt file is tested and verified by Google by adding a sitespecific metatag in the head of the base template. 
+- Google then veryfies if the robots.txt file is working correctly and provides a performance report after a short waiting time.
 
-The ownership of the robots.txt file is tested and verified by Google by adding a sitespecific metatag in the head of the base template. Google then veryfies if the robots.txt file is working correctly and provides a performance report after a short waiting time.
-
-![ownership-verfied-html-tag](/documentation/testing/test-robots.txt.png)
+  ![ownership-verfied-html-tag](/documentation/testing/test-robots.txt.png)
 
 ### Privacy Policy
 
-[Privacypolicygenerator](https://www.privacypolicygenerator.info/) was used to create the privacy policy for this project.
-
-The privacy policy is rendered on the websites template to make it visually more appealing and make trustworthy impression on users. The privacy policy is located in the home app and is anchored in the footer of the website.
-
-**GDPR Compliance:** If a website collects personal data from European Union residents, compliance with the General Data Protection Regulation (GDPR) is mandatory. A privacy policy is a key component of GDPR compliance, outlining how personal data is collected, processed, stored, and protected.
-Trust Building: It builds trust with users by being transparent about what data is collected, how it's used, and for what purposes. 
-
-**Riskmanagement:** In a real-life ecommerce project, having a clear privacy policy in place helps identify potential risks associated with data handling and processing. Addressing these risks proactively can prevent legal issues and reputational damage.
+- Generated using [Privacypolicygenerator](https://www.privacypolicygenerator.info/).
+- Outlines data collection, processing, storage, and protection methods, ensuring legal compliance and user trust.
+- Rendered on the websites template for visual appeal and trustworthyness. 
+- Placement is in the Home app.
+- Link is anchored in the footer of the website.
+- Key Aspects:
+  - GDPR Compliance: Mandatory for collecting EU residents' data.
+  - Trust Building: Transparency about data collection and usage.
+  - Risk Management: Proactive approach to prevent legal and reputational issues.
 
 ## Technology Used
 
