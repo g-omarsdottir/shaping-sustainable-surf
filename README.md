@@ -884,7 +884,7 @@ In addition to libraries and frameworks already installed in the Code Institute 
 - [Balsamiq](https://balsamiq.com/wireframes/) for wireframes
 - [Privacypolicy Generator](https://www.privacypolicygenerator.info/) for the privacy policy
 - [XML-Sitemaps.com](https://www.xml-sitemaps.com/details-shaping-sustainable-surf-8794b08a1b3a.herokuapp.com-da3dd3a88.html) for the Sitemap for this project
-- [Code Institute Database Maker](https://dbs.ci-dbs.net/) for the database
+- [Neon.tech](https://neon.tech/) for the database
 - [Google Gmail](https://www.google.com/intl/de/gmail/about/) for website confirmation emails
 - [Heroku](https://www.heroku.com/) for deployment
 - [GitHub](https://github.com/) for storing repository
@@ -914,13 +914,14 @@ To fork the repository:
 
 ### Database
 
-This project utilizes a PostgreSQL relational database from Code Institute for their students.
+This project utilizes a relational database powered by [Neon.tech](https://neon.tech/), a serverless PostgreSQL solution.
 
 To connect to the database:
-- Go to the [Code Institute Database Maker](https://dbs.ci-dbs.net/)
-- Create a database using the email address used to sign up for the Code Institute LMS.
-- The Database URL is sent to the email address.
-- Add the database URL as a variable to the project and make sure to keep it secret, by e.g. adding it to a .env or env.py file included in .gitignore, and therefore not pushed to your repository or publicly displayed in your code.
+- Log into or sign up for a Neon account.
+- Create or navigate to your "Tier" (one free tier per user).
+- Navigate to the "Dashboard" on the left side menu.
+- In the section "Connection Details", you will find the link to the database displayed in the subsection "Connection String".
+- Add the database URL as a variable to the project and make sure to keep it secret, by e.g. adding it to a .env or env.py file included in .gitignore, and therefore not pushed to your repository or publicly displayed in your code. 
 
 ### Cloudinary
 
