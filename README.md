@@ -1072,7 +1072,7 @@ Inspiration and debugging help from:
 ### Acknowledgements
 
 - My mentor, Mitko Bachvarov, for his guidance and encouragement.
-- My sister, Malfridur Omarsdottir, Geographer and Specialist in Geothermal Energies, for brainstorming for keywords, proofreading content and fact checking on eco-friendly sustainable materials and links to relaiable resources.
+- My sister, Malfridur Omarsdottir, Geographer and Specialist in Geothermal Energies, for brainstorming for keywords, proofreading content and fact checking on eco-friendly sustainable materials and links to reliable resources.
 - My friend Stephan Reich, Software Developer, for his support and advice.
 - My fellow student at Code Institute [Amir Schkolnik](https://github.com/AmirShkolnik) for his valuable support with proofreading.
 - My Code Institute class facilitator, Kristyna Wach, for her cheerful motivation and encouragement.
